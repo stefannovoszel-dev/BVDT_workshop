@@ -1,0 +1,247 @@
+<doc>Pre-processing rules applied before parsing to keep the payload deterministic and clean.</doc>
+INSTRUCTION HYGIENE:
+Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
+Remove all empty strings ("") within CONFIGURATION section before parsing.
+
+
+TOOLS:
+<doc>This is a method to generate unique IDs for objects in a consistent and deterministic way.</doc>
+{METHOD_ID_GENERATOR}({namespace}, {input}):
+    Normalize: trim whitespace, lowercase, apply Unicode NFC.
+    Concatenate namespace and string as "{namespace}|{input}".
+    Hash with SHA‑256.
+    Take the first 8 bytes as a big‑endian unsigned integer.
+    Compute modulo 10^12, zero‑pad to 12 digits.
+    Namespace: {namespace}
+    Input: {input}
+    Checksum: none (use all 12 digits for data).
+    Output format: return 12-digit string.
+
+
+<doc>Use this section to provide all the "hardcoded" information, like who will participate, what modules will be used with which questions and categories, etc.</doc> 
+CONFIGURATION:
+
+{JSON_SCHEMA} = "ws_classes.schema.json" <doc>this is the master schema for all workshop information and must be updated as soon as new models are added or attributes changed.</doc>
+<doc>Global context values used across IDs, metadata, and output generation.</doc>
+{CUSTOMER_NAME} = "WEIG"
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{LANGUAGE} = "German"
+{INDUSTRY} = "Pulp and Paper"
+
+{WORKSHOP_DATE} = "2026-04-14"
+
+<doc>Participant master data. Empty emails are intentionally allowed and removed by hygiene rules if needed.</doc>
+{PARTICIPANT_01_NAME} = "Nicolas Zolnowski"
+{PARTICIPANT_01_ROLE} = "SCM"
+{PARTICIPANT_01_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_01_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_01_EMAIL} = ""
+{PARTICIPANT_02_NAME} = "Stefan Novoszel"
+{PARTICIPANT_02_ROLE} = "Moderator"
+{PARTICIPANT_02_COMPANY_NAME} = "Tieto"
+{PARTICIPANT_02_COMPANY_INDUSTRY} = "IT Services"
+{PARTICIPANT_02_EMAIL} = "stefan.novoszel@tieto.com"
+{PARTICIPANT_03_NAME} = "Christian Beu"
+{PARTICIPANT_03_ROLE} = "CO Abfallmanagement"
+{PARTICIPANT_03_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_03_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_03_EMAIL} = ""
+{PARTICIPANT_04_NAME} = "Toni Steffens"
+{PARTICIPANT_04_ROLE} = "Leitung CO Faltschachtelkarton"
+{PARTICIPANT_04_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_04_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_04_EMAIL} = ""
+{PARTICIPANT_05_NAME} = "Frank Mies"
+{PARTICIPANT_05_ROLE} = "Leitung Group CO"
+{PARTICIPANT_05_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_05_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_05_EMAIL} = ""
+{PARTICIPANT_06_NAME} = "Marco Schüller"
+{PARTICIPANT_06_ROLE} = "Leitung GS IT"
+{PARTICIPANT_06_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_06_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_06_EMAIL} = "Marco.Schueller@weig.de"
+{PARTICIPANT_07_NAME} = "Peter Müller"
+{PARTICIPANT_07_ROLE} = "Leitung IT-Application"
+{PARTICIPANT_07_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_07_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_07_EMAIL} = "peter.mueller@weig.de"
+{PARTICIPANT_08_NAME} = "Kevin Naujokat"
+{PARTICIPANT_08_ROLE} = "Leitung IT-Security"
+{PARTICIPANT_08_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_08_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_08_EMAIL} = "kevin.naujokat@weig.de"
+{PARTICIPANT_09_NAME} = "Carsten Lütje"
+{PARTICIPANT_09_ROLE} = "IT Inhouse Consultant"
+{PARTICIPANT_09_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_09_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_09_EMAIL} = ""
+{PARTICIPANT_10_NAME} = "Alexander Feidenheimer"
+{PARTICIPANT_10_ROLE} = "IT Inhouse Consultant"
+{PARTICIPANT_10_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_10_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_10_EMAIL} = "Alexander.Feidenheimer@weig.de"
+{PARTICIPANT_11_NAME} = "Philip Buttinger"
+{PARTICIPANT_11_ROLE} = "Data Architect"
+{PARTICIPANT_11_COMPANY_NAME} = "Tieto"
+{PARTICIPANT_11_COMPANY_INDUSTRY} = "IT Services"
+{PARTICIPANT_11_EMAIL} = "philip.buttinger@tieto.com"
+{PARTICIPANT_12_NAME} = "Tobias Keßner"
+{PARTICIPANT_12_ROLE} = "Leitung CO Abfallmanagement"
+{PARTICIPANT_12_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_12_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_12_EMAIL} = ""
+
+<doc>Here you define the global settings for the workshop, as they are written on the poster.</doc>
+{WORKSHOP_GOAL} = "WEIG möchte seinen Fachbereichen zukünftig die Option bieten, Reports bedarfsorientiert selbt zu erstellen. Um dies zu ermöglichen müssen dafür notwendige Rahmenbedingungen geschaffen werden. Im Sinne einer praxis-nahen Herangehensweise werden Use Cases des Fachbereichs Supply Chain Management und Controlling definiert und priorisiert. Diese sollen in Folge so umgesetzt werden, dass eine skalierbare, 'self-service-orientierte' Datenplattform entstehen soll."
+
+<doc>Workshop focus bullets. Empty entries are treated as optional placeholders.</doc>
+{WORKSHOP_FOCUS_01} = "Use Cases, die auf fachlicher Sicht eine hohen Mehrwert darstellen"
+{WORKSHOP_FOCUS_02} = "Rahmenbedingungen, die für eine erfolgreiche Umsetzung notwendig sind"
+{WORKSHOP_FOCUS_03} = "Priorisierung der einzelnen Themen zur Entwicklung einer Umsetzungs-Roadmap"
+{WORKSHOP_FOCUS_04} = ""
+{WORKSHOP_FOCUS_05} = ""
+{WORKSHOP_FOCUS_06} = ""
+
+<doc>Expected outcomes. Same handling as focus list for optional empty placeholders.</doc>
+{WORKSHOP_OUTCOME_01} = "Bewertung der fachlichen Use Cases"
+{WORKSHOP_OUTCOME_02} = "Übersicht der notwendigEen Rahmenbedingungen"
+{WORKSHOP_OUTCOME_03} = "Roadmap für die Umsetzung der Use Cases"
+{WORKSHOP_OUTCOME_04} = ""
+{WORKSHOP_OUTCOME_05} = ""
+{WORKSHOP_OUTCOME_06} = ""
+
+<doc>Here you define the values for the Free Association module as they are written on the poster.</doc>
+{MD_FREE_ASSOCIATION_HEADLINE} = "Wie werden 2030 Daten genutzt?"
+{MD_FREE_ASSOCIATION_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_FREE_ASSOCIATION_HEADLINE})
+{MD_FREE_ASSOCIATION_QUESTION} = "Wie werden die Fachbereiche innerhalb von WEIG 2030 mit Daten arbeiten und welche neuen Möglichkeiten wird dies schaffen?"
+
+<doc>Here you define the values for the Value/Effort Matrix module as they are written on the poster.</doc>
+{CT_VALUE_EFFORT_MATRIX_HEADLINE} = "Welche Use Cases sollen umgesetzt werden?"
+{CT_VALUE_EFFORT_MATRIX_ID} = "CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CT_VALUE_EFFORT_MATRIX_HEADLINE})
+{MD_01_VALUE_EFFORT_MATRIX_TEAM} = "Team RED"
+{MD_01_VALUE_EFFORT_MATRIX_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_01_VALUE_EFFORT_MATRIX_TEAM} + {CT_VALUE_EFFORT_MATRIX_ID})
+{MD_02_VALUE_EFFORT_MATRIX_TEAM} = "Team GREEN"
+{MD_02_VALUE_EFFORT_MATRIX_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_02_VALUE_EFFORT_MATRIX_TEAM} + {CT_VALUE_EFFORT_MATRIX_ID})
+
+<doc>Here you define the values for the Detailed Idea plus Investment module as they are written on the poster.</doc>
+{CT_DETAILED_IDEA_INVESTMENT_HEADLINE} = "Worin würdet ihr am meisten investieren?"
+{CT_DETAILED_IDEA_INVESTMENT_ID} = "CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CT_DETAILED_IDEA_INVESTMENT_HEADLINE})
+{MD_01_DETAILED_IDEA_INVESTMENT_TEAM} = "Team RED"
+{MD_01_DETAILED_IDEA_INVESTMENT_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_01_DETAILED_IDEA_INVESTMENT_TEAM} + {CT_DETAILED_IDEA_INVESTMENT_ID})
+{MD_02_DETAILED_IDEA_INVESTMENT_TEAM} = "Team GREEN"
+{MD_02_DETAILED_IDEA_INVESTMENT_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_02_DETAILED_IDEA_INVESTMENT_TEAM} + {CT_DETAILED_IDEA_INVESTMENT_ID})
+{MD_DETAILED_IDEA_STEP_01} = "Erkläre den Use Case in einem Satz"
+{MD_DETAILED_IDEA_STEP_02} = "Welche Information wird gewonnen?"
+{MD_DETAILED_IDEA_STEP_03} = "Wer aller wird die Information Nutzen?"
+{MD_DETAILED_IDEA_STEP_04} = "Welche Prozesse werden sich ändern?"
+{MD_DETAILED_IDEA_STEP_05} = "Wie komplex ist die Umsetzung?"
+{MD_DETAILED_IDEA_STEP_06} = "Welche Unterstützung wird benötigt?"
+{MD_DETAILED_IDEA_STEP_07} = "Welche Systeme müssen integriert werden?"
+{MD_DETAILED_IDEA_STEP_08} = "Was ist der erwartete Business Wert?"
+{MD_DETAILED_IDEA_STEP_09} = "Wie messen wir den Erfolg?"
+{MD_DETAILED_IDEA_STEP_10} = "Wer ist der Business Owner?"
+{MD_DETAILED_IDEA_TEAM_IDEAS} = 2
+
+<doc>Here you define the values for the Road map module as they are written on the poster.</doc>
+{MD_ROADMAP_HEADLINE} = "Wie sind die einzelnen Use Cases einzuordnen?"
+{MD_ROADMAP_ID} = "CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_ROADMAP_HEADLINE})
+
+
+<doc>Mapping section that transforms configured constants into a schema-compliant workshop JSON object.</doc>
+MAPPING:
+
+Structure for the data mapping = {JSON_SCHEMA}
+
+<doc>Here you pre-create the JSON structure with all the information you already know. This is an important step to create anchors that can be used by the next steps.
+You use a combination of the internal variables you have configured above and the property.names as defined in the JSON schema.</doc>
+Create Workshop with:
+
+    Workshop.goal = {WORKSHOP_GOAL}
+
+    <doc>Copy all configured focus points into the workshop focus collection.</doc>
+    For each {WORKSHOP_FOCUS_XX}
+        append {WORKSHOP_FOCUS_XX} to Workshop.focus
+
+    <doc>Copy all configured expected outcomes into the workshop outcome collection.</doc>
+    For each {WORKSHOP_OUTCOME_XX}
+        append {WORKSHOP_OUTCOME_XX} to Workshop.expectedOutcome
+    
+    Workshop.date = {WORKSHOP_DATE}
+
+    <doc>Create participant entries including nested company objects.</doc>
+    For each {PARTICIPANT_XX}
+        create Participant with:
+            name = {PARTICIPANT_XX_NAME}
+            role = {PARTICIPANT_XX_ROLE}
+            
+            Create Company with:
+                Name = {PARTICIPANT_XX_COMPANY_NAME}
+                Industry = {PARTICIPANT_XX_COMPANY_INDUSTRY}
+            set Participant.company = Company
+            
+            email = {PARTICIPANT_XX_EMAIL}
+        append Participant to Workshop.participant
+
+    Workshop.company.Name = {CUSTOMER_NAME}
+    Workshop.company.Industry = {INDUSTRY}
+
+    <doc>Initialize Value/Effort container and add one module per configured team.</doc>
+    Create Container_ValueEffortMatrix with:
+        id = {CT_VALUE_EFFORT_MATRIX_ID}
+        headline = {CT_VALUE_EFFORT_MATRIX_HEADLINE}
+        
+        For each {MD_XX_VALUE_EFFORT_MATRIX}
+            create Module_ValueEffortMatrix with:
+                id = {MD_XX_VALUE_EFFORT_MATRIX_ID}
+                teamName = {MD_XX_VALUE_EFFORT_MATRIX_TEAM}
+            append Module_ValueEffortMatrix to Container_ValueEffortMatrix.module_ValueEffortMatrix
+    Workshop.container_ValueEffortMatrix = Container_ValueEffortMatrix
+
+    <doc>Initialize Detailed Idea Investment container with pre-created idea skeletons and step prompts per team.</doc>
+    Create Container_DetailedIdeaInvestment with:
+        id = {CT_DETAILED_IDEA_INVESTMENT_ID}
+        headline = {CT_DETAILED_IDEA_INVESTMENT_HEADLINE}
+
+        For each {MD_XX_DETAILED_IDEA_INVESTMENT}
+            
+            create Module_DetailedIdeaInvestment with:
+                id = {MD_XX_DETAILED_IDEA_INVESTMENT_ID}
+                teamName = {MD_XX_DETAILED_IDEA_INVESTMENT_TEAM}
+
+                For {IDEA_COUNT} from 1 to {MD_DETAILED_IDEA_TEAM_IDEAS}
+                    create DetailedIdea with:
+                        id = "IDEA_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_XX_DETAILED_IDEA_INVESTMENT_ID} + {IDEA_COUNT})
+                        
+                        For each {MD_DETAILED_IDEA_STEP_XX}
+                            create DetailedIdeaStep with:
+                                description = {MD_DETAILED_IDEA_STEP_XX}
+                            append DetailedIdeaStep to DetailedIdea.detailedIdeaStep
+
+                    append DetailedIdea to Module_DetailedIdeaInvestment
+
+            append Module_DetailedIdeaInvestment to Container_DetailedIdeaInvestment.module_DetailedIdeaInvestment
+        
+    Workshop.container_DetailedIdeaInvestment = Container_DetailedIdeaInvestment
+
+    <doc>Create roadmap module shell from configured headline and deterministic ID.</doc>
+    Create Module_Roadmap with:
+        id = {MD_ROADMAP_ID}
+        headline = {MD_ROADMAP_HEADLINE}
+
+    append Module_Roadmap to Workshop.module_Roadmap
+    
+    <doc>Create free-association module shell that contains the opening question.</doc>
+    Create Module_FreeAssociation with:
+        id = {MD_FREE_ASSOCIATION_ID}
+        headline = {MD_FREE_ASSOCIATION_HEADLINE}
+        question = {MD_FREE_ASSOCIATION_QUESTION}
+    append Module_FreeAssociation to Workshop.module_FreeAssociation
+
+{WORKSHOP_JSON_OBJECT} = Workshop
+
+
+OUTPUT:
+
+<doc>Here you generate the first version of the JSON file as an input for the next update steps.</doc>
+Return a JSON file with the name {TARGET_FILE} containing the serialized {WORKSHOP_JSON_OBJECT} adhering to the structure defined in {JSON_SCHEMA}.

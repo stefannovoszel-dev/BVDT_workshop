@@ -1,0 +1,255 @@
+<doc>This is the master class that will be used to create the workshop structure and populate it with data. It includes all the necessary properties and relationships to capture the information needed for the different modules of the workshop.</doc>
+
+class Workshop
+    property goal (text)
+    property focus (text) :Collection
+    property expectedOutcome (text) :Collection
+    property date (date)
+    property participant (Participant) :Collection
+    property company (Company)
+    <optional> property container_DifferentViewsRated (Container_DifferentViewsRated)
+    <optional> property container_ValueEffortMatrix (Container_ValueEffortMatrix)
+    <optional> property module_CapabilityMatrix (Module_CapabilityMatrix)
+    <optional> property module_Roadmap (Module_Roadmap)
+    <optional> property container_DetailedIdeaInvestment (Container_DetailedIdeaInvestment)
+    <optional> property container_DetailedWorkingPlan (Container_DetailedWorkingPlan)
+    <optional> property container_UserJourney (Container_UserJourney)
+    <optional> property module_freeAssociation (Module_FreeAssociation)
+    <optional> property module_StagedOfferingPortfolio (Module_StagedOfferingPortfolio)
+
+
+<doc>These classes represent the base classes for the whole structure.</doc>
+
+class Participant
+    property name (text)
+    property role (text)
+    property company (object)
+    <optional> property email (text)
+
+
+class Company
+    property Name (text)
+    <optional> property Industry (text)
+
+
+<doc>This class represents a simple post-it note that can be used to capture ideas, problems solved, explanations, etc. It has an optional property for additional explanation if needed.</doc>
+
+class PostIt
+    property id (number)
+    property note (text)
+    <optional> property explanation (text)
+
+
+class CategoryRating
+    property category (text)
+    <optional> property rating (number)
+
+
+class Capability
+    property id (text)
+    name (text)
+    description (text)
+    <optional> note (PostIt) :Collection
+    <optional> rating (number)
+    
+
+class WorkshopItemRated
+    property id (text)
+    <optional> property idea (PostIt)
+    <optional> property problemSolved (PostIt)
+    <optional> property categoryRating (CategoryRating) :Collection
+
+
+class WorkshopItemWeighted
+    property id (text)
+    property idea (PostIt)
+    property category (WeightCategory)
+
+
+class RoadmapItem
+    property id (text)
+    property idea (PostIt)
+    property horizon (Horizon)
+    property wave (number)
+
+
+class DetailedIdeaStep
+    property description (text)
+    <optional> property note (PostIt)
+
+class DetailedIdea
+    property id (text)
+    property description (text)
+    <optional> property detailedIdeaStep (DetailedIdeaStep) :Collection
+    <optional> property budget (number)
+
+class WorkplanItemTwoStep
+    property topic (text)
+    property description (text)
+    <optional> property note (PostIt) :Collection
+
+class WorkplanItemSimpleCollection
+    property topic (text)
+    <optional> property workplanItem (WorkplanItemSimple) :Collection
+
+
+class WorkplanItemSimple
+    property description (text)
+    <optional> property note (PostIt)
+
+
+class WorkplanItemOneStep
+    property topic (text)
+    <optional> property note (PostIt) :Collection
+
+
+class WorkplanItemGroupExplanationData
+    property id (text)
+    property description (text)
+    property workplanItemTwoStep (WorkplanItemTwoStep) :Collection
+    property workplanItemOneStep (WorkplanItemOneStep) :Collection
+
+
+class WorkplanItemGroupRequiredResources
+    property id (text)
+    property description (text)
+    property workplanItemOneStep (WorkplanItemOneStep) :Collection
+
+
+class WorkplanItemGroupRiskResponsibility
+    property id (text)
+    property description (text)
+    property workplanItemTwoStep (WorkplanItemTwoStep) :Collection
+    property workplanItemSimpleCollection (WorkplanItemSimpleCollection) :Collection
+
+
+class WorkplanItemGroupProjectBusinessValue
+    property id (text)
+    property description (text)
+    property workplanItemSimple (WorkplanItemSimple) :Collection
+    property workplanItemOneStep (WorkplanItemOneStep) :Collection
+
+
+class UserJourneyStep
+    property id (text)
+    property description (text)
+    <optional> property note (PostIt) :Collection
+
+
+class PortfolioItemGroup
+    property id (text)
+    property headline (text)
+    <optional> property portfolioItem (PortfolioItem) :Collection
+
+
+class PortfolioItem
+    property id (text)
+    property topic (text)
+    <optional> property note (PostIt) :Collection
+
+<doc>These classes represent the different modules of the workshop, each with its own specific properties and relationships to capture the relevant information for that module.</doc>
+
+class Module_FreeAssociation
+    property id (text)
+    property headline (text)
+    property question (text)
+    <optional> property freeAssociation (PostIt) :Collection
+    
+
+class Module_UserJourney
+    property id (text)
+    property teamName (text)
+    property userJourneyStep (UserJourneyStep) :Collection
+
+
+class Module_DetailedWorkingPlan
+    property id (text)
+    property teamName (text)
+    <optional> property bigBet (PostIt)
+    <optional> property workplanItemGroupExplanationData (WorkplanItemGroupExplanationData) :Collection
+    <optional> property workplanItemGroupRequiredResources (WorkplanItemGroupRequiredResources) :Collection
+    <optional> property workplanItemGroupRiskResponsibility (WorkplanItemGroupRiskResponsibility) :Collection
+    <optional> property workplanItemGroupProjectBusinessValue (WorkplanItemGroupProjectBusinessValue) :Collection
+
+
+class Module_DifferentViewsRated
+    property id (text)
+    property perspective (text)
+    property workshopItemRated (WorkshopItemRated) :Collection
+
+
+class Module_ValueEffortMatrix
+    property id (text)
+    property teamName (text)
+    <optional> property workshopItemWeighted (WorkshopItemWeighted) :Collection
+
+
+class Module_CapabilityMatrix
+    property id (text)
+    property headline (text)
+    <optional> property capability (Capability) :Collection
+
+
+class Module_Roadmap
+    property id (text)
+    property headline (text)
+    <optional> property roadmapItem (RoadmapItem) :Collection
+
+
+class Module_DetailedIdeaInvestment
+    property id (text)
+    property teamName (text)
+    <optional> property detailedIdea (DetailedIdea) :Collection
+
+
+class Module_StagedOfferingPortfolio
+    property id (text)
+    property headline (text)
+    <optional> property portfolioItemGroup (PortfolioItemGroup) :Collection
+
+<doc>These classes represent module containers that will be used to group related modules.</doc>
+
+class Container_DetailedWorkingPlan
+    property id (text)
+    property description (text)
+    property stage (text) :Collection
+    property module_DetailedWorkingPlan (Module_DetailedWorkingPlan) :Collection
+
+
+class Container_UserJourney
+    property id (text)
+    property headline (text)
+    property module_userJourney (Module_UserJourney) :Collection
+
+
+class Container_DifferentViewsRated
+    property id (text)
+    property headline (text)
+    property module_DifferentViewsRated (Module_DifferentViewsRated) :Collection
+
+
+class Container_ValueEffortMatrix
+    property id (text)
+    property headline (text)
+    property module_ValueEffortMatrix (Module_ValueEffortMatrix) :Collection
+
+
+class Container_DetailedIdeaInvestment
+    property id (text)
+    property headline (text)
+    property module_DetailedIdeaInvestment (Module_DetailedIdeaInvestment) :Collection
+
+
+<doc>These enums represent the different categories and horizons that can be used in the workshop to classify ideas, problems solved, and other relevant information.</doc>
+
+enum WeightCategory
+    value "No Brainer"
+    value "Wise Choice"
+    value "Nice to have"
+    value "Big Bet"
+
+
+enum Horizon
+    value "H1"
+    value "H2"
+    value "H3"

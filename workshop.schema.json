@@ -1,0 +1,102 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Workshop Schema",
+    "type": "object",
+    "properties": {
+        "Workshop": { "$ref": "#/definitions/Workshop" }
+    },
+    "required": ["Workshop"],
+    "additionalProperties": false,
+    "definitions": {
+        "Workshop": {
+            "type": "object",
+            "properties": {
+                "Title": { "type": "string" },
+                "Participant": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/Participant" }
+                },
+                "UseCase": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/UseCase" }
+                },
+                "Initiative": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/Initiative" }
+                },
+                "Activity": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/Activity" }
+                }
+            },
+            "required": ["Title", "Participant", "UseCase"],
+            "additionalProperties": false
+        },
+        "Participant": {
+            "type": "object",
+            "properties": {
+                "Name": { "type": "string" },
+                "Role": { "type": "string" },
+                "Company": { "$ref": "#/definitions/Company" }
+            },
+            "required": ["Name", "Role", "Company"],
+            "additionalProperties": false
+        },
+        "Company": {
+            "type": "object",
+            "properties": {
+                "Name": { "type": "string" },
+                "Industry": { "type": "string" }
+            },
+            "required": ["Name"],
+            "additionalProperties": false
+        },
+        "WorkshopItem": {
+            "type": "object",
+            "properties": {
+                "ID": { "type": "integer" },
+                "Question": { "type": "string" },
+                "AnswerFormatted": { "type": "string" },
+                "AnswerRaw": { "type": "string" },
+                "StickyNote": { "type": "string" }
+            },
+            "required": ["ID", "Question", "AnswerFormatted", "AnswerRaw"],
+            "additionalProperties": false
+        },
+        "UseCase": { "$ref": "#/definitions/WorkshopItem" },
+        "Initiative": {
+            "allOf": [
+                { "$ref": "#/definitions/WorkshopItem" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "CostValueCategory": {
+                            "type": "string",
+                            "enum": [
+                                "No Brainer",
+                                "Wise Choice",
+                                "Everything Else",
+                                "Big Bet"
+                            ]
+                        }
+                    },
+                    "required": ["CostValueCategory"],
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "Activity": {
+            "type": "object",
+            "properties": {
+                "ID": { "type": "integer" },
+                "Title": { "type": "string" },
+                "WorkshopItem": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/WorkshopItem" }
+                }
+            },
+            "required": ["ID", "Title", "WorkshopItem"],
+            "additionalProperties": false
+        }
+    }
+}

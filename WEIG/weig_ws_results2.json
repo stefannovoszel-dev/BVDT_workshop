@@ -1,0 +1,744 @@
+{
+  "goal": "WEIG möchte seinen Fachbereichen zukünftig die Option bieten, Reports bedarfsorientiert selbt zu erstellen. Um dies zu ermöglichen müssen dafür notwendige Rahmenbedingungen geschaffen werden. Im Sinne einer praxis-nahen Herangehensweise werden Use Cases des Fachbereichs Supply Chain Management und Controlling definiert und priorisiert. Diese sollen in Folge so umgesetzt werden, dass eine skalierbare, 'self-service-orientierte' Datenplattform entstehen soll.",
+  "focus": [
+    "Use Cases, die auf fachlicher Sicht eine hohen Mehrwert darstellen",
+    "Rahmenbedingungen, die für eine erfolgreiche Umsetzung notwendig sind",
+    "Priorisierung der einzelnen Themen zur Entwicklung einer Umsetzungs-Roadmap"
+  ],
+  "expectedOutcome": [
+    "Bewertung der fachlichen Use Cases",
+    "Übersicht der notwendigEen Rahmenbedingungen",
+    "Roadmap für die Umsetzung der Use Cases"
+  ],
+  "date": "2026-04-14",
+  "participant": [
+    {
+      "name": "Nicolas Zolnowski",
+      "role": "SCM",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Stefan Novoszel",
+      "role": "Moderator",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "stefan.novoszel@tieto.com"
+    },
+    {
+      "name": "Christian Beu",
+      "role": "CO Abfallmanagement",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Toni Steffens",
+      "role": "Leitung CO Faltschachtelkarton",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Frank Mies",
+      "role": "Leitung Group CO",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Marco Schüller",
+      "role": "Leitung GS IT",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "Marco.Schueller@weig.de"
+    },
+    {
+      "name": "Peter Müller",
+      "role": "Leitung IT-Application",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "peter.mueller@weig.de"
+    },
+    {
+      "name": "Kevin Naujokat",
+      "role": "Leitung IT-Security",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "kevin.naujokat@weig.de"
+    },
+    {
+      "name": "Carsten Lütje",
+      "role": "IT Inhouse Consultant",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Alexander Feidenheimer",
+      "role": "IT Inhouse Consultant",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "Alexander.Feidenheimer@weig.de"
+    },
+    {
+      "name": "Philip Buttinger",
+      "role": "Data Architect",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "philip.buttinger@tieto.com"
+    },
+    {
+      "name": "Tobias Keßner",
+      "role": "Leitung CO Abfallmanagement",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": ""
+    }
+  ],
+  "company": {
+    "Name": "WEIG",
+    "Industry": "Pulp and Paper"
+  },
+  "container_ValueEffortMatrix": {
+    "id": "CONTAINER_928730848843",
+    "headline": "Welche Use Cases sollen umgesetzt werden?",
+    "module_ValueEffortMatrix": [
+      {
+        "id": "MODULE_931183622284",
+        "teamName": "Team RED",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_649040711604",
+            "idea": {
+              "id": 37,
+              "note": "Virtual Controlling"
+            },
+            "category": "Big Bet"
+          },
+          {
+            "id": "ITEM_271381139331",
+            "idea": {
+              "id": 38,
+              "note": "Kostenstellenanalyse"
+            },
+            "category": "No Brainer"
+          },
+          {
+            "id": "ITEM_124200563705",
+            "idea": {
+              "id": 39,
+              "note": "IT-Kostenverrechnung"
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_411313139675",
+            "idea": {
+              "id": 40,
+              "note": "Kosten einer Umfuhr"
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_672009908857",
+            "idea": {
+              "id": 41,
+              "note": "Produktives Controlling / Effizienzverluste"
+            },
+            "category": "Wise Choice"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_441338201331",
+        "teamName": "Team GREEN",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_620357288430",
+            "idea": {
+              "id": 42,
+              "note": "Forecast mit KI"
+            },
+            "category": "Big Bet"
+          },
+          {
+            "id": "ITEM_520602654606",
+            "idea": {
+              "id": 43,
+              "note": "Nachkalkulation"
+            },
+            "category": "No Brainer"
+          },
+          {
+            "id": "ITEM_790337474449",
+            "idea": {
+              "id": 44,
+              "note": "Kennzahlensystem Fokus Finanzen"
+            },
+            "category": "Big Bet"
+          },
+          {
+            "id": "ITEM_016374584888",
+            "idea": {
+              "id": 45,
+              "note": "Transparente, klare Informationsflüsse / Marketplace"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_755920005460",
+            "idea": {
+              "id": 46,
+              "note": "Kennzahlen Fokus operativ"
+            },
+            "category": "No Brainer"
+          },
+          {
+            "id": "ITEM_720141292289",
+            "idea": {
+              "id": 47,
+              "note": "Kennzahlen Katalog (Top 30)"
+            },
+            "category": "Wise Choice"
+          }
+        ]
+      }
+    ]
+  },
+  "container_DetailedIdeaInvestment": {
+    "id": "CONTAINER_354387597506",
+    "headline": "Worin würdet ihr am meisten investieren?",
+    "module_DetailedIdeaInvestment": [
+      {
+        "id": "MODULE_974131016110",
+        "teamName": "Team RED",
+        "detailedIdea": [
+          {
+            "id": "IDEA_262276920079",
+            "description": "Use Case 01",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 48,
+                  "note": "Virtuelles Controlling nach Umsatzkostenverfahren für den Verkauf von Altpapier."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 49,
+                  "note": "Ergebnisrechnung und Ergebnis je Altpapiersorte bzw. Marktsegment."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 50,
+                  "note": "Vertrieb, Controlling und Management."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 51,
+                  "note": "Preisfindung, Steuerung des Vertriebs und Margenüberwachung verändern sich."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 52,
+                  "note": "Mittel bis hoch."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 53,
+                  "note": "Fachbereich Controlling, IT und Datenmodellierung."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 54,
+                  "note": "SAP, Vertriebsdaten, Kostenrechnung und ggf. externe Marktdaten."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 55,
+                  "note": "Höhere Transparenz und bessere Margensteuerung."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 56,
+                  "note": "Verbesserung DB / Marge und schnellere Entscheidungsfindung."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 57,
+                  "note": "Controlling / Vertrieb."
+                }
+              }
+            ]
+          },
+          {
+            "id": "IDEA_817868939910",
+            "description": "Use Case 02",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 58,
+                  "note": "Analyse von Kostenstellen und Kostentreibern in einem einheitlichen Reporting."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 59,
+                  "note": "Abweichungen, Kostentreiber und Einsparpotenziale je Kostenstelle."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 60,
+                  "note": "Controlling, Bereichsleitungen und Management."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 61,
+                  "note": "Budgetsteuerung und Ursachenanalyse werden systematischer."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 62,
+                  "note": "Mittel."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 63,
+                  "note": "Controlling, Fachbereiche und IT."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 64,
+                  "note": "SAP CO, Kostenstellenrechnung, ggf. Excel-Ablösungen."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 65,
+                  "note": "Bessere Kostentransparenz und schnellere Reaktion auf Abweichungen."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 66,
+                  "note": "Reduzierte Analysezeit und bessere Budgeteinhaltung."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 67,
+                  "note": "Group Controlling."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MODULE_786364427210",
+        "teamName": "Team GREEN",
+        "detailedIdea": [
+          {
+            "id": "IDEA_752694914964",
+            "description": "Use Case 03",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 68,
+                  "note": "KI-gestützter Forecast für Mengen, Kosten und Ergebnisentwicklungen."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 69,
+                  "note": "Zukünftige Entwicklungen, Trends und plausible Szenarien."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 70,
+                  "note": "Management, Controlling und operative Fachbereiche."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 71,
+                  "note": "Planung und Forecasting werden stärker daten- und modellbasiert."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 72,
+                  "note": "Hoch."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 73,
+                  "note": "Data/AI-Kompetenz, IT und Fachbereiche."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 74,
+                  "note": "SAP, historische Ist-Daten, Planungsdaten und externe Einflussfaktoren."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 75,
+                  "note": "Frühere Erkennung von Risiken und bessere Planungsqualität."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 76,
+                  "note": "Forecast-Güte, geringere Planabweichungen."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 77,
+                  "note": "Controlling / Data Team."
+                }
+              }
+            ]
+          },
+          {
+            "id": "IDEA_442094413102",
+            "description": "Use Case 04",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 78,
+                  "note": "Nachkalkulation zur Bewertung von Wirtschaftlichkeit und Abweichungen."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 79,
+                  "note": "Ist-Kosten, Soll-Ist-Abweichungen und Ursachen je Fall / Produkt / Prozess."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 80,
+                  "note": "Controlling, Fachbereiche und Management."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 81,
+                  "note": "Abschluss, Nachverfolgung und Optimierung von Prozessen werden verbessert."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 82,
+                  "note": "Mittel."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 83,
+                  "note": "Controlling, Prozessverantwortliche und IT."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 84,
+                  "note": "SAP, Kosten- und Leistungsdaten, operative Rückmeldungen."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 85,
+                  "note": "Bessere Lernkurve aus abgeschlossenen Vorgängen und höhere Wirtschaftlichkeit."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 86,
+                  "note": "Schnellere Nachkalkulation und messbar reduzierte Abweichungen."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 87,
+                  "note": "Fachbereich Controlling."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "module_Roadmap": {
+    "id": "CONTAINER_383407025093",
+    "headline": "Wie sind die einzelnen Use Cases einzuordnen?",
+    "roadmapItem": [
+      {
+        "id": "ROADMAP_ITEM_254881385219",
+        "idea": {
+          "id": 88,
+          "note": "Kostenstellen Controlling"
+        },
+        "horizon": "H1",
+        "wave": 1
+      },
+      {
+        "id": "ROADMAP_ITEM_059627184306",
+        "idea": {
+          "id": 89,
+          "note": "Kennzahlen Fokus operativ"
+        },
+        "horizon": "H1",
+        "wave": 2
+      },
+      {
+        "id": "ROADMAP_ITEM_481331623094",
+        "idea": {
+          "id": 90,
+          "note": "IT-Kostenverrechnung"
+        },
+        "horizon": "H1",
+        "wave": 3
+      },
+      {
+        "id": "ROADMAP_ITEM_728169603441",
+        "idea": {
+          "id": 91,
+          "note": "Forecast mit KI"
+        },
+        "horizon": "H3",
+        "wave": 3
+      }
+    ]
+  },
+  "module_freeAssociation": {
+    "id": "MODULE_511380607102",
+    "headline": "Wie werden 2030 Daten genutzt?",
+    "question": "Wie werden die Fachbereiche innerhalb von WEIG 2030 mit Daten arbeiten und welche neuen Möglichkeiten wird dies schaffen?",
+    "freeAssociation": [
+      {
+        "id": 1,
+        "note": "Autom. Erkennung von Beziehungen"
+      },
+      {
+        "id": 2,
+        "note": "User Anpassungen möglich"
+      },
+      {
+        "id": 3,
+        "note": "Klares Berechtigungskonzept"
+      },
+      {
+        "id": 4,
+        "note": "Komplexe Sachverhalte einfach darstellen"
+      },
+      {
+        "id": 5,
+        "note": "Zentrales Permission-Management"
+      },
+      {
+        "id": 6,
+        "note": "Single Source of Truth"
+      },
+      {
+        "id": 7,
+        "note": "Klar definierte Ownerrollen"
+      },
+      {
+        "id": 8,
+        "note": "Nachvollziehbar"
+      },
+      {
+        "id": 9,
+        "note": "Standardisiert"
+      },
+      {
+        "id": 10,
+        "note": "Klare Verantwortlichkeit bei der Report Erstellung"
+      },
+      {
+        "id": 11,
+        "note": "Nachvollziehbarkeit"
+      },
+      {
+        "id": 12,
+        "note": "Klarer Speicherort"
+      },
+      {
+        "id": 13,
+        "note": "Frühwarnsystem"
+      },
+      {
+        "id": 14,
+        "note": "KI-Agent als Experte"
+      },
+      {
+        "id": 15,
+        "note": "Beschreibung der In- & Umwelt"
+      },
+      {
+        "id": 16,
+        "note": "Prozessbezogene KPIs"
+      },
+      {
+        "id": 17,
+        "note": "Weniger händische Report Erstellung"
+      },
+      {
+        "id": 18,
+        "note": "Automatisierung der internen Datenintegration / Pivot"
+      },
+      {
+        "id": 19,
+        "note": "Mobile Datennutzung"
+      },
+      {
+        "id": 20,
+        "note": "Excel ersetzen"
+      },
+      {
+        "id": 21,
+        "note": "Copilot als Wissensquelle"
+      },
+      {
+        "id": 22,
+        "note": "Übersetzung von fachlicher Anfrage zur Datenquelle"
+      },
+      {
+        "id": 23,
+        "note": "Berichtsgenerierung / Storytelling"
+      },
+      {
+        "id": 24,
+        "note": "Predictive AI"
+      },
+      {
+        "id": 25,
+        "note": "Datennutzung für jedermann"
+      },
+      {
+        "id": 26,
+        "note": "Chatbot als Berichtsassistent"
+      },
+      {
+        "id": 27,
+        "note": "Benutzeroberfläche"
+      },
+      {
+        "id": 28,
+        "note": "Datensicherheit"
+      },
+      {
+        "id": 29,
+        "note": "Autom. Extrapolation der Zukunft"
+      },
+      {
+        "id": 30,
+        "note": "Schneller Datenzugriff"
+      },
+      {
+        "id": 31,
+        "note": "Rollenspezifische Datennutzung"
+      },
+      {
+        "id": 32,
+        "note": "Intuitive KPI Darstellung"
+      },
+      {
+        "id": 33,
+        "note": "Realtime Informationen"
+      },
+      {
+        "id": 34,
+        "note": "KPI-Bäume"
+      },
+      {
+        "id": 35,
+        "note": "Live Dashboards"
+      },
+      {
+        "id": 36,
+        "note": "Self Service BI"
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "Workshop": {
+    "Title": "",
+    "Participant": [
+      {
+        "Name": "",
+        "Role": "",
+        "Company": {
+          "Name": "",
+          "Industry": ""
+        },
+        "email": ""
+      }
+    ],
+    "UseCase": [
+      {
+        "id": "",
+        "idea": {
+          "id": 0,
+          "note": "",
+          "explanation": ""
+        },
+        "problemSolved": {
+          "id": 0,
+          "note": "",
+          "explanation": ""
+        },
+        "categoryRating": [
+          {
+            "category": "",
+            "rating": 0
+          }
+        ]
+      }
+    ],
+    "Initiative": [],
+    "Activity": []
+  },
+  "Module_DifferentViewsRated": {
+    "id": "",
+    "workshopItemRated": [
+      {
+        "id": "",
+        "idea": {
+          "id": 0,
+          "note": "",
+          "explanation": ""
+        },
+        "problemSolved": {
+          "id": 0,
+          "note": "",
+          "explanation": ""
+        },
+        "categoryRating": [
+          {
+            "category": "",
+            "rating": 0
+          }
+        ]
+      }
+    ]
+  },
+  "enums": {
+    "WeightCategory": [
+      "No Brainer",
+      "Wise Choice",
+      "Nice to have",
+      "Big Bet"
+    ],
+    "Horizon": [
+      "H1",
+      "H2",
+      "H3"
+    ]
+  }
+}

@@ -1,0 +1,204 @@
+<doc>Pre-processing rules applied before parsing to keep payload deterministic and avoid parser pollution.</doc>
+INSTRUCTION HYGIENE:
+
+Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
+Remove all empty strings ("") within CONFIGURATION section before parsing.
+
+<doc>Here you define how post-its should be treated when extracted. So any change regarding that should (if possible) always placed here instead of at module level.</doc>
+For all post-it extractions:
+    Only extract text from actual handwritten square post-its.
+    Post-its are square with a general standard size of 3x3 inches.
+    All post-its are handwritten.
+    Detect every individual post-it in the read area and extract each one separately.
+    If multiple post-its are present in one read area, process them in top-to-bottom, then left-to-right order.
+    Only extract text written inside the borders of the post-it.
+    Ignore any printed board text, template text, headings, labels, legends, axis text, rating-scale text, octagon text, connector lines, or any other non-post-it content, even if it appears inside, near, or overlapping the read area.
+    The read area defines where to search for post-its, not which non-post-it text to extract.
+    Preserve the original wording of each post-it.
+    Apply only light normalization: correct obvious typos, normalize case, and remove line-break hyphenation.
+    Do not summarize, reinterpret, merge, or paraphrase.
+    If text is only partially legible, extract all legible text line by line and leave uncertain or incomplete text unresolved rather than guessing.
+    If a post-it is only partially legible, perform a second pass on a tighter crop of that individual post-it before final extraction.
+    If any extracted post-it text appears truncated, incomplete, or low-confidence, re-inspect that exact post-it in a tighter crop before returning the final result.
+    Only keep text incomplete if the second pass still does not make the missing part legible.
+
+<doc>Here you place document/picture normalization instructions, in case documents/pictures are not provided in normal reading direction.</doc>
+For all OCR and visual extraction tasks:
+    First normalize the orientation of the source so text is upright in normal reading direction.
+    If needed, rotate the page or picture before OCR.
+    Perform all spatial interpretations (top, bottom, left, right, rows, columns, quadrants) only after orientation normalization.
+
+<doc>Here you define the coordination system, if it is necessary to precisely instruct the OCR actions.</doc>
+Coordinate system:
+    x increases from left to right
+    y increases from top to bottom (y = 0% is top of page)
+
+
+TOOLS:
+<doc>This is a method to generate unique IDs for objects in a consistent and deterministic way.</doc>
+{METHOD_ID_GENERATOR}({namespace}, {input}):
+    Normalize: trim whitespace, lowercase, apply Unicode NFC.
+    Concatenate namespace and string as "{namespace}|{input}".
+    Hash with SHA‑256.
+    Take the first 8 bytes as a big‑endian unsigned integer.
+    Compute modulo 10^12, zero‑pad to 12 digits.
+    Namespace: {namespace}
+    Input: {input}
+    Checksum: none (use all 12 digits for data).
+    Output format: return 12-digit string.
+
+
+<doc>Use this section to define the main configurations and also the metrics for the files where the information should be extracted from.</doc>
+CONFIGURATION:
+
+{JSON_SCHEMA} = "ws_classes.schema.json" <doc>we are still using the JSON schema as reference for the structure to use.</doc>
+<doc>Global runtime constants used for extraction and ID generation across all modules.</doc>
+{CUSTOMER_NAME} = "WEIG"
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{COMMON_ABBREVIATIONS} = "KI, HCM, SAP"
+{ABBREVIATION_CORRECTIONS} = "HCL->HCM, S.A.P->SAP, K.I->KI"
+
+{WORKSHOP_DATE} = "2026-04-14"
+{NOTE_COUNTER} = 0
+
+<doc>Here you define the file name where the Free Association module has been digitized and from where the post-its should be read-out.</doc>
+{MD_FREE_ASSOCIATION_FILE} = "weig_FreeAssociation.pdf"
+{MD_FREE_ASSOCIATION_READ_AREA} = All post-its that can be identified.
+
+<doc>Here you define the file name where the Value Effort Matrix module has been digitized and from which areas the post-its should be read-out in the different context.</doc>
+{MD_VALUE_EFFORT_MATRIX_FILE} = "weig_ValueEffortMatrix.pdf"
+{MD_VALUE_EFFORT_MATRIX_READ_AREA} = All post-its sticking in rectangle area with color of {TARGET_FILE}.container_ValueEffortMatrix.module_ValueEffortMatrix.teamName
+
+<doc>Here you define the file name where the Detailed Idea plus Investment module has been digitized and from which areas the post-its should be read-out in the different context.</doc>
+{MD_DETAILED_IDEA_INVESTMENT_FILE} = "weig_DetailedIdeaInvestment.pdf"
+
+<doc>Here you define the file name where the Roadmap module has been digitized and from which areas the post-its should be read-out.</doc>
+{MD_USER_JOURNEY_FILE} = "weig_Roadmap.pdf"
+{MD_USER_JOURNEY_READ_AREA} = Rectangle area within {MD_USER_JOURNEY_FILE} with a picture as background.
+{MD_USER_JOURNEY_QUADRANT_H3_01} = Upper left quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H3_02} = Upper center quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H3_03} = Upper right quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H2_01} = Middle left quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H2_02} = Middle center quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H2_03} = Middle right quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H1_01} = Lower left quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H1_02} = Lower center quadrant of {MD_USER_JOURNEY_READ_AREA}
+{MD_USER_JOURNEY_QUADRANT_H1_03} = Lower right quadrant of {MD_USER_JOURNEY_READ_AREA}
+
+<doc>Here you only update the already exting {TARGET_FILE} that has been created in the 'prefill' step. We use the properties of {TARGET_FILE} directly to clearly instruct the LLM for mapping.</doc>
+EXECUTION:
+
+Structure for the data mapping = {JSON_SCHEMA}:
+
+<doc>Populate Free Association by reading all post-its in the configured area and appending as PostIt notes.</doc>
+Update {TARGET_FILE}.module_FreeAssociation.freeAssociation
+    
+    Extract text from each post-it in {MD_FREE_ASSOCIATION_READ_AREA} from {MD_FREE_ASSOCIATION_FILE} using OCR and light normalization.
+
+    For each post-it extracted:
+        {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+        PostIt.id = {NOTE_COUNTER}
+            PostIt.note = text extracted from the post-it
+            append PostIt to {TARGET_FILE}.module_FreeAssociation.freeAssociation  
+
+
+<doc>Populate Value/Effort modules per team and classify each extracted idea into a weight category based on location.</doc>
+Update {TARGET_FILE}.container_ValueEffortMatrix.module_ValueEffortMatrix
+    
+    For each teamName:
+        Extract text from each post-it in {MD_VALUE_EFFORT_MATRIX_READ_AREA} from {MD_VALUE_EFFORT_MATRIX_FILE} using OCR and light normalization.
+
+        For each post-it extracted:
+            Create WorkshopItemWeighted with:
+                id = "ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, teamName + {NOTE_COUNTER})
+                
+                {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                PostIt.id = {NOTE_COUNTER}
+                PostIt.note = text extracted from the post-it
+                idea = PostIt
+
+                If post-it is located in upper left quadrant of {MD_VALUE_EFFORT_MATRIX_READ_AREA} next to a drawing of a head with a lightbulb:
+                    category = Big Bet
+                Else if post-it is located in upper right quadrant of {MD_VALUE_EFFORT_MATRIX_READ_AREA}:
+                    category = Quick Win
+                Else if post-it is located in left half or lower third of {MD_VALUE_EFFORT_MATRIX_READ_AREA}:
+                    category = Nice to have
+                Else:
+                    category = Wise Choice
+
+            append WorkshopItemWeighted to Module_ValueEffortMatrix.workshopItemWeighted           
+      
+
+<doc>Populate Detailed Idea Investment per team.</doc>
+Update {TARGET_FILE}.container_DetailedIdeaInvestment.module_DetailedIdeaInvestment
+    
+    For each teamName:
+        
+        {MD_DETAILED_IDEA_INVESTMENT_READ_AREA} = All post-its in rectangle area WHERE background cólor corresponds to teamName.
+        {IDEA_COUNTER} = 0
+        
+        For each detailedIdea:
+            {IDEA_COUNTER} = {IDEA_COUNTER} + 1
+            {DETAILED_IDEA_FIRST_ROW} = Extract text from each post-it in row {IDEA_COUNTER} of {MD_DETAILED_IDEA_INVESTMENT_READ_AREA} from {MD_DETAILED_IDEA_INVESTMENT_FILE} using OCR and light normalization.
+            {IDEA_COUNTER} = {IDEA_COUNTER} + 1
+            {DETAILED_IDEA_SECOND_ROW} = Extract text from each post-it in row {IDEA_COUNTER} of {MD_DETAILED_IDEA_INVESTMENT_READ_AREA} from {MD_DETAILED_IDEA_INVESTMENT_FILE} using OCR and light normalization.
+            {DETAILED_IDEA_COMPLETE} = {DETAILED_IDEA_FIRST_ROW} + {DETAILED_IDEA_SECOND_ROW}
+
+            i = 0
+            For each detailedIdeaStep in detailedIdea:
+                i = i + 1
+                {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                PostIt.id = {NOTE_COUNTER}
+                PostIt.note = text extracted from post-it(i) in {DETAILED_IDEA_COMPLETE}
+                note = PostIt
+
+                append note to detailedIdeaStep.note
+
+
+<doc>Populate Roadmap module.</doc>
+Update {TARGET_FILE}.module_Roadmap
+    
+    For each {MD_USER_JOURNEY_QUADRANT_H1_XX}:
+        Extract text from each post-it in {MD_USER_JOURNEY_QUADRANT_H1_XX} from {MD_USER_JOURNEY_FILE} using OCR and light normalization.
+
+        For each post-it extracted:
+            Create roadmapItem with:
+                {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                PostIt.id = {NOTE_COUNTER}
+                PostIt.note = text extracted from the post-it
+                idea = PostIt
+                category = H1
+                wave = XX
+                id = "ROADMAP_ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, "RoadmapItem" + {NOTE_COUNTER})
+                
+            append RoadmapItem to Module_Roadmap.roadmapItem
+
+    For each {MD_USER_JOURNEY_QUADRANT_H2_XX}:
+        Extract text from each post-it in {MD_USER_JOURNEY_QUADRANT_H2_XX} from {MD_USER_JOURNEY_FILE} using OCR and light normalization.
+
+        For each post-it extracted:
+            Create roadmapItem with:
+                {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                PostIt.id = {NOTE_COUNTER}
+                PostIt.note = text extracted from the post-it
+                idea = PostIt
+                category = H2
+                wave = XX
+                id = "ROADMAP_ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, "RoadmapItem" + {NOTE_COUNTER})
+                
+            append RoadmapItem to Module_Roadmap.roadmapItem
+
+    For each {MD_USER_JOURNEY_QUADRANT_H3_XX}:
+        Extract text from each post-it in {MD_USER_JOURNEY_QUADRANT_H3_XX} from {MD_USER_JOURNEY_FILE} using OCR and light normalization.
+
+        For each post-it extracted:
+            Create roadmapItem with:
+                {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                PostIt.id = {NOTE_COUNTER}
+                PostIt.note = text extracted from the post-it
+                idea = PostIt
+                category = H3
+                wave = XX
+                id = "ROADMAP_ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, "RoadmapItem" + {NOTE_COUNTER})
+                
+            append RoadmapItem to Module_Roadmap.roadmapItem    

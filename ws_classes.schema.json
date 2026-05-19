@@ -1,0 +1,555 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Workshop",
+  "type": "object",
+  "properties": {
+    "goal": { "type": "string" },
+    "focus": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "expectedOutcome": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "participant": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Participant" }
+    },
+    "company": { "$ref": "#/definitions/Company" },
+    "container_DifferentViewsRated": {
+      "$ref": "#/definitions/Container_DifferentViewsRated"
+    },
+    "container_ValueEffortMatrix": {
+      "$ref": "#/definitions/Container_ValueEffortMatrix"
+    },
+    "module_CapabilityMatrix": {
+      "$ref": "#/definitions/Module_CapabilityMatrix"
+    },
+    "module_Roadmap": {
+      "$ref": "#/definitions/Module_Roadmap"
+    },
+    "container_DetailedIdeaInvestment": {
+      "$ref": "#/definitions/Container_DetailedIdeaInvestment"
+    },
+    "container_DetailedWorkingPlan": {
+      "$ref": "#/definitions/Container_DetailedWorkingPlan"
+    },
+    "container_UserJourney": {
+      "$ref": "#/definitions/Container_UserJourney"
+    },
+    "module_freeAssociation": {
+      "$ref": "#/definitions/Module_FreeAssociation"
+    },
+    "module_StagedOfferingPortfolio": {
+      "$ref": "#/definitions/Module_StagedOfferingPortfolio"
+    }
+  },
+  "required": [
+    "goal",
+    "focus",
+    "expectedOutcome",
+    "date",
+    "participant",
+    "company"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "Participant": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "company": { "type": "object" },
+        "email": { "type": "string" }
+      },
+      "required": ["name", "role", "company"],
+      "additionalProperties": false
+    },
+    "Company": {
+      "type": "object",
+      "properties": {
+        "Name": { "type": "string" },
+        "Industry": { "type": "string" }
+      },
+      "required": ["Name"],
+      "additionalProperties": false
+    },
+    "PostIt": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "note": { "type": "string" },
+        "explanation": { "type": "string" }
+      },
+      "required": ["id", "note"],
+      "additionalProperties": false
+    },
+    "CategoryRating": {
+      "type": "object",
+      "properties": {
+        "category": { "type": "string" },
+        "rating": { "type": "number" }
+      },
+      "required": ["category"],
+      "additionalProperties": false
+    },
+    "Capability": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "note": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        },
+        "rating": { "type": "number" }
+      },
+      "required": ["id", "name", "description"],
+      "additionalProperties": false
+    },
+    "WorkshopItemRated": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "idea": { "$ref": "#/definitions/PostIt" },
+        "problemSolved": { "$ref": "#/definitions/PostIt" },
+        "categoryRating": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CategoryRating" }
+        }
+      },
+      "required": ["id"],
+      "additionalProperties": false
+    },
+    "WorkshopItemWeighted": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "idea": { "$ref": "#/definitions/PostIt" },
+        "category": { "$ref": "#/definitions/WeightCategory" }
+      },
+      "required": ["id", "idea", "category"],
+      "additionalProperties": false
+    },
+    "RoadmapItem": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "idea": { "$ref": "#/definitions/PostIt" },
+        "horizon": { "$ref": "#/definitions/Horizon" },
+        "wave": { "type": "number" }
+      },
+      "required": ["id", "idea", "horizon", "wave"],
+      "additionalProperties": false
+    },
+    "DetailedIdeaStep": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "note": { "$ref": "#/definitions/PostIt" }
+      },
+      "required": ["description"],
+      "additionalProperties": false
+    },
+    "DetailedIdea": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "detailedIdeaStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DetailedIdeaStep" }
+        },
+        "budget": { "type": "number" }
+      },
+      "required": ["id", "description"],
+      "additionalProperties": false
+    },
+    "WorkplanItemTwoStep": {
+      "type": "object",
+      "properties": {
+        "topic": { "type": "string" },
+        "description": { "type": "string" },
+        "note": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        }
+      },
+      "required": ["topic", "description"],
+      "additionalProperties": false
+    },
+    "WorkplanItemSimpleCollection": {
+      "type": "object",
+      "properties": {
+        "topic": { "type": "string" },
+        "workplanItem": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemSimple" }
+        }
+      },
+      "required": ["topic"],
+      "additionalProperties": false
+    },
+    "WorkplanItemSimple": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "note": { "$ref": "#/definitions/PostIt" }
+      },
+      "required": ["description"],
+      "additionalProperties": false
+    },
+    "WorkplanItemOneStep": {
+      "type": "object",
+      "properties": {
+        "topic": { "type": "string" },
+        "note": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        }
+      },
+      "required": ["topic"],
+      "additionalProperties": false
+    },
+    "WorkplanItemGroupExplanationData": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "workplanItemTwoStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemTwoStep" }
+        },
+        "workplanItemOneStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemOneStep" }
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "workplanItemTwoStep",
+        "workplanItemOneStep"
+      ],
+      "additionalProperties": false
+    },
+    "WorkplanItemGroupRequiredResources": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "workplanItemOneStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemOneStep" }
+        }
+      },
+      "required": ["id", "description", "workplanItemOneStep"],
+      "additionalProperties": false
+    },
+    "WorkplanItemGroupRiskResponsibility": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "workplanItemTwoStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemTwoStep" }
+        },
+        "workplanItemSimpleCollection": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemSimpleCollection" }
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "workplanItemTwoStep",
+        "workplanItemSimpleCollection"
+      ],
+      "additionalProperties": false
+    },
+    "WorkplanItemGroupProjectBusinessValue": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "workplanItemSimple": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemSimple" }
+        },
+        "workplanItemOneStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkplanItemOneStep" }
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "workplanItemSimple",
+        "workplanItemOneStep"
+      ],
+      "additionalProperties": false
+    },
+    "UserJourneyStep": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "note": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        }
+      },
+      "required": ["id", "description"],
+      "additionalProperties": false
+    },
+    "PortfolioItem": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "topic": { "type": "string" },
+        "note": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        }
+      },
+      "required": ["id", "topic"],
+      "additionalProperties": false
+    },
+    "PortfolioItemGroup": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "portfolioItem": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PortfolioItem" }
+        }
+      },
+      "required": ["id", "headline"],
+      "additionalProperties": false
+    },
+    "Module_FreeAssociation": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "question": { "type": "string" },
+        "freeAssociation": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        }
+      },
+      "required": ["id", "headline", "question"],
+      "additionalProperties": false
+    },
+    "Module_UserJourney": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "teamName": { "type": "string" },
+        "userJourneyStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/UserJourneyStep" }
+        }
+      },
+      "required": ["id", "teamName", "userJourneyStep"],
+      "additionalProperties": false
+    },
+    "Module_DetailedWorkingPlan": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "teamName": { "type": "string" },
+        "bigBet": { "$ref": "#/definitions/PostIt" },
+        "workplanItemGroupExplanationData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WorkplanItemGroupExplanationData"
+          }
+        },
+        "workplanItemGroupRequiredResources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WorkplanItemGroupRequiredResources"
+          }
+        },
+        "workplanItemGroupRiskResponsibility": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WorkplanItemGroupRiskResponsibility"
+          }
+        },
+        "workplanItemGroupProjectBusinessValue": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WorkplanItemGroupProjectBusinessValue"
+          }
+        }
+      },
+      "required": ["id", "teamName"],
+      "additionalProperties": false
+    },
+    "Module_DifferentViewsRated": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "perspective": { "type": "string" },
+        "workshopItemRated": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkshopItemRated" }
+        }
+      },
+      "required": ["id", "perspective", "workshopItemRated"],
+      "additionalProperties": false
+    },
+    "Module_ValueEffortMatrix": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "teamName": { "type": "string" },
+        "workshopItemWeighted": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/WorkshopItemWeighted" }
+        }
+      },
+      "required": ["id", "teamName"],
+      "additionalProperties": false
+    },
+    "Module_CapabilityMatrix": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "capability": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Capability" }
+        }
+      },
+      "required": ["id", "headline"],
+      "additionalProperties": false
+    },
+    "Module_Roadmap": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "roadmapItem": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/RoadmapItem" }
+        }
+      },
+      "required": ["id", "headline"],
+      "additionalProperties": false
+    },
+    "Module_DetailedIdeaInvestment": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "teamName": { "type": "string" },
+        "detailedIdea": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DetailedIdea" }
+        }
+      },
+      "required": ["id", "teamName"],
+      "additionalProperties": false
+    },
+    "Module_StagedOfferingPortfolio": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "portfolioItemGroup": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PortfolioItemGroup" }
+        }
+      },
+      "required": ["id", "headline"],
+      "additionalProperties": false
+    },
+    "Container_DetailedWorkingPlan": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "stage": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "module_DetailedWorkingPlan": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_DetailedWorkingPlan" }
+        }
+      },
+      "required": ["id", "description", "stage", "module_DetailedWorkingPlan"],
+      "additionalProperties": false
+    },
+    "Container_UserJourney": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "module_userJourney": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_UserJourney" }
+        }
+      },
+      "required": ["id", "headline", "module_userJourney"],
+      "additionalProperties": false
+    },
+    "Container_DifferentViewsRated": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "module_DifferentViewsRated": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_DifferentViewsRated" }
+        }
+      },
+      "required": ["id", "headline", "module_DifferentViewsRated"],
+      "additionalProperties": false
+    },
+    "Container_ValueEffortMatrix": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "module_ValueEffortMatrix": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_ValueEffortMatrix" }
+        }
+      },
+      "required": ["id", "headline", "module_ValueEffortMatrix"],
+      "additionalProperties": false
+    },
+    "Container_DetailedIdeaInvestment": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "module_DetailedIdeaInvestment": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_DetailedIdeaInvestment" }
+        }
+      },
+      "required": ["id", "headline", "module_DetailedIdeaInvestment"],
+      "additionalProperties": false
+    },
+    "WeightCategory": {
+      "type": "string",
+      "enum": ["No Brainer", "Wise Choice", "Nice to have", "Big Bet"]
+    },
+    "Horizon": {
+      "type": "string",
+      "enum": ["H1", "H2", "H3"]
+    }
+  }
+}

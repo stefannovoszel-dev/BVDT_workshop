@@ -1,0 +1,889 @@
+{
+  "goal": "WEIG möchte seinen Fachbereichen zukünftig die Option bieten, Reports bedarfsorientiert selbt zu erstellen. Um dies zu ermöglichen müssen dafür notwendige Rahmenbedingungen geschaffen werden. Im Sinne einer praxis-nahen Herangehensweise werden Use Cases des Fachbereichs Supply Chain Management und Controlling definiert und priorisiert. Diese sollen in Folge so umgesetzt werden, dass eine skalierbare, 'self-service-orientierte' Datenplattform entstehen soll.",
+  "focus": [
+    "Use Cases, die auf fachlicher Sicht eine hohen Mehrwert darstellen",
+    "Rahmenbedingungen, die für eine erfolgreiche Umsetzung notwendig sind",
+    "Priorisierung der einzelnen Themen zur Entwicklung einer Umsetzungs-Roadmap"
+  ],
+  "expectedOutcome": [
+    "Bewertung der fachlichen Use Cases",
+    "Übersicht der notwendigEen Rahmenbedingungen",
+    "Roadmap für die Umsetzung der Use Cases"
+  ],
+  "date": "2026-04-14",
+  "participant": [
+    {
+      "name": "Nicolas Zolnowski",
+      "role": "SCM",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Stefan Novoszel",
+      "role": "Moderator",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "stefan.novoszel@tieto.com"
+    },
+    {
+      "name": "Christian Beu",
+      "role": "CO Abfallmanagement",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Toni Steffens",
+      "role": "Leitung CO Faltschachtelkarton",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Frank Mies",
+      "role": "Leitung Group CO",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Marco Schüller",
+      "role": "Leitung GS IT",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "Marco.Schueller@weig.de"
+    },
+    {
+      "name": "Peter Müller",
+      "role": "Leitung IT-Application",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "peter.mueller@weig.de"
+    },
+    {
+      "name": "Kevin Naujokat",
+      "role": "Leitung IT-Security",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "kevin.naujokat@weig.de"
+    },
+    {
+      "name": "Carsten Lütje",
+      "role": "IT Inhouse Consultant",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Alexander Feidenheimer",
+      "role": "IT Inhouse Consultant",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "Alexander.Feidenheimer@weig.de"
+    },
+    {
+      "name": "Philip Buttinger",
+      "role": "Data Architect",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "philip.buttinger@tieto.com"
+    },
+    {
+      "name": "Tobias Keßner",
+      "role": "Leitung CO Abfallmanagement",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": ""
+    }
+  ],
+  "company": {
+    "Name": "WEIG",
+    "Industry": "Pulp and Paper"
+  },
+  "container_ValueEffortMatrix": {
+    "id": "CONTAINER_928730848843",
+    "headline": "Welche Use Cases sollen umgesetzt werden?",
+    "module_ValueEffortMatrix": [
+      {
+        "id": "MODULE_931183622284",
+        "teamName": "Team RED",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_696873148429",
+            "idea": {
+              "id": 47,
+              "note": "Vertriebscontrolling – Margen – Markt – Landes-/ ... – EUR + Mengen -> SAP",
+              "explanation": "Der Use Case soll Transparenz über Margen nach Markt, Land, Kundenstruktur sowie Mengen und Euro-Werte schaffen. Die Basisdaten liegen weitgehend in bestehenden Systemen, die Herausforderung liegt vor allem in der sauberen Margendefinition und -zusammensetzung."
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_150522276561",
+            "idea": {
+              "id": 48,
+              "note": "Kostenstellenanalyse:: 1) Plan / Ist 2) Analysen 4) ... 5) ... 6) Quelle: SAP 7) EUR",
+              "explanation": "Gemeint ist eine gruppenweite Kostenstellenanalyse, die Plan-Ist-Abweichungen über Kostenstellen, Bereiche und Legaleinheiten transparent macht. Damit sollen Verantwortliche Budgets besser challengen und gegensteuern können; als Quelle wurde vor allem SAP genannt."
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_429392310815",
+            "idea": {
+              "id": 49,
+              "note": "Produktions-Controlling -> Effizienz Wert... -> Basis: HstK -> Quelle: ?",
+              "explanation": "Gemeint ist Produktionscontrolling zur Steuerung der Effizienz von Wertschöpfungsketten, etwa zu Ausschuss, Leistung und Verfügbarkeit. Der Nutzen ist hoch, weil fehlende Transparenz auch andere Auswertungen wie Margenanalysen beeinträchtigt, die Datenbasis wurde aber als noch nicht stabil genug beschrieben."
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_429392313342",
+            "idea": {
+              "id": 50,
+              "note": "IT-Kostenverrechnung (verursachungsgerechter)",
+              "explanation": "Ziel ist eine verursachungsgerechtere IT-Kostenverrechnung. Dafür müssten Nutzung, Arbeitsweisen und interne Verrechnung transparenter werden; der Nutzen liegt vor allem in fairerer Zuordnung und höherer Kostentransparenz."
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_111580315311",
+            "idea": {
+              "id": 51,
+              "note": "Kosten einer Umfuhr; Mitarbeiter LKW; Mitarbeiter Beladung; Diesel; anteilige Kosten LKW; Datenquellen: BlackBox",
+              "explanation": "Hier geht es um die Ermittlung der tatsächlichen Kosten einer Umfuhr, etwa für Fahrer, Beladung, Diesel, LKW-Kosten und Fahrzeiten. Die dafür nötigen Daten sind teilweise vorhanden, liegen aber noch nicht zentral und müssten zusammengeführt und teilweise zusätzlich kalkuliert werden."
+            },
+            "category": "Nice to have"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_441338201331",
+        "teamName": "Team GREEN",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_223072349071",
+            "idea": {
+              "id": 52,
+              "note": "Forecast mit KI",
+              "explanation": "Der Forecast soll mit KI verbessert werden, indem neben Erfahrung und Marktkenntnis zusätzliche interne und externe Faktoren einbezogen werden. Der erwartete Nutzen liegt in besseren Prognosen und potenziell höherer Rohertragsmarge, die Umsetzung wurde aber als sehr komplex eingeschätzt."
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_252125320661",
+            "idea": {
+              "id": 53,
+              "note": "Kennzahlen-System; Fokus Finanzen",
+              "explanation": "Gemeint ist ein Kennzahlensystem mit Finanz- und Strategiefokus. Der Nutzen wird als hoch gesehen, die Herausforderung liegt aber nicht nur in der Technik, sondern auch in Kulturwandel und konsequenter Nutzung der Kennzahlen."
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_930491742191",
+            "idea": {
+              "id": 54,
+              "note": "Nachkalkulation",
+              "explanation": "Nachkalkulation wurde als aktuelles Thema mit hohem Business Value beschrieben. Die Gruppe sieht es als grundsätzlich machbar an, aber nicht trivial in der Umsetzung."
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_575508614260",
+            "idea": {
+              "id": 55,
+              "note": "transparente, klare Informationsflüsse (Marketplace)",
+              "explanation": "Ziel sind transparente und klare Informationsflüsse über Fachbereiche hinweg, teils im Sinne eines internen Marketplace für Informationen, Reports und Kennzahlen. So soll sichtbar werden, welche Inhalte bereits existieren, wo sie gebraucht werden und Doppelarbeit vermieden werden kann."
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_439258907240",
+            "idea": {
+              "id": 56,
+              "note": "Kennzahlen Fokus operativ",
+              "explanation": "Gemeint ist die Leistungsverbesserung und Steuerung durch operative Kennzahlen, etwa zur Effizienz von Ressourcen oder Prozessen. Viele Daten dafür sind bereits vorhanden; der Nutzen für operative Bereiche und Management wurde als hoch eingeschätzt."
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_919362631261",
+            "idea": {
+              "id": 57,
+              "note": "Kennzahlen Katalog (Top 30)",
+              "explanation": "Ein einheitlicher Kennzahlenkatalog soll Begriffe und Definitionen standardisieren, damit alle im Unternehmen dieselben Kennzahlen gleich verstehen. Vorgeschlagen wurde, pragmatisch mit den wichtigsten Kennzahlen, etwa einer Top-30-Liste, zu starten."
+            },
+            "category": "Wise Choice"
+          }
+        ]
+      }
+    ]
+  },
+  "container_DetailedIdeaInvestment": {
+    "id": "CONTAINER_354387597506",
+    "headline": "Worin würdet ihr am meisten investieren?",
+    "module_DetailedIdeaInvestment": [
+      {
+        "id": "MODULE_974131016110",
+        "teamName": "Team RED",
+        "budget": 25,
+        "detailedIdea": [
+          {
+            "id": "IDEA_262276920079",
+            "description": "Use Case 01",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 58,
+                  "note": "Δ Plan / Ist je KSt",
+                  "explanation": "Der Use Case beschreibt eine Kostenstellenanalyse über Plan-Ist-Abweichungen je Kostenstelle."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 59,
+                  "note": "Δ Plan / Ist je KSt, BuKR, Bu",
+                  "explanation": "Gewonnen wird Transparenz über Plan-Ist-Abweichungen je Kostenstelle, Buchungskreis und Business Unit."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 60,
+                  "note": "KSt-Verantwortw.\nBU-Verantwortw.",
+                  "explanation": "Nutzen sollen die Kostenstellenverantwortlichen und die Verantwortlichen der Business Units daraus ziehen."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 61,
+                  "note": "Entfall SAP Recherche\nkein Pull => Push",
+                  "explanation": "Der bisherige Rechercheaufwand in SAP soll entfallen; Informationen sollen nicht mehr aktiv gesucht, sondern gezielt bereitgestellt werden."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 62,
+                  "note": "Aufbau Data Lake",
+                  "explanation": "Die Umsetzung wurde vor allem wegen des notwendigen Aufbaus eines Data Lake als aufwendig beschrieben."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 63,
+                  "note": "IT / extern\nCO",
+                  "explanation": "Benötigt werden Unterstützung aus IT, gegebenenfalls extern, sowie aus dem Controlling."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 64,
+                  "note": "SAP",
+                  "explanation": "Als zu integrierendes System wurde vor allem SAP genannt."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 65,
+                  "note": "Standardisierung\nZeitersparnis\nTransparenz",
+                  "explanation": "Erwartet werden Standardisierung, Zeitersparnis und mehr Transparenz."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 66,
+                  "note": "Zeitersparnis in Stunden",
+                  "explanation": "Der Erfolg soll über die eingesparte Zeit im Reporting- und Analyseprozess gemessen werden."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 67,
+                  "note": "CO",
+                  "explanation": "Als Business Owner wurde das Controlling genannt."
+                }
+              }
+            ]
+          },
+          {
+            "id": "IDEA_817868939910",
+            "description": "Use Case 02",
+            "budget": 7,
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 68,
+                  "note": "IT-Kostenverrechnung muss verursachungsgerechter sein.",
+                  "explanation": "Die IT-Kostenverrechnung soll verursachungsgerechter werden."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 69,
+                  "note": "Tatsächliche Inanspruchnahme von IT-Systemen pro MA / Abteilung",
+                  "explanation": "Gewonnen wird Transparenz über die tatsächliche Inanspruchnahme von IT-Systemen pro Mitarbeiter und Abteilung."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 70,
+                  "note": "Fachbereiche\nIT\nCO",
+                  "explanation": "Nutzen aus den Informationen sollen Fachbereiche, IT und Controlling ziehen."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 71,
+                  "note": "Interne Verrechnung\nAsset/Software Inventar\nTicketsystem",
+                  "explanation": "Ändern würden sich vor allem interne Verrechnung, Asset- und Softwareinventar sowie das Ticketsystem."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 72,
+                  "note": "Komplex",
+                  "explanation": "Die Umsetzung wurde insgesamt als komplex eingeschätzt."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 73,
+                  "note": "IT - MA\nCO für Verrechnung\nFachbereiche",
+                  "explanation": "Benötigt werden Mitarbeit aus der IT, Unterstützung des Controllings für die Verrechnung sowie Beiträge der Fachbereiche."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 74,
+                  "note": "SAP\nITSM",
+                  "explanation": "Zu integrieren sind insbesondere SAP und das ITSM-System."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 75,
+                  "note": "Transparenz\nSensibilisierung für Kosten",
+                  "explanation": "Der erwartete Nutzen liegt in höherer Transparenz und stärkerem Kostenbewusstsein."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 76,
+                  "note": "IT-Software- und Hardwarekosten werden gesenkt\nTickets gehen nach unten",
+                  "explanation": "Der Erfolg soll daran messbar sein, dass IT-Software- und Hardwarekosten sinken und die Zahl der Tickets zurückgeht."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 77,
+                  "note": "IT",
+                  "explanation": "Als Business Owner wurde die IT benannt."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MODULE_786364427210",
+        "teamName": "Team GREEN",
+        "detailedIdea": [
+          {
+            "id": "IDEA_752694914964",
+            "description": "Use Case 03",
+            "budget": 16,
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 78,
+                  "note": "Erkennungsverbesserung des Forecast mit KI",
+                  "explanation": "Der Use Case beschreibt eine Verbesserung des Forecasts mit KI."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 79,
+                  "note": "Markt\nErgebnis",
+                  "explanation": "Gewonnen werden vor allem bessere Informationen zu Markt und Ergebnisentwicklung."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 80,
+                  "note": "TOP Management\nVK / EK\nCO\nSCM",
+                  "explanation": "Nutzen sollen Top-Management, Vertrieb, Einkauf, Controlling und Supply Chain Management daraus ziehen."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 81,
+                  "note": "Forecastprozess\nVorgelagerte Prozesse\nNachgelagerte Prozesse",
+                  "explanation": "Betroffen sind der Forecastprozess sowie vor- und nachgelagerte Prozesse."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 82,
+                  "note": "Sehr komplex",
+                  "explanation": "Die Umsetzung wurde als sehr komplex eingeschätzt."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 83,
+                  "note": "IT\nForecast-Verantwortliche & Beteiligte\nExperte",
+                  "explanation": "Benötigt werden IT, Forecast-Verantwortliche und weitere Beteiligte sowie fachliche Experten."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 84,
+                  "note": "KI-System\nExt. + int. Datenquellen",
+                  "explanation": "Zu integrieren sind ein KI-System sowie externe und interne Datenquellen."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 85,
+                  "note": "Verbesserte Rohertragsmarge\n3-5%",
+                  "explanation": "Erwartet wird eine Verbesserung der Rohertragsmarge um etwa 3 bis 5 Prozent."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 86,
+                  "note": "Zielerreichung",
+                  "explanation": "Der Erfolg soll an der Zielerreichung gemessen werden."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 87,
+                  "note": "BU Leitung",
+                  "explanation": "Als Business Owner wurde die BU-Leitung genannt."
+                }
+              }
+            ]
+          },
+          {
+            "id": "IDEA_442094413102",
+            "description": "Use Case 04",
+            "budget": 42,
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz",
+                "note": {
+                  "id": 88,
+                  "note": "Leistungsmessung und -steuerung durch operative Kennzahlen",
+                  "explanation": "Der Use Case beschreibt Leistungsverbesserung und Steuerung durch operative Kennzahlen."
+                }
+              },
+              {
+                "description": "Welche Information wird gewonnen?",
+                "note": {
+                  "id": 89,
+                  "note": "Effizienz\nProduktivität\nErreichung der Ziele",
+                  "explanation": "Gewonnen werden Informationen zu Effizienz, Produktivität und Zielerreichung."
+                }
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?",
+                "note": {
+                  "id": 90,
+                  "note": "Verantwortliche operativer Bereich\nTOP Management",
+                  "explanation": "Nutzen sollen vor allem Verantwortliche im operativen Bereich sowie das Top-Management daraus ziehen."
+                }
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?",
+                "note": {
+                  "id": 91,
+                  "note": "Ineffiziente & nicht erfasste Prozesse",
+                  "explanation": "Verändern sollen sich insbesondere ineffiziente und bislang nicht erfasste Prozesse."
+                }
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?",
+                "note": {
+                  "id": 92,
+                  "note": "mittel\ngrunds. nicht komplex, jedoch enorme Vielfalt",
+                  "explanation": "Die Umsetzung wurde als grundsätzlich nicht sehr komplex, wegen der großen Vielfalt der Themen aber als mittel eingestuft."
+                }
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 93,
+                  "note": "IT\nFachbereich",
+                  "explanation": "Benötigt werden IT und die jeweiligen Fachbereiche."
+                }
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?",
+                "note": {
+                  "id": 94,
+                  "note": "ERP-Systeme\nBenchmarks\nKPI-relevante Systeme",
+                  "explanation": "Zu integrieren sind ERP-Systeme, Benchmarks und weitere KPI-relevante Systeme."
+                }
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?",
+                "note": {
+                  "id": 95,
+                  "note": "Senkung der Prozesskosten",
+                  "explanation": "Der erwartete Nutzen liegt in einer Senkung der Prozesskosten."
+                }
+              },
+              {
+                "description": "Wie messen wir den Erfolg?",
+                "note": {
+                  "id": 96,
+                  "note": "Prozesskosten\nKPIs",
+                  "explanation": "Der Erfolg soll über Prozesskosten und die zugehörigen KPIs gemessen werden."
+                }
+              },
+              {
+                "description": "Wer ist der Business Owner?",
+                "note": {
+                  "id": 97,
+                  "note": "Fachbereich (Leitung)",
+                  "explanation": "Als Business Owner wurde die Fachbereichsleitung genannt."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "module_Roadmap": {
+    "id": "CONTAINER_383407025093",
+    "headline": "Wie sind die einzelnen Use Cases einzuordnen?",
+    "roadmapItem": [
+      {
+        "id": "ROADMAP_ITEM_254881385219",
+        "idea": {
+          "id": 98,
+          "note": "Kostenstellen Controlling",
+          "explanation": "Kostenstellen-Controlling wurde als erster Schritt in der Roadmap eingeordnet. Der Use Case gilt als Core Business und soll früh umgesetzt werden, weil er schnell Transparenz über Plan-Ist-Abweichungen schafft und als Startpunkt für die Plattform dient."
+        },
+        "horizon": "H1",
+        "wave": 1
+      },
+      {
+        "id": "ROADMAP_ITEM_059627184306",
+        "idea": {
+          "id": 99,
+          "note": "Kennzahlen Fokus operativ",
+          "explanation": "Operative Kennzahlen wurden ebenfalls dem Core Business zugeordnet. Sie versprechen schnelle Mehrwerte für Steuerung und Effizienz, wurden in der Roadmap aber nach dem Kostenstellen-Controlling eingeordnet."
+        },
+        "horizon": "H1",
+        "wave": 2
+      },
+      {
+        "id": "ROADMAP_ITEM_481331623094",
+        "idea": {
+          "id": 100,
+          "note": "IT-Kostenverrechnung",
+          "explanation": "Die IT-Kostenverrechnung wurde als späterer Schritt innerhalb von H1 eingeordnet. Sie erhöht zwar Transparenz und Fairness der Verrechnung, wurde aber mit geringerem direktem Ergebnisbeitrag und höherem Umsetzungsaufwand bewertet."
+        },
+        "horizon": "H1",
+        "wave": 3
+      },
+      {
+        "id": "ROADMAP_ITEM_728169603441",
+        "idea": {
+          "id": 101,
+          "note": "Forecast mit KI",
+          "explanation": "Forecast mit KI wurde wegen der hohen Komplexität in eine spätere Welle und in H3 eingeordnet. Der erwartete Nutzen ist hoch, insbesondere bei Forecast-Qualität und Marge, aber der Use Case braucht zuerst stabile Daten und geeignete Modelle."
+        },
+        "horizon": "H3",
+        "wave": 3
+      }
+    ]
+  },
+  "module_freeAssociation": {
+    "id": "MODULE_511380607102",
+    "headline": "Wie werden 2030 Daten genutzt?",
+    "question": "Wie werden die Fachbereiche innerhalb von WEIG 2030 mit Daten arbeiten und welche neuen Möglichkeiten wird dies schaffen?",
+    "freeAssociation": [
+      {
+        "id": 1,
+        "note": "autom. Erkennung von Beziehungen",
+        "explanation": "Gemeint ist die automatische Erkennung von Zusammenhängen zwischen Daten und Informationen, damit Beziehungen nicht mehr manuell gesucht werden müssen."
+      },
+      {
+        "id": 2,
+        "note": "User Anpassungen möglich",
+        "explanation": "Damit ist gemeint, dass Fachbereiche Daten und Auswertungen im Sinne eines Self-Service selbst anpassen können."
+      },
+      {
+        "id": 3,
+        "note": "klares Berechtigungskonzept",
+        "explanation": "Es wird ein klares Berechtigungskonzept benötigt, damit eindeutig geregelt ist, wer auf welche Daten zugreifen darf."
+      },
+      {
+        "id": 4,
+        "note": "Komplexe Sachverhalte einfach darstellen",
+        "explanation": "Komplexe Sachverhalte sollen so aufbereitet werden, dass sie einfach und verständlich dargestellt werden können."
+      },
+      {
+        "id": 5,
+        "note": "zentrales Permission-Management",
+        "explanation": "Die Berechtigungen sollen zentral verwaltet werden, statt dezentral oder uneinheitlich gepflegt zu sein."
+      },
+      {
+        "id": 6,
+        "note": "Single Source of Truth",
+        "explanation": "Es wird eine zentrale und verlässliche Datenbasis benötigt, damit alle mit derselben Wahrheit arbeiten."
+      },
+      {
+        "id": 7,
+        "note": "klar definierte Ownerrollen",
+        "explanation": "Für Daten und Inhalte sollen klar definierte Owner-Rollen festgelegt werden, damit Governance und Verantwortlichkeiten eindeutig sind."
+      },
+      {
+        "id": 8,
+        "note": "nachvollziehbar",
+        "explanation": "Daten und Auswertungen sollen nachvollziehbar sein, damit ihre Herkunft und Aussage verständlich bleiben."
+      },
+      {
+        "id": 9,
+        "note": "standardisiert",
+        "explanation": "Die Daten und Begriffe sollen standardisiert werden, weil Inhalte aus unterschiedlichen Quellen heute nicht einheitlich benannt sind."
+      },
+      {
+        "id": 10,
+        "note": "Klare Verantwortlichkeit bei der Reporterstellung",
+        "explanation": "Für Reports braucht es klare Verantwortlichkeiten, damit eindeutig ist, wer sie erstellt und pflegt."
+      },
+      {
+        "id": 11,
+        "note": "Nachvollziehbarkeit",
+        "explanation": "Die Entstehung und Nutzung von Daten soll nachvollziehbar sein."
+      },
+      {
+        "id": 12,
+        "note": "klarer Speicherort",
+        "explanation": "Es braucht einen klaren, eindeutigen Speicherort für Daten und Auswertungen."
+      },
+      {
+        "id": 13,
+        "note": "Frühwarnsystem",
+        "explanation": "Gewünscht ist ein Frühwarnsystem, das auf kritische Entwicklungen frühzeitig hinweist."
+      },
+      {
+        "id": 14,
+        "note": "KI-Agent als Experte",
+        "explanation": "Ein KI-Agent soll als Experte unterstützen und bei der Interpretation sowie Nutzung von Daten helfen."
+      },
+      {
+        "id": 15,
+        "note": "Beschreibung der In- & Umwelt",
+        "explanation": "Gemeint ist eine Beschreibung der internen und externen Umwelt, also des relevanten Kontexts rund um die Daten."
+      },
+      {
+        "id": 16,
+        "note": "Prozessbeschreibende KPI's",
+        "explanation": "Es werden prozessbeschreibende KPIs benötigt, die Abläufe messbar und steuerbar machen."
+      },
+      {
+        "id": 17,
+        "note": "Nachvollziehbarkeit",
+        "explanation": "Auch hier steht die Nachvollziehbarkeit von Daten und Auswertungen im Vordergrund."
+      },
+      {
+        "id": 18,
+        "note": "Gesamtüberblick",
+        "explanation": "Benötigt wird ein Gesamtüberblick über relevante Informationen und Kennzahlen."
+      },
+      {
+        "id": 19,
+        "note": "Statistik",
+        "explanation": "Statistische Auswertungen sollen verfügbar und nutzbar sein."
+      },
+      {
+        "id": 20,
+        "note": "Vorschläge welche Daten benötigt werden",
+        "explanation": "Das System soll Vorschläge machen können, welche Daten für eine Fragestellung benötigt werden."
+      },
+      {
+        "id": 21,
+        "note": "hohe Automatisierung",
+        "explanation": "Es wird ein hoher Automatisierungsgrad gewünscht, damit manuelle Arbeit deutlich reduziert wird."
+      },
+      {
+        "id": 22,
+        "note": "Augmented Reality (Datenpunkte per KI)",
+        "explanation": "Gewünscht sind KI-gestützte Datenpunkte bis hin zu Augmented-Reality-Anwendungen, etwa aus dem Maschinenumfeld."
+      },
+      {
+        "id": 23,
+        "note": "Selfservice Reporting",
+        "explanation": "Reporting soll im Self-Service möglich sein, sodass Fachbereiche ihre Reports selbst erstellen können."
+      },
+      {
+        "id": 24,
+        "note": "Datensilos aufgelöst / zentrale Daten",
+        "explanation": "Datensilos sollen aufgelöst und Daten zentral verfügbar gemacht werden."
+      },
+      {
+        "id": 25,
+        "note": "eff. Maschinenplanung erstellen",
+        "explanation": "Die Daten sollen eine effiziente Maschinenplanung ermöglichen."
+      },
+      {
+        "id": 26,
+        "note": "Prognose erstellen",
+        "explanation": "Auf Basis der Daten sollen Prognosen erstellt werden können."
+      },
+      {
+        "id": 27,
+        "note": "effektives Nutzen von KI",
+        "explanation": "KI soll wirksam und praxisnah genutzt werden, um aus Daten mehr Nutzen zu ziehen."
+      },
+      {
+        "id": 28,
+        "note": "digitales WF Reporting, Erstellung, Bereitstellung",
+        "explanation": "Workflow-Reporting soll digital erstellt und bereitgestellt werden."
+      },
+      {
+        "id": 29,
+        "note": "automatische Kommentare von Abweichungen",
+        "explanation": "Abweichungen sollen automatisch kommentiert werden, statt manuell erläutert werden zu müssen."
+      },
+      {
+        "id": 30,
+        "note": "digitale Evaluierung/Validierung von Datenstrukturen FC / Plan / Ist",
+        "explanation": "Datenstrukturen für Forecast, Plan und Ist sollen digital evaluiert und validiert werden."
+      },
+      {
+        "id": 31,
+        "note": "dynamisch",
+        "explanation": "Auswertungen und Datenmodelle sollen dynamisch statt statisch sein."
+      },
+      {
+        "id": 32,
+        "note": "Vorschlag KPI's aus Datenstrukturen",
+        "explanation": "Aus Datenstrukturen sollen passende KPIs vorgeschlagen werden können."
+      },
+      {
+        "id": 33,
+        "note": "Deckungsbeitragsrechnung",
+        "explanation": "Gewünscht ist eine Deckungsbeitragsrechnung auf Basis einer geeigneten Datenbasis."
+      },
+      {
+        "id": 34,
+        "note": "eine abrufbare Datenlandschaft",
+        "explanation": "Die Datenlandschaft soll zentral abrufbar und zugänglich sein."
+      },
+      {
+        "id": 35,
+        "note": "mobile Daten auswertbar / verknüpfbar",
+        "explanation": "Mobile Daten sollen auswertbar und mit anderen Daten verknüpfbar sein."
+      },
+      {
+        "id": 36,
+        "note": "Echtzeit",
+        "explanation": "Daten und Auswertungen sollen möglichst in Echtzeit verfügbar sein."
+      },
+      {
+        "id": 37,
+        "note": "digital Twin",
+        "explanation": "Ein Digital Twin wird als Zukunftsbild für die Datennutzung gesehen."
+      },
+      {
+        "id": 38,
+        "note": "Dashboard (Anzeige Apps)",
+        "explanation": "Dashboards und Apps sollen Daten übersichtlich anzeigen."
+      },
+      {
+        "id": 39,
+        "note": "keine lokalen Excel-Dateien",
+        "explanation": "Lokale Excel-Dateien sollen vermieden werden und durch zentral verfügbare Lösungen ersetzt werden."
+      },
+      {
+        "id": 40,
+        "note": "Auswertung auf Basis einer zentralen Datenhaltung KI-gesteuert",
+        "explanation": "Auswertungen sollen auf einer zentralen Datenhaltung aufbauen und KI-gestützt erfolgen."
+      },
+      {
+        "id": 41,
+        "note": "Auffindbarkeit",
+        "explanation": "Daten, Reports und relevante Informationen sollen leicht auffindbar sein."
+      },
+      {
+        "id": 42,
+        "note": "Hoher Automatisierungsgrad",
+        "explanation": "Auch hier wird ein hoher Automatisierungsgrad als wichtiges Ziel beschrieben."
+      },
+      {
+        "id": 43,
+        "note": "Self Service Gedanke",
+        "explanation": "Der Self-Service-Gedanke steht im Vordergrund: Fachbereiche sollen eigenständig mit Daten arbeiten können."
+      },
+      {
+        "id": 44,
+        "note": "Predictive",
+        "explanation": "Gewünscht sind prädiktive Funktionen, also vorausschauende Auswertungen und Analysen."
+      },
+      {
+        "id": 45,
+        "note": "hohe Datenqualität Konsistenz",
+        "explanation": "Hohe Datenqualität und Konsistenz sind Voraussetzung für verlässliche Auswertungen."
+      },
+      {
+        "id": 46,
+        "note": "kosteneffizient",
+        "explanation": "Die Lösungen sollen nicht nur leistungsfähig, sondern auch kosteneffizient sein."
+      }
+    ]
+  }
+}

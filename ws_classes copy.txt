@@ -1,0 +1,58 @@
+class Workshop
+    property Title (text)
+    property Participant (object) :Collection
+    property UseCase (object) :Collection
+    <optional> property Initiative (object) :Collection
+    <optional> property Activity (object) :Collection
+
+
+
+
+
+class Participant
+    property Name (text)
+    property Role (text)
+    property Company (object)
+    <optional> property email (text)
+
+
+
+
+class Company
+    property Name (text)
+    <optional> property Industry (text)
+
+
+
+class WorkshopItem
+    property id (number)
+    property note (text)
+    <optional> property explanation (text)
+    
+
+
+class UseCase (type of WorkshopItem)
+
+
+class Initiative (type of WorkshopItem)
+    <optional> property CostValueCategory (enum)
+
+
+class Activity
+    property ID (number)
+    property Title (text)
+    property WorkshopItem (object) :Collection
+
+
+class UserJourney
+    property ID (number)
+    property Title (text)
+    property WorkshopItem (object) :Collection
+
+
+
+enum CostValueCategory
+    value "No Brainer"
+    value "Wise Choice"
+    value "Everything Else"
+    value "Big Bet"

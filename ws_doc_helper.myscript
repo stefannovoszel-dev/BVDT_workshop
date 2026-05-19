@@ -1,0 +1,443 @@
+INSTRUCTION HYGIENE:
+
+Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
+Remove all empty strings ("") within CONFIGURATION section before parsing.
+
+
+CONFIGURATION:
+
+{JSON_SCHEMA} = "ws_classes.schema.json"
+{CUSTOMER_NAME} = "Tieto"
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{LANGUAGE} = "English"
+{INDUSTRY} = "IT Services"
+{SYSTEM_CONTEXT} = ""
+{COMMON_ABBREVIATIONS} = "KI, HCM, SAP"
+{ABBREVIATION_CORRECTIONS} = "HCL->HCM, S.A.P->SAP, K.I->KI"
+
+{WORKSHOP_DATE} = "2026-05-05"
+
+
+EXECUTION:
+
+Extract "focus" and "expectedOutcome" from {TARGET_FILE} as a bullet list that can be copied directly to a word document
+
+
+Extract each "participant" from {TARGET_FILE} and provide it as a table that can be directly copied to a word document, with the following columns:
+    name, role, company, email
+
+
+For each "Module" within {TARGET_FILE}:
+    Summarise the functionality of {module} on a generic, meta level.
+
+    Focus strictly on:
+        how the module works as a system or abstraction (e.g. pattern, framework, processing logic)
+        the structural principle behind it, not its concrete implementation
+
+    Do not include:
+        specific fields, steps, or schema elements
+        examples, ideas, or content produced within the module
+        outcomes, benefits, or value statements
+        workshop-specific context
+
+    Describe the module as a generalizable pattern that could be applied in other contexts.
+
+    Output format:
+        1 concise paragraph
+        optional bullet list of key abstract characteristics
+
+
+<doc>Results of module free Association</doc>
+IF module_freeAssociation exists within {TARGET_FILE}:
+    {MODULE} = "module_freeAssociation"
+
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+
+    Extract each object of type PostIt from {MODULE} within {TARGET_FILE} and provide it as a table that can be directly copied to a word document, with the following columns:
+        PostIt.note, PostIt.explanation
+
+
+<doc>Results of module Staged Offering Portfolio</doc>
+IF module_DifferentViewsRated exists within {TARGET_FILE}:
+    {MODULE} = "module_StagedOfferingPortfolio" within {TARGET_FILE}
+    
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+    
+    For each portfolioItemGroup in {MODULE}
+
+        Extract each portfolioItem. Use portfolioItem.topic as headline and provide a table that can be directly copied to a word document, with the following columns:
+            note.note, note.explanation
+
+
+<doc>Results of module Different Views with Ratings</doc>
+IF module_DifferentViewsRated exists within {TARGET_FILE}:
+    {MODULE} = "module_DifferentViewsRated" within {TARGET_FILE}
+    
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+    
+    For each perspective in {MODULE}
+
+        Extract each workshopItemRated and provide it as a table that can be directly copied to a word document, with the following columns:
+            idea.note + ":" \n + idea.explanation, problemSolved.note + ":" \n + problemSolved.explanation, rating of category "Customer Focus", rating of category "Prometeon Adoption", rating of category "Business Value"
+
+
+<doc>Results of module Capability Matrix</doc>
+IF module_CapabilityMatrix exists within {TARGET_FILE}:
+    {MODULE} = "module_CapabilityMatrix" within {TARGET_FILE}
+    
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+    
+    For each capability in {MODULE}
+
+        Extract capability.name
+        Extract capability.description
+        Extract capability.rating
+
+        For each note
+            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                note.note, note.explanation
+
+
+<doc>Results of module Detailed Working Plan</doc>
+IF module_DetailedWorkingPlan exists within {TARGET_FILE}:
+    {MODULE} = "module_DetailedWorkingPlan" within {TARGET_FILE}
+
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+    
+    For each instance of {MODULE}
+        Extract teamName
+        
+        For each workplanItemGroupExlanationData
+            Extract description
+
+            For each worplanItemTwoStep
+                Extract topic
+                Extract description
+
+                For each note
+                Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                    note.note, note.explanation
+
+            For each workplanItemOneStep
+                Extract topic
+
+                For each note
+                Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                    note.note, note.explanation
+        
+        For each workplanItemGroupRequiredResources
+            Extract description
+
+            For each workplanItemOneStep
+                Extract topic
+
+                For each note
+                Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                    note.note, note.explanation
+
+
+<doc>Results of module User Journey Map</doc>
+IF module_UserJourney exists within {TARGET_FILE}:
+    {MODULE} = "module_userJourney" within {TARGET_FILE}
+
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+        
+    For each instance of {MODULE}
+        Extract teamName
+        
+        For each userJourneyStep
+            Extract description
+
+            For each note
+            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                note.note, note.explanation
+
+<doc>Results of module Value Effort Matrix</doc>
+IF module_ValueEffortMatrix exists within {TARGET_FILE}:
+    {MODULE} = "module_ValueEffortMatrix" within {TARGET_FILE}
+
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+    
+    For each teamName in {MODULE}
+
+        Extract each workshopItemRated and provide it as a table that can be directly copied to a word document, with the following columns:
+            idea.note, idea.explanation, category
+
+
+<doc>Results of module Detailed Idea plus Investment</doc>
+IF module_DetailedIdeaInvestment exists within {TARGET_FILE}:
+    {MODULE} = "module_DetailedIdeaInvestment" within {TARGET_FILE}
+
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+
+        For each detailedIdea in {MODULE}
+            Extract detailedIdea.description
+
+            For each detailedIdeaStep
+                Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                    description, note.note, note.explanation
+
+
+<doc>Results of module Roadmap</doc>
+IF module_Roadmap exists within {TARGET_FILE}:
+    {MODULE} = "module_Roadmap" within {TARGET_FILE}
+
+    Summarise how {MODULE} was actually used during the workshop.
+
+        Focus on:
+            the concrete execution (what participants did step by step)
+            how ideas were captured and documented (e.g. post-its, poster, inputs)
+            the structure of the output as created in practice
+
+        Include:
+            real workshop actions (e.g. writing post-its, placing them on the board) as stored in the corresponding module structure of {TARGET_FILE} as object type PostIt
+            description of how inputs were collected and structured
+            examples of the types of ideas captured
+
+        Do not focus on:
+            abstract system descriptions or meta-level explanations
+            technical schema or JSON structure
+
+        Write it as a customer-facing documentation text (clear, slightly narrative, but precise).
+
+        Output:
+            1–2 well-structured paragraphs
+
+        For each roadmapItem in {MODULE}
+
+            Switch horizon:
+                case "H1":
+                    Print "Horizon 1"
+
+                    IF wave = 1:
+                        Print "Wave 1"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+
+                    ELSE IF wave = 2:
+                        Print "Wave 2"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+                    ELSE 
+                        Print "Wave 3"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation                  
+
+                case "H2":
+                    Print "Horizon 2"
+
+                    IF wave = 1:
+                        Print "Wave 1"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+
+                    ELSE IF wave = 2:
+                        Print "Wave 2"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+                    ELSE 
+                        Print "Wave 3"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+
+                case "H3":
+                    Print "Horizon 3"
+
+                    IF wave = 1:
+                        Print "Wave 1"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+
+                    ELSE IF wave = 2:
+                        Print "Wave 2"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+                    ELSE 
+                        Print "Wave 3"
+
+                        For each note
+                            Extract properties and provide them as a table that can be directly copied to a word document, with the following columns:
+                            note.note, note.explanation
+
+
+<doc>Management Summary and Statistics</doc>
+Write a management summary of the whole workshop based on the content of {TARGET_FILE}
+
+
+STATISTICS:
+
+Count all occurences of object type PostIt within {TARGET_FILE}
+
+What have been the most topics raised within PostIt.note and PostIt.explanation within {TARGET_FILE}
+
+List of workshopItemRated within {TARGET_FILE} with the highest deviation between "Customer Focus", "Tieto Adoption", "Business Value"
+
+Worst ratings within CapabilityMatrix within {TARGET_FILE} and corresponding reasoning within PostIt.note and PostIt.explanation

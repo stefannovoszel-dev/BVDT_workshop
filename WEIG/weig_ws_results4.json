@@ -1,0 +1,586 @@
+{
+  "goal": "WEIG möchte seinen Fachbereichen zukünftig die Option bieten, Reports bedarfsorientiert selbt zu erstellen. Um dies zu ermöglichen müssen dafür notwendige Rahmenbedingungen geschaffen werden. Im Sinne einer praxis-nahen Herangehensweise werden Use Cases des Fachbereichs Supply Chain Management und Controlling definiert und priorisiert. Diese sollen in Folge so umgesetzt werden, dass eine skalierbare, 'self-service-orientierte' Datenplattform entstehen soll.",
+  "focus": [
+    "Use Cases, die auf fachlicher Sicht eine hohen Mehrwert darstellen",
+    "Rahmenbedingungen, die für eine erfolgreiche Umsetzung notwendig sind",
+    "Priorisierung der einzelnen Themen zur Entwicklung einer Umsetzungs-Roadmap"
+  ],
+  "expectedOutcome": [
+    "Bewertung der fachlichen Use Cases",
+    "Übersicht der notwendigEen Rahmenbedingungen",
+    "Roadmap für die Umsetzung der Use Cases"
+  ],
+  "date": "2026-04-14",
+  "participant": [
+    {
+      "name": "Nicolas Zolnowski",
+      "role": "SCM",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Stefan Novoszel",
+      "role": "Moderator",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "stefan.novoszel@tieto.com"
+    },
+    {
+      "name": "Christian Beu",
+      "role": "CO Abfallmanagement",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Toni Steffens",
+      "role": "Leitung CO Faltschachtelkarton",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Frank Mies",
+      "role": "Leitung Group CO",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Marco Schüller",
+      "role": "Leitung GS IT",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "Marco.Schueller@weig.de"
+    },
+    {
+      "name": "Peter Müller",
+      "role": "Leitung IT-Application",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "peter.mueller@weig.de"
+    },
+    {
+      "name": "Kevin Naujokat",
+      "role": "Leitung IT-Security",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "kevin.naujokat@weig.de"
+    },
+    {
+      "name": "Carsten Lütje",
+      "role": "IT Inhouse Consultant",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      }
+    },
+    {
+      "name": "Alexander Feidenheimer",
+      "role": "IT Inhouse Consultant",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": "Alexander.Feidenheimer@weig.de"
+    },
+    {
+      "name": "Philip Buttinger",
+      "role": "Data Architect",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "philip.buttinger@tieto.com"
+    },
+    {
+      "name": "Tobias Keßner",
+      "role": "Leitung CO Abfallmanagement",
+      "company": {
+        "Name": "WEIG",
+        "Industry": "Pulp and Paper"
+      },
+      "email": ""
+    }
+  ],
+  "company": {
+    "Name": "WEIG",
+    "Industry": "Pulp and Paper"
+  },
+  "container_ValueEffortMatrix": {
+    "id": "CONTAINER_928730848843",
+    "headline": "Welche Use Cases sollen umgesetzt werden?",
+    "module_ValueEffortMatrix": [
+      {
+        "id": "MODULE_931183622284",
+        "teamName": "Team RED",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_696873148429",
+            "idea": {
+              "id": 47,
+              "note": "Vertriebscontrolling – Margen – Markt – Landes-/ ... – EUR + Mengen -> SAP"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_150522276561",
+            "idea": {
+              "id": 48,
+              "note": "Kostenstellenanalyse:: 1) Plan / Ist 2) Analysen 4) ... 5) ... 6) Quelle: SAP 7) EUR"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_429392310815",
+            "idea": {
+              "id": 49,
+              "note": "Produktions-Controlling -> Effizienz Wert... -> Basis: HstK -> Quelle: ?"
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_429392313342",
+            "idea": {
+              "id": 50,
+              "note": "IT-Kostenverrechnung (verursachungsgerechter)"
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_111580315311",
+            "idea": {
+              "id": 51,
+              "note": "Kosten einer Umfuhr; Mitarbeiter LKW; Mitarbeiter Beladung; Diesel; anteilige Kosten LKW; Datenquellen: BlackBox"
+            },
+            "category": "Nice to have"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_441338201331",
+        "teamName": "Team GREEN",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_223072349071",
+            "idea": {
+              "id": 52,
+              "note": "Forecast mit KI"
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_252125320661",
+            "idea": {
+              "id": 53,
+              "note": "Kennzahlen-System; Fokus Finanzen"
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_930491742191",
+            "idea": {
+              "id": 54,
+              "note": "Nachkalkulation"
+            },
+            "category": "Nice to have"
+          },
+          {
+            "id": "ITEM_575508614260",
+            "idea": {
+              "id": 55,
+              "note": "transparente, klare Informationsflüsse (Marketplace)"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_439258907240",
+            "idea": {
+              "id": 56,
+              "note": "Kennzahlen Fokus operativ"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_919362631261",
+            "idea": {
+              "id": 57,
+              "note": "Kennzahlen Katalog (Top 30)"
+            },
+            "category": "Wise Choice"
+          }
+        ]
+      }
+    ]
+  },
+  "container_DetailedIdeaInvestment": {
+    "id": "CONTAINER_354387597506",
+    "headline": "Worin würdet ihr am meisten investieren?",
+    "module_DetailedIdeaInvestment": [
+      {
+        "id": "MODULE_974131016110",
+        "teamName": "Team RED",
+        "detailedIdea": [
+          {
+            "id": "IDEA_262276920079",
+            "description": "Use Case 01",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz"
+              },
+              {
+                "description": "Welche Information wird gewonnen?"
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?"
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?"
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?"
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?"
+              },
+              {
+                "description": "Wie messen wir den Erfolg?"
+              },
+              {
+                "description": "Wer ist der Business Owner?"
+              }
+            ]
+          },
+          {
+            "id": "IDEA_817868939910",
+            "description": "Use Case 02",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz"
+              },
+              {
+                "description": "Welche Information wird gewonnen?"
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?"
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?"
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?"
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?"
+              },
+              {
+                "description": "Wie messen wir den Erfolg?"
+              },
+              {
+                "description": "Wer ist der Business Owner?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MODULE_786364427210",
+        "teamName": "Team GREEN",
+        "detailedIdea": [
+          {
+            "id": "IDEA_752694914964",
+            "description": "Use Case 03",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz"
+              },
+              {
+                "description": "Welche Information wird gewonnen?"
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?"
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?"
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?"
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?"
+              },
+              {
+                "description": "Wie messen wir den Erfolg?"
+              },
+              {
+                "description": "Wer ist der Business Owner?"
+              }
+            ]
+          },
+          {
+            "id": "IDEA_442094413102",
+            "description": "Use Case 04",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre den Use Case in einem Satz"
+              },
+              {
+                "description": "Welche Information wird gewonnen?"
+              },
+              {
+                "description": "Wer aller wird die Information Nutzen?"
+              },
+              {
+                "description": "Welche Prozesse werden sich ändern?"
+              },
+              {
+                "description": "Wie komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Systeme müssen integriert werden?"
+              },
+              {
+                "description": "Was ist der erwartete Business Wert?"
+              },
+              {
+                "description": "Wie messen wir den Erfolg?"
+              },
+              {
+                "description": "Wer ist der Business Owner?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "module_Roadmap": {
+    "id": "CONTAINER_383407025093",
+    "headline": "Wie sind die einzelnen Use Cases einzuordnen?"
+  },
+  "module_freeAssociation": {
+    "id": "MODULE_511380607102",
+    "headline": "Wie werden 2030 Daten genutzt?",
+    "question": "Wie werden die Fachbereiche innerhalb von WEIG 2030 mit Daten arbeiten und welche neuen Möglichkeiten wird dies schaffen?",
+    "freeAssociation": [
+      {
+        "id": 1,
+        "note": "autom. Erkennung von Beziehungen"
+      },
+      {
+        "id": 2,
+        "note": "User Anpassungen möglich"
+      },
+      {
+        "id": 3,
+        "note": "klares Berechtigungskonzept"
+      },
+      {
+        "id": 4,
+        "note": "Komplexe Sachverhalte einfach darstellen"
+      },
+      {
+        "id": 5,
+        "note": "zentrales Permission-Management"
+      },
+      {
+        "id": 6,
+        "note": "Single Source of Truth"
+      },
+      {
+        "id": 7,
+        "note": "klar definierte Ownerrollen"
+      },
+      {
+        "id": 8,
+        "note": "nachvollziehbar"
+      },
+      {
+        "id": 9,
+        "note": "standardisiert"
+      },
+      {
+        "id": 10,
+        "note": "Klare Verantwortlichkeit bei der Reporterstellung"
+      },
+      {
+        "id": 11,
+        "note": "Nachvollziehbarkeit"
+      },
+      {
+        "id": 12,
+        "note": "klarer Speicherort"
+      },
+      {
+        "id": 13,
+        "note": "Frühwarnsystem"
+      },
+      {
+        "id": 14,
+        "note": "KI-Agent als Experte"
+      },
+      {
+        "id": 15,
+        "note": "Beschreibung der In- & Umwelt"
+      },
+      {
+        "id": 16,
+        "note": "Prozessbeschreibende KPI's"
+      },
+      {
+        "id": 17,
+        "note": "Nachvollziehbarkeit"
+      },
+      {
+        "id": 18,
+        "note": "Gesamtüberblick"
+      },
+      {
+        "id": 19,
+        "note": "Statistik"
+      },
+      {
+        "id": 20,
+        "note": "Vorschläge welche Daten benötigt werden"
+      },
+      {
+        "id": 21,
+        "note": "hohe Automatisierung"
+      },
+      {
+        "id": 22,
+        "note": "Augmented Reality (Datenpunkte per KI)"
+      },
+      {
+        "id": 23,
+        "note": "Selfservice Reporting"
+      },
+      {
+        "id": 24,
+        "note": "Datensilos aufgelöst / zentrale Daten"
+      },
+      {
+        "id": 25,
+        "note": "eff. Maschinenplanung erstellen"
+      },
+      {
+        "id": 26,
+        "note": "Prognose erstellen"
+      },
+      {
+        "id": 27,
+        "note": "effektives Nutzen von KI"
+      },
+      {
+        "id": 28,
+        "note": "digitales WF Reporting, Erstellung, Bereitstellung"
+      },
+      {
+        "id": 29,
+        "note": "automatische Kommentare von Abweichungen"
+      },
+      {
+        "id": 30,
+        "note": "digitale Evaluierung/Validierung von Datenstrukturen FC / Plan / Ist"
+      },
+      {
+        "id": 31,
+        "note": "dynamisch"
+      },
+      {
+        "id": 32,
+        "note": "Vorschlag KPI's aus Datenstrukturen"
+      },
+      {
+        "id": 33,
+        "note": "Deckungsbeitragsrechnung"
+      },
+      {
+        "id": 34,
+        "note": "eine abrufbare Datenlandschaft"
+      },
+      {
+        "id": 35,
+        "note": "mobile Daten auswertbar / verknüpfbar"
+      },
+      {
+        "id": 36,
+        "note": "Echtzeit"
+      },
+      {
+        "id": 37,
+        "note": "digital Twin"
+      },
+      {
+        "id": 38,
+        "note": "Dashboard (Anzeige Apps)"
+      },
+      {
+        "id": 39,
+        "note": "keine lokalen Excel-Dateien"
+      },
+      {
+        "id": 40,
+        "note": "Auswertung auf Basis einer zentralen Datenhaltung KI-gesteuert"
+      },
+      {
+        "id": 41,
+        "note": "Auffindbarkeit"
+      },
+      {
+        "id": 42,
+        "note": "Hoher Automatisierungsgrad"
+      },
+      {
+        "id": 43,
+        "note": "Self Service Gedanke"
+      },
+      {
+        "id": 44,
+        "note": "Predictive"
+      },
+      {
+        "id": 45,
+        "note": "hohe Datenqualität Konsistenz"
+      },
+      {
+        "id": 46,
+        "note": "kosteneffizient"
+      }
+    ]
+  }
+}

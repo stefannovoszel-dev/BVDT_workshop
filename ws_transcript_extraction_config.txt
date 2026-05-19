@@ -1,0 +1,256 @@
+Start a new chat for each test prompt and attach the same Word file.
+
+
+INSTRUCTION HYGIENE:
+Ignore all text between <doc> and </doc>. It is documentation only.
+Ignore any line that begins with "# DOC:".
+If a documentation block contradicts an instruction block, follow the instruction block.
+
+
+
+CONFIGURATION:
+
+{SOURCE_FILE} = „0696_Transkript - ASFINAG SAP-KI Workshop - 02_Transcript 01.docx“
+<doc>{JSON_TEMPLATE} = "workshop.schema.json"
+{TARGET_FILE} = „Tieto_ASFINAG_WS_UseCases_SAP_HR_AI.json“</doc>
+{LANGUAGE} = German
+<doc>{WORKSHOP_ITEM} = WKF:XXX</doc>
+{WORKSHOP_TITLE} = "ASFINAG - KI Innovationen im SAP HR Bereich (2026-2028)"
+<doc>{PARTICIPANTS} = Collect all information from table "2.1 TEILNEHMER" and "2.1 TIETO, HR-FORCE UND SOVANTA TEILNEHMER"</doc>
+{COMPANY} = "ASFINAG"
+{SYSTEM_CONTEXT} = "SAP", "Microsoft"
+{COMMON_ABBREVIATIONS} = "KI, HCM, SAP"
+{ABBREVIATION_CORRECTIONS} = "HCL->HCM, S.A.P->SAP, K.I->KI"
+
+<doc>Here you enter the text strings, where the respective text areas start and end within the transcript.</doc>
+{USE_CASE_AREA_START} = „wo können wir in Zukunft den Einsatz von KI, die SAP und die Geschäftsprozesse optimieren und verbessern“
+{USE_CASE_AREA_END} = "welche Informationen, Prozesse und Initiativen müssen wir anstoßen, um für ihn in diesem Bereich erfolgreich"
+{USE_CASE_AREA} = Combine all pages from {USE_CASE_AREA_START} to {USE_CASE_AREA_END} into a separate section
+{INITIATIVE_AREA_START} = "welche Informationen, Prozesse und Initiativen müssen wir anstoßen, um für ihn in diesem Bereich erfolgreich"
+{INITIATIVE_AREA_END} = "Ich sage immer im Unternehmen, das Wichtigste sind Synergien"
+{INITIATIVE_AREA} = Combine all pages from {INITIATIVE_AREA_START} to {INITIATIVE_AREA_END} into a separate section
+{ACTIVITY_AREA_START} = "Ich sage immer im Unternehmen, das Wichtigste sind Synergien"
+{ACTIVITY_AREA_END} = "Wir brauchen die ganzen Anträge natürlich der Reiseanfang"
+{ACTIVITY_AREA} = Combine all pages from {ACTIVITY_AREA_START} to {ACTIVITY_AREA_END} into a separate section
+
+<doc>Here we specify the snippet that should be extracted from the transcript. Their seize is tuned to match with the talks of the respective workshop participants.</doc>
+{SNIPPET} has lenght of 2-4 sentences and must consist of directly consecutive sentences (no sentence jumps). IF there are not at least two sentence-ending punctuation marks (.?! ) within the match location, then set {SNIPPET} to ‘NOT_PUNCTUATION_ENOUGH’ and instead output a maximum of 400 characters starting directly from the match position.
+
+{USE_CASE_01} = "TRANSPARENT STATUS-UPDATES"
+{USE_CASE_02} = "QUICK APPLY ADVANCED"
+{USE_CASE_03} = "VORSCHLAG GEHALTSFINDUNG BASIEREND AUF INTERNER UND EXTERNEN DATEN"
+{USE_CASE_04} = "KONSOLIDIERUNG VON "ROLLEN" PERSONALDATEN IN EIN APP"
+{USE_CASE_05} = "ENTSCHEIDUNG. EMPLOYIER BRANDING-MASSNAHMEN JE ZIELGRUPPE AUF BASIS STRATEGISCHER PERSONALPLANUNG"
+{USE_CASE_06} = "INSERATE AUF BASIS VON FUBE-TEXTEN"
+{USE_CASE_07} = "ANLAGE NEUER MITARBEITER IM HCM"
+{USE_CASE_08} = ""
+{USE_CASE_09} = "ABGLEICH STELLEN MIT SCHULUNGSANGEBOT UND ABGLEICH, OUTLOOKALENDER + ANWENDUNG VON GEBLOCKT"
+{USE_CASE_10} = "ANLAGE NEUE AZP (ARBEITSZEITPLÄNE) FÜR NEUE MITARBEITER"
+{USE_CASE_11} = "VORBEREITUNG REISE MANAGEMENT FÜR BEWERBER"
+{USE_CASE_12} = "INTERNE KARRIERE-OPTIONEN"
+{USE_CASE_13} = "KARENZ MGMT-PROZESS AUTOMATISIERUNG & AUSKUNFT"
+{USE_CASE_14} = "ZUSAMMENFASSUNG VERSCH. NOTIFICATION MAILS"
+{USE_CASE_15} = "CHAT MIT DEINEN PERSONALDATEN"
+{USE_CASE_16} = "DASHBOARD FÜR STAMMDATEN HO/URLAUB + CHEF"
+{USE_CASE_17} = "ERKLÄRUNG GEHALTSZETTEL"
+{USE_CASE_18} = "KARRIERE-PLANUNGEN"
+
+
+{INITIATIVE_BLOCK_01} = {INITIATIVE_01} - {INITIATIVE_06}
+{INITIATIVE_BLOCK_01_TEAM} = "Steiner Martin Alois", "Uebertrager Melanie", "Raunigg Lisa"
+{INITIATIVE_01} = "JOBALERT EINRICHTEN ABKLÄRUNG, OB DAS FÜR INTERNE STELLEN FUNKTIONIERT (MIT KATEGORIEN/FILTER)", {CATEGORY} = "Wise Choice"
+{INITIATIVE_02} = "ÜBERNAHME BEWERBUNG SF (SUCCESSFACTORS) ANSTOSS FÜR DATENERFASSUNG/ERGÄNZUNG + BEWERBER, DER NACHFOLGENDE DATEN EINGIBT", {CATEGORY} = "Wise Choice"
+{INITIATIVE_03} = "DATEN BESSER VERFÜGBAR MACHEN - DEMOGRAFISCHE DATEN - GEOGRAFISCHE BEZIEHUNGEN - PENSIONIERUNGEN - BETRIEBSREGELUNGSPLAN - FLUKTUATION", {CATEGORY} = "Long and/or Low Runner"
+{INITIATIVE_04} = "EXTERNE DATEN - SKILLS & BEDARFSPROFILE DER ZUKUNFT - ZIELGRUPPEN WO FINDE ICH SIE? - ARBEITSMARKTDATEN - AUSBILDUNGSPROGRAMME", {CATEGORY} = "Long and/or Low Runner"
+{INITIATIVE_05} = "ERSTELLUNG AGENT FÜR DATENANALYSE & EMPFEHLUNG VON MASSNAHMEN + FOKUSGRUPPEN", {CATEGORY} = "Long and/or Low Runner"
+{INITIATIVE_06} = "SAP ANALYSE JOBPROFIL-BILDER TALENT INTELLIGENCE ALS VORAUSSETZUNG FÜR VORSCHLÄGE/SCORING", {CATEGORY} = "Long and/or Low Runner"
+
+{INITIATIVE_BLOCK_02} = {INITIATIVE_07} - {INITIATIVE_10}
+{INITIATIVE_BLOCK_02_TEAM} = "Neubaer Katrin", "Jungwirth Christian", "Saleta Marion"
+{INITIATIVE_07} = "WISSENSMANAGEMENT CHATBOT – ANBINDUNG AN HR-APP WISSEN", {CATEGORY} = "No Brainer"
+{INITIATIVE_08} = "ANLAGE NEUER MITARBEITER IM HCM – SCHNITTSTELLE ODRA – HCM ERWEITERUNG", {CATEGORY} = "Long and/or Low Runner"
+{INITIATIVE_09} = "UNTERJÄHRIGE RESSOURCENSTEUERUNG (BASIEREND AUF EARNINGS) VERKNÜPFEN DATEN TMW/HEADCOUNT/ABWESENHEITSPROGRAMM/PLANUNGSTOOL", {CATEGORY} = "Long and/or Low Runner"
+{INITIATIVE_10} = "MITARBEITER HR-PLATTFORM MIT SÄMTLICHEN MITARBEITER DATEN SCHNITTSTELLE PRÜFEN", {CATEGORY} = "Long and/or Low Runner"
+
+
+{ACTIVITY_STEP_QUESTION_01} = "WIE LÄSST SICH DIE IDEE IN EINEM SATZ BESCHREIBEN?"
+{ACTIVITY_STEP_QUESTION_02} = "WELCHES PROBLEM WIRD FÜR DEN ANWENDER DER KI-ANWENDUNG GELÖST?"
+{ACTIVITY_STEP_QUESTION_03} = "WELCHE MITARBEITER NUTZEN DIE LÖSUNG UND WIEVIEL MITARBEITER SIND BETROFFEN?"
+{ACTIVITY_STEP_QUESTION_04} = "WIE SIEHT DER NEUE PROZESSE MIT KI-UNTERSTÜTZUNG AUS?"
+{ACTIVITY_STEP_QUESTION_05} = "WELCHE NEUEN INFORMATIONEN WERDEN DEN MITARBEITERN MIT KI-UNTERSTÜTZUNG ZUR VERFÜGUNG GESTELLT?"
+{ACTIVITY_STEP_QUESTION_06} = "IN WELCHER FORM WERDEN SIND DIE KI-GENERIERTEN INFORMATIONEN FÜR DEN MITARBEITER ABRUFBAR?"
+{ACTIVITY_STEP_QUESTION_07} = "WELCHE ABTEILUNGEN MÜSSEN AN DER UMSETZUNG MITARBEITEN BZW. SIND BETEILIGT?"
+{ACTIVITY_STEP_QUESTION_08} = "WELCHE DATEN BRAUCHT DAS PROJEKTTEAM FÜR DIE UMSETZUNG DER KI-ANWENDUNG?"
+{ACTIVITY_STEP_QUESTION_09} = "WELCHE KI-LIMITATIONEN / GRENZEN GIBT ES BEI DER UMSETZUNG?"
+{ACTIVITY_STEP_QUESTION_10} = "WAS IST DER UNTERNEHMERISCHE MEHRWERT DER EINE INVESTITION IN KI RECHTFERTIGT?"
+{ACTIVITY_STEP_QUESTION_11} = "WIE LÄSST SICH DER ERFOLG EINDEUTIG MESSEN Z.B. MIT KPIS?"
+{ACTIVITY_STEP_QUESTION_12} = "WAS IST DIE STRATEGISCHE RELEVANZ FÜR DIE KI-STRATEGIE DER ASFINAG UND WER IST DER PROJEKT SPONSOR?"
+
+{ACTIVITY_BLOCK_01} = {STEP_01} - {STEP_12}
+{ACTIVITY_BLOCK_01_TEAM} = "Neubaer Katrin", "Jungwirth Christian", "Saleta Marion"
+{STEP_01} = "NUTZUNG VON INTERNEN & EXTERNEN DATEN UM KÜNFTIGE PERSONALBEDARFE MÖGLICHST EFFIZIENT ZU DECKEN"
+{STEP_02} = "WENIG DATENBASIERTE ENTSCHEIDUNGSGRUNDLAGE FÜR EB-MASSNAHMEN & RECRUITING"
+{STEP_03} = "HR / EB (EMPLOYER BRANDING) + REC"
+{STEP_04} = "EMPFEHLUNGEN & ENTSCHEIDUNGSGRUNDLAGE ALS DASHBOARD + MARKTTRENDS"
+{STEP_05} = "KEINE"
+{STEP_06} = "INTERNE & EXTERNE DATENBASIS (SIEHE LISTE)"
+{STEP_07} = "HR / SAP-CC / ANALYTICS"
+{STEP_08} = "SIEHE LISTE"
+{STEP_09} = "KEINE KENNTNIS IN AGENT-ERSTELLUNG"
+{STEP_10} = "EFFEKTIVE & ZIELGRUPPENSPEZIFISCHE PERSONALGEWINNUNG"
+{STEP_11} = "TIME TO HIRE TIME TO FILL PERFECT MATCH BEWERBERQUALITÄT"
+{STEP_12} = "MANAGEMENT"
+
+
+EXECUTION:
+
+Execute {ABBREVIATION_CORRECTIONS} for {USE_CASE_AREA}, {INITIATIVE_AREA}, {ACTIVITY_AREA}.
+
+Print {USE_CASE_AREA}
+FOR each {USE_CASE_XX} in {USE_CASE_AREA}
+    {SNIPPET} = Extract only parts of the text where {USE_CASE_XX} is described within {USE_CASE_AREA}.
+    IF {SNIPPET} is empty THEN {SNIPPET} = Extract all parts of the text where {USE_CASE_XX} is described.
+    {ACTOR} = Role in context of {COMPANY} which is the main stakeholder of {SNIPPET}.
+    {FOCUS} = Stakeholder who should benefit most from {SNIPPET}.
+    Create a bullet point list:
+        1. bullet: Print {SNIPPET} in italics.
+        2. bullet: Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+        3. bullet: Print {ACTOR}.
+        4. bullet: Print {FOCUS}.
+
+Print {INITIATIVE_AREA}
+FOR each {INITIATIVE_BLOCK_XX}
+    FOR each {INITIATIVE_XX} in {INITIATIVE_AREA}
+        {SNIPPET} = Extract only parts of the text where {INITIATIVE_XX} is described within {INITIATIVE_AREA}.
+        IF {SNIPPET} is empty THEN {SNIPPET} = Extract all parts of the text where {INITIATIVE_XX} is described.
+        {ACTOR} = Role in context of {COMPANY} which is the main stakeholder of {SNIPPET}.
+        {FOCUS} = Stakeholder who should benefit most from {SNIPPET}.
+        Create a bullet point list:
+            1. bullet: Print {SNIPPET} in italics.
+            2. bullet: Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+            3. bullet: {CATEGORY} of {INITIATIVE_XX}
+            4. bullet: Print {ACTOR}.
+            5. bullet: Print {FOCUS}.
+            6. bullet: Print {INITIATIVE_BLOCK_XX_TEAM}
+
+
+
+Print {ACTIVITY_AREA}
+FOR each {ACTIVITY_BLOCK_XX}
+    FOR each {STEP_XX} in {ACTIVITY_AREA}
+        {SNIPPET} = Extract only parts of the text where {STEP_XX} is described within {ACTIVITY_AREA}.
+        IF {SNIPPET} is empty THEN {SNIPPET} = Extract all parts of the text where {STEP_XX} is described.
+        {ACTOR} = Role in context of {COMPANY} which is the main stakeholder of {SNIPPET}.
+        {FOCUS} = Stakeholder who should benefit most from {SNIPPET}.
+        Create a bullet point list:
+            1. bullet: Print {SNIPPET} in italics.
+            2. bullet: Print {ACTIVITY_STEP_QUESTION_XX}
+            3. bullet: Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+            4. bullet: Print {ACTOR}.
+            5. bullet: Print {FOCUS}.
+            6. bullet: Print {ACTIVITY_BLOCK_XX_TEAM}
+
+
+
+
+NORMALIZATION:
+
+Normalize abbreviations by similarity:
+If a token differs by only 1 character from a {COMMON_ABBREVIATIONS} (Levenshtein distance ≤ 1), replace it with the closest {COMMON_ABBREVIATIONS}.
+    Only apply if the token is uppercase and length 2–5.
+    Log the replacement (old → new).
+
+
+
+
+IF {USE_CASE_XX} contains incorrect or unknown abbreviations THEN use {SYSTEM_CONTEXT} and websearch to correct it.
+    
+
+
+
+Print {USE_CASE_AREA}
+FOR each {USE_CASE_XX} in {USE_CASE_AREA}
+    {SNIPPET_RAW} = Extract only parts of the text where {USE_CASE_XX} is described within {USE_CASE_AREA}.
+    IF {SNIPPET_RAW} is empty THEN {SNIPPET_RAW} = Extract all parts of the text where {USE_CASE_XX} is described.
+    {ACTOR} = Role in context of {COMPANY} which is the main stakeholder of {SNIPPET_RAW}.
+    {FOCUS} = Stakeholder who should benefit most from {SNIPPET_RAW}.
+    You are an {ACTOR} focussing on how to serve your {FOCUS} better in the future.
+    {SNIPPET_FINE} = Extract only parts of the text where {USE_CASE_XX} is described within {USE_CASE_AREA} in context of the {FOCUS}.
+    Create a bullet point list:
+        1. bullet: Print {SNIPPET_RAW} in italics.
+        2. bullet: Print {SNIPPET_FINE} in italics.
+        3. bullet: Rephrase {SNIPPET_RAW} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+        4. bullet: Print {ACTOR}.
+        5. bullet: Print {FOCUS}.
+
+EXECUTION:
+From now on, do not reference earlier messages; treat this as a new conversation.
+
+FOR each {USE_CASE_XX} in {USE_CASE_AREA}
+    Extract only parts of the text where {USE_CASE_XX} is described within {USE_CASE_AREA}. 
+    Create a bullet point list:
+        1. bullet: Print the as relevant identified texparts in italics.
+        2. bullet: Rephrase the as relevant identified textparts according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+        3. bullet: Which role in context of {COMPANY} is the main stakeholder of {USE_CASE_XX}?
+        4. bullet: Which stakeholder should benefit most from {USE_CASE_XX}?
+
+
+
+
+
+
+
+
+
+EXECUTION:
+From now on, do not reference earlier messages; treat this as a new conversation.
+
+{ACTOR} = HR Recruiting Specialist
+{FOCUS} = {Applicant}
+
+You are an {ACTOR} focussing on how to serve your {FOCUS} better in the future.
+FOR each {USE_CASE_XX} in {USE_CASE_AREA}
+    Extract only parts of the text where {USE_CASE_XX} is described within {USE_CASE_AREA} in context of the {FOCUS}. 
+    Print the as relevant identified texparts in italics.
+    Rephrase the identified text parts according to correct and fluent {LANGUAGE} but without changing the meaning and list it as a bullet point.
+
+
+
+
+
+
+
+
+
+{USE_CASE} = {WORKSHOP_ITEM} from {USE_CASE_AREA}
+{INITIATIVE_AREA} = "WKF:046-WKF:076"
+{INITIATIVE} = {WORKSHOP_ITEM} form {INITIATIVE_AREA}
+{ACTIVITY_AREA} = Combine all pages from "7 IN WELCHE KI-INNOVATIONEN SOLL ASFINAG MANAGEMENT INVESTIEREN" to "8 AKTIVITÄT" into a separate section
+{ACTIVITY} = "IDEE XX" from {ACTIVITY_AREA}
+{ACTIVITY_NUMBER} = "XX" from {ACTIVITY)
+{ACTIVITY_SECTION} = IF {ACTIVITY_NUMBER} < 6 combine all pages within {ACTIVITY_AREA} from "IDEE {ACTIVITY_NUMBER}" to "IDEE {ACTIVITY_NUMBER}+1" into a separate section; ELSE combine all pages from "DETAILS | IDEE {ACTIVITY_NUMBER}" to last page of {ACTIVITY_AREA} into a separate section
+{USER_JOURNEY_AREA} = Combine all pages from "8 AKTIVITÄT" to "9 FOTO GALLERY" into a separate section
+{USER_JOURNEY} = "IDEE XX" from {USER_JOURNEY_AREA}
+{USER_JOURNEY_NUMBER} = "XX" from {USER_JOURNEY)
+{USER_JOURNEY_SECTION} = IF {USER_JOURNEY_NUMBER} < 6 combine all pages within {USER_JOURNEY_AREA} from "IDEE {USER_JOURNEY_NUMBER}" to "IDEE {USER_JOURNEY_NUMBER}+1" into a separate section; ELSE combine all pages from "IDEE {ACTIVITY_NUMBER}" to last page of {USER_JOURNEY_AREA} into a separate section
+{TIETO_OFFERING} = Collect all offerings of our company regarding SAP, Microsoft and databricks
+{COMPETITORS_OFFERING} = Analyse the webpages of our main competitors and collect offerings regarding SAP, Microsoft and databricks
+{INTERFACES} = List of necessary interfaces and/or applications
+{QUESTION} = Return exaclty the text next to "FRAGE" of the particular {WORKSHOP_ITEM}
+{ANSWER} = Return exaclty the text next to "KI - WKF ANTWORT" of the particular {WORKSHOP_ITEM}
+{TRANSCRIPT} = Return exaclty the text next to "KI-TRANSKRIPT:" of the particular {WORKSHOP_ITEM}
+
+
+
+
+
+
+
+/*
+{IDEA_AREA} = Combine all pages from "DETAILS | IDEE 01" to "AKTIVITÄT - 06" into a separate section
+{IDEA} = "IDEE XX" from {IDEA_AREA}
+{IDEA_NUMBER} = "XX" from {IDEA)
+{IDEA_SECTION} = IF {IDEA_NUMBER} < 6 combine all pages from "DETAILS | IDEE {IDEA_NUMBER}" to "DETAILS | IDEE {IDEA_NUMBER}+1" into a separate section; ELSE combine all pages from "DETAILS | IDEE {IDEA_NUMBER}" to last page of {IDEA_AREA} into a separate section
+
+Be restrictive and do not try to find correlations or connections.
+*/
