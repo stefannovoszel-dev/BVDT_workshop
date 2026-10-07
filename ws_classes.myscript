@@ -39,7 +39,7 @@ class Company
 
 class BusinessScenario
     <optional> property customer (text)
-    property industriySegment (text)
+    property industrySegment (text)
     property equipmentType (text)
     property customerSituation (text)
 
@@ -184,7 +184,7 @@ class BusinessParty
 class BusinessCapability
     property id (text)
     property name (text)
-    property businessModelArgument (BusinessModelArgument) :Collection
+    <optional> property businessModelArgument (BusinessModelArgument) :Collection
 
 
 class BusinessModelArgument

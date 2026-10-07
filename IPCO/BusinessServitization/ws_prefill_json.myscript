@@ -1,8 +1,19 @@
 <doc>Pre-processing rules applied before parsing to keep the payload deterministic and clean.</doc>
 INSTRUCTION HYGIENE:
 Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
-Remove all empty strings ("") within CONFIGURATION section before parsing.
 Remove all <doc>…</doc> blocks within CONFIGURATION section before parsing.
+
+Treat every CONFIGURATION assignment whose resolved value is an empty
+string as undefined.
+
+Do not serialize undefined settings.
+
+A module or container whose controlling ID is undefined must not be
+created. Do not evaluate that module's nested mapping instructions.
+
+Inside a collection loop, skip entries whose required configuration
+values are undefined. Optional object properties may be omitted
+individually.
 
 
 TOOLS:
@@ -32,83 +43,59 @@ CONFIGURATION:
 {WORKSHOP_DATE} = "2026-10-01"
 
 <doc>Participant master data. Empty emails are intentionally allowed and removed by hygiene rules if needed.</doc>
-{PARTICIPANT_01_NAME} = "Matthieu Donada"
-{PARTICIPANT_01_ROLE} = "Senior Sales Manager"
+{PARTICIPANT_01_NAME} = "Mats Eriksson"
+{PARTICIPANT_01_ROLE} = "Head of IT"
 {PARTICIPANT_01_COMPANY_NAME} = {CUSTOMER_NAME}
 {PARTICIPANT_01_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_01_EMAIL} = "matthieu.donada@tieto.com"
+{PARTICIPANT_01_EMAIL} = "mats.eriksson@ipco.com"
 
-{PARTICIPANT_02_NAME} = "Nina Witulska"
-{PARTICIPANT_02_ROLE} = "Sales Manager"
+{PARTICIPANT_02_NAME} = "Daria Khomiakova"
+{PARTICIPANT_02_ROLE} = "Service Manager Network & Integration & Infra"
 {PARTICIPANT_02_COMPANY_NAME} = {CUSTOMER_NAME}
 {PARTICIPANT_02_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_02_EMAIL} = "nina.witulska@tieto.com"
+{PARTICIPANT_02_EMAIL} = "daria.khomiakova@ipco.com"
 
-{PARTICIPANT_03_NAME} = "Jacek Bryndza"
-{PARTICIPANT_03_ROLE} = "Director, EU Embedded"
+{PARTICIPANT_03_NAME} = "Björn Pettersson"
+{PARTICIPANT_03_ROLE} = "Head of Sales and APO CRM"
 {PARTICIPANT_03_COMPANY_NAME} = {CUSTOMER_NAME}
 {PARTICIPANT_03_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_03_EMAIL} = "jacek.bryndza@tieto.com"
+{PARTICIPANT_03_EMAIL} = "bjorn.pettersson@ipco.com"
 
-{PARTICIPANT_04_NAME} = "Patrik Forslund"
-{PARTICIPANT_04_ROLE} = "Head of Specialized Engineering"
+{PARTICIPANT_04_NAME} = "Michael Fichtel"
+{PARTICIPANT_04_ROLE} = "Head of Logistics & Warehousing and APO ERP"
 {PARTICIPANT_04_COMPANY_NAME} = {CUSTOMER_NAME}
 {PARTICIPANT_04_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_04_EMAIL} = "patrik.forslund@tieto.com"
+{PARTICIPANT_04_EMAIL} = "michael.fichtel@ipco.com"
 
-{PARTICIPANT_05_NAME} = "Piotr Romanowski"
-{PARTICIPANT_05_ROLE} = "Manufacturing & Automotive Principal"
-{PARTICIPANT_05_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_05_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_05_EMAIL} = "piotr.romanowski@tieto.com"
+{PARTICIPANT_05_NAME} = "Johan Stenman"
+{PARTICIPANT_05_ROLE} = "Key Account Manager"
+{PARTICIPANT_05_COMPANY_NAME} = "Tieto"
+{PARTICIPANT_05_COMPANY_INDUSTRY} = "IT Services"
+{PARTICIPANT_05_EMAIL} = "johan.stenman@tieto.com"
 
-{PARTICIPANT_06_NAME} = "Aleksandar Dimitrov"
-{PARTICIPANT_06_ROLE} = "Lead Solution Architect"
-{PARTICIPANT_06_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_06_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_06_EMAIL} = "aleksandar.dimitrov@mentormate.com"
+{PARTICIPANT_06_NAME} = "Alla Dewar"
+{PARTICIPANT_06_ROLE} = "Delivery Executive"
+{PARTICIPANT_06_COMPANY_NAME} = "Tieto"
+{PARTICIPANT_06_COMPANY_INDUSTRY} = "IT Services"
+{PARTICIPANT_06_EMAIL} = "alla.dewar@tieto.com"
 
-{PARTICIPANT_07_NAME} = "Jan Pudas"
-{PARTICIPANT_07_ROLE} = "Lead Project Manager"
-{PARTICIPANT_07_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_07_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_07_EMAIL} = "jan.pudas@tieto.com"
+{PARTICIPANT_07_NAME} = "Lukas Dadam"
+{PARTICIPANT_07_ROLE} = "Architect"
+{PARTICIPANT_07_COMPANY_NAME} = "Tieto"
+{PARTICIPANT_07_COMPANY_INDUSTRY} = "IT Services"
+{PARTICIPANT_07_EMAIL} = "lukas.dadam@tieto.com"
 
-{PARTICIPANT_08_NAME} = "Magnus Falkenström"
-{PARTICIPANT_08_ROLE} = "Business Development Lead"
+{PARTICIPANT_08_NAME} = "Mariia Lubska"
+{PARTICIPANT_08_ROLE} = "Head of Data & AI"
 {PARTICIPANT_08_COMPANY_NAME} = {CUSTOMER_NAME}
 {PARTICIPANT_08_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_08_EMAIL} = "magnus.falkenstrom@tieto.com"
+{PARTICIPANT_08_EMAIL} = "mariia.lubska@ipco.com"
 
-{PARTICIPANT_09_NAME} = "Anders G Karlsson"
-{PARTICIPANT_09_ROLE} = "Lead Business Developer"
-{PARTICIPANT_09_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_09_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_09_EMAIL} = "anders.g.karlsson@tieto.com"
-
-{PARTICIPANT_10_NAME} = "Olha Kutsevych"
-{PARTICIPANT_10_ROLE} = "Senior Bid Manager"
-{PARTICIPANT_10_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_10_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_10_EMAIL} = "olha.kutsevych@tieto.com"
-
-{PARTICIPANT_11_NAME} = "Stefan Novoszel"
-{PARTICIPANT_11_ROLE} = "Moderator"
-{PARTICIPANT_11_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_11_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_11_EMAIL} = "stefan.novoszel@tieto.com"
-
-{PARTICIPANT_12_NAME} = "Michael S Pedersen"
-{PARTICIPANT_12_ROLE} = "Business Developer"
-{PARTICIPANT_12_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_12_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_12_EMAIL} = "michael.s.pedersen@tieto.com"
-
-{PARTICIPANT_13_NAME} = "Patrik Strandeus"
-{PARTICIPANT_13_ROLE} = "Head of R&D"
-{PARTICIPANT_13_COMPANY_NAME} = {CUSTOMER_NAME}
-{PARTICIPANT_13_COMPANY_INDUSTRY} = {INDUSTRY}
-{PARTICIPANT_13_EMAIL} = "patrik.strandeus@tieto.com"
+{PARTICIPANT_09_NAME} = "Stefan Novoszel"
+{PARTICIPANT_09_ROLE} = "Moderator"
+{PARTICIPANT_09_COMPANY_NAME} = "Tieto"
+{PARTICIPANT_09_COMPANY_INDUSTRY} = "IT Services"
+{PARTICIPANT_09_EMAIL} = "stefan.novoszel@tieto.com"
 
 
 <doc>Here you define the global settings for the workshop, as they are written on the poster.</doc>
@@ -138,13 +125,13 @@ CONFIGURATION:
 
 <doc>Here you define the business parties which will be taken into consideration, e.g. in a Business Servitization WS.</doc>
 {BUSINESS_PARTY_01_NAME} = "Customer of IPCO"
-{BUSINESS_PARTY_01_ID} = "BP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {BUSINESS_PARTY_01_NAME} + {ID})
+{BUSINESS_PARTY_01_ID} = "BP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {BUSINESS_PARTY_01_NAME})
 {BUSINESS_PARTY_01_CAPABILITY_01_NAME} = "Shopfloor Operations"
 {BUSINESS_PARTY_01_CAPABILITY_01_ID} = "BPC_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {BUSINESS_PARTY_01_CAPABILITY_01_NAME} + {BUSINESS_PARTY_01_ID})
 {BUSINESS_PARTY_01_CAPABILITY_02_NAME} = "Business Operations"
 {BUSINESS_PARTY_01_CAPABILITY_02_ID} = "BPC_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {BUSINESS_PARTY_01_CAPABILITY_02_NAME} + {BUSINESS_PARTY_01_ID})
 {BUSINESS_PARTY_02_NAME} = "IPCO"
-{BUSINESS_PARTY_02_ID} = "BP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {BUSINESS_PARTY_02_NAME} + {ID})
+{BUSINESS_PARTY_02_ID} = "BP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {BUSINESS_PARTY_02_NAME})
 {BUSINESS_PARTY_02_CAPABILITY_01_NAME} = "Service Provider / Customer Manager"
 {BUSINESS_PARTY_02_CAPABILITY_01_ID} = "BPC_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {BUSINESS_PARTY_02_CAPABILITY_01_NAME} + {BUSINESS_PARTY_02_ID})
 
@@ -233,7 +220,7 @@ For each {BUSINESS_PARTY_XX}
     For each {BUSINESS_PARTY_XX_CAPABILITY_YY}
         {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_NAME} = {BUSINESS_PARTY_XX_CAPABILITY_YY_NAME}
         {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_ID} = {BUSINESS_PARTY_XX_CAPABILITY_YY_ID}
-        {MD_ADVANCED_USER_JOURNEY_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_NAME} + {CT_ADVANCED_USER_JOURNEY_ID})
+        {MD_ADVANCED_USER_JOURNEY_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_ID} + {CT_ADVANCED_USER_JOURNEY_ID})
 
 {MD_ADVANCED_USER_JOURNEY_STEP_01_HEADLINE} = "Level 1: On-Demand Services"
 {MD_ADVANCED_USER_JOURNEY_STEP_01_DESCRIPTION} = "Connectivity: Stand alone not Conected; Ownership: Customer Ownership; Data: Data not shared"
@@ -290,10 +277,16 @@ For each {BUSINESS_PARTY_XX}
 {CT_SCENARIO_SUMMARY_HEADLINE} = "This is what we believe is the best?"
 {CT_SCENARIO_SUMMARY_ID} = "CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CT_SCENARIO_SUMMARY_HEADLINE})
 
-For each {MD_ADVANCED_USER_JOURNEY_STEP_XX}
-    {MD_SCENARIO_SUMMARY_XX_SCENARIO} = {MD_ADVANCED_USER_JOURNEY_STEP_XX_HEADLINE}
-    {MD_SCENARIO_SUMMARY_XX_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_SCENARIO_SUMMARY_XX_SCENARIO} + {CT_SCENARIO_SUMMARY_ID})
-
+For each {MD_XX_DIFF_SCENARIOS_RATED}
+    {MD_SCENARIO_SUMMARY_XX_SCENARIO}
+        = {MD_XX_DIFF_SCENARIOS_RATED_SCENARIO}
+    {MD_SCENARIO_SUMMARY_XX_ID}
+        = "MODULE_" +
+          {METHOD_ID_GENERATOR}(
+              {CUSTOMER_NAME},
+              {MD_SCENARIO_SUMMARY_XX_SCENARIO}
+              + {CT_SCENARIO_SUMMARY_ID}
+          )
 
 
 
@@ -335,6 +328,189 @@ Create Workshop with:
     Workshop.company.Name = {CUSTOMER_NAME}
     Workshop.company.Industry = {INDUSTRY}
 
+    
+    <doc>Create the configured business scenario.</doc>
+    IF {SCENARIO_INDUSTRY}, {SCENARIO_EQ_TYPE}, and {SCENARIO_SITUATION} are defined
+        Create BusinessScenario with:
+            industrySegment = {SCENARIO_INDUSTRY}
+            equipmentType = {SCENARIO_EQ_TYPE}
+            customerSituation = {SCENARIO_SITUATION}
+
+            IF {SCENARIO_CUSTOMER} is defined
+                customer = {SCENARIO_CUSTOMER}
+
+        Workshop.businessScenario = BusinessScenario
+    
+
+    <doc>Create the business-party and capability master data.</doc>
+    For each {BUSINESS_PARTY_XX}
+        Create BusinessParty with:
+            id = {BUSINESS_PARTY_XX_ID}
+            name = {BUSINESS_PARTY_XX_NAME}
+
+            For each {BUSINESS_PARTY_XX_CAPABILITY_YY}
+                Create BusinessCapability with:
+                    id = {BUSINESS_PARTY_XX_CAPABILITY_YY_ID}
+                    name = {BUSINESS_PARTY_XX_CAPABILITY_YY_NAME}
+
+                append BusinessCapability to
+                    BusinessParty.businessCapability
+
+        append BusinessParty to Workshop.businessParty
+
+    
+    <doc>Create lifecycle stages with capability-specific business model argument placeholders.</doc>
+    IF {MD_LIFE_CYCLE_ID} is defined
+        Create Module_LifeCycle with:
+            id = {MD_LIFE_CYCLE_ID}
+            headline = {MD_LIFE_CYCLE_HEADLINE}
+
+            For each {MD_LIFE_CYCLE_STAGE_XX}
+                Create LifeCycleStage with:
+                    id = {MD_LIFE_CYCLE_STAGE_XX_ID}
+                    name = {MD_LIFE_CYCLE_STAGE_XX_NAME}
+                    description = {MD_LIFE_CYCLE_STAGE_XX_DESCRIPTION}
+
+                    For each
+                        {MD_LIFE_CYCLE_BUSINESS_PARTY_YY_CAPABILITY_ZZ}
+                        Create BusinessCapability with:
+                            id =
+                                {MD_LIFE_CYCLE_BUSINESS_PARTY_YY_CAPABILITY_ZZ_ID}
+                            name =
+                                {MD_LIFE_CYCLE_BUSINESS_PARTY_YY_CAPABILITY_ZZ_NAME}
+
+                            For each
+                                {MD_LIFE_CYCLE_BUSINESS_PARTY_YY_CAPABILITY_ZZ_BUSINESS_MODEL_AA}
+                                Create BusinessModelArgument with:
+                                    businessModel =
+                                        {MD_LIFE_CYCLE_BUSINESS_PARTY_YY_CAPABILITY_ZZ_BUSINESS_MODEL_AA}
+
+                                append BusinessModelArgument to
+                                    BusinessCapability.businessModelArgument
+
+                        append BusinessCapability to
+                            LifeCycleStage.businessCapability
+
+                append LifeCycleStage to Module_LifeCycle.lifeCycleStage
+
+        Workshop.module_LifeCycle = Module_LifeCycle
+    
+
+    <doc>Create scenario assessment modules and rating placeholders.</doc>
+    IF {CT_DIFF_SCENARIOS_RATED_ID} is defined
+        Create Container_DifferentScenariosRated with:
+            id = {CT_DIFF_SCENARIOS_RATED_ID}
+            headline = {CT_DIFF_SCENARIOS_RATED_HEADLINE}
+
+            For each {MD_XX_DIFF_SCENARIOS_RATED}
+                Create Module_DifferentScenariosRated with:
+                    id = {MD_XX_DIFF_SCENARIOS_RATED_ID}
+                    scenario = {MD_XX_DIFF_SCENARIOS_RATED_SCENARIO}
+
+                    For each {SCENARIO_ASPECT_RATING_YY}
+                        Create ScenarioAspectRating with:
+                            id = "SCENARIO_ASPECT_" +
+                                {METHOD_ID_GENERATOR}(
+                                    {CUSTOMER_NAME},
+                                    {MD_XX_DIFF_SCENARIOS_RATED_ID}
+                                    + {SCENARIO_ASPECT_RATING_YY_CATEGORY}
+                                    + {SCENARIO_ASPECT_RATING_YY_ASPECT}
+                                )
+                            aspect =
+                                {SCENARIO_ASPECT_RATING_YY_ASPECT}
+                            category =
+                                {SCENARIO_ASPECT_RATING_YY_CATEGORY}
+
+                        append ScenarioAspectRating to
+                            Module_DifferentScenariosRated.scenarioAspectRating
+
+                append Module_DifferentScenariosRated to
+                    Container_DifferentScenariosRated.module_DifferentScenariosRated
+
+        Workshop.container_DifferentScenariosRated =
+            Container_DifferentScenariosRated
+
+    
+    <doc>Create a roadmap module when roadmap configuration exists.</doc>
+    IF {MD_ROADMAP_ID} is defined
+        Create Module_Roadmap with:
+            id = {MD_ROADMAP_ID}
+            headline = {MD_ROADMAP_HEADLINE}
+
+        Workshop.module_Roadmap = Module_Roadmap
+    
+    
+    <doc>Create one advanced user journey module per configured business capability.</doc>
+    IF {CT_ADVANCED_USER_JOURNEY_ID} is defined
+        Create Container_AdvancedUserJourney with:
+            id = {CT_ADVANCED_USER_JOURNEY_ID}
+            headline = {CT_ADVANCED_USER_JOURNEY_HEADLINE}
+
+            For each
+                {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY}
+                Create Module_AdvancedUserJourney with:
+                    id =
+                        {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_MODULE_ID}
+
+                    Create BusinessCapability with:
+                        id =
+                            {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_ID}
+                        name =
+                            {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_NAME}
+
+                    set Module_AdvancedUserJourney.businessCapability =
+                        BusinessCapability
+
+                    For each {MD_ADVANCED_USER_JOURNEY_STEP_ZZ}
+                        Create AdvancedUserJourneyStep with:
+                            id = "AJ_STEP_" +
+                                {METHOD_ID_GENERATOR}(
+                                    {CUSTOMER_NAME},
+                                    {MD_ADVANCED_USER_JOURNEY_BUSINESS_PARTY_XX_CAPABILITY_YY_MODULE_ID}
+                                    + {MD_ADVANCED_USER_JOURNEY_STEP_ZZ_HEADLINE}
+                                )
+                            headline =
+                                {MD_ADVANCED_USER_JOURNEY_STEP_ZZ_HEADLINE}
+                            description =
+                                {MD_ADVANCED_USER_JOURNEY_STEP_ZZ_DESCRIPTION}
+
+                        append AdvancedUserJourneyStep to
+                            Module_AdvancedUserJourney.userJourneyStep
+
+                append Module_AdvancedUserJourney to
+                    Container_AdvancedUserJourney.module_advancedUserJourney
+
+        Workshop.container_AdvancedUserJourney =
+            Container_AdvancedUserJourney
+
+
+    <doc>Create one summary module per assessed scenario.</doc>
+    IF {CT_SCENARIO_SUMMARY_ID} is defined
+        Create Container_ScenarioSummary with:
+            id = {CT_SCENARIO_SUMMARY_ID}
+            headline = {CT_SCENARIO_SUMMARY_HEADLINE}
+
+            For each {MD_SCENARIO_SUMMARY_XX}
+                Create Module_ScenarioSummary with:
+                    id = {MD_SCENARIO_SUMMARY_XX_ID}
+                    scenario = {MD_SCENARIO_SUMMARY_XX_SCENARIO}
+
+                    For each distinct
+                        {SCENARIO_ASPECT_RATING_YY_CATEGORY}
+                        Create CategoryScore with:
+                            category =
+                                {SCENARIO_ASPECT_RATING_YY_CATEGORY}
+
+                        append CategoryScore to
+                            Module_ScenarioSummary.categoryScore
+
+                append Module_ScenarioSummary to
+                    Container_ScenarioSummary.module_ScenarioSummary
+
+        Workshop.container_ScenarioSummary =
+            Container_ScenarioSummary
+
+    
     <doc>Initialize the Different Views container and pre-create rating placeholders by perspective and category.</doc>
     IF {CT_DIFF_VIEWS_RATED_ID} is not empty
         Create Container_DifferentViewsRated with:
@@ -414,7 +590,7 @@ Create Workshop with:
 
                         For each {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DATA_XX}
                             create WorkplanItemOneStep with:
-                                description = {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DATA_XX_TOPIC}
+                                topic = {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DATA_XX_TOPIC}
                             append WorkplanItemOneStep to WorkplanItemGroupExplanationData.workplanItemOneStep
                     
                     append WorkplanItemGroupExplanationData to Module_DetailedWorkingPlan.workplanItemGroupExplanationData
@@ -425,7 +601,7 @@ Create Workshop with:
 
                         For each {MD_DETAILED_WORKING_PLAN_RESOURCES_XX}
                             create WorkplanItemOneStep with:
-                                description = {MD_DETAILED_WORKING_PLAN_RESOURCES_XX_TOPIC}
+                                topic = {MD_DETAILED_WORKING_PLAN_RESOURCES_XX_TOPIC}
                             append WorkplanItemOneStep to WorkplanItemGroupRequiredResources.workplanItemOneStep
                     
                     append WorkplanItemGroupRequiredResources to Module_DetailedWorkingPlan.workplanItemGroupRequiredResources
@@ -459,7 +635,7 @@ Create Workshop with:
             id = {MD_FREE_ASSOCIATION_ID}
             headline = {MD_FREE_ASSOCIATION_HEADLINE}
             question = {MD_FREE_ASSOCIATION_QUESTION}
-        append Module_FreeAssociation to Workshop.module_FreeAssociation
+        Workshop.module_freeAssociation = Module_FreeAssociation
 
     <doc>Initialize the staged offering portfolio module with its stages and topics.</doc>
     IF {MD_STAGED_OFFERING_PORTFOLIO_ID} is not empty

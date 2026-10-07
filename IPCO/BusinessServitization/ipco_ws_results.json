@@ -1,0 +1,823 @@
+{
+  "goal": "Business Servitization Journey – How to build new business models and services that allow IPCO to move from CAPEX to OPEX and investment with a joint business benefit for us and our Customers?",
+  "focus": [
+    "Understanding customer benefits",
+    "Understanding IPCO benefits",
+    "Understanding legal implications and risks",
+    "Capabilities we currently have and need in future"
+  ],
+  "expectedOutcome": [
+    "Business opportunities",
+    "Next steps",
+    "Identifying the right servitization level for IPCO"
+  ],
+  "date": "2026-10-01",
+  "participant": [
+    {
+      "name": "Mats Eriksson",
+      "role": "Head of IT",
+      "company": {
+        "Name": "IPCO",
+        "Industry": "Manufacturing"
+      },
+      "email": "mats.eriksson@ipco.com"
+    },
+    {
+      "name": "Daria Khomiakova",
+      "role": "Service Manager Network & Integration & Infra",
+      "company": {
+        "Name": "IPCO",
+        "Industry": "Manufacturing"
+      },
+      "email": "daria.khomiakova@ipco.com"
+    },
+    {
+      "name": "Björn Pettersson",
+      "role": "Head of Sales and APO CRM",
+      "company": {
+        "Name": "IPCO",
+        "Industry": "Manufacturing"
+      },
+      "email": "bjorn.pettersson@ipco.com"
+    },
+    {
+      "name": "Michael Fichtel",
+      "role": "Head of Logistics & Warehousing and APO ERP",
+      "company": {
+        "Name": "IPCO",
+        "Industry": "Manufacturing"
+      },
+      "email": "michael.fichtel@ipco.com"
+    },
+    {
+      "name": "Johan Stenman",
+      "role": "Key Account Manager",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "johan.stenman@tieto.com"
+    },
+    {
+      "name": "Alla Dewar",
+      "role": "Delivery Executive",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "alla.dewar@tieto.com"
+    },
+    {
+      "name": "Lukas Dadam",
+      "role": "Architect",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "lukas.dadam@tieto.com"
+    },
+    {
+      "name": "Mariia Lubska",
+      "role": "Head of Data & AI",
+      "company": {
+        "Name": "IPCO",
+        "Industry": "Manufacturing"
+      },
+      "email": "mariia.lubska@ipco.com"
+    },
+    {
+      "name": "Stefan Novoszel",
+      "role": "Moderator",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "stefan.novoszel@tieto.com"
+    }
+  ],
+  "company": {
+    "Name": "IPCO",
+    "Industry": "Manufacturing"
+  },
+  "businessScenario": {
+    "industrySegment": "Chocolate manufacturing",
+    "equipmentType": "Rotoform HP",
+    "customerSituation": "New product line with shared risk"
+  },
+  "businessParty": [
+    {
+      "id": "BP_705037813918",
+      "name": "Customer of IPCO",
+      "businessCapability": [
+        {
+          "id": "BPC_161640310957",
+          "name": "Shopfloor Operations"
+        },
+        {
+          "id": "BPC_665009047651",
+          "name": "Business Operations"
+        }
+      ]
+    },
+    {
+      "id": "BP_160730706815",
+      "name": "IPCO",
+      "businessCapability": [
+        {
+          "id": "BPC_591523972917",
+          "name": "Service Provider / Customer Manager"
+        }
+      ]
+    }
+  ],
+  "module_LifeCycle": {
+    "id": "MODULE_487471431252",
+    "headline": "Business Servitization live cycle - Pro and Cons – Rational arguments",
+    "lifeCycleStage": [
+      {
+        "id": "STAGE_698517170376",
+        "name": "Machine Purchase Investment",
+        "description": "Consider what the pro’s and con’s of owning a machine including investment, budgets, CAPEX/OPEX versus use only are.",
+        "businessCapability": [
+          {
+            "id": "BPC_161640310957",
+            "name": "Shopfloor Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_665009047651",
+            "name": "Business Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_591523972917",
+            "name": "Service Provider / Customer Manager",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "STAGE_537490096226",
+        "name": "Installation & Commissioning",
+        "description": "Consider how the installation and commissioning process is influenced when buying versus using a machine you don’t own.",
+        "businessCapability": [
+          {
+            "id": "BPC_161640310957",
+            "name": "Shopfloor Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_665009047651",
+            "name": "Business Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_591523972917",
+            "name": "Service Provider / Customer Manager",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "STAGE_427092566551",
+        "name": "Standard Operation",
+        "description": "Consider how your workforce and standard operation processes are influenced by the fact that your company or the manufacturer is owing the asset.",
+        "businessCapability": [
+          {
+            "id": "BPC_161640310957",
+            "name": "Shopfloor Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_665009047651",
+            "name": "Business Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_591523972917",
+            "name": "Service Provider / Customer Manager",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "STAGE_621715918447",
+        "name": "Maintenance And Repair",
+        "description": "Consider how the maintenance process is influenced by the ownership of the asset and how your maintenance planning and operation will be done.",
+        "businessCapability": [
+          {
+            "id": "BPC_161640310957",
+            "name": "Shopfloor Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_665009047651",
+            "name": "Business Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_591523972917",
+            "name": "Service Provider / Customer Manager",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "STAGE_902547140090",
+        "name": "Breakdown Management",
+        "description": "Consider there is a serious breakdown how will flexibility and agility be influence by you or an external company managing the breakdown and getting the machine up and running again.",
+        "businessCapability": [
+          {
+            "id": "BPC_161640310957",
+            "name": "Shopfloor Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_665009047651",
+            "name": "Business Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_591523972917",
+            "name": "Service Provider / Customer Manager",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "STAGE_538247612325",
+        "name": "Deommissioning & End of Life Treatment",
+        "description": "Consider your company wants to get rid of their old machine what costs, responsibilities and efforts will be involved for decommissioning the old machine.",
+        "businessCapability": [
+          {
+            "id": "BPC_161640310957",
+            "name": "Shopfloor Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_665009047651",
+            "name": "Business Operations",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          },
+          {
+            "id": "BPC_591523972917",
+            "name": "Service Provider / Customer Manager",
+            "businessModelArgument": [
+              {
+                "businessModel": "CAPEX"
+              },
+              {
+                "businessModel": "OPEX"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "container_DifferentScenariosRated": {
+    "id": "CONTAINER_992041940817",
+    "headline": "What are the compelling reasons for IPCO Customers to say this level is perfect for our business scenario!",
+    "module_DifferentScenariosRated": [
+      {
+        "id": "MODULE_843261398104",
+        "scenario": "Level 2",
+        "scenarioAspectRating": [
+          {
+            "id": "SCENARIO_ASPECT_006773813534",
+            "aspect": "Impact on turnover?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_793036876406",
+            "aspect": "Impact on profit?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_696271644075",
+            "aspect": "Impact on cash flow?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_786197564448",
+            "aspect": "Impact on credit rating?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_308223047327",
+            "aspect": "Impact on production planning?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_190362992975",
+            "aspect": "Impact on OEE (Overall Equipment Effectiveness)?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_956648027150",
+            "aspect": "Impact on product quality?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_625384795265",
+            "aspect": "Impact on production downtimes?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_625288914557",
+            "aspect": "Impact on employee satisfaction?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_216828372482",
+            "aspect": "Impact on safety?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_235930207288",
+            "aspect": "Impact on employee skill requirements?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_151000309619",
+            "aspect": "Protectability of Intellectual Property?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_587549231603",
+            "aspect": "Impact on security?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_900987034296",
+            "aspect": "Impact on liability?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_727307230478",
+            "aspect": "Partnership",
+            "category": "Joker"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_314619979186",
+        "scenario": "Level 3",
+        "scenarioAspectRating": [
+          {
+            "id": "SCENARIO_ASPECT_381722276410",
+            "aspect": "Impact on turnover?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_387438192066",
+            "aspect": "Impact on profit?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_924467945687",
+            "aspect": "Impact on cash flow?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_125890315218",
+            "aspect": "Impact on credit rating?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_131951210580",
+            "aspect": "Impact on production planning?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_702803278105",
+            "aspect": "Impact on OEE (Overall Equipment Effectiveness)?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_388392148881",
+            "aspect": "Impact on product quality?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_499770296747",
+            "aspect": "Impact on production downtimes?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_167660209233",
+            "aspect": "Impact on employee satisfaction?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_238863888816",
+            "aspect": "Impact on safety?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_395732463728",
+            "aspect": "Impact on employee skill requirements?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_692598753543",
+            "aspect": "Protectability of Intellectual Property?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_534681038719",
+            "aspect": "Impact on security?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_194608650484",
+            "aspect": "Impact on liability?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_187178186627",
+            "aspect": "Partnership",
+            "category": "Joker"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_871728708834",
+        "scenario": "Level 4",
+        "scenarioAspectRating": [
+          {
+            "id": "SCENARIO_ASPECT_070952674106",
+            "aspect": "Impact on turnover?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_397528554783",
+            "aspect": "Impact on profit?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_476242540350",
+            "aspect": "Impact on cash flow?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_964291124031",
+            "aspect": "Impact on credit rating?",
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_555420654565",
+            "aspect": "Impact on production planning?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_787746924009",
+            "aspect": "Impact on OEE (Overall Equipment Effectiveness)?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_425592419821",
+            "aspect": "Impact on product quality?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_342830774055",
+            "aspect": "Impact on production downtimes?",
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_287019119760",
+            "aspect": "Impact on employee satisfaction?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_786280140678",
+            "aspect": "Impact on safety?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_862785283421",
+            "aspect": "Impact on employee skill requirements?",
+            "category": "Employee Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_753227297748",
+            "aspect": "Protectability of Intellectual Property?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_242226328704",
+            "aspect": "Impact on security?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_514395621803",
+            "aspect": "Impact on liability?",
+            "category": "Legal Assessment"
+          },
+          {
+            "id": "SCENARIO_ASPECT_141061072766",
+            "aspect": "Partnership",
+            "category": "Joker"
+          }
+        ]
+      }
+    ]
+  },
+  "container_AdvancedUserJourney": {
+    "id": "CONTAINER_359143651017",
+    "headline": "What are the individual benefits to justify selecting each of the four level as being the best choice?",
+    "module_advancedUserJourney": [
+      {
+        "id": "MODULE_963703389116",
+        "businessCapability": {
+          "id": "BPC_161640310957",
+          "name": "Shopfloor Operations"
+        },
+        "userJourneyStep": [
+          {
+            "id": "AJ_STEP_572770424517",
+            "headline": "Level 1: On-Demand Services",
+            "description": "Connectivity: Stand alone not Conected; Ownership: Customer Ownership; Data: Data not shared"
+          },
+          {
+            "id": "AJ_STEP_450301903596",
+            "headline": "Level 2: Reactive Services",
+            "description": "Connectivity: Customer Connected; Ownership: Customer Ownership; Data: Selected data is shared with OEM"
+          },
+          {
+            "id": "AJ_STEP_133987467615",
+            "headline": "Level 3: Pro-Active Services",
+            "description": "Connectivity: OEM - Conected; Ownership: Customer Ownership; Data: OEM has full access to data"
+          },
+          {
+            "id": "AJ_STEP_591666428314",
+            "headline": "Level 4: Equipment as a Service",
+            "description": "Connectivity: OEM - Controlled; Ownership: OEM - Ownership; Data: OEM has full control over data"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_139424504578",
+        "businessCapability": {
+          "id": "BPC_665009047651",
+          "name": "Business Operations"
+        },
+        "userJourneyStep": [
+          {
+            "id": "AJ_STEP_887180332538",
+            "headline": "Level 1: On-Demand Services",
+            "description": "Connectivity: Stand alone not Conected; Ownership: Customer Ownership; Data: Data not shared"
+          },
+          {
+            "id": "AJ_STEP_859593120354",
+            "headline": "Level 2: Reactive Services",
+            "description": "Connectivity: Customer Connected; Ownership: Customer Ownership; Data: Selected data is shared with OEM"
+          },
+          {
+            "id": "AJ_STEP_802600451995",
+            "headline": "Level 3: Pro-Active Services",
+            "description": "Connectivity: OEM - Conected; Ownership: Customer Ownership; Data: OEM has full access to data"
+          },
+          {
+            "id": "AJ_STEP_331500896122",
+            "headline": "Level 4: Equipment as a Service",
+            "description": "Connectivity: OEM - Controlled; Ownership: OEM - Ownership; Data: OEM has full control over data"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_518403084454",
+        "businessCapability": {
+          "id": "BPC_591523972917",
+          "name": "Service Provider / Customer Manager"
+        },
+        "userJourneyStep": [
+          {
+            "id": "AJ_STEP_635285966350",
+            "headline": "Level 1: On-Demand Services",
+            "description": "Connectivity: Stand alone not Conected; Ownership: Customer Ownership; Data: Data not shared"
+          },
+          {
+            "id": "AJ_STEP_208039914085",
+            "headline": "Level 2: Reactive Services",
+            "description": "Connectivity: Customer Connected; Ownership: Customer Ownership; Data: Selected data is shared with OEM"
+          },
+          {
+            "id": "AJ_STEP_007761674984",
+            "headline": "Level 3: Pro-Active Services",
+            "description": "Connectivity: OEM - Conected; Ownership: Customer Ownership; Data: OEM has full access to data"
+          },
+          {
+            "id": "AJ_STEP_672498718272",
+            "headline": "Level 4: Equipment as a Service",
+            "description": "Connectivity: OEM - Controlled; Ownership: OEM - Ownership; Data: OEM has full control over data"
+          }
+        ]
+      }
+    ]
+  },
+  "container_ScenarioSummary": {
+    "id": "CONTAINER_959874750313",
+    "headline": "This is what we believe is the best?",
+    "module_ScenarioSummary": [
+      {
+        "id": "MODULE_766358285373",
+        "scenario": "Level 2",
+        "categoryScore": [
+          {
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "category": "Employee Assessment"
+          },
+          {
+            "category": "Legal Assessment"
+          },
+          {
+            "category": "Joker"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_780692143765",
+        "scenario": "Level 3",
+        "categoryScore": [
+          {
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "category": "Employee Assessment"
+          },
+          {
+            "category": "Legal Assessment"
+          },
+          {
+            "category": "Joker"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_267755052210",
+        "scenario": "Level 4",
+        "categoryScore": [
+          {
+            "category": "Financial and Business Assessment"
+          },
+          {
+            "category": "Operational Processes Assessment"
+          },
+          {
+            "category": "Employee Assessment"
+          },
+          {
+            "category": "Legal Assessment"
+          },
+          {
+            "category": "Joker"
+          }
+        ]
+      }
+    ]
+  },
+  "container_ValueEffortMatrix": {
+    "id": "CONTAINER_732103114846",
+    "headline": "These are our joint business opportunities and Win-Win!",
+    "module_ValueEffortMatrix": [
+      {
+        "id": "MODULE_389599119665",
+        "teamName": "IPCO"
+      }
+    ]
+  },
+  "module_freeAssociation": {
+    "id": "MODULE_719127575615",
+    "headline": "What will our customers say?",
+    "question": "Think of your most important customer were business servitization would work. What will they say if IPCO approaches them with this new business model?"
+  }
+}

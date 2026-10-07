@@ -21,6 +21,11 @@
       "items": { "$ref": "#/definitions/Participant" }
     },
     "company": { "$ref": "#/definitions/Company" },
+    "businessParty": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/BusinessParty" }
+    },
+    "businessScenario": { "$ref": "#/definitions/BusinessScenario" },
     "container_DifferentViewsRated": {
       "$ref": "#/definitions/Container_DifferentViewsRated"
     },
@@ -42,11 +47,23 @@
     "container_UserJourney": {
       "$ref": "#/definitions/Container_UserJourney"
     },
+    "container_AdvancedUserJourney": {
+      "$ref": "#/definitions/Container_AdvancedUserJourney"
+    },
     "module_freeAssociation": {
       "$ref": "#/definitions/Module_FreeAssociation"
     },
     "module_StagedOfferingPortfolio": {
       "$ref": "#/definitions/Module_StagedOfferingPortfolio"
+    },
+    "module_LifeCycle": {
+      "$ref": "#/definitions/Module_LifeCycle"
+    },
+    "container_DifferentScenariosRated": {
+      "$ref": "#/definitions/Container_DifferentScenariosRated"
+    },
+    "container_ScenarioSummary": {
+      "$ref": "#/definitions/Container_ScenarioSummary"
     }
   },
   "required": [
@@ -77,6 +94,17 @@
         "Industry": { "type": "string" }
       },
       "required": ["Name"],
+      "additionalProperties": false
+    },
+    "BusinessScenario": {
+      "type": "object",
+      "properties": {
+        "customer": { "type": "string" },
+        "industrySegment": { "type": "string" },
+        "equipmentType": { "type": "string" },
+        "customerSituation": { "type": "string" }
+      },
+      "required": ["industrySegment", "equipmentType", "customerSituation"],
       "additionalProperties": false
     },
     "PostIt": {
@@ -335,6 +363,94 @@
       "required": ["id", "headline"],
       "additionalProperties": false
     },
+    "LifeCycleStage": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "businessCapability": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/BusinessCapability" }
+        }
+      },
+      "required": ["id", "name", "description", "businessCapability"],
+      "additionalProperties": false
+    },
+    "AdvancedUserJourneyStep": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "description": { "type": "string" },
+        "note": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        },
+        "preCondition": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        }
+      },
+      "required": ["id", "headline", "description"],
+      "additionalProperties": false
+    },
+    "BusinessParty": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "businessCapability": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/BusinessCapability" }
+        }
+      },
+      "required": ["id", "name", "businessCapability"],
+      "additionalProperties": false
+    },
+    "BusinessCapability": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "businessModelArgument": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/BusinessModelArgument" }
+        }
+      },
+      "required": ["id", "name"],
+      "additionalProperties": false
+    },
+    "BusinessModelArgument": {
+      "type": "object",
+      "properties": {
+        "businessModel": { "type": "string" },
+        "proArgument": { "$ref": "#/definitions/PostIt" },
+        "contraArgument": { "$ref": "#/definitions/PostIt" }
+      },
+      "required": ["businessModel"],
+      "additionalProperties": false
+    },
+    "ScenarioAspectRating": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "aspect": { "type": "string" },
+        "category": { "$ref": "#/definitions/ScenarioCategory" },
+        "rating": { "type": "number" }
+      },
+      "required": ["id", "aspect", "category"],
+      "additionalProperties": false
+    },
+    "CategoryScore": {
+      "type": "object",
+      "properties": {
+        "category": { "$ref": "#/definitions/ScenarioCategory" },
+        "score": { "type": "number" }
+      },
+      "required": ["category"],
+      "additionalProperties": false
+    },
     "Module_FreeAssociation": {
       "type": "object",
       "properties": {
@@ -360,6 +476,21 @@
         }
       },
       "required": ["id", "teamName", "userJourneyStep"],
+      "additionalProperties": false
+    },
+    "Module_AdvancedUserJourney": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "businessCapability": {
+          "$ref": "#/definitions/BusinessCapability"
+        },
+        "userJourneyStep": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/AdvancedUserJourneyStep" }
+        }
+      },
+      "required": ["id", "businessCapability", "userJourneyStep"],
       "additionalProperties": false
     },
     "Module_DetailedWorkingPlan": {
@@ -396,6 +527,19 @@
       "required": ["id", "teamName"],
       "additionalProperties": false
     },
+    "Module_LifeCycle": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "lifeCycleStage": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/LifeCycleStage" }
+        }
+      },
+      "required": ["id", "headline", "lifeCycleStage"],
+      "additionalProperties": false
+    },
     "Module_DifferentViewsRated": {
       "type": "object",
       "properties": {
@@ -407,6 +551,41 @@
         }
       },
       "required": ["id", "perspective", "workshopItemRated"],
+      "additionalProperties": false
+    },
+    "Module_DifferentScenariosRated": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "scenario": { "type": "string" },
+        "scenarioAspectRating": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/ScenarioAspectRating" }
+        }
+      },
+      "required": ["id", "scenario", "scenarioAspectRating"],
+      "additionalProperties": false
+    },
+    "Module_ScenarioSummary": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "scenario": { "type": "string" },
+        "conclusion": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        },
+        "argument": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostIt" }
+        },
+        "totalScore": { "type": "number" },
+        "categoryScore": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CategoryScore" }
+        }
+      },
+      "required": ["id", "scenario"],
       "additionalProperties": false
     },
     "Module_ValueEffortMatrix": {
@@ -474,6 +653,19 @@
       "required": ["id", "headline"],
       "additionalProperties": false
     },
+    "Container_ScenarioSummary": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "module_ScenarioSummary": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_ScenarioSummary" }
+        }
+      },
+      "required": ["id", "headline", "module_ScenarioSummary"],
+      "additionalProperties": false
+    },
     "Container_DetailedWorkingPlan": {
       "type": "object",
       "properties": {
@@ -504,6 +696,19 @@
       "required": ["id", "headline", "module_userJourney"],
       "additionalProperties": false
     },
+    "Container_AdvancedUserJourney": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "module_advancedUserJourney": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_AdvancedUserJourney" }
+        }
+      },
+      "required": ["id", "headline", "module_advancedUserJourney"],
+      "additionalProperties": false
+    },
     "Container_DifferentViewsRated": {
       "type": "object",
       "properties": {
@@ -515,6 +720,19 @@
         }
       },
       "required": ["id", "headline", "module_DifferentViewsRated"],
+      "additionalProperties": false
+    },
+    "Container_DifferentScenariosRated": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "headline": { "type": "string" },
+        "module_DifferentScenariosRated": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Module_DifferentScenariosRated" }
+        }
+      },
+      "required": ["id", "headline", "module_DifferentScenariosRated"],
       "additionalProperties": false
     },
     "Container_ValueEffortMatrix": {
@@ -545,11 +763,29 @@
     },
     "WeightCategory": {
       "type": "string",
-      "enum": ["No Brainer", "Wise Choice", "Nice to have", "Big Bet"]
+      "enum": [
+        "No Brainer",
+        "Wise Choice",
+        "Nice to have",
+        "Big Bet",
+        "Win-Win",
+        "More time for discussions",
+        "Won't make us happy"
+      ]
     },
     "Horizon": {
       "type": "string",
       "enum": ["H1", "H2", "H3"]
+    },
+    "ScenarioCategory": {
+      "type": "string",
+      "enum": [
+        "Financial and Business Assessment",
+        "Operational Processes Assessment",
+        "Employee Assessment",
+        "Legal Assessment",
+        "Joker"
+      ]
     }
   }
 }
