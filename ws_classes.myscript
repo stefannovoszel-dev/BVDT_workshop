@@ -7,6 +7,7 @@ class Workshop
     property date (date)
     property participant (Participant) :Collection
     property company (Company)
+    <optional> property businessScenario (BusinessScenario)
     <optional> property container_DifferentViewsRated (Container_DifferentViewsRated)
     <optional> property container_ValueEffortMatrix (Container_ValueEffortMatrix)
     <optional> property module_CapabilityMatrix (Module_CapabilityMatrix)
@@ -16,6 +17,7 @@ class Workshop
     <optional> property container_UserJourney (Container_UserJourney)
     <optional> property module_freeAssociation (Module_FreeAssociation)
     <optional> property module_StagedOfferingPortfolio (Module_StagedOfferingPortfolio)
+    <optional> property module_LifeCycle (Module_LifeCycle)
 
 
 <doc>These classes represent the base classes for the whole structure.</doc>
@@ -30,6 +32,12 @@ class Participant
 class Company
     property Name (text)
     <optional> property Industry (text)
+
+class BusinessScenario
+    <optional> property customer (text)
+    property industriySegment (text)
+    property equipmentType (text)
+    property customerSituation (text)
 
 
 <doc>This class represents a simple post-it note that can be used to capture ideas, problems solved, explanations, etc. It has an optional property for additional explanation if needed.</doc>
@@ -147,6 +155,38 @@ class PortfolioItem
     property topic (text)
     <optional> property note (PostIt) :Collection
 
+
+class LifeCycleStage
+    property id (text)
+    property name (text)
+    property description (text)
+    property businessParty (BusinessParty) :Collection
+
+
+class AdvancedUserJourneyStep
+    property id (text)
+    property description (text)
+    <optional> property note (PostIt) :Collection
+
+
+class BusinessParty
+    property id (text)
+    property name (text)
+    property businessCapability (BusinessCapability) :Collection
+
+
+class BusinessCapability
+    property id (text)
+    property name (text)
+    property businessModelArgument (BusinessModelArgument) :Collection
+
+
+class BusinessModelArgument
+    property businessModel (text)
+    <optional> property proArgument (PostIt)
+    <optional> property contraArgument (PostIt)
+    
+
 <doc>These classes represent the different modules of the workshop, each with its own specific properties and relationships to capture the relevant information for that module.</doc>
 
 class Module_FreeAssociation
@@ -162,6 +202,12 @@ class Module_UserJourney
     property userJourneyStep (UserJourneyStep) :Collection
 
 
+class Module_AdvancedUserJourney
+    property id (text)
+    property businessParty (BusinessParty)
+    property userJourneyStep (AdvancedUserJourneyStep) :Collection
+
+
 class Module_DetailedWorkingPlan
     property id (text)
     property teamName (text)
@@ -170,6 +216,12 @@ class Module_DetailedWorkingPlan
     <optional> property workplanItemGroupRequiredResources (WorkplanItemGroupRequiredResources) :Collection
     <optional> property workplanItemGroupRiskResponsibility (WorkplanItemGroupRiskResponsibility) :Collection
     <optional> property workplanItemGroupProjectBusinessValue (WorkplanItemGroupProjectBusinessValue) :Collection
+
+
+class Module_LifeCycle
+    property id (text)
+    property headline (text)
+    property lifeCycleStage (LifeCycleStage) :Collection
 
 
 class Module_DifferentViewsRated
@@ -247,9 +299,13 @@ enum WeightCategory
     value "Wise Choice"
     value "Nice to have"
     value "Big Bet"
+    value "Win-Win"
+    value "More time for discussions"
+    value "Won't make us happy"
 
 
 enum Horizon
     value "H1"
     value "H2"
     value "H3"
+

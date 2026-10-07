@@ -1,0 +1,426 @@
+<doc>Pre-processing rules applied before parsing to keep the payload deterministic and clean.</doc>
+INSTRUCTION HYGIENE:
+Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
+Remove all empty strings ("") within CONFIGURATION section before parsing.
+Remove all <doc>…</doc> blocks within CONFIGURATION section before parsing.
+
+
+TOOLS:
+<doc>This is a method to generate unique IDs for objects in a consistent and deterministic way.</doc>
+{METHOD_ID_GENERATOR}({namespace}, {input}):
+    Normalize: trim whitespace, lowercase, apply Unicode NFC.
+    Concatenate namespace and string as "{namespace}|{input}".
+    Hash with SHA‑256.
+    Take the first 8 bytes as a big‑endian unsigned integer.
+    Compute modulo 10^12, zero‑pad to 12 digits.
+    Namespace: {namespace}
+    Input: {input}
+    Checksum: none (use all 12 digits for data).
+    Output format: return 12-digit string.
+
+
+<doc>Use this section to provide all the "hardcoded" information, like who will participate, what modules will be used with which questions and categories, etc.</doc> 
+CONFIGURATION:
+
+{JSON_SCHEMA} = "ws_classes.schema.json" <doc>this is the master schema for all workshop information and must be updated as soon as new models are added or attributes changed.</doc>
+<doc>Global context values used across IDs, metadata, and output generation.</doc>
+{CUSTOMER_NAME} = "IPCO"
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{LANGUAGE} = "English"
+{INDUSTRY} = "Manufacturing"
+
+{WORKSHOP_DATE} = "2026-10-01"
+
+<doc>Participant master data. Empty emails are intentionally allowed and removed by hygiene rules if needed.</doc>
+{PARTICIPANT_01_NAME} = "Matthieu Donada"
+{PARTICIPANT_01_ROLE} = "Senior Sales Manager"
+{PARTICIPANT_01_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_01_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_01_EMAIL} = "matthieu.donada@tieto.com"
+
+{PARTICIPANT_02_NAME} = "Nina Witulska"
+{PARTICIPANT_02_ROLE} = "Sales Manager"
+{PARTICIPANT_02_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_02_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_02_EMAIL} = "nina.witulska@tieto.com"
+
+{PARTICIPANT_03_NAME} = "Jacek Bryndza"
+{PARTICIPANT_03_ROLE} = "Director, EU Embedded"
+{PARTICIPANT_03_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_03_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_03_EMAIL} = "jacek.bryndza@tieto.com"
+
+{PARTICIPANT_04_NAME} = "Patrik Forslund"
+{PARTICIPANT_04_ROLE} = "Head of Specialized Engineering"
+{PARTICIPANT_04_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_04_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_04_EMAIL} = "patrik.forslund@tieto.com"
+
+{PARTICIPANT_05_NAME} = "Piotr Romanowski"
+{PARTICIPANT_05_ROLE} = "Manufacturing & Automotive Principal"
+{PARTICIPANT_05_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_05_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_05_EMAIL} = "piotr.romanowski@tieto.com"
+
+{PARTICIPANT_06_NAME} = "Aleksandar Dimitrov"
+{PARTICIPANT_06_ROLE} = "Lead Solution Architect"
+{PARTICIPANT_06_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_06_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_06_EMAIL} = "aleksandar.dimitrov@mentormate.com"
+
+{PARTICIPANT_07_NAME} = "Jan Pudas"
+{PARTICIPANT_07_ROLE} = "Lead Project Manager"
+{PARTICIPANT_07_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_07_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_07_EMAIL} = "jan.pudas@tieto.com"
+
+{PARTICIPANT_08_NAME} = "Magnus Falkenström"
+{PARTICIPANT_08_ROLE} = "Business Development Lead"
+{PARTICIPANT_08_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_08_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_08_EMAIL} = "magnus.falkenstrom@tieto.com"
+
+{PARTICIPANT_09_NAME} = "Anders G Karlsson"
+{PARTICIPANT_09_ROLE} = "Lead Business Developer"
+{PARTICIPANT_09_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_09_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_09_EMAIL} = "anders.g.karlsson@tieto.com"
+
+{PARTICIPANT_10_NAME} = "Olha Kutsevych"
+{PARTICIPANT_10_ROLE} = "Senior Bid Manager"
+{PARTICIPANT_10_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_10_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_10_EMAIL} = "olha.kutsevych@tieto.com"
+
+{PARTICIPANT_11_NAME} = "Stefan Novoszel"
+{PARTICIPANT_11_ROLE} = "Moderator"
+{PARTICIPANT_11_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_11_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_11_EMAIL} = "stefan.novoszel@tieto.com"
+
+{PARTICIPANT_12_NAME} = "Michael S Pedersen"
+{PARTICIPANT_12_ROLE} = "Business Developer"
+{PARTICIPANT_12_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_12_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_12_EMAIL} = "michael.s.pedersen@tieto.com"
+
+{PARTICIPANT_13_NAME} = "Patrik Strandeus"
+{PARTICIPANT_13_ROLE} = "Head of R&D"
+{PARTICIPANT_13_COMPANY_NAME} = {CUSTOMER_NAME}
+{PARTICIPANT_13_COMPANY_INDUSTRY} = {INDUSTRY}
+{PARTICIPANT_13_EMAIL} = "patrik.strandeus@tieto.com"
+
+
+<doc>Here you define the global settings for the workshop, as they are written on the poster.</doc>
+{WORKSHOP_GOAL} = "Business Servitization Journey – How to build new business models and services that allow IPCO to move from CAPEX to OPEX and investment with a joint business benefit for us and our Customers?"
+
+<doc>Workshop focus bullets in poster order.</doc>
+{WORKSHOP_FOCUS_01} = "Understanding customer benefits"
+{WORKSHOP_FOCUS_02} = "Understanding IPCO benefits"
+{WORKSHOP_FOCUS_03} = "Understanding legal implications and risks"
+{WORKSHOP_FOCUS_04} = "Capabilities we currently have and need in future"
+
+<doc>Expected outcomes in poster order.</doc>
+{WORKSHOP_OUTCOME_01} = "Business opportunities"
+{WORKSHOP_OUTCOME_02} = "Next steps"
+{WORKSHOP_OUTCOME_03} = "Identifying the right servitization level for IPCO"
+
+<doc>Here you define the business scenario, if there is any</doc>
+{SCENARIO_CUSTOMER} = ""
+{SCENARIO_INDUSTRY} = "Chocolate manufacturing"
+{SCENARIO_EQ_TYPE} = "Rotoform HP"
+{SCENARIO_SITUATION} = "New product line with shared risk"
+
+<doc>Here you define the values for the Free Association module as they are written on the poster.</doc>
+{MD_FREE_ASSOCIATION_HEADLINE} = "What will our customers say?"
+{MD_FREE_ASSOCIATION_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_FREE_ASSOCIATION_HEADLINE})
+{MD_FREE_ASSOCIATION_QUESTION} = "Think of your most important customer were business servitization would work. What will they say if IPCO approaches them with this new business model?"
+
+
+<doc>Here you define the values for the Life Cycle module as they are written on the poster.</doc>
+{MD_LIFE_CYCLE_HEADLINE} = "Business Servitization live cycle - Pro and Cons – Rational arguments"
+{MD_LIFE_CYCLE_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_HEADLINE})
+{MD_LIFE_CYCLE_STAGE_01_NAME} = "Machine Purchase Investment"
+{MD_LIFE_CYCLE_STAGE_01_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_01_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_STAGE_01_DESCRIPTION} = "Consider what the pro’s and con’s of owning a machine including investment, budgets, CAPEX/OPEX versus use only are."
+{MD_LIFE_CYCLE_STAGE_02_NAME} = "Installation & Commissioning"
+{MD_LIFE_CYCLE_STAGE_02_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_02_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_STAGE_02_DESCRIPTION} = "Consider how the installation and commissioning process is influenced when buying versus using a machine you don’t own."
+{MD_LIFE_CYCLE_STAGE_03_NAME} = "Standard Operation"
+{MD_LIFE_CYCLE_STAGE_03_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_03_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_STAGE_03_DESCRIPTION} = "Consider how your workforce and standard operation processes are influenced by the fact that your company or the manufacturer is owing the asset."
+{MD_LIFE_CYCLE_STAGE_04_NAME} = "Maintenance And Repair"
+{MD_LIFE_CYCLE_STAGE_04_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_04_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_STAGE_04_DESCRIPTION} = "Consider how the maintenance process is influenced by the ownership of the asset and how your maintenance planning and operation will be done."
+{MD_LIFE_CYCLE_STAGE_05_NAME} = "Breakdown Management"
+{MD_LIFE_CYCLE_STAGE_05_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_05_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_STAGE_05_DESCRIPTION} = "Consider there is a serious breakdown how will flexibility and agility be influence by you or an external company managing the breakdown and getting the machine up and running again."
+{MD_LIFE_CYCLE_STAGE_06_NAME} = "Deommissioning & End of Life Treatment"
+{MD_LIFE_CYCLE_STAGE_06_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_06_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_STAGE_06_DESCRIPTION} = "Consider your company wants to get rid of their old machine what costs, responsibilities and efforts will be involved for decommissioning the old machine."
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_NAME} = "Customer of IPCO"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_ID} = "BP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_BUSINESS_PARTY_01_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_01_NAME} = "Shopfloor Operations"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_01_ID} = "BPC_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_01_NAME} + {MD_LIFE_CYCLE_BUSINESS_PARTY_01_ID})
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_01_BUSINESS_MODEL_01} = "CAPEX"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_01_BUSINESS_MODEL_02} = "OPEX"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_02_NAME} = "Business Operations"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_02_ID} = "BPC_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_02_NAME} + {MD_LIFE_CYCLE_BUSINESS_PARTY_01_ID})
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_02_BUSINESS_MODEL_01} = "CAPEX"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_01_CAPABILITY_02_BUSINESS_MODEL_02} = "OPEX"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_02_NAME} = "IPCO"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_02_ID} = "BP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_BUSINESS_PARTY_02_NAME} + {MD_LIFE_CYCLE_ID})
+{MD_LIFE_CYCLE_BUSINESS_PARTY_02_CAPABILITY_01_NAME} = "Service Provider / Customer Manager"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_02_CAPABILITY_01_ID} = "BPC_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_BUSINESS_PARTY_02_CAPABILITY_01_NAME} + {MD_LIFE_CYCLE_BUSINESS_PARTY_02_ID})
+{MD_LIFE_CYCLE_BUSINESS_PARTY_02_CAPABILITY_01_BUSINESS_MODEL_01} = "CAPEX"
+{MD_LIFE_CYCLE_BUSINESS_PARTY_02_CAPABILITY_01_BUSINESS_MODEL_02} = "OPEX"
+
+
+<doc>Here you define the values for the Value/Effort Matrix module as they are written on the poster.</doc>
+{CT_VALUE_EFFORT_MATRIX_HEADLINE} = "These are our joint business opportunities and Win-Win!"
+{CT_VALUE_EFFORT_MATRIX_ID} = "CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CT_VALUE_EFFORT_MATRIX_HEADLINE})
+{MD_01_VALUE_EFFORT_MATRIX_TEAM} = "IPCO"
+{MD_01_VALUE_EFFORT_MATRIX_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_01_VALUE_EFFORT_MATRIX_TEAM} + {CT_VALUE_EFFORT_MATRIX_ID})
+
+
+<doc>Here you define the values for the Road map module as they are written on the poster.</doc>
+{MD_ROADMAP_HEADLINE} = "Roadmap for executing the different Initiatives!"
+{MD_ROADMAP_ID} = "CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_ROADMAP_HEADLINE})
+
+<doc>Here you define the values for the Detailed Working Plan module as they are written on the poster.</doc>
+{CT_DETAILED_WORKING_PLAN_DESCRIPTION} = "How will our Feature be implemented? What is your plan?"
+{CT_DETAILED_WORKING_PLAN_ID} = "" <doc>"CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CT_DETAILED_WORKING_PLAN_DESCRIPTION})</doc>
+{CT_DETAILED_WORKING_PLAN_STAGE_01} = "Plan"
+{CT_DETAILED_WORKING_PLAN_STAGE_02} = "Start"
+{CT_DETAILED_WORKING_PLAN_STAGE_03} = "Execute"
+{CT_DETAILED_WORKING_PLAN_STAGE_04} = "Test"
+{CT_DETAILED_WORKING_PLAN_STAGE_05} = "Deploy"
+{CT_DETAILED_WORKING_PLAN_STAGE_06} = "Scale"
+{CT_DETAILED_WORKING_PLAN_STAGE_07} = "Complete"
+{MD_01_DETAILED_WORKING_PLAN_TEAM} = "Team RED"
+{MD_01_DETAILED_WORKING_PLAN_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_01_DETAILED_WORKING_PLAN_TEAM} + {CT_DETAILED_WORKING_PLAN_ID})
+{MD_02_DETAILED_WORKING_PLAN_TEAM} = "Team GREEN"
+{MD_02_DETAILED_WORKING_PLAN_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_02_DETAILED_WORKING_PLAN_TEAM} + {CT_DETAILED_WORKING_PLAN_ID})
+{MD_03_DETAILED_WORKING_PLAN_TEAM} = "Team BLUE"
+{MD_03_DETAILED_WORKING_PLAN_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_03_DETAILED_WORKING_PLAN_TEAM} + {CT_DETAILED_WORKING_PLAN_ID})
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DESCRIPTION} = "Explain the idea and data required"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_01_TOPIC} = "What problems do we have today"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_01_DESCRIPTION} = "Explain the current situation and what needs improvement in the future?"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_02_TOPIC} = "Envisioning a perfect future"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_02_DESCRIPTION} = "This is the perfect future where the Feature will improve the Life of the dedicated Users significantly!"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_03_TOPIC} = "What is the business value"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_03_DESCRIPTION} = "What is the business value and how will it materialize after the Feature has been implemented?"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DATA_01_TOPIC} = "Existing data we have available today and can be used (incl. Quality)"
+{MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DATA_02_TOPIC} = "Missing Data we must make available for the Feature (incl. Quality)"
+{MD_DETAILED_WORKING_PLAN_RESOURCES_DESCRIPTION} = "Things you need for the Feature"
+{MD_DETAILED_WORKING_PLAN_RESOURCES_01_TOPIC} = "Which partners do we need for building the Feature and going live?"
+{MD_DETAILED_WORKING_PLAN_RESOURCES_02_TOPIC} = "Which Prometeon employees do we need for the Feature?"
+{MD_DETAILED_WORKING_PLAN_RESOURCES_03_TOPIC} = "What processes do we need to adapt or build from scratch?"
+{MD_DETAILED_WORKING_PLAN_RESOURCES_04_TOPIC} = "What software solutions need to be considered to work with the Feature?"
+
+<doc>Here you define the values for the Detailed User Journey map module as they are written on the poster.</doc>
+{CT_USER_JOURNEY_HEADLINE} = "User Journey: How will your Big Bet be Used and enhance the Life of its Users?"
+{CT_USER_JOURNEY_ID} = "" <doc>"CONTAINER_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CT_USER_JOURNEY_HEADLINE})</doc>
+{MD_01_USER_JOURNEY_TEAM} = "Team RED"
+{MD_01_USER_JOURNEY_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_01_USER_JOURNEY_TEAM} + {CT_USER_JOURNEY_ID})
+{MD_02_USER_JOURNEY_TEAM} = "Team GREEN"
+{MD_02_USER_JOURNEY_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_02_USER_JOURNEY_TEAM} + {CT_USER_JOURNEY_ID})
+{MD_03_USER_JOURNEY_TEAM} = "Team BLUE"
+{MD_03_USER_JOURNEY_ID} = "MODULE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_03_USER_JOURNEY_TEAM} + {CT_USER_JOURNEY_ID})
+{MD_USER_JOURNEY_STEP_01} = "How can I use this feature?"
+{MD_USER_JOURNEY_STEP_02} = "How does it support my daily work?"
+{MD_USER_JOURNEY_STEP_03} = "Which efficiency gains do I have?"
+{MD_USER_JOURNEY_STEP_04} = "Which processes have been simplified?"
+{MD_USER_JOURNEY_STEP_05} = "I would tell my colleague the following cool story!"
+
+
+<doc>Mapping section that transforms configured constants into a schema-compliant workshop JSON object.</doc>
+MAPPING:
+
+Structure for the data mapping = {JSON_SCHEMA}
+
+<doc>Here you pre-create the JSON structure with all the information you already know. This is an important step to create anchors that can be used by the next steps.
+You use a combination of the internal variables you have configured above and the property.names as defined in the JSON schema.</doc>
+Create Workshop with:
+
+    Workshop.goal = {WORKSHOP_GOAL}
+
+    <doc>Copy all configured focus points into the workshop focus collection.</doc>
+    For each {WORKSHOP_FOCUS_XX}
+        append {WORKSHOP_FOCUS_XX} to Workshop.focus
+
+    <doc>Copy all configured expected outcomes into the workshop outcome collection.</doc>
+    For each {WORKSHOP_OUTCOME_XX}
+        append {WORKSHOP_OUTCOME_XX} to Workshop.expectedOutcome
+    
+    Workshop.date = {WORKSHOP_DATE}
+
+    <doc>Create participant entries including nested company objects.</doc>
+    For each {PARTICIPANT_XX}
+        create Participant with:
+            name = {PARTICIPANT_XX_NAME}
+            role = {PARTICIPANT_XX_ROLE}
+            
+            Create Company with:
+                Name = {PARTICIPANT_XX_COMPANY_NAME}
+                Industry = {PARTICIPANT_XX_COMPANY_INDUSTRY}
+            set Participant.company = Company
+            
+            email = {PARTICIPANT_XX_EMAIL}
+        append Participant to Workshop.participant
+
+    Workshop.company.Name = {CUSTOMER_NAME}
+    Workshop.company.Industry = {INDUSTRY}
+
+    <doc>Initialize the Different Views container and pre-create rating placeholders by perspective and category.</doc>
+    IF {CT_DIFF_VIEWS_RATED_ID} is not empty
+        Create Container_DifferentViewsRated with:
+            id = {CT_DIFF_VIEWS_RATED_ID}
+            headline = {CT_DIFF_VIEWS_RATED_HEADLINE}
+            
+            For each {MD_XX_DIFF_VIEWS_RATED}
+                create Module_DifferentViewsRated with:
+                    id = {MD_XX_DIFF_VIEWS_RATED_ID}
+                    perspective = {MD_XX_DIFF_VIEWS_RATED_PERSPECTIVE}
+
+                    i = 1
+                    For i to {MD_DIFF_VIEWS_RATED_ITEM_COUNTER}
+                        create WorkshopItemRated with:
+                            id = "ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CT_DIFF_VIEWS_RATED_ID} + {MD_XX_DIFF_VIEWS_RATED_ID} + i)
+
+                            For each {MD_DIFF_VIEWS_RATED_CATEGORY_XX}
+                                create CategoryRating with:
+                                    category = {MD_DIFF_VIEWS_RATED_CATEGORY_XX}
+                                append CategoryRating to WorkshopItemRated.categoryRating
+
+                        append WorkshopItemRated to Module_DifferentViewsRated.workshopItemRated
+
+                append Module_DifferentViewsRated to Container_DifferentViewsRated.module_DifferentViewsRated
+        Workshop.container_DifferentViewsRated = Container_DifferentViewsRated
+
+    <doc>Initialize Value/Effort container and add one module per configured team.</doc>
+    IF {CT_VALUE_EFFORT_MATRIX_ID} is not empty
+        Create Container_ValueEffortMatrix with:
+            id = {CT_VALUE_EFFORT_MATRIX_ID}
+            headline = {CT_VALUE_EFFORT_MATRIX_HEADLINE}
+            
+            For each {MD_XX_VALUE_EFFORT_MATRIX}
+                create Module_ValueEffortMatrix with:
+                    id = {MD_XX_VALUE_EFFORT_MATRIX_ID}
+                    teamName = {MD_XX_VALUE_EFFORT_MATRIX_TEAM}
+                append Module_ValueEffortMatrix to Container_ValueEffortMatrix.module_ValueEffortMatrix
+        Workshop.container_ValueEffortMatrix = Container_ValueEffortMatrix
+
+    <doc>Create the capability matrix with one capability entry per configured capability pair.</doc>
+    IF {MD_CAPABILITY_MATRIX_ID} is not empty
+        Create Module_CapabilityMatrix with:
+            id = {MD_CAPABILITY_MATRIX_ID}
+            headline = {MD_CAPABILITY_MATRIX_HEADLINE}
+            
+            For each {CAPABILITY_XX}
+                create Capability with:
+                    id = "CAPABILITY_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {CAPABILITY_XX_NAME})
+                    name = {CAPABILITY_XX_NAME}
+                    description = {CAPABILITY_XX_DESCRIPTION}
+                append Capability to Module_CapabilityMatrix.capability
+        Workshop.module_CapabilityMatrix = Module_CapabilityMatrix
+
+    <doc>Initialize detailed working plan container, stages, and team-specific workplan groups.</doc>
+    IF {CT_DETAILED_WORKING_PLAN_ID} is not empty
+        Create Container_DetailedWorkingPlan with:
+            id = {CT_DETAILED_WORKING_PLAN_ID}
+            description = {CT_DETAILED_WORKING_PLAN_DESCRIPTION}
+            
+            For each {CT_DETAILED_WORKING_PLAN_STAGE_XX}
+                append {CT_DETAILED_WORKING_PLAN_STAGE_XX} to Container_DetailedWorkingPlan.stage
+
+            For each {MD_XX_DETAILED_WORKING_PLAN}
+                create Module_DetailedWorkingPlan with:
+                    id = {MD_XX_DETAILED_WORKING_PLAN_ID}
+                    teamName = {MD_XX_DETAILED_WORKING_PLAN_TEAM}
+
+                    create WorkplanItemGroupExplanationData with:
+                        id = "WP_GROUP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_XX_DETAILED_WORKING_PLAN_ID} + {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DESCRIPTION})
+                        description = {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DESCRIPTION}
+
+                        For each {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_XX}
+                            create WorkplanItemTwoStep with:
+                                topic = {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_XX_TOPIC}
+                                description = {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_EXPLANATION_XX_DESCRIPTION}
+                            append WorkplanItemTwoStep to WorkplanItemGroupExplanationData.workplanItemTwoStep
+
+                        For each {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DATA_XX}
+                            create WorkplanItemOneStep with:
+                                description = {MD_DETAILED_WORKING_PLAN_EXPLANATION_DATA_DATA_XX_TOPIC}
+                            append WorkplanItemOneStep to WorkplanItemGroupExplanationData.workplanItemOneStep
+                    
+                    append WorkplanItemGroupExplanationData to Module_DetailedWorkingPlan.workplanItemGroupExplanationData
+
+                    create WorkplanItemGroupRequiredResources with:
+                        id = "WP_GROUP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_XX_DETAILED_WORKING_PLAN_ID} + {MD_DETAILED_WORKING_PLAN_RESOURCES_DESCRIPTION})
+                        description = {MD_DETAILED_WORKING_PLAN_RESOURCES_DESCRIPTION}
+
+                        For each {MD_DETAILED_WORKING_PLAN_RESOURCES_XX}
+                            create WorkplanItemOneStep with:
+                                description = {MD_DETAILED_WORKING_PLAN_RESOURCES_XX_TOPIC}
+                            append WorkplanItemOneStep to WorkplanItemGroupRequiredResources.workplanItemOneStep
+                    
+                    append WorkplanItemGroupRequiredResources to Module_DetailedWorkingPlan.workplanItemGroupRequiredResources
+                
+                append Module_DetailedWorkingPlan to Container_DetailedWorkingPlan.module_DetailedWorkingPlan
+        Workshop.container_DetailedWorkingPlan = Container_DetailedWorkingPlan
+
+    <doc>Initialize user journey container and pre-create step prompts for each team.</doc>
+    IF {CT_USER_JOURNEY_ID} is not empty
+        Create Container_UserJourney with:
+            id = {CT_USER_JOURNEY_ID}
+            headline = {CT_USER_JOURNEY_HEADLINE}
+            
+            For each {MD_XX_USER_JOURNEY}
+                create Module_UserJourney with:
+                    id = {MD_XX_USER_JOURNEY_ID}
+                    teamName = {MD_XX_USER_JOURNEY_TEAM}
+
+                    For each {MD_USER_JOURNEY_STEP_XX}
+                        create UserJourneyStep with:
+                            id = "UJ_STEP_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_XX_USER_JOURNEY_ID} + {MD_USER_JOURNEY_STEP_XX})
+                            description = {MD_USER_JOURNEY_STEP_XX}
+                        append UserJourneyStep to Module_UserJourney.userJourneyStep
+                
+                append Module_UserJourney to Container_UserJourney.module_UserJourney
+        Workshop.container_UserJourney = Container_UserJourney
+
+    <doc>Create free-association module shell that contains the opening question.</doc>
+    IF {MD_FREE_ASSOCIATION_ID} is not empty
+        Create Module_FreeAssociation with:
+            id = {MD_FREE_ASSOCIATION_ID}
+            headline = {MD_FREE_ASSOCIATION_HEADLINE}
+            question = {MD_FREE_ASSOCIATION_QUESTION}
+        append Module_FreeAssociation to Workshop.module_FreeAssociation
+
+    <doc>Initialize the staged offering portfolio module with its stages and topics.</doc>
+    IF {MD_STAGED_OFFERING_PORTFOLIO_ID} is not empty
+        Create Module_StagedOfferingPortfolio with:
+            id = {MD_STAGED_OFFERING_PORTFOLIO_ID}
+            headline = {MD_STAGED_OFFERING_PORTFOLIO_HEADLINE}
+
+            For each {MD_STAGED_OFFERING_PORTFOLIO_STAGE_XX}
+                create PortfolioItemGroup with:
+                    id = {MD_STAGED_OFFERING_PORTFOLIO_STAGE_XX_ID}
+                    headline = {MD_STAGED_OFFERING_PORTFOLIO_STAGE_XX_HEADLINE}
+
+                    For each {MD_STAGED_OFFERING_PORTFOLIO_STAGE_ITEM_TOPIC_XX}
+                        create PortfolioItem with:
+                            id = "STAGE_ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_STAGED_OFFERING_PORTFOLIO_STAGE_XX_ID} + {MD_STAGED_OFFERING_PORTFOLIO_STAGE_ITEM_TOPIC_XX})
+                            topic = {MD_STAGED_OFFERING_PORTFOLIO_STAGE_ITEM_TOPIC_XX}
+                        append PortfolioItem to PortfolioItemGroup.portfolioItem
+                append PortfolioItemGroup to Module_StagedOfferingPortfolio.portfolioItemGroup
+        Workshop.module_StagedOfferingPortfolio = Module_StagedOfferingPortfolio
+
+{WORKSHOP_JSON_OBJECT} = Workshop
+
+
+OUTPUT:
+
+<doc>Here you generate the first version of the JSON file as an input for the next update steps.</doc>
+Return a JSON file with the name {TARGET_FILE} containing the serialized {WORKSHOP_JSON_OBJECT} adhering to the structure defined in {JSON_SCHEMA}.
