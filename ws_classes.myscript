@@ -7,6 +7,7 @@ class Workshop
     property date (date)
     property participant (Participant) :Collection
     property company (Company)
+    <optional> property businessParty (BusinessParty) :Collection
     <optional> property businessScenario (BusinessScenario)
     <optional> property container_DifferentViewsRated (Container_DifferentViewsRated)
     <optional> property container_ValueEffortMatrix (Container_ValueEffortMatrix)
@@ -15,9 +16,12 @@ class Workshop
     <optional> property container_DetailedIdeaInvestment (Container_DetailedIdeaInvestment)
     <optional> property container_DetailedWorkingPlan (Container_DetailedWorkingPlan)
     <optional> property container_UserJourney (Container_UserJourney)
+    <optional> property container_AdvancedUserJourney (Container_AdvancedUserJourney)
     <optional> property module_freeAssociation (Module_FreeAssociation)
     <optional> property module_StagedOfferingPortfolio (Module_StagedOfferingPortfolio)
     <optional> property module_LifeCycle (Module_LifeCycle)
+    <optional> property container_DifferentScenariosRated (Container_DifferentScenariosRated)
+    <optional> property container_ScenarioSummary (Container_ScenarioSummary)
 
 
 <doc>These classes represent the base classes for the whole structure.</doc>
@@ -160,13 +164,15 @@ class LifeCycleStage
     property id (text)
     property name (text)
     property description (text)
-    property businessParty (BusinessParty) :Collection
+    property businessCapability (BusinessCapability) :Collection
 
 
 class AdvancedUserJourneyStep
     property id (text)
+    property headline (text)
     property description (text)
     <optional> property note (PostIt) :Collection
+    <optional> property preCondition (PostIt) :Collection
 
 
 class BusinessParty
@@ -185,6 +191,18 @@ class BusinessModelArgument
     property businessModel (text)
     <optional> property proArgument (PostIt)
     <optional> property contraArgument (PostIt)
+
+
+class ScenarioAspectRating
+    property id (text)
+    property aspect (text)
+    property category (ScenarioCategory)
+    <optional> property rating (number)
+
+
+class CategoryScore
+    property category (ScenarioCategory)
+    <optional> property score (number)
     
 
 <doc>These classes represent the different modules of the workshop, each with its own specific properties and relationships to capture the relevant information for that module.</doc>
@@ -204,7 +222,7 @@ class Module_UserJourney
 
 class Module_AdvancedUserJourney
     property id (text)
-    property businessParty (BusinessParty)
+    property businessCapability (BusinessCapability)
     property userJourneyStep (AdvancedUserJourneyStep) :Collection
 
 
@@ -228,6 +246,21 @@ class Module_DifferentViewsRated
     property id (text)
     property perspective (text)
     property workshopItemRated (WorkshopItemRated) :Collection
+
+
+class Module_DifferentScenariosRated
+    property id (text)
+    property scenario (text)
+    property scenarioAspectRating (ScenarioAspectRating) :Collection
+
+
+class Module_ScenarioSummary
+    property id (text)
+    property scenario (text)
+    <optional> property conclusion (PostIt) :Collection
+    <optional> property argument (PostIt) :Collection
+    <optional> property totalScore (number)
+    <optional> property categoryScore (CategoryScore) :Collection
 
 
 class Module_ValueEffortMatrix
@@ -260,6 +293,11 @@ class Module_StagedOfferingPortfolio
     <optional> property portfolioItemGroup (PortfolioItemGroup) :Collection
 
 <doc>These classes represent module containers that will be used to group related modules.</doc>
+class Container_ScenarioSummary
+    property id (text)
+    property headline (text)
+    property module_ScenarioSummary (Module_ScenarioSummary) :Collection
+
 
 class Container_DetailedWorkingPlan
     property id (text)
@@ -274,10 +312,22 @@ class Container_UserJourney
     property module_userJourney (Module_UserJourney) :Collection
 
 
+class Container_AdvancedUserJourney
+    property id (text)
+    property headline (text)
+    property module_advancedUserJourney (Module_AdvancedUserJourney) :Collection
+
+
 class Container_DifferentViewsRated
     property id (text)
     property headline (text)
     property module_DifferentViewsRated (Module_DifferentViewsRated) :Collection
+
+
+lass Container_DifferentScenariosRated
+    property id (text)
+    property headline (text)
+    property module_DifferentScenariosRated (Module_DifferentScenariosRated) :Collection
 
 
 class Container_ValueEffortMatrix
@@ -309,3 +359,9 @@ enum Horizon
     value "H2"
     value "H3"
 
+enum ScenarioCategory
+    value "Financial and Business Assessment"
+    value "Operational Processes Assessment"
+    value "Employee Assessment"
+    value "Legal Assessment"
+    value "Joker"
