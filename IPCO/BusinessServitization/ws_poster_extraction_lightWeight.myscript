@@ -1,0 +1,270 @@
+<doc>Pre-processing rules applied before parsing to keep payload deterministic and avoid parser pollution.</doc>
+INSTRUCTION HYGIENE:
+
+Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
+Remove all empty strings ("") within CONFIGURATION section before parsing.
+
+<doc>Here you define how post-its should be treated when extracted. So any change regarding that should (if possible) always placed here instead of at module level.</doc>
+For all post-it extractions:
+    Only extract text from actual handwritten square post-its.
+    Post-its are square with a general standard size of 3x3 inches.
+    All post-its are handwritten.
+    Detect every individual post-it in the read area and extract each one separately.
+    If multiple post-its are present in one read area, process them in top-to-bottom, then left-to-right order.
+    Only extract text written inside the borders of the post-it.
+    Ignore any printed board text, template text, headings, labels, legends, axis text, rating-scale text, octagon text, connector lines, or any other non-post-it content, even if it appears inside, near, or overlapping the read area.
+    The read area defines where to search for post-its, not which non-post-it text to extract.
+    Preserve the original wording of each post-it.
+    Apply only light normalization: correct obvious typos, normalize case, and remove line-break hyphenation.
+    Do not summarize, reinterpret, merge, or paraphrase.
+    If text is only partially legible, extract all legible text line by line and leave uncertain or incomplete text unresolved rather than guessing.
+    If a post-it is only partially legible, perform a second pass on a tighter crop of that individual post-it before final extraction.
+    If any extracted post-it text appears truncated, incomplete, or low-confidence, re-inspect that exact post-it in a tighter crop before returning the final result.
+    Only keep text incomplete if the second pass still does not make the missing part legible.
+
+<doc>Normalize page orientation and geometry before applying any module-specific read areas.</doc>
+For every PDF page or image used for visual extraction:
+
+    Render the complete page as an image.
+
+    Create four orientation candidates:
+        Candidate 01 = original orientation
+        Candidate 02 = rotated 90 degrees clockwise
+        Candidate 03 = rotated 180 degrees
+        Candidate 04 = rotated 90 degrees counterclockwise
+
+    Evaluate every candidate using:
+        horizontal text-line orientation
+        OCR confidence for printed headings
+        expected module-specific headings
+        expected position and order of rows and columns
+        expected placement of logos, title bars, side banners, and
+        table headers
+        consistency of visible horizontal and vertical grid lines
+
+    Do not select an orientation from OCR confidence alone.
+
+    Select the candidate that produces the strongest consistent match
+    with the module-specific layout anchors.
+
+    If two candidates remain equally plausible:
+        Do not extract or map post-its from that page.
+        Report the page as having ambiguous orientation.
+
+    Record:
+        {DETECTED_SOURCE_ROTATION}
+        {APPLIED_CORRECTION_ROTATION}
+        {ORIENTATION_CONFIDENCE}
+        {ORIENTATION_ANCHORS_FOUND}
+
+    Set:
+        {NORMALIZED_PAGE_IMAGE}
+            = page image after applying the selected correction
+
+    After rotation normalization:
+        Detect the outer document, poster, board, or table boundary.
+
+        If perspective distortion or camera skew is present:
+            Deskew or perspective-correct the relevant document area.
+            Preserve the relative positions of rows, columns, grid
+            lines, post-its, and printed labels.
+
+        Set:
+            {NORMALIZED_DOCUMENT_IMAGE}
+                = corrected document image used for extraction
+
+    Apply all module-specific coordinates, top/bottom relationships,
+    left/right relationships, and read areas only to
+    {NORMALIZED_DOCUMENT_IMAGE}.
+
+    Never apply module-specific coordinates to the unnormalized source
+    image.
+
+
+TOOLS:
+<doc>This is a method to generate unique IDs for objects in a consistent and deterministic way.</doc>
+{METHOD_ID_GENERATOR}({namespace}, {input}):
+    Normalize: trim whitespace, lowercase, apply Unicode NFC.
+    Concatenate namespace and string as "{namespace}|{input}".
+    Hash with SHA‑256.
+    Take the first 8 bytes as a big‑endian unsigned integer.
+    Compute modulo 10^12, zero‑pad to 12 digits.
+    Namespace: {namespace}
+    Input: {input}
+    Checksum: none (use all 12 digits for data).
+    Output format: return 12-digit string.
+
+
+<doc>Use this section to define the main configurations and also the metrics for the files where the information should be extracted from.</doc>
+CONFIGURATION:
+
+{JSON_SCHEMA} = "ws_classes.schema.json" <doc>we are still using the JSON schema as reference for the structure to use.</doc>
+<doc>Global runtime constants used for extraction and ID generation across all modules.</doc>
+{CUSTOMER_NAME} = "IPCO"
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{COMMON_ABBREVIATIONS} = "KI, HCM, SAP"
+{ABBREVIATION_CORRECTIONS} = "HCL->HCM, S.A.P->SAP, K.I->KI"
+
+{WORKSHOP_DATE} = "2026-10-01"
+
+If {TARGET_FILE} already contains objects of type PostIt:
+     {NOTE_COUNTER} = max(PostIt.id in {TARGET_FILE}) 
+Else:
+    {NOTE_COUNTER} = 0
+
+<doc>Input file(s) for Free Association module.</doc>
+{MD_FREE_ASSOCIATION_FILE} = "IPCO/BusinessServitization/IPCO_Sevitization_Brainstorming.pdf"
+
+<doc>Input file(s) for Different Views with Ratings module. Here the naming is important and has to be updated also in the EXECUTION section.</doc>
+{CT_DIFF_VIEWS_RATED_FILE_SALES} = ""
+{CT_DIFF_VIEWS_RATED_FILE_DELIVERY} = ""
+{CT_DIFF_VIEWS_RATED_FILE_MANAGEMENT} = ""
+
+<doc>Input file(s) for Capability Matrix module.</doc>
+{MD_CAPABILITY_MATRIX_FILE} = ""
+
+<doc>Input file(s) for Value Effort Matrix module.</doc>
+{CT_VALUE_EFFORT_MATRIX_FILE} = "IPCO/BusinessServitization/IPCO_Sevitization_ValueMatrix.pdf"
+
+<doc>Input file(s) for Detailed Working Plan module. Here the naming is important and has to be updated also in the EXECUTION section.</doc>
+{CT_DETAILED_WORKING_PLAN_FILE_TEAM_RED} = ""
+{CT_DETAILED_WORKING_PLAN_FILE_TEAM_GREEN} = ""
+{CT_DETAILED_WORKING_PLAN_FILE_TEAM_BLUE} = ""
+
+<doc>Input file(s) for User Journey module.</doc>
+{CT_USER_JOURNEY_FILE} = ""
+
+<doc>Input file(s) for Detailed Idea plus Investment module.</doc>
+{CT_DETAILED_IDEA_INVESTMENT_FILE} = ""
+
+<doc>Input file(s) for Roadmap module.</doc>
+{MD_ROADMAP_FILE} = ""
+
+<doc>Input file(s) for Staged Offering Portfolio module.</doc>
+{MD_STAGED_OFFERING_PORTFOLIO_FILE} = ""
+
+<doc>Input file(s) for Scenario Summary module.</doc>
+{CT_SCENARIO_SUMMARY_FILE} = ""
+
+<doc>Input file(s) for Different Scenarios Rated module.</doc>
+{CT_DIFF_SCENARIOS_RATED_FILE} = "IPCO/BusinessServitization/IPCO_Servitization_LevelRating.pdf"
+
+<doc>Input file(s) for Module LifeCycle module.</doc>
+{MD_LIFE_CYCLE_FILE} = "IPCO/BusinessServitization/IPCO_Servitization_LifeCycle.pdf"
+
+<doc>Input file(s) for Advanced User Journey module.</doc>
+{CT_ADVANCED_USER_JOURNEY_FILE} = "IPCO/BusinessServitization/IPCO_Servitization_Roadmap.pdf"
+
+
+<doc>Here you only update the already exting {TARGET_FILE} that has been created in the 'prefill' step. We use the properties of {TARGET_FILE} directly to clearly instruct the LLM for mapping.</doc>
+EXECUTION:
+
+Structure for the data mapping = {JSON_SCHEMA}:
+
+
+<doc>Populate the existing Module_LifeCycle from the configured
+lifecycle poster.</doc>
+If {MD_LIFE_CYCLE_FILE} is not empty:
+
+    Read out all hand-written post-its from {MD_LIFE_CYCLE_FILE}
+
+    Map the extracted content to {TARGET_FILE}.module_LifeCycle while taking the structure of {JSON_SCHEMA} into consideration.
+    
+
+<doc>Populate Free Association by reading all post-its in the configured area and appending as PostIt notes.</doc>
+If {MD_FREE_ASSOCIATION_FILE} is not empty:
+
+    Read out all hand-written post-its from {MD_FREE_ASSOCIATION_FILE}
+
+    Map the extracted content to {TARGET_FILE}.module_FreeAssociation while taking the structure of {JSON_SCHEMA} into consideration.
+    
+
+<doc>Populate Different Views Rated by pairing idea/problem rows and attaching category ratings by column alignment.</doc>
+If at least one of {CT_DIFF_VIEWS_RATED_FILE_XX} is not empty:
+
+    For each {CT_DIFF_VIEWS_RATED_FILE_XX}:
+        
+        Read out all hand-written post-its
+
+        Map the extracted content to {TARGET_FILE}.container_DifferentViewsRated while taking the structure of {JSON_SCHEMA} into consideration.
+
+
+<doc>Enrich capability entries with rating and extracted supporting post-it notes per capability area.</doc>
+If {MD_CAPABILITY_MATRIX_FILE} is not empty:
+    
+    Read out all hand-written post-its from {MD_CAPABILITY_MATRIX_FILE}
+
+    Map the extracted content to {TARGET_FILE}.module_CapabilityMatrix while taking the structure of {JSON_SCHEMA} into consideration.
+        
+
+<doc>Populate Value/Effort modules per team and classify each extracted idea into a weight category based on location.</doc>
+If {CT_VALUE_EFFORT_MATRIX_FILE} is not empty:
+
+    Read out all hand-written post-its from {CT_VALUE_EFFORT_MATRIX_FILE}
+
+    Map the extracted content to {TARGET_FILE}.container_ValueEffortMatrix while taking the structure of {JSON_SCHEMA} into consideration.
+      
+
+<doc>Populate Detailed Working Plan per team, including Big Bet and notes for explanation/resource sections.</doc>
+If at least one of {CT_DETAILED_WORKING_PLAN_FILE_TEAM_XX} is not empty:
+
+    For each {CT_DETAILED_WORKING_PLAN_FILE_TEAM_XX}:
+        
+        Read out all hand-written post-its
+
+        Map the extracted content to {TARGET_FILE}.container_DetailedWorkingPlan while taking the structure of {JSON_SCHEMA} into consideration.
+
+
+<doc>Populate User Journey step notes by matching extracted post-its to nearby journey step descriptions.</doc>
+If {CT_USER_JOURNEY_FILE} is not empty:
+
+    Read out all hand-written post-its from {CT_USER_JOURNEY_FILE}
+
+    Map the extracted content to {TARGET_FILE}.container_UserJourney while taking the structure of {JSON_SCHEMA} into consideration.
+
+
+<doc>Populate Advanced User Journey step notes by matching extracted post-its to nearby journey step descriptions.</doc>
+If {CT_ADVANCED_USER_JOURNEY_FILE} is not empty:
+
+    Read out all hand-written post-its from {CT_ADVANCED_USER_JOURNEY_FILE}
+
+    Map the extracted content to {TARGET_FILE}.container_AdvancedUserJourney while taking the structure of {JSON_SCHEMA} into consideration.
+   
+
+<doc>Populate Staged Offering Portfolio streams by matching extracted post-its to reading areas.</doc>
+If {MD_STAGED_OFFERING_PORTFOLIO_FILE} is not empty:
+    
+    Read out all hand-written post-its from {MD_STAGED_OFFERING_PORTFOLIO_FILE}
+
+    Map the extracted content to {TARGET_FILE}.module_StagedOfferingPortfolio while taking the structure of {JSON_SCHEMA} into consideration.
+    
+
+<doc>Populate Detailed Idea Investment per team.</doc>
+If {CT_DETAILED_IDEA_INVESTMENT_FILE} is not empty:
+
+    Read out all hand-written post-its from {CT_DETAILED_IDEA_INVESTMENT_FILE}
+
+    Map the extracted content to {TARGET_FILE}.container_DetailedIdeaInvestment while taking the structure of {JSON_SCHEMA} into consideration.
+
+
+<doc>Populate Roadmap module.</doc>
+If {MD_ROADMAP_FILE} is not empty:
+
+    Read out all hand-written post-its from {MD_ROADMAP_FILE}
+
+    Map the extracted content to {TARGET_FILE}.module_Roadmap while taking the structure of {JSON_SCHEMA} into consideration.
+
+
+<doc>Populate Different Scenarios Rated by pairing idea/problem rows and attaching category ratings by column alignment.</doc>
+If {CT_DIFF_SCENARIOS_RATED_FILE} is not empty:
+
+    Read out all hand-written post-its from {CT_DIFF_SCENARIOS_RATED_FILE}
+
+    Map the extracted content to {TARGET_FILE}.container_DifferentScenariosRated while taking the structure of {JSON_SCHEMA} into consideration.
+
+<doc>Populate Scenario Summary module.</doc>
+If {CT_SCENARIO_SUMMARY_FILE} is not empty:
+
+    Read out all hand-written post-its from {CT_SCENARIO_SUMMARY_FILE}
+
+    Map the extracted content to {TARGET_FILE}.container_ScenarioSummary while taking the structure of {JSON_SCHEMA} into consideration.

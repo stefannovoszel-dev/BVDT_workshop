@@ -1,0 +1,914 @@
+<doc>Pre-processing rules applied before parsing to keep payload deterministic and avoid parser pollution.</doc>
+INSTRUCTION HYGIENE:
+
+Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
+Remove all empty strings ("") within CONFIGURATION section before parsing.
+
+<doc>Here you define how post-its should be treated when extracted. So any change regarding that should (if possible) always placed here instead of at module level.</doc>
+For all post-it extractions:
+    Only extract text from actual handwritten square post-its.
+    Post-its are square with a general standard size of 3x3 inches.
+    All post-its are handwritten.
+    Detect every individual post-it in the read area and extract each one separately.
+    If multiple post-its are present in one read area, process them in top-to-bottom, then left-to-right order.
+    Only extract text written inside the borders of the post-it.
+    Ignore any printed board text, template text, headings, labels, legends, axis text, rating-scale text, octagon text, connector lines, or any other non-post-it content, even if it appears inside, near, or overlapping the read area.
+    The read area defines where to search for post-its, not which non-post-it text to extract.
+    Preserve the original wording of each post-it.
+    Apply only light normalization: correct obvious typos, normalize case, and remove line-break hyphenation.
+    Do not summarize, reinterpret, merge, or paraphrase.
+    If text is only partially legible, extract all legible text line by line and leave uncertain or incomplete text unresolved rather than guessing.
+    If a post-it is only partially legible, perform a second pass on a tighter crop of that individual post-it before final extraction.
+    If any extracted post-it text appears truncated, incomplete, or low-confidence, re-inspect that exact post-it in a tighter crop before returning the final result.
+    Only keep text incomplete if the second pass still does not make the missing part legible.
+
+<doc>Normalize page orientation and geometry before applying any module-specific read areas.</doc>
+For every PDF page or image used for visual extraction:
+
+    Render the complete page as an image.
+
+    Create four orientation candidates:
+        Candidate 01 = original orientation
+        Candidate 02 = rotated 90 degrees clockwise
+        Candidate 03 = rotated 180 degrees
+        Candidate 04 = rotated 90 degrees counterclockwise
+
+    Evaluate every candidate using:
+        horizontal text-line orientation
+        OCR confidence for printed headings
+        expected module-specific headings
+        expected position and order of rows and columns
+        expected placement of logos, title bars, side banners, and
+        table headers
+        consistency of visible horizontal and vertical grid lines
+
+    Do not select an orientation from OCR confidence alone.
+
+    Select the candidate that produces the strongest consistent match
+    with the module-specific layout anchors.
+
+    If two candidates remain equally plausible:
+        Do not extract or map post-its from that page.
+        Report the page as having ambiguous orientation.
+
+    Record:
+        {DETECTED_SOURCE_ROTATION}
+        {APPLIED_CORRECTION_ROTATION}
+        {ORIENTATION_CONFIDENCE}
+        {ORIENTATION_ANCHORS_FOUND}
+
+    Set:
+        {NORMALIZED_PAGE_IMAGE}
+            = page image after applying the selected correction
+
+    After rotation normalization:
+        Detect the outer document, poster, board, or table boundary.
+
+        If perspective distortion or camera skew is present:
+            Deskew or perspective-correct the relevant document area.
+            Preserve the relative positions of rows, columns, grid
+            lines, post-its, and printed labels.
+
+        Set:
+            {NORMALIZED_DOCUMENT_IMAGE}
+                = corrected document image used for extraction
+
+    Apply all module-specific coordinates, top/bottom relationships,
+    left/right relationships, and read areas only to
+    {NORMALIZED_DOCUMENT_IMAGE}.
+
+    Never apply module-specific coordinates to the unnormalized source
+    image.
+
+<doc>For all OCR and visual extraction tasks:
+    First normalize the orientation of the source so text is upright in normal reading direction.
+    If needed, rotate the page or picture before OCR.
+    Perform all spatial interpretations (top, bottom, left, right, rows, columns, quadrants) only after orientation normalization.</doc>
+
+<doc>Here you define the coordination system, if it is necessary to precisely instruct the OCR actions.</doc>
+Coordinate system:
+    x increases from left to right
+    y increases from top to bottom (y = 0% is top of page)
+
+
+TOOLS:
+<doc>This is a method to generate unique IDs for objects in a consistent and deterministic way.</doc>
+{METHOD_ID_GENERATOR}({namespace}, {input}):
+    Normalize: trim whitespace, lowercase, apply Unicode NFC.
+    Concatenate namespace and string as "{namespace}|{input}".
+    Hash with SHA‑256.
+    Take the first 8 bytes as a big‑endian unsigned integer.
+    Compute modulo 10^12, zero‑pad to 12 digits.
+    Namespace: {namespace}
+    Input: {input}
+    Checksum: none (use all 12 digits for data).
+    Output format: return 12-digit string.
+
+
+<doc>Use this section to define the main configurations and also the metrics for the files where the information should be extracted from.</doc>
+CONFIGURATION:
+
+{JSON_SCHEMA} = "ws_classes.schema.json" <doc>we are still using the JSON schema as reference for the structure to use.</doc>
+<doc>Global runtime constants used for extraction and ID generation across all modules.</doc>
+{CUSTOMER_NAME} = "IPCO"
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{COMMON_ABBREVIATIONS} = "KI, HCM, SAP"
+{ABBREVIATION_CORRECTIONS} = "HCL->HCM, S.A.P->SAP, K.I->KI"
+
+{WORKSHOP_DATE} = "2026-10-01"
+
+If {TARGET_FILE} already contains objects of type PostIt:
+     {NOTE_COUNTER} = max(PostIt.id in {TARGET_FILE}) 
+Else:
+    {NOTE_COUNTER} = 0
+
+<doc>Input file(s) for Free Association module.</doc>
+{MD_FREE_ASSOCIATION_FILE} = "IPCO/BusinessServitization/IPCO_Sevitization_Brainstorming.pdf"
+
+<doc>Input file(s) for Different Views with Ratings module. Here the naming is important and has to be updated also in the EXECUTION section.</doc>
+{MD_DIFF_VIEWS_RATED_FILE_SALES} = ""
+{MD_DIFF_VIEWS_RATED_FILE_DELIVERY} = ""
+{MD_DIFF_VIEWS_RATED_FILE_MANAGEMENT} = ""
+
+<doc>Input file(s) for Capability Matrix module.</doc>
+{MD_CAPABILITY_MATRIX_FILE} = ""
+
+<doc>Input file(s) for Value Effort Matrix module.</doc>
+{MD_VALUE_EFFORT_MATRIX_FILE} = "IPCO/BusinessServitization/IPCO_Sevitization_ValueMatrix.pdf"
+
+<doc>Input file(s) for Detailed Working Plan module. Here the naming is important and has to be updated also in the EXECUTION section.</doc>
+{MD_DETAILED_WORKING_PLAN_FILE_TEAM_RED} = ""
+{MD_DETAILED_WORKING_PLAN_FILE_TEAM_GREEN} = ""
+{MD_DETAILED_WORKING_PLAN_FILE_TEAM_BLUE} = ""
+
+<doc>Input file(s) for User Journey module.</doc>
+{MD_USER_JOURNEY_FILE} = ""
+
+<doc>Input file(s) for Detailed Idea plus Investment module.</doc>
+{MD_DETAILED_IDEA_INVESTMENT_FILE} = ""
+
+<doc>Input file(s) for Roadmap module.</doc>
+{MD_ROADMAP_FILE} = ""
+
+<doc>Input file(s) for Staged Offering Portfolio module.</doc>
+{MD_STAGED_OFFERING_PORTFOLIO_FILE} = ""
+
+<doc>Input file(s) for Scenario Summary module.</doc>
+{CT_SCENARIO_SUMMARY_FILE} = ""
+
+<doc>Input file(s) for Different Scenarios Rated module.</doc>
+{CT_DIFF_SCENARIOS_RATED_FILE} = "IPCO/BusinessServitization/IPCO_Servitization_LevelRating.pdf"
+
+<doc>Input file and visual extraction configuration for the Life Cycle
+module. The expected stage, capability, and business-model structure is
+read from the existing Module_LifeCycle object in TARGET_FILE.</doc>
+{MD_LIFE_CYCLE_FILE}
+    = "IPCO/BusinessServitization/IPCO_Servitization_LifeCycle.pdf"
+
+If {MD_LIFE_CYCLE_FILE} is not empty:
+
+    <doc>All coordinates below apply only after the page has been
+    rotated into its normal reading orientation and any perspective
+    distortion has been corrected.</doc>
+
+    {MD_LIFE_CYCLE_TITLE_AREA} =
+        x between 0% and 100%,
+        y between 0% and 9%
+
+    {MD_LIFE_CYCLE_STAGE_HEADER_AREA} =
+        x between 15% and 98%,
+        y between 8% and 28%
+
+    {MD_LIFE_CYCLE_BUSINESS_MODEL_HEADER_AREA} =
+        x between 15% and 98%,
+        y between 27% and 35%
+
+    {MD_LIFE_CYCLE_CAPABILITY_LABEL_AREA} =
+        x between 5% and 15%,
+        y between 34% and 100%
+
+    {MD_LIFE_CYCLE_ARGUMENT_MATRIX_AREA} =
+        x between 15% and 98%,
+        y between 34% and 100%
+
+
+    <doc>Module-specific anchors used to choose the correct page
+    orientation. The expected text values and collection sizes come
+    from the existing target object and are not duplicated here.</doc>
+    {MD_LIFE_CYCLE_ORIENTATION_ANCHORS} =
+
+        The existing Module_LifeCycle.headline appears horizontally near the top of the page.
+
+        Existing LifeCycleStage.name values appear as stage headings ordered from left to right.
+
+        Existing BusinessCapability.name values appear as capability
+        labels ordered from top to bottom.
+
+        Existing BusinessModelArgument.businessModel values appear as
+        business-model headings.
+
+        Printed Pro and Contra labels are upright.
+
+        The lifecycle matrix contains consistent horizontal and
+        vertical grid lines.
+
+        The number of visual stage columns corresponds to the number of
+        existing LifeCycleStage objects.
+
+        Within each stage, the number of visual capability bands
+        corresponds to the number of existing BusinessCapability
+        objects.
+
+        Within each capability, the number of visual business-model
+        subcolumns corresponds to the number of existing
+        BusinessModelArgument objects.
+
+
+    <doc>Grid lines and printed headings determine the exact internal
+    cell boundaries. The configured areas above are mandatory outer
+    search boundaries, not replacements for detected grid lines.</doc>
+
+    {MD_LIFE_CYCLE_STAGE_BOUNDARY_RULE} =
+        Detect stage boundaries from vertical grid lines inside
+        {MD_LIFE_CYCLE_ARGUMENT_MATRIX_AREA}.
+
+        If an internal stage divider cannot be detected, divide the
+        unresolved width according to the ordered number of existing
+        LifeCycleStage objects in TARGET_FILE.
+
+    {MD_LIFE_CYCLE_CAPABILITY_BOUNDARY_RULE} =
+        Detect capability boundaries from horizontal grid lines inside
+        each detected stage area.
+
+        If an internal capability divider cannot be detected, divide
+        the unresolved height according to the ordered number of
+        existing BusinessCapability objects in the matched
+        LifeCycleStage.
+
+    {MD_LIFE_CYCLE_BUSINESS_MODEL_BOUNDARY_RULE} =
+        Detect business-model boundaries from vertical grid lines and
+        printed business-model headings inside each capability area.
+
+        If an internal business-model divider cannot be detected,
+        divide the unresolved width according to the ordered number of
+        existing BusinessModelArgument objects in the matched
+        BusinessCapability.
+
+    {MD_LIFE_CYCLE_ARGUMENT_BOUNDARY_RULE} =
+        Detect the boundary between Pro and Contra from the horizontal
+        grid line or printed Pro and Contra labels.
+
+        If that boundary cannot be detected, use the upper half as Pro
+        and the lower half as Contra.
+
+<doc>Input file(s) for Advanced User Journey module.</doc>
+{CT_ADVANCED_USER_JOURNEY_FILE} = "IPCO/BusinessServitization/IPCO_Servitization_Roadmap.pdf"
+
+<doc>Here you define the read area for the Different Views with Ratings module.</doc>
+If at least one of {MD_DIFF_VIEWS_RATED_FILE_XX} is not empty:
+    {MD_DIFF_VIEWS_RATED_IDEA_READ_AREA} = All post-its sticking in the upper half of the picture.
+    {MD_DIFF_VIEWS_RATED_RATE_READ_AREA} = All post-its sticking in the lower half of the picture.
+
+<doc>Here you define the read area for the Capability Matrix module.</doc>
+If {MD_CAPABILITY_MATRIX_FILE} is not empty:
+    {MD_CAPABILITY_MATRIX_RATE_READ_AREA} = Octagon in the middle of the picture where the rating for each capability is located.
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_01} = Rectangle top left, with white background
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_02} = Rectangle top middle, with blue background
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_03} = Rectangle top right, with white background
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_04} = Rectangle center right, with blue background
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_05} = Rectangle bottom right, with white background
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_06} = Rectangle bottom middle, with blue background
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_07} = Rectangle bottom left, with white background
+    {MD_CAPABILITY_MATRIX_INFO_READ_AREA_08} = Rectangle center left, with blue background
+    {MD_CAPABILITY_MATRIX_RATING_READ_AREA} = Octagon in the middle of the picture where the rating for each capability is located.
+
+<doc>Here you define the read area for the Value Effort Matrix module.</doc>
+<doc>If {MD_VALUE_EFFORT_MATRIX_FILE} is not empty:
+    {MD_VALUE_EFFORT_MATRIX_READ_AREA} = Rectangle area of the picture where the background color is red.
+    {MD_VALUE_EFFORT_MATRIX_READ_AREA_BIG_BET} = Rectangle area of post-it size within {MD_VALUE_EFFORT_MATRIX_READ_AREA} with text "BIG BET" in the center and directly right to a drawing of a head with a lightbulb
+    {MD_VALUE_EFFORT_MATRIX_READ_AREA_NO_BRAINER} = Rectangle area with different background color shading within {MD_VALUE_EFFORT_MATRIX_READ_AREA}, containing the text "NO BRAINER". Take only the area with the shading grade that contains the text, not an area with a different shading grade.
+    {MD_VALUE_EFFORT_MATRIX_READ_AREA_WISE_CHOICE} = Rectangle area with different background color shading within {MD_VALUE_EFFORT_MATRIX_READ_AREA}, containing the text "WISE CHOICE". Take only the area with the shading grade that contains the text, not an area with a different shading grade. The top boundary of this rectangle must be aligned exactly with the top boundary of {MD_VALUE_EFFORT_MATRIX_READ_AREA_NO_BRAINER}.
+
+    {MD_VALUE_EFFORT_MATRIX_READ_AREA_NO_BRAINER} = Area with different background color shading within {MD_VALUE_EFFORT_MATRIX_READ_AREA}, containing the text "NO BRAINER". Take only the shaded region that contains the text. Do not use a rectangle unless the shaded region itself is rectangular. Use a shape-conforming marking that follows the outer boundary of the shaded area. If necessary, represent the area as a curved segment or as a polygon with enough points to approximate the curve accurately.
+    {MD_VALUE_EFFORT_MATRIX_READ_AREA_WISE_CHOICE} = Area with different background color shading within {MD_VALUE_EFFORT_MATRIX_READ_AREA}, containing the text "WISE CHOICE". Take only the shaded region that contains the text. Do not use a rectangle unless the shaded region itself is rectangular. Use a shape-conforming marking that follows the outer boundary of the shaded area. If necessary, represent the area as a curved segment or as a polygon with enough points to approximate the curve accurately.</doc>
+
+<doc>Here you define the read area for the Detailed Working Plan module.</doc>
+If at least one of {MD_DETAILED_WORKING_PLAN_FILE_TEAM_XX} is not empty:
+    {MD_DETAILED_WORKING_PLAN_READ_AREA_BIG_BET} = Post-it located in upper left quadrant, next to a drawing of a head with a lightbulb
+
+<doc>Here you define the read orientation for the Detailed Idea Investment module.</doc>
+<doc>If {MD_DETAILED_IDEA_INVESTMENT_FILE} is not empty:
+    For {MD_DETAILED_IDEA_INVESTMENT_FILE}:
+        Rotate the picture 90° counterclockwise before OCR and before applying any read-area instructions.</doc>
+
+<doc>Here you define the read area for the User Journey map module. You have to use coordinates, because simple descriptions are not accurate enough</doc>
+If {MD_USER_JOURNEY_FILE} is not empty:
+    For {MD_USER_JOURNEY_FILE}:
+        Rotate the picture 90° counterclockwise before OCR and before applying any read-area instructions.
+    {MD_USER_JOURNEY_READ_AREA_01} = All post-its sticking in following rectangle area: x between 10% and 100%, y between 5% and 40%
+    {MD_USER_JOURNEY_READ_AREA_02} = All post-its sticking in following rectangle area: x between 10% and 100%, y between 35% and 70%
+    {MD_USER_JOURNEY_READ_AREA_03} = All post-its sticking in following rectangle area: x between 10% and 100%, y between 65% and 95%
+
+<doc>Here you define the read area for the Staged Offering Portfolio module. You have to use coordinates, because simple descriptions are not accurate enough</doc>
+If {MD_STAGED_OFFERING_PORTFOLIO_FILE} is not empty:
+    For {MD_STAGED_OFFERING_PORTFOLIO_FILE}:
+        Rotate the picture 90° counterclockwise before OCR and before applying any read-area instructions.
+    {MD_STAGED_OFFERING_PORTFOLIO_READ_AREA_01} = All post-its sticking in following rectangle area: x between 0% and 33%, y between 0% and 100%
+    {MD_STAGED_OFFERING_PORTFOLIO_READ_AREA_02} = All post-its sticking in following rectangle area: x between 33% and 66%, y between 0% and 100%
+    {MD_STAGED_OFFERING_PORTFOLIO_READ_AREA_03} = All post-its sticking in following rectangle area: x between 66% and 100%, y between 0% and 100%
+
+<doc>Here you define the read area for the Roadmap module.</doc>
+If {MD_ROADMAP_FILE} is not empty:
+    {MD_ROADMAP_READ_AREA} = Rectangle area within {MD_ROADMAP_FILE} with a picture as background.
+    {MD_ROADMAP_QUADRANT_H3_01} = Upper left quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H3_02} = Upper center quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H3_03} = Upper right quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H2_01} = Middle left quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H2_02} = Middle center quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H2_03} = Middle right quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H1_01} = Lower left quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H1_02} = Lower center quadrant of {MD_ROADMAP_READ_AREA}
+    {MD_ROADMAP_QUADRANT_H1_03} = Lower right quadrant of {MD_ROADMAP_READ_AREA}
+
+
+<doc>Here you only update the already exting {TARGET_FILE} that has been created in the 'prefill' step. We use the properties of {TARGET_FILE} directly to clearly instruct the LLM for mapping.</doc>
+EXECUTION:
+
+Structure for the data mapping = {JSON_SCHEMA}:
+
+
+<doc>Populate the existing Module_LifeCycle from the configured
+lifecycle poster.</doc>
+If {MD_LIFE_CYCLE_FILE} is not empty:
+
+    Update {TARGET_FILE}.module_LifeCycle
+
+    Render every page of {MD_LIFE_CYCLE_FILE}.
+
+    Run the common orientation and geometry normalization process using {MD_LIFE_CYCLE_ORIENTATION_ANCHORS}.
+
+    Use the resulting {NORMALIZED_DOCUMENT_IMAGE} for every subsequent operation.
+
+    Confirm that:
+        the main title is horizontal
+        the six stage headings run from left to right
+        capability rows run from top to bottom
+        CAPEX appears left of OPEX
+        Pro appears above Contra
+
+    If these conditions are not satisfied:
+        Stop lifecycle extraction.
+        Report that lifecycle orientation normalization failed.
+
+    <doc>Constrain heading detection to the configured header areas.</doc>
+    Detect lifecycle-stage headings only inside {MD_LIFE_CYCLE_STAGE_HEADER_AREA}.
+
+    Detect CAPEX and OPEX headings only inside {MD_LIFE_CYCLE_BUSINESS_MODEL_HEADER_AREA}.
+
+    Detect argument post-its only inside {MD_LIFE_CYCLE_ARGUMENT_MATRIX_AREA}.
+
+    Do not extract post-its from outside {MD_LIFE_CYCLE_ARGUMENT_MATRIX_AREA}.
+
+    <doc>Determine exact matrix geometry.</doc>
+    Detect the vertical grid lines that divide the argument matrix into six stage columns.
+
+    Detect the horizontal grid lines that divide the argument matrix into three capability bands and their Pro and Contra cells.
+
+    Use detected grid lines as the primary boundaries.
+
+    If an individual grid line cannot be detected reliably:
+        Use the corresponding configured {MD_LIFE_CYCLE_STAGE_COLUMN_XX} or {MD_LIFE_CYCLE_CAPABILITY_BAND_XX} as its fallback boundary.
+
+    Do not replace all detected grid lines with approximate coordinate boundaries merely because one grid line is unclear.
+
+    Confirm that the resulting matrix has:
+        {MD_LIFE_CYCLE_EXPECTED_STAGE_COUNT} stage columns
+        {MD_LIFE_CYCLE_EXPECTED_CAPABILITY_COUNT} capability bands per stage
+        {MD_LIFE_CYCLE_EXPECTED_BUSINESS_MODEL_COUNT} business-model areas per capability
+        {MD_LIFE_CYCLE_EXPECTED_ARGUMENT_TYPE_COUNT} argument cells per business model
+
+    If the resulting matrix does not have this topology:
+        Stop lifecycle extraction.
+        Report the detected topology and the expected topology.
+
+    <doc>Match detected stage columns to existing stage objects.</doc>
+    For each detected stage column from left to right:
+
+        Read its printed heading from {MD_LIFE_CYCLE_STAGE_HEADER_AREA}.
+
+        Match it to one existing LifeCycleStage in:
+            {TARGET_FILE}.module_LifeCycle.lifeCycleStage
+
+        Normalize heading comparison by:
+            trimming whitespace
+            converting to lowercase
+            applying Unicode NFC
+            replacing line breaks with spaces
+            treating "&" and "and" as equivalent
+            ignoring repeated spaces
+            ignoring punctuation differences
+
+        Apply this known alias:
+            Poster:
+                "Decommissioning End of Life Treatment"
+            Existing target:
+                "Deommissioning & End of Life Treatment"
+
+        If the heading is covered or not sufficiently legible:
+            Use its left-to-right position as fallback:
+
+                For each LifeCycleStage in {TARGET_FILE}.module_LifeCycle
+                    
+                    Column XX =
+                        LifeCycleStage.name
+
+        Set:
+            {STAGE_AREA}
+                = intersection of:
+                    matched detected stage column
+                    {MD_LIFE_CYCLE_ARGUMENT_MATRIX_AREA}
+
+        Do not create a new LifeCycleStage.
+        Do not change the matched LifeCycleStage id, name, or
+        description.
+
+        <doc>Match capability rows within the stage.</doc>
+        For each detected capability band from top to bottom:
+
+            Match it to one existing BusinessCapability in:
+                LifeCycleStage.businessCapability
+
+            Use the side banners, printed capability labels, configured
+            capability names, and row position.
+
+            Apply these aliases:
+
+                Poster:
+                    "Shopfloor Operations"
+                Target:
+                    "Shopfloor Operations"
+
+                Poster:
+                    "Business Operations (€)"
+                Target:
+                    "Business Operations"
+
+                Poster:
+                    "Service Provider Customer Manager"
+                Target:
+                    "Service Provider / Customer Manager"
+
+            If the capability label is covered or not sufficiently
+            legible:
+
+                For each BusinessCapability in {TARGET_FILE}.businessParty
+                
+                Band XX =
+                    BusinessCapability.name
+
+            Set:
+                {CAPABILITY_AREA}
+                    = intersection of:
+                        {STAGE_AREA}
+                        matched detected capability band
+                        corresponding configured
+                        {MD_LIFE_CYCLE_CAPABILITY_BAND_XX}
+
+            Do not create a new BusinessCapability.
+            Do not change its id or name.
+
+            <doc>Divide the capability area into CAPEX and OPEX.</doc>
+            Use the detected CAPEX/OPEX divider as the primary
+            boundary.
+
+            If that divider is covered or unclear:
+                Divide {CAPABILITY_AREA} vertically into equal halves.
+
+            Set:
+                {CAPEX_AREA}
+                    = left business-model area of {CAPABILITY_AREA}
+
+                {OPEX_AREA}
+                    = right business-model area of {CAPABILITY_AREA}
+
+            Match:
+                BusinessModelArgument.businessModel = "CAPEX"
+                    to {CAPEX_AREA}
+
+                BusinessModelArgument.businessModel = "OPEX"
+                    to {OPEX_AREA}
+
+            Do not infer CAPEX or OPEX from post-it color.
+
+            Do not change the businessModel value.
+
+            <doc>Divide each business-model area into Pro and Contra
+            cells.</doc>
+            For each matched BusinessModelArgument:
+
+                If businessModel = "CAPEX":
+                    {BUSINESS_MODEL_AREA} = {CAPEX_AREA}
+
+                If businessModel = "OPEX":
+                    {BUSINESS_MODEL_AREA} = {OPEX_AREA}
+
+                Detect the printed Pro/Contra separator or horizontal
+                grid line.
+
+                If the separator is detected:
+                    {PRO_CELL}
+                        = portion of {BUSINESS_MODEL_AREA} above the
+                          detected separator
+
+                    {CONTRA_CELL}
+                        = portion of {BUSINESS_MODEL_AREA} below the
+                          detected separator
+
+                Else:
+                    {PRO_CELL}
+                        = upper half of {BUSINESS_MODEL_AREA}
+
+                    {CONTRA_CELL}
+                        = lower half of {BUSINESS_MODEL_AREA}
+
+                Intersect both cells with
+                {MD_LIFE_CYCLE_ARGUMENT_MATRIX_AREA}.
+
+                <doc>Extract Pro Argument.</doc>
+                Detect all physical post-its overlapping {PRO_CELL}.
+
+                Assign a post-it to {PRO_CELL} only when:
+                    its center lies inside {PRO_CELL}; or
+                    its largest overlap is with {PRO_CELL}
+
+                If the largest overlap with two cells is approximately
+                equal:
+                    Mark the post-it as ambiguous.
+                    Do not map it automatically.
+
+                From post-its assigned to {PRO_CELL}, retain only actual
+                handwritten post-its containing handwritten content.
+
+                Ignore:
+                    printed template squares
+                    printed thumbs-up or thumbs-down icons
+                    masking tape
+                    transparent tape
+                    grey covered areas
+                    shadows
+                    grid borders
+                    printed "Pro Argument" text
+                    printed headings
+                    blank post-its without handwriting
+
+                Do not use post-it color as a semantic signal.
+
+                If exactly one handwritten post-it containing content is
+                present:
+                    Extract its handwritten text using the global
+                    post-it rules.
+
+                    Preserve meaningful standalone symbols such as "$".
+
+                    If BusinessModelArgument.proArgument is absent:
+                        {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+
+                        Create PostIt with:
+                            id = {NOTE_COUNTER}
+                            note = extracted handwritten text
+
+                        set BusinessModelArgument.proArgument = PostIt
+
+                    Else:
+                        retain BusinessModelArgument.proArgument.id
+                        replace BusinessModelArgument.proArgument.note
+                            with the extracted handwritten text
+
+                If no handwritten content is present:
+                    Do not create proArgument.
+                    Do not increment {NOTE_COUNTER}.
+
+                    If proArgument already exists from an earlier
+                    extraction:
+                        Do not delete it automatically.
+                        Report a source/target discrepancy.
+
+                If more than one handwritten post-it containing content
+                is present:
+                    Do not merge their texts.
+                    Do not select one silently.
+                    Report an ambiguity because proArgument is singular.
+
+                <doc>Extract Contra Argument.</doc>
+                Apply the identical procedure to {CONTRA_CELL}.
+
+                If exactly one handwritten post-it containing content is
+                present:
+                    Extract its handwritten text using the global
+                    post-it rules.
+
+                    Preserve meaningful standalone symbols such as "$".
+
+                    If BusinessModelArgument.contraArgument is absent:
+                        {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+
+                        Create PostIt with:
+                            id = {NOTE_COUNTER}
+                            note = extracted handwritten text
+
+                        set BusinessModelArgument.contraArgument = PostIt
+
+                    Else:
+                        retain BusinessModelArgument.contraArgument.id
+                        replace
+                            BusinessModelArgument.contraArgument.note
+                            with the extracted handwritten text
+
+                If no handwritten content is present:
+                    Do not create contraArgument.
+                    Do not increment {NOTE_COUNTER}.
+
+                    If contraArgument already exists from an earlier
+                    extraction:
+                        Do not delete it automatically.
+                        Report a source/target discrepancy.
+
+                If more than one handwritten post-it containing content
+                is present:
+                    Do not merge their texts.
+                    Do not select one silently.
+                    Report an ambiguity because contraArgument is
+                    singular.
+
+
+<doc>Populate Free Association by reading all post-its in the configured area and appending as PostIt notes.</doc>
+If {MD_FREE_ASSOCIATION_FILE} is not empty:
+    Update {TARGET_FILE}.module_FreeAssociation.freeAssociation
+        
+        Extract text from each post-it in {MD_FREE_ASSOCIATION_FILE} using OCR and light normalization.
+
+        For each post-it extracted:
+            {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+            PostIt.id = {NOTE_COUNTER}
+                PostIt.note = text extracted from the post-it
+                append PostIt to {TARGET_FILE}.module_FreeAssociation.freeAssociation
+
+
+<doc>Populate Different Views Rated by pairing idea/problem rows and attaching category ratings by column alignment.</doc>
+If at least one of {MD_DIFF_VIEWS_RATED_FILE_XX} is not empty:
+    Update {TARGET_FILE}.container_DifferentViewsRated.module_DifferentViewsRated
+        
+        For each perspective:
+            {ITEM_COUNTER} = 1 <doc>{ITEM_COUNTER} is only necessary to create unique IDs.</doc>
+            {MD_DIFF_VIEWS_RATED_FILE} = file where {MD_DIFF_VIEWS_RATED_FILE_}XX corresponds to the perspective <doc>Here we use the semantic capabilities to map perspective and file. So keep this in mind when creating your naming concept</doc>
+            
+            <doc>Here we use local variable to iterate through the post-its.</doc>
+            First post-it row = Extract text from each post-it in first row of {MD_DIFF_VIEWS_RATED_IDEA_READ_AREA} from {MD_DIFF_VIEWS_RATED_FILE} using OCR and light normalization.
+            Second post-it row = Extract text from each post-it in second row of {MD_DIFF_VIEWS_RATED_IDEA_READ_AREA} from {MD_DIFF_VIEWS_RATED_FILE} using OCR and light normalization.
+            {CATEGORY_ROW_01} = Extract text from each post-it in first row of {MD_DIFF_VIEWS_RATED_RATE_READ_AREA} from {MD_DIFF_VIEWS_RATED_FILE} using OCR and light normalization.
+            {CATEGORY_ROW_02} = Extract text from each post-it in second row of {MD_DIFF_VIEWS_RATED_RATE_READ_AREA} from {MD_DIFF_VIEWS_RATED_FILE} using OCR and light normalization.
+            {CATEGORY_ROW_03} = Extract text from each post-it in third row of {MD_DIFF_VIEWS_RATED_RATE_READ_AREA} from {MD_DIFF_VIEWS_RATED_FILE} using OCR and light normalization.
+
+            <doc>We start with the first post-it row.</doc>
+            For each post-it in First post-it row:
+                Create WorkshopItemRated with:
+                    id = "ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, perspective + {ITEM_COUNTER})
+                    
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from the post-it <doc>We add post-it from first row, column x to {TARGET_FILE}.</doc>
+                    idea = PostIt
+
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from post-it in the second row corresponding to the same column as the idea post-it <doc>We add post-it from second row, column x to {TARGET_FILE}.</doc>
+                    problemSolved = PostIt
+
+                    {ITEM_COUNTER} = {ITEM_COUNTER} + 1
+
+                    For each category in categoryRating:
+                        categoryRating.rating = number extracted from post-it in {CATEGORY_ROW_XX} corresponding to the same column as the idea post-it <doc>We add post-its from each category row, column x to {TARGET_FILE}.</doc>
+
+                append WorkshopItemRated to Module_DifferentViewsRated.workshopItemRated
+
+
+<doc>Enrich capability entries with rating and extracted supporting post-it notes per capability area.</doc>
+If {MD_CAPABILITY_MATRIX_FILE} is not empty:
+    Update {TARGET_FILE}.module_CapabilityMatrix
+        
+        For each capability:
+            capability.rating = Extract number or value between 2 numbers from {MD_CAPABILITY_MATRIX_RATE_READ_AREA} where line is crossing and which is closest to {MD_CAPABILITY_MATRIX_INFO_READ_AREA_XX}. If the line is crossing between 2 values, take the appropriate decimal value (e.g. if crossing between 3 and 4, take 3.5). If the line is crossing exactly on a number, take that number as rating.
+
+            Extract text from each post-it in {MD_CAPABILITY_MATRIX_INFO_READ_AREA_XX} from {MD_CAPABILITY_MATRIX_FILE} using OCR and light normalization.
+
+            For each post-it extracted:
+                {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                PostIt.id = {NOTE_COUNTER}
+                PostIt.note = text extracted from the post-it
+                append PostIt to capability    
+        
+
+<doc>Populate Value/Effort modules per team and classify each extracted idea into a weight category based on location.</doc>
+If {MD_VALUE_EFFORT_MATRIX_FILE} is not empty:
+    Update {TARGET_FILE}.container_ValueEffortMatrix.module_ValueEffortMatrix
+        
+        For each teamName:
+            {MD_VALUE_EFFORT_MATRIX_READ_AREA} = Rectangle area of the picture where the background color corresponds to teamName.
+            {MD_VALUE_EFFORT_MATRIX_READ_AREA_BIG_BET} = Rectangle area of post-it size within {MD_VALUE_EFFORT_MATRIX_READ_AREA} with text "BIG BET" in the center and directly right to a drawing of a head with a lightbulb
+            {MD_VALUE_EFFORT_MATRIX_READ_AREA_NO_BRAINER} = Rectangle area with different background color shading within {MD_VALUE_EFFORT_MATRIX_READ_AREA}, containing the text "NO BRAINER". Take only the area with the shading grade that contains the text, not an area with a different shading grade.
+            {MD_VALUE_EFFORT_MATRIX_READ_AREA_WISE_CHOICE} = Rectangle area with different background color shading within {MD_VALUE_EFFORT_MATRIX_READ_AREA}, containing the text "WISE CHOICE". Take only the area with the shading grade that contains the text, not an area with a different shading grade. The top boundary of this rectangle must be aligned exactly with the top boundary of {MD_VALUE_EFFORT_MATRIX_READ_AREA_NO_BRAINER}.
+            
+            Extract text from each post-it in {MD_VALUE_EFFORT_MATRIX_READ_AREA} from {MD_VALUE_EFFORT_MATRIX_FILE} using OCR and light normalization.
+
+            For each post-it extracted:
+                Create WorkshopItemWeighted with:
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    id = "ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, teamName + {NOTE_COUNTER}
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from the post-it
+                    idea = PostIt
+
+                    If biggest part of post-it is located in {MD_VALUE_EFFORT_MATRIX_READ_AREA_BIG_BET}:
+                        category = Big Bet
+                    Else if biggest part of post-it is located in {MD_VALUE_EFFORT_MATRIX_READ_AREA_NO_BRAINER}:
+                        category = No Brainer
+                    Else if biggest part of post-it is located in {MD_VALUE_EFFORT_MATRIX_READ_AREA_WISE_CHOICE}:
+                        category = Wise Choice
+                    Else:
+                        category = Nice to have
+
+                append WorkshopItemWeighted to Module_ValueEffortMatrix.workshopItemWeighted           
+      
+
+<doc>Populate Detailed Working Plan per team, including Big Bet and notes for explanation/resource sections.</doc>
+If at least one of {MD_DETAILED_WORKING_PLAN_FILE_TEAM_XX} is not empty:
+    Update {TARGET_FILE}.container_DetailedWorkingPlan.module_DetailedWorkingPlan
+        
+        For each teamName:
+            {MD_DETAILED_WORKING_PLAN_FILE} = file where {MD_DETAILED_WORKING_PLAN_FILE_TEAM_}XX corresponds to the teamName
+            
+            {BIG_BET} = Extract text from each post-it in {MD_DETAILED_WORKING_PLAN_READ_AREA_BIG_BET} from {MD_DETAILED_WORKING_PLAN_FILE} using OCR and light normalization.
+            bigBet = {BIG_BET}
+
+            For each workplanItemGroupExplanationData.workplanItemOneStep:
+                {EXPLANATION_DATA_ONE_STEP} = Extract text from each post-it in {MD_DETAILED_WORKING_PLAN_FILE} using OCR and light normalization. Post-its located below workplanItemOneStep.topic. Maximum is 4 rows and 2 columns of post-its.
+
+                For each post-it in {EXPLANATION_DATA_ONE_STEP}
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    note = PostIt
+                
+                append note to workplanItemOneStep.explanationDataOneStep
+
+            For each workplanItemGroupExplanationData.workplanItemTwoStep:
+                {EXPLANATION_DATA_TWO_STEP} = Extract text from each post-it in {MD_DETAILED_WORKING_PLAN_FILE} using OCR and light normalization. Post-its located below workplanItemTwoStep.description. Maximum is 2 rows and 3 columns of post-its.
+
+                For each post-it in {EXPLANATION_DATA_TWO_STEP}
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    note = PostIt
+                
+                append note to workplanItemTwoStep.explanationDataTwoStep
+
+
+            For each workplanItemGroupRequiredResources.workplanItemOneStep:
+                {REQ_RES_ONE_STEP} = Extract text from each post-it in {MD_DETAILED_WORKING_PLAN_FILE} using OCR and light normalization. Post-its located below workplanItemOneStep.description. Maximum is 2 rows and 4 columns of post-its.
+
+                For each post-it in {REQ_RES_ONE_STEP}
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    note = PostIt
+                
+                append note to workplanItemOneStep.requiredResourcesOneStep
+
+
+<doc>Populate User Journey step notes by matching extracted post-its to nearby journey step descriptions.</doc>
+If {MD_USER_JOURNEY_FILE} is not empty:
+    Update {TARGET_FILE}.container_UserJourney.module_UserJourney
+        
+        For each {MD_USER_JOURNEY_READ_AREA_XX}:
+            Extract text from each post-it from {MD_USER_JOURNEY_FILE} within {MD_USER_JOURNEY_READ_AREA_XX} using OCR and light normalization.
+            
+            For each userJourneyStep:    
+                If post-it located near userJourneyStep.description
+                
+                    For each post-it extracted:
+                        {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                        PostIt.id = {NOTE_COUNTER}
+                        PostIt.note = text extracted from the post-it
+                        append PostIt to Module_UserJourney.userJourneyStep
+
+
+<doc>Populate Staged Offering Portfolio streams by matching extracted post-its to reading areas.</doc>
+If {MD_STAGED_OFFERING_PORTFOLIO_FILE} is not empty:
+    Update {TARGET_FILE}.module_StagedOfferingPortfolio
+        
+        {SECTION_COUNTER} = 0
+
+        For each portfolioItemGroup:
+            {SECTION_COUNTER} = {SECTION_COUNTER} + 1
+
+            {UPPER_READ_AREA} = {MD_STAGED_OFFERING_PORTFOLIO_READ_AREA_XX} WHERE XX = {SECTION_COUNTER} and y between 0% and 50%
+            {LOWER_READ_AREA} = {MD_STAGED_OFFERING_PORTFOLIO_READ_AREA_XX} WHERE XX = {SECTION_COUNTER} and y between 50% and 100%
+            
+            Get first portfolioItem from portfolioItemGroup:
+                Extract text from each post-it from {MD_STAGED_OFFERING_PORTFOLIO_FILE} within {UPPER_READ_AREA} using OCR and light normalization.
+                
+                For each post-it extracted:
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from the post-it
+                    note = PostIt
+
+                    append note to portfolioItem
+
+            Get second portfolioItem from portfolioItemGroup:
+                Extract text from each post-it from {MD_STAGED_OFFERING_PORTFOLIO_FILE} within {LOWER_READ_AREA} using OCR and light normalization.
+                
+                For each post-it extracted:
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from the post-it
+                    note = PostIt
+
+                    append note to portfolioItem
+
+
+<doc>Populate Detailed Idea Investment per team.</doc>
+If {MD_DETAILED_IDEA_INVESTMENT_FILE} is not empty:
+    Update {TARGET_FILE}.container_DetailedIdeaInvestment.module_DetailedIdeaInvestment
+        
+        For each teamName:
+            
+            {MD_DETAILED_IDEA_INVESTMENT_READ_AREA} = Rectangle area within {MD_DETAILED_IDEA_INVESTMENT_FILE} where the background color corresponds to teamName.
+            {IDEA_ROW_COUNTER} = 0
+            
+            For each detailedIdea:
+                {IDEA_ROW_COUNTER} = {IDEA_ROW_COUNTER} + 1
+                {DETAILED_IDEA_FIRST_ROW} = Extract text from each post-it in row {IDEA_ROW_COUNTER} of {MD_DETAILED_IDEA_INVESTMENT_READ_AREA} from {MD_DETAILED_IDEA_INVESTMENT_FILE} using OCR and light normalization.
+                {IDEA_ROW_COUNTER} = {IDEA_ROW_COUNTER} + 1
+                {DETAILED_IDEA_SECOND_ROW} = Extract text from each post-it in row {IDEA_ROW_COUNTER} of {MD_DETAILED_IDEA_INVESTMENT_READ_AREA} from {MD_DETAILED_IDEA_INVESTMENT_FILE} using OCR and light normalization.
+                {DETAILED_IDEA_COMPLETE} = {DETAILED_IDEA_FIRST_ROW} + {DETAILED_IDEA_SECOND_ROW}
+                {DETAILED_IDEA_INVESTMENT} = Rectangle with white dotted line as border, located left from {DETAILED_IDEA_COMPLETE}
+
+                detailedIdea.budget = Calculate the sum of all numbers extracted from {DETAILED_IDEA_INVESTMENT} using OCR and light normalization.
+
+                i = 0
+                For each detailedIdeaStep in detailedIdea:
+                    i = i + 1
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from post-it(i) in {DETAILED_IDEA_COMPLETE}
+                    note = PostIt
+
+                    append note to detailedIdeaStep.note
+
+
+<doc>Populate Roadmap module.</doc>
+If {MD_ROADMAP_FILE} is not empty:
+    Update {TARGET_FILE}.module_Roadmap
+        
+        For each {MD_USER_JOURNEY_QUADRANT_H1_XX}:
+            Extract text from each post-it in {MD_USER_JOURNEY_QUADRANT_H1_XX} from {MD_USER_JOURNEY_FILE} using OCR and light normalization.
+
+            For each post-it extracted:
+                Create roadmapItem with:
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from the post-it
+                    idea = PostIt
+                    category = H1
+                    wave = XX
+                    id = "ROADMAP_ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, "RoadmapItem" + {NOTE_COUNTER})
+                    
+                append RoadmapItem to Module_Roadmap.roadmapItem
+
+        For each {MD_USER_JOURNEY_QUADRANT_H2_XX}:
+            Extract text from each post-it in {MD_USER_JOURNEY_QUADRANT_H2_XX} from {MD_USER_JOURNEY_FILE} using OCR and light normalization.
+
+            For each post-it extracted:
+                Create roadmapItem with:
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from the post-it
+                    idea = PostIt
+                    category = H2
+                    wave = XX
+                    id = "ROADMAP_ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, "RoadmapItem" + {NOTE_COUNTER})
+                    
+                append RoadmapItem to Module_Roadmap.roadmapItem
+
+        For each {MD_USER_JOURNEY_QUADRANT_H3_XX}:
+            Extract text from each post-it in {MD_USER_JOURNEY_QUADRANT_H3_XX} from {MD_USER_JOURNEY_FILE} using OCR and light normalization.
+
+            For each post-it extracted:
+                Create roadmapItem with:
+                    {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+                    PostIt.id = {NOTE_COUNTER}
+                    PostIt.note = text extracted from the post-it
+                    idea = PostIt
+                    category = H3
+                    wave = XX
+                    id = "ROADMAP_ITEM_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, "RoadmapItem" + {NOTE_COUNTER})
+                    
+                append RoadmapItem to Module_Roadmap.roadmapItem    
