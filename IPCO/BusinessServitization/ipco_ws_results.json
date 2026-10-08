@@ -996,63 +996,81 @@
       {
         "id": "MODULE_766358285373",
         "scenario": "Level 2",
+        "totalScore": 16,
         "categoryScore": [
           {
-            "category": "Financial and Business Assessment"
+            "category": "Financial and Business Assessment",
+            "score": 4
           },
           {
-            "category": "Operational Processes Assessment"
+            "category": "Operational Processes Assessment",
+            "score": 7
           },
           {
-            "category": "Employee Assessment"
+            "category": "Employee Assessment",
+            "score": 6
           },
           {
-            "category": "Legal Assessment"
+            "category": "Legal Assessment",
+            "score": -2
           },
           {
-            "category": "Joker"
+            "category": "Joker",
+            "score": 1
           }
         ]
       },
       {
         "id": "MODULE_780692143765",
         "scenario": "Level 3",
+        "totalScore": 26,
         "categoryScore": [
           {
-            "category": "Financial and Business Assessment"
+            "category": "Financial and Business Assessment",
+            "score": 9
           },
           {
-            "category": "Operational Processes Assessment"
+            "category": "Operational Processes Assessment",
+            "score": 12
           },
           {
-            "category": "Employee Assessment"
+            "category": "Employee Assessment",
+            "score": 7
           },
           {
-            "category": "Legal Assessment"
+            "category": "Legal Assessment",
+            "score": -7
           },
           {
-            "category": "Joker"
+            "category": "Joker",
+            "score": 5
           }
         ]
       },
       {
         "id": "MODULE_267755052210",
         "scenario": "Level 4",
+        "totalScore": 24,
         "categoryScore": [
           {
-            "category": "Financial and Business Assessment"
+            "category": "Financial and Business Assessment",
+            "score": 8
           },
           {
-            "category": "Operational Processes Assessment"
+            "category": "Operational Processes Assessment",
+            "score": 9
           },
           {
-            "category": "Employee Assessment"
+            "category": "Employee Assessment",
+            "score": 4
           },
           {
-            "category": "Legal Assessment"
+            "category": "Legal Assessment",
+            "score": -1
           },
           {
-            "category": "Joker"
+            "category": "Joker",
+            "score": 4
           }
         ]
       }
