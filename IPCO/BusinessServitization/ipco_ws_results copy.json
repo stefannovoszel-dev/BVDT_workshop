@@ -150,13 +150,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 1,
-                  "note": "More time to focus on product",
-                  "explanation": "The new direction would let shopfloor staff focus on the product and the customer's core business instead of the surrounding effort required to produce it."
+                  "note": "More time to focus on product"
                 },
                 "contraArgument": {
                   "id": 2,
-                  "note": "Attrition",
-                  "explanation": "The change could cause the company to lose talent, either voluntarily or involuntarily, which would be harmful to the business."
+                  "note": "Attrition"
                 }
               }
             ]
@@ -172,13 +170,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 3,
-                  "note": "No upfront investment",
-                  "explanation": "The customer would not need to make an upfront investment in the equipment."
+                  "note": "No upfront investment"
                 },
                 "contraArgument": {
                   "id": 4,
-                  "note": "Higher TCO",
-                  "explanation": "Avoiding the upfront investment would most likely result in a higher total cost of ownership over time."
+                  "note": "Higher TCO"
                 }
               }
             ]
@@ -194,13 +190,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 5,
-                  "note": "Continuous positive revenue",
-                  "explanation": "The service OPEX agreement would provide the service provider with continuous positive revenue."
+                  "note": "Continuous positive revenue"
                 },
                 "contraArgument": {
                   "id": 6,
-                  "note": "Initial investment",
-                  "explanation": "The service provider must make an initial upfront investment before receiving returns over time."
+                  "note": "Initial investment"
                 }
               }
             ]
@@ -223,13 +217,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 7,
-                  "note": "Best practices in installation guidelines",
-                  "explanation": "The shopfloor can focus on chocolate-industry best practices and ensure that the equipment is installed according to established guidelines and the company's experience."
+                  "note": "Best practices in installation guidelines"
                 },
                 "contraArgument": {
                   "id": 8,
-                  "note": "Risks / trust issues",
-                  "explanation": "Miscommunication and misunderstandings could create risks and trust issues when the technological and chocolate-production perspectives are brought together."
+                  "note": "Risks / trust issues"
                 }
               }
             ]
@@ -245,8 +237,7 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 9,
-                  "note": "Turnkey solution",
-                  "explanation": "The installation would be delivered as a turnkey solution, leaving the customer with nothing to do before the machine is up and running."
+                  "note": "Turnkey solution"
                 }
               }
             ]
@@ -262,13 +253,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 10,
-                  "note": "More control",
-                  "explanation": "Installing its own equipment would give the service provider more control over installation and commissioning."
+                  "note": "More control"
                 },
                 "contraArgument": {
                   "id": 11,
-                  "note": "High need for coordination responsibility",
-                  "explanation": "Because the installation takes place at the customer's premises, it requires more coordination and therefore creates greater complexity."
+                  "note": "High need for coordination responsibility"
                 }
               }
             ]
@@ -291,13 +280,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 12,
-                  "note": "More operational capacity",
-                  "explanation": "The same number of people could operate more machines in parallel, increasing operational capacity and potentially improving production."
+                  "note": "More operational capacity"
                 },
                 "contraArgument": {
                   "id": 13,
-                  "note": "Loss of skills",
-                  "explanation": "Over time, shopfloor staff could lose the ability to operate the machines themselves and become heavily reliant on the service partner."
+                  "note": "Loss of skills"
                 }
               }
             ]
@@ -313,8 +300,7 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 14,
-                  "note": "Predictable cost +",
-                  "explanation": "The customer would know exactly how much it must pay each month, with no unexpected costs."
+                  "note": "Predictable cost +"
                 }
               }
             ]
@@ -330,13 +316,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 15,
-                  "note": "Continuous revenue",
-                  "explanation": "Operating the equipment under the service model would continue to generate recurring revenue for the service provider."
+                  "note": "Continuous revenue"
                 },
                 "contraArgument": {
                   "id": 16,
-                  "note": "Increased complexity",
-                  "explanation": "Standard operation under the service model would bring increased complexity for the service provider."
+                  "note": "Increased complexity"
                 }
               }
             ]
@@ -359,13 +343,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 17,
-                  "note": "Predictive maintenance",
-                  "explanation": "Predictive maintenance would remove the need for the customer to create its own maintenance plan; IPCO would notify it when components such as bearings need to be changed."
+                  "note": "Predictive maintenance"
                 },
                 "contraArgument": {
                   "id": 18,
-                  "note": "Vendor dependency",
-                  "explanation": "The customer would be locked into the vendor's ecosystem and unable to obtain maintenance services elsewhere."
+                  "note": "Vendor dependency"
                 }
               }
             ]
@@ -381,13 +363,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 19,
-                  "note": "Decreased in-house maint. personnel costs",
-                  "explanation": "The customer would reduce personnel costs because it would no longer need to maintain the same maintenance capability in-house."
+                  "note": "Decreased in-house maint. personnel costs"
                 },
                 "contraArgument": {
                   "id": 20,
-                  "note": "Less flexible maint. schedule",
-                  "explanation": "Maintenance would be less flexible: the customer could not simply schedule it during a period of lower production and might have to wait for the next available service slot."
+                  "note": "Less flexible maint. schedule"
                 }
               }
             ]
@@ -403,13 +383,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 21,
-                  "note": "Optimize maintenance",
-                  "explanation": "With full control, the service provider could perform maintenance when it is actually needed instead of following a fixed schedule."
+                  "note": "Optimize maintenance"
                 },
                 "contraArgument": {
                   "id": 22,
-                  "note": "Complexity",
-                  "explanation": "The increased complexity would remain a negative factor for the service provider during maintenance and repair."
+                  "note": "Complexity"
                 }
               }
             ]
@@ -432,13 +410,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 23,
-                  "note": "SLA",
-                  "explanation": "A service-level agreement would define how quickly a breakdown is expected to be resolved."
+                  "note": "SLA"
                 },
                 "contraArgument": {
                   "id": 24,
-                  "note": "Loss per hour",
-                  "explanation": "Even with a defined resolution time, the customer would still incur a loss for every hour of downtime."
+                  "note": "Loss per hour"
                 }
               }
             ]
@@ -454,13 +430,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 25,
-                  "note": "Shared risks",
-                  "explanation": "The service arrangement would share breakdown-related risks between the parties."
+                  "note": "Shared risks"
                 },
                 "contraArgument": {
                   "id": 26,
-                  "note": "You get what you pay for",
-                  "explanation": "A lower-priced agreement would provide a lower service level, potentially including longer reaction times, so the customer must pay enough for the service it requires."
+                  "note": "You get what you pay for"
                 }
               }
             ]
@@ -476,13 +450,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 27,
-                  "note": "Should not happen",
-                  "explanation": "Breakdowns should not occur if the equipment is operated in the way the service provider specifies."
+                  "note": "Should not happen"
                 },
                 "contraArgument": {
                   "id": 28,
-                  "note": "Financial risk",
-                  "explanation": "The service provider would nevertheless carry a financial risk if a breakdown occurs."
+                  "note": "Financial risk"
                 }
               }
             ]
@@ -505,13 +477,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 29,
-                  "note": "Free decommission",
-                  "explanation": "The customer would not have to perform the decommissioning or deal with the resulting waste."
+                  "note": "Free decommission"
                 },
                 "contraArgument": {
                   "id": 30,
-                  "note": "Loss of time",
-                  "explanation": "Although the customer would not need to handle decommissioning or waste, the process would still cost time."
+                  "note": "Loss of time"
                 }
               }
             ]
@@ -527,13 +497,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 31,
-                  "note": "No scrapping costs",
-                  "explanation": "The customer would not incur costs for scrapping the equipment."
+                  "note": "No scrapping costs"
                 },
                 "contraArgument": {
                   "id": 32,
-                  "note": "Cannot use EQ for longer",
-                  "explanation": "Once the equipment is decommissioned, it would be removed and the customer could no longer use it beyond its planned lifespan, even if it had effectively been paid for."
+                  "note": "Cannot use EQ for longer"
                 }
               }
             ]
@@ -549,13 +517,11 @@
                 "businessModel": "OPEX",
                 "proArgument": {
                   "id": 33,
-                  "note": "Residual value is ours",
-                  "explanation": "At the end of its life, the equipment could retain residual value that belongs to the service provider."
+                  "note": "Residual value is ours"
                 },
                 "contraArgument": {
                   "id": 34,
-                  "note": "$",
-                  "explanation": "The service provider would incur costs to handle the equipment at end of life and might also need to refinance it."
+                  "note": "$"
                 }
               }
             ]
@@ -576,166 +542,91 @@
           "id": "SCENARIO_ASPECT_006773813534",
           "aspect": "Impact on turnover?",
           "category": "Financial and Business Assessment",
-          "rating": 1,
-          "explanation": {
-            "id": 87,
-            "note": "+1",
-            "explanation": "Only a small increase in sales was expected at Level 2, so the impact on turnover was rated +1."
-          }
+          "rating": 1
           },
           {
           "id": "SCENARIO_ASPECT_793036876406",
           "aspect": "Impact on profit?",
           "category": "Financial and Business Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 88,
-            "note": "+3",
-            "explanation": "Profit could increase through value-added services, such as fast-track support when a customer urgently needs a replacement, which supported the +3 rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_696271644075",
           "aspect": "Impact on cash flow?",
           "category": "Financial and Business Assessment",
-          "rating": 0,
-          "explanation": {
-            "id": 89,
-            "note": "0",
-            "explanation": "The team could not identify any impact on cash flow at Level 2, so it assigned a rating of 0."
-          }
+          "rating": 0
           },
           {
           "id": "SCENARIO_ASPECT_786197564448",
           "aspect": "Impact on credit rating?",
           "category": "Financial and Business Assessment",
-          "rating": 0,
-          "explanation": {
-            "id": 90,
-            "note": "0",
-            "explanation": "The team could not identify any impact on the credit rating at Level 2, so it assigned a rating of 0."
-          }
+          "rating": 0
           },
           {
           "id": "SCENARIO_ASPECT_308223047327",
           "aspect": "Impact on production planning?",
           "category": "Operational Processes Assessment",
-          "rating": 1,
-          "explanation": {
-            "id": 91,
-            "note": "+1",
-            "explanation": "Level 2 provides somewhat more predictability for production planning, but not a large improvement, which led to the +1 rating."
-          }
+          "rating": 1
           },
           {
           "id": "SCENARIO_ASPECT_190362992975",
           "aspect": "Impact on OEE (Overall Equipment Effectiveness)?",
           "category": "Operational Processes Assessment",
-          "rating": 2,
-          "explanation": {
-            "id": 92,
-            "note": "+2",
-            "explanation": "Equipment degradation could be detected somewhat earlier, but the service would still be reactive rather than predictive, supporting the +2 rating."
-          }
+          "rating": 2
           },
           {
           "id": "SCENARIO_ASPECT_956648027150",
           "aspect": "Impact on product quality?",
           "category": "Operational Processes Assessment",
-          "rating": 2,
-          "explanation": {
-            "id": 93,
-            "note": "+2",
-            "explanation": "The service could reveal indicators of quality degradation, but it would still react after signs appear rather than predict them, which supported the +2 rating."
-          }
+          "rating": 2
           },
           {
           "id": "SCENARIO_ASPECT_625384795265",
           "aspect": "Impact on production downtimes?",
           "category": "Operational Processes Assessment",
-          "rating": 2,
-          "explanation": {
-            "id": 94,
-            "note": "+2",
-            "explanation": "Downtime was expected to improve to a similar moderate extent as the other operational measures, while the service would remain reactive, resulting in a +2 rating."
-          }
+          "rating": 2
           },
           {
           "id": "SCENARIO_ASPECT_625288914557",
           "aspect": "Impact on employee satisfaction?",
           "category": "Employee Assessment",
-          "rating": 2,
-          "explanation": {
-            "id": 95,
-            "note": "+2",
-            "explanation": "Equipment health data could reduce crises and improve satisfaction, although some employees might resist changing established ways of working; this mixed effect supported the +2 rating."
-          }
+          "rating": 2
           },
           {
           "id": "SCENARIO_ASPECT_216828372482",
           "aspect": "Impact on safety?",
           "category": "Employee Assessment",
-          "rating": 1,
-          "explanation": {
-            "id": 96,
-            "note": "+1",
-            "explanation": "Employees might need less direct interaction with machines when fixing problems, providing a small safety benefit and supporting the +1 rating."
-          }
+          "rating": 1
           },
           {
           "id": "SCENARIO_ASPECT_235930207288",
           "aspect": "Impact on employee skill requirements?",
           "category": "Employee Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 97,
-            "note": "+3",
-            "explanation": "More information from the machine would help employees learn more about it and improve their skills, which supported the +3 rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_151000309619",
           "aspect": "Protectability of Intellectual Property?",
           "category": "Legal Assessment",
-          "rating": -1.5,
-          "explanation": {
-            "id": 98,
-            "note": "-2 / -1",
-            "explanation": "From IPCO's perspective, smart equipment creates a stronger negative impact because the customer owns the data and can share it with competitors; from the customer's perspective, the impact is smaller because the data remains at its premises."
-          }
+          "rating": -1.5
           },
           {
           "id": "SCENARIO_ASPECT_587549231603",
           "aspect": "Impact on security?",
           "category": "Legal Assessment",
-          "rating": -0.5,
-          "explanation": {
-            "id": 99,
-            "note": "0 / -1",
-            "explanation": "No security impact was identified for IPCO because the data remains on the customer side, while the customer received a negative rating because IPCO would gain access to its data."
-          }
+          "rating": -0.5
           },
           {
           "id": "SCENARIO_ASPECT_900987034296",
           "aspect": "Impact on liability?",
           "category": "Legal Assessment",
-          "rating": 0,
-          "explanation": {
-            "id": 100,
-            "note": "0 / 0",
-            "explanation": "The team could not identify any liability impact for either party at Level 2, so both perspectives were rated 0."
-          }
+          "rating": 0
           },
           {
           "id": "SCENARIO_ASPECT_727307230478",
           "aspect": "Partnership",
           "category": "Joker",
-          "rating": 1,
-          "explanation": {
-            "id": 101,
-            "note": "+1",
-            "explanation": "Level 2 could create somewhat more trust, but the relationship would not yet involve shared risk, which led to the +1 partnership rating."
-          }
+          "rating": 1
           }
         ]
       },
@@ -747,166 +638,91 @@
           "id": "SCENARIO_ASPECT_381722276410",
           "aspect": "Impact on turnover?",
           "category": "Financial and Business Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 102,
-            "note": "+3",
-            "explanation": "The Level 3 service offering was expected to provide a stronger sales argument and enable IPCO to sell more, supporting the +3 turnover rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_387438192066",
           "aspect": "Impact on profit?",
           "category": "Financial and Business Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 103,
-            "note": "+3",
-            "explanation": "The additional sales expected from the Level 3 offering should bring in more money, which supported the +3 profit rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_924467945687",
           "aspect": "Impact on cash flow?",
           "category": "Financial and Business Assessment",
-          "rating": 2,
-          "explanation": {
-            "id": 104,
-            "note": "+2",
-            "explanation": "Selling more was expected to have a positive effect on cash flow, supporting the +2 rating."
-          }
+          "rating": 2
           },
           {
           "id": "SCENARIO_ASPECT_125890315218",
           "aspect": "Impact on credit rating?",
           "category": "Financial and Business Assessment",
-          "rating": 1,
-          "explanation": {
-            "id": 105,
-            "note": "+1",
-            "explanation": "The team expected that higher sales could improve the credit rating, although it expressed this cautiously, resulting in a +1 rating."
-          }
+          "rating": 1
           },
           {
           "id": "SCENARIO_ASPECT_131951210580",
           "aspect": "Impact on production planning?",
           "category": "Operational Processes Assessment",
-          "rating": 4,
-          "explanation": {
-            "id": 106,
-            "note": "+4",
-            "explanation": "More influence, more data, and the ability to adjust operations over time were expected to improve the customer's production planning substantially, supporting the +4 rating."
-          }
+          "rating": 4
           },
           {
           "id": "SCENARIO_ASPECT_702803278105",
           "aspect": "Impact on OEE (Overall Equipment Effectiveness)?",
           "category": "Operational Processes Assessment",
-          "rating": 4,
-          "explanation": {
-            "id": 107,
-            "note": "+4",
-            "explanation": "Having more information would allow the parties to improve equipment effectiveness, which supported the +4 rating."
-          }
+          "rating": 4
           },
           {
           "id": "SCENARIO_ASPECT_388392148881",
           "aspect": "Impact on product quality?",
           "category": "Operational Processes Assessment",
-          "rating": 1,
-          "explanation": {
-            "id": 108,
-            "note": "+1",
-            "explanation": "The team did not expect product quality to increase substantially at Level 3, so it assigned only a +1 rating."
-          }
+          "rating": 1
           },
           {
           "id": "SCENARIO_ASPECT_499770296747",
           "aspect": "Impact on production downtimes?",
           "category": "Operational Processes Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 109,
-            "note": "+3",
-            "explanation": "Better knowledge of the machines and their processes was expected to reduce production downtime from the customer's perspective, supporting the +3 rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_167660209233",
           "aspect": "Impact on employee satisfaction?",
           "category": "Employee Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 110,
-            "note": "+3",
-            "explanation": "Employees were expected to perform more qualified and interesting work and potentially move higher in the hierarchy, which supported the +3 satisfaction rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_238863888816",
           "aspect": "Impact on safety?",
           "category": "Employee Assessment",
-          "rating": 1,
-          "explanation": {
-            "id": 111,
-            "note": "+1",
-            "explanation": "No direct safety impact was identified, so the team assigned only a slight positive rating of +1."
-          }
+          "rating": 1
           },
           {
           "id": "SCENARIO_ASPECT_395732463728",
           "aspect": "Impact on employee skill requirements?",
           "category": "Employee Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 112,
-            "note": "+3",
-            "explanation": "Level 3 would involve higher-quality work and therefore greater employee skill requirements, supporting the +3 rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_692598753543",
           "aspect": "Protectability of Intellectual Property?",
           "category": "Legal Assessment",
-          "rating": -2,
-          "explanation": {
-            "id": 113,
-            "note": "Customer -2",
-            "explanation": "From the customer's perspective, Level 3 creates a risk that its intellectual property could leak, which led to the -2 rating."
-          }
+          "rating": -2
           },
           {
           "id": "SCENARIO_ASPECT_534681038719",
           "aspect": "Impact on security?",
           "category": "Legal Assessment",
-          "rating": -3,
-          "explanation": {
-            "id": 114,
-            "note": "Customer -3",
-            "explanation": "The increased connectivity at Level 3 introduces security risks for the customer, which supported the -3 rating."
-          }
+          "rating": -3
           },
           {
           "id": "SCENARIO_ASPECT_194608650484",
           "aspect": "Impact on liability?",
           "category": "Legal Assessment",
-          "rating": -2,
-          "explanation": {
-            "id": 115,
-            "note": "IPCO -2",
-            "explanation": "IPCO would carry greater liability because the increased connectivity creates a risk that customer data could be lost, which led to the -2 rating."
-          }
+          "rating": -2
           },
           {
           "id": "SCENARIO_ASPECT_187178186627",
           "aspect": "Partnership",
           "category": "Joker",
-          "rating": 5,
-          "explanation": {
-            "id": 116,
-            "note": "+5",
-            "explanation": "The team regarded partnership as the most important aspect of Level 3, which supported the maximum positive rating of +5."
-          }
+          "rating": 5
           }
         ]
       },
@@ -918,165 +734,91 @@
           "id": "SCENARIO_ASPECT_070952674106",
           "aspect": "Impact on turnover?",
           "category": "Financial and Business Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 117,
-            "note": "+3",
-            "explanation": "The team expected Level 4 to increase turnover quite dramatically, which supported the +3 rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_397528554783",
           "aspect": "Impact on profit?",
           "category": "Financial and Business Assessment",
-          "rating": 2,
-          "explanation": {
-            "id": 118,
-            "note": "+2",
-            "explanation": "Profit would rise less than turnover because IPCO must account for the investment and return needed to reach Level 4, which led to the +2 rating."
-          }
+          "rating": 2
           },
           {
           "id": "SCENARIO_ASPECT_476242540350",
           "aspect": "Impact on cash flow?",
           "category": "Financial and Business Assessment",
-          "rating": 4,
-          "explanation": {
-            "id": 119,
-            "note": "+4",
-            "explanation": "Level 4 would generate periodic incoming payments, creating a strongly positive cash-flow effect and supporting the +4 rating."
-          }
+          "rating": 4
           },
           {
           "id": "SCENARIO_ASPECT_964291124031",
           "aspect": "Impact on credit rating?",
           "category": "Financial and Business Assessment",
-          "rating": -1,
-          "explanation": {
-            "id": 120,
-            "note": "-1",
-            "explanation": "The credit rating could decline because Level 4 is a riskier scenario in which IPCO stands behind all the work delivered to customers, resulting in the -1 rating."
-          }
+          "rating": -1
           },
           {
           "id": "SCENARIO_ASPECT_555420654565",
           "aspect": "Impact on production planning?",
           "category": "Operational Processes Assessment",
-          "rating": 4,
-          "explanation": {
-            "id": 121,
-            "note": "+4",
-            "explanation": "From the customer's perspective, production planning at Level 4 was expected to be almost perfect, which supported the +4 rating."
-          }
+          "rating": 4
           },
           {
           "id": "SCENARIO_ASPECT_787746924009",
           "aspect": "Impact on OEE (Overall Equipment Effectiveness)?",
           "category": "Operational Processes Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 122,
-            "note": "+3",
-            "explanation": "Equipment efficiency was expected to improve; the team considered ratings of +2 and +3 and assigned +3."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_425592419821",
           "aspect": "Impact on product quality?",
           "category": "Operational Processes Assessment",
-          "rating": -1,
-          "explanation": {
-            "id": 123,
-            "note": "-1",
-            "explanation": "Value engineering at Level 4 could make the customer's end product slightly worse than before, although still within acceptable limits, which led to the -1 rating."
-          }
+          "rating": -1
           },
           {
           "id": "SCENARIO_ASPECT_342830774055",
           "aspect": "Impact on production downtimes?",
           "category": "Operational Processes Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 124,
-            "note": "+3"
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_287019119760",
           "aspect": "Impact on employee satisfaction?",
           "category": "Employee Assessment",
-          "rating": -2,
-          "explanation": {
-            "id": 125,
-            "note": "-2",
-            "explanation": "Employee satisfaction could suffer because people would become more replaceable in the organization, making the change difficult from the employee perspective and supporting the -2 rating."
-          }
+          "rating": -2
           },
           {
           "id": "SCENARIO_ASPECT_786280140678",
           "aspect": "Impact on safety?",
           "category": "Employee Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 126,
-            "note": "+3",
-            "explanation": "Safety would improve because more employees could remain behind the safety line instead of approaching the machine, which supported the +3 rating."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_862785283421",
           "aspect": "Impact on employee skill requirements?",
           "category": "Employee Assessment",
-          "rating": 3,
-          "explanation": {
-            "id": 127,
-            "note": "+3",
-            "explanation": "Level 4 would reduce the skills required from employees and make hiring easier, which was treated as a positive impact and rated +3."
-          }
+          "rating": 3
           },
           {
           "id": "SCENARIO_ASPECT_753227297748",
           "aspect": "Protectability of Intellectual Property?",
           "category": "Legal Assessment",
-          "rating": -1,
-          "explanation": {
-            "id": 128,
-            "note": "-1",
-            "explanation": "At Level 4, established practices for protecting intellectual property would need to evolve, creating a risk that information could be stolen and pursued through legal action; this supported the -1 rating."
-          }
+          "rating": -1
           },
           {
           "id": "SCENARIO_ASPECT_242226328704",
           "aspect": "Impact on security?",
           "category": "Legal Assessment",
-          "rating": -2,
-          "explanation": {
-            "id": 129,
-            "note": "-2",
-            "explanation": "Sharing data at Level 4 creates an ongoing risk of data loss, which led to the -2 security rating."
-          }
+          "rating": -2
           },
           {
           "id": "SCENARIO_ASPECT_514395621803",
           "aspect": "Impact on liability?",
           "category": "Legal Assessment",
-          "rating": 2,
-          "explanation": {
-            "id": 130,
-            "note": "+2",
-            "explanation": "A contract would clearly specify who is liable, providing an identifiable responsible party and supporting the +2 rating."
-          }
+          "rating": 2
           },
           {
           "id": "SCENARIO_ASPECT_141061072766",
           "aspect": "Partnership",
           "category": "Joker",
-          "rating": 4,
-          "explanation": {
-            "id": 131,
-            "note": "+4",
-            "explanation": "The partnership at Level 4 was expected to be exceptionally strong, which supported the +4 rating."
-          }
+          "rating": 4
           }
         ]
       }
@@ -1098,11 +840,10 @@
             "headline": "Level 1: On-Demand Services",
             "description": "Connectivity: Stand alone not Conected; Ownership: Customer Ownership; Data: Data not shared",
             "note": [
-            {
-              "id": 75,
-              "note": "People are irreplaceable",
-              "explanation": "For shopfloor operations, the defining benefit of Level 1 is that people remain irreplaceable."
-            }
+              {
+                "id": 75,
+                "note": "People are irreplaceable"
+              }
             ]
           },
           {
@@ -1110,11 +851,10 @@
             "headline": "Level 2: Reactive Services",
             "description": "Connectivity: Customer Connected; Ownership: Customer Ownership; Data: Selected data is shared with OEM",
             "note": [
-            {
-              "id": 76,
-              "note": "Having control",
-              "explanation": "For shopfloor operations, the benefit of Level 2 is retaining control."
-            }
+              {
+                "id": 76,
+                "note": "Having control"
+              }
             ]
           },
           {
@@ -1122,11 +862,10 @@
             "headline": "Level 3: Pro-Active Services",
             "description": "Connectivity: OEM - Conected; Ownership: Customer Ownership; Data: OEM has full access to data",
             "note": [
-            {
-              "id": 77,
-              "note": "Predictability",
-              "explanation": "For shopfloor operations, the benefit of Level 3 is predictability."
-            }
+              {
+                "id": 77,
+                "note": "Predictability"
+              }
             ]
           },
           {
@@ -1134,11 +873,10 @@
             "headline": "Level 4: Equipment as a Service",
             "description": "Connectivity: OEM - Controlled; Ownership: OEM - Ownership; Data: OEM has full control over data",
             "note": [
-            {
-              "id": 78,
-              "note": "Focus on a core business",
-              "explanation": "For shopfloor operations, Level 4 enables a stronger focus on the core business."
-            }
+              {
+                "id": 78,
+                "note": "Focus on a core business"
+              }
             ]
           }
         ]
@@ -1155,11 +893,10 @@
             "headline": "Level 1: On-Demand Services",
             "description": "Connectivity: Stand alone not Conected; Ownership: Customer Ownership; Data: Data not shared",
             "note": [
-            {
-              "id": 79,
-              "note": "Known ways of working, no risks",
-              "explanation": "For business operations, Level 1 retains known ways of working and involves no risk."
-            }
+              {
+                "id": 79,
+                "note": "Known ways of working, no risks"
+              }
             ]
           },
           {
@@ -1167,11 +904,10 @@
             "headline": "Level 2: Reactive Services",
             "description": "Connectivity: Customer Connected; Ownership: Customer Ownership; Data: Selected data is shared with OEM",
             "note": [
-            {
-              "id": 80,
-              "note": "Smart EQ, no risks of losing IP",
-              "explanation": "For business operations, Level 2 provides smart equipment without a risk of losing intellectual property."
-            }
+              {
+                "id": 80,
+                "note": "Smart EQ, no risks of losing IP"
+              }
             ]
           },
           {
@@ -1179,11 +915,10 @@
             "headline": "Level 3: Pro-Active Services",
             "description": "Connectivity: OEM - Conected; Ownership: Customer Ownership; Data: OEM has full access to data",
             "note": [
-            {
-              "id": 81,
-              "note": "Maximum machine uptime",
-              "explanation": "For business operations, the benefit of Level 3 is maximum machine uptime."
-            }
+              {
+                "id": 81,
+                "note": "Maximum machine uptime"
+              }
             ]
           },
           {
@@ -1191,11 +926,10 @@
             "headline": "Level 4: Equipment as a Service",
             "description": "Connectivity: OEM - Controlled; Ownership: OEM - Ownership; Data: OEM has full control over data",
             "note": [
-            {
-              "id": 82,
-              "note": "Cost transparency and shared risks",
-              "explanation": "For business operations, Level 4 provides cost transparency and shared risks."
-            }
+              {
+                "id": 82,
+                "note": "Cost transparency and shared risks"
+              }
             ]
           }
         ]
@@ -1212,11 +946,10 @@
             "headline": "Level 1: On-Demand Services",
             "description": "Connectivity: Stand alone not Conected; Ownership: Customer Ownership; Data: Data not shared",
             "note": [
-            {
-              "id": 83,
-              "note": "No change; (no) low risk",
-              "explanation": "From IPCO's perspective, Level 1 involves no change and no or only low risk."
-            }
+              {
+                "id": 83,
+                "note": "No change; (no) low risk"
+              }
             ]
           },
           {
@@ -1224,11 +957,10 @@
             "headline": "Level 2: Reactive Services",
             "description": "Connectivity: Customer Connected; Ownership: Customer Ownership; Data: Selected data is shared with OEM",
             "note": [
-            {
-              "id": 84,
-              "note": "Low risk, limited value",
-              "explanation": "From IPCO's perspective, Level 2 carries low risk but also provides limited value."
-            }
+              {
+                "id": 84,
+                "note": "Low risk, limited value"
+              }
             ]
           },
           {
@@ -1236,11 +968,10 @@
             "headline": "Level 3: Pro-Active Services",
             "description": "Connectivity: OEM - Conected; Ownership: Customer Ownership; Data: OEM has full access to data",
             "note": [
-            {
-              "id": 85,
-              "note": "Medium risk. Continuous improvement possible",
-              "explanation": "From IPCO's perspective, Level 3 carries medium risk and makes continuous improvement possible."
-            }
+              {
+                "id": 85,
+                "note": "Medium risk. Continuous improvement possible"
+              }
             ]
           },
           {
@@ -1248,11 +979,10 @@
             "headline": "Level 4: Equipment as a Service",
             "description": "Connectivity: OEM - Controlled; Ownership: OEM - Ownership; Data: OEM has full control over data",
             "note": [
-            {
-              "id": 86,
-              "note": "Higher risk. Partnership. New business model. More $",
-              "explanation": "From IPCO's perspective, Level 4 brings higher risk, a partnership-based new business model, and more money."
-            }
+              {
+                "id": 86,
+                "note": "Higher risk. Partnership. New business model. More $"
+              }
             ]
           }
         ]
@@ -1429,163 +1159,131 @@
     "freeAssociation": [
       {
         "id": 35,
-        "note": "Cadbury (English customer)",
-        "explanation": "Cadbury was identified as the English customer considered for this exercise."
+        "note": "Cadbury (English customer)"
       },
       {
         "id": 36,
-        "note": "Data sharing compliance legal",
-        "explanation": "The customer is expected to raise legal and compliance concerns about sharing data."
+        "note": "Data sharing compliance legal"
       },
       {
         "id": 37,
-        "note": "Concerns. Risk assessment. How will be shared?",
-        "explanation": "The customer would want its concerns and risks assessed and a precise explanation of how the data will be shared."
+        "note": "Concerns. Risk assessment. How will be shared?"
       },
       {
         "id": 38,
-        "note": "What is our profit in it?",
-        "explanation": "The customer would ask what financial benefit or profit it gains from the arrangement."
+        "note": "What is our profit in it?"
       },
       {
         "id": 39,
-        "note": "ICAM",
-        "explanation": "ICAM was identified as a new customer in the chocolate industry."
+        "note": "ICAM"
       },
       {
         "id": 40,
-        "note": "It would raise questions related to legal aspects",
-        "explanation": "The proposed business model would raise questions about its legal implications."
+        "note": "It would raise questions related to legal aspects"
       },
       {
         "id": 41,
-        "note": "Compliance with company's policies",
-        "explanation": "The customer would need the arrangement to comply with its internal company policies."
+        "note": "Compliance with company's policies"
       },
       {
         "id": 42,
-        "note": "What are the costs?",
-        "explanation": "The customer would ask for a clear account of the costs."
+        "note": "What are the costs?"
       },
       {
         "id": 43,
-        "note": "Do you have any other customers doing this",
-        "explanation": "The customer would ask for references showing where IPCO has already implemented this model."
+        "note": "Do you have any other customers doing this"
       },
       {
         "id": 44,
-        "note": "Can you secure our data",
-        "explanation": "The customer would require assurance that IPCO can secure the shared data, treating this as a security, compliance, and legal concern."
+        "note": "Can you secure our data"
       },
       {
         "id": 45,
-        "note": "Do you have any IT security certification",
-        "explanation": "The customer would ask whether IPCO has IT security certifications that demonstrate compliance."
+        "note": "Do you have any IT security certification"
       },
       {
         "id": 46,
-        "note": "Can you really support us",
-        "explanation": "The customer would question whether IPCO can reliably provide the service; references to previous implementations would help demonstrate this capability."
+        "note": "Can you really support us"
       },
       {
         "id": 47,
-        "note": "What's in it for us?",
-        "explanation": "The arrangement must offer a clear benefit and a clear win for the customer."
+        "note": "What's in it for us?"
       },
       {
         "id": 48,
-        "note": "In case of disputes, how do we prove that terms of use were followed?",
-        "explanation": "Documentation and logging would be needed to prove whether the agreed terms of use were followed if a dispute arises."
+        "note": "In case of disputes, how do we prove that terms of use were followed?"
       },
       {
         "id": 49,
-        "note": "How would I know that our IP (recipe) will not be revealed?",
-        "explanation": "IPCO and the customer must distinguish the information IPCO needs from the customer's essential confidential information and find a workable overlap that protects the recipe."
+        "note": "How would I know that our IP (recipe) will not be revealed?"
       },
       {
         "id": 50,
-        "note": "What does it cost?",
-        "explanation": "The customer would require a clear statement of what the service costs."
+        "note": "What does it cost?"
       },
       {
         "id": 51,
-        "note": "Pain vs. gain",
-        "explanation": "The customer would compare the burdens and risks of the model with the value it receives."
+        "note": "Pain vs. gain"
       },
       {
         "id": 52,
-        "note": "R&D focus?",
-        "explanation": "The question is whether the customer's R&D is focused on pure research or, as suggested in the discussion, on value engineering when finding new markets."
+        "note": "R&D focus?"
       },
       {
         "id": 53,
-        "note": "What is the pioneer appetite?",
-        "explanation": "The customer's willingness to be a pioneer depends on its appetite for a high-risk, high-reward proposition."
+        "note": "What is the pioneer appetite?"
       },
       {
         "id": 54,
-        "note": "High risk, high win",
-        "explanation": "Being an early participant was characterized as carrying high risk but offering the possibility of a high return."
+        "note": "High risk, high win"
       },
       {
         "id": 55,
-        "note": "We own our data and recipe; we do not want to share",
-        "explanation": "The customer regards its data and recipe as proprietary and is therefore reluctant to share them."
+        "note": "We own our data and recipe; we do not want to share"
       },
       {
         "id": 56,
-        "note": "Why should I share, how does it make my life better?",
-        "explanation": "The customer would need a convincing explanation of how sharing data makes its work or business better."
+        "note": "Why should I share, how does it make my life better?"
       },
       {
         "id": 57,
-        "note": "What you learn you can use to improve operations for other customers",
-        "explanation": "IPCO could apply lessons from this interaction to improve operations for other customers, while lessons learned from those customers could also benefit this customer."
+        "note": "What you learn you can use to improve operations for other customers"
       },
       {
         "id": 58,
-        "note": "We are the chocolate experts, not you.",
-        "explanation": "The customer has the chocolate expertise, while IPCO knows the machines; the cooperation must find the point where IPCO can help without claiming to be a chocolate expert."
+        "note": "We are the chocolate experts, not you."
       },
       {
         "id": 59,
-        "note": "Sharing data is an issue",
-        "explanation": "The customer is expected to regard sharing data as a significant concern."
+        "note": "Sharing data is an issue"
       },
       {
         "id": 60,
-        "note": "Sharing risk/reward how?",
-        "explanation": "The arrangement must clarify how risk and reward will be shared between IPCO and the customer."
+        "note": "Sharing risk/reward how?"
       },
       {
         "id": 61,
-        "note": "IT will be more expensive 4 us over time.",
-        "explanation": "If the model makes IT more expensive over time, IPCO needs a persuasive financial case showing that benefits such as less downtime, more output, or an output commitment make the additional cost worthwhile."
+        "note": "IT will be more expensive 4 us over time."
       },
       {
         "id": 62,
-        "note": "Who will assume response if there is a long stop?",
-        "explanation": "The parties must clarify who assumes responsibility if the machine is stopped for a long time."
+        "note": "Who will assume response if there is a long stop?"
       },
       {
         "id": 63,
-        "note": "What if the (end) product doesn't sell?",
-        "explanation": "The parties must define how far IPCO's responsibility extends, because taking over the customer's risk that the end product will not sell was considered too far-reaching."
+        "note": "What if the (end) product doesn't sell?"
       },
       {
         "id": 64,
-        "note": "How can I benefit from it?",
-        "explanation": "The customer would look for concrete benefits in areas such as cost, reaction time, and machine uptime."
+        "note": "How can I benefit from it?"
       },
       {
         "id": 65,
-        "note": "Costs?",
-        "explanation": "Cost is a central customer question and must be made clear."
+        "note": "Costs?"
       },
       {
         "id": 66,
-        "note": "Reaction time? Machine uptime?",
-        "explanation": "Reaction time and machine uptime were identified as concrete ways in which the customer could benefit."
+        "note": "Reaction time? Machine uptime?"
       }
     ]
   }

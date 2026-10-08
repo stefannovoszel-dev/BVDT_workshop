@@ -437,7 +437,8 @@
         "id": { "type": "string" },
         "aspect": { "type": "string" },
         "category": { "$ref": "#/definitions/ScenarioCategory" },
-        "rating": { "type": "number" }
+        "rating": { "type": "number" },
+        "explanation": { "$ref": "#/definitions/PostIt" }
       },
       "required": ["id", "aspect", "category"],
       "additionalProperties": false

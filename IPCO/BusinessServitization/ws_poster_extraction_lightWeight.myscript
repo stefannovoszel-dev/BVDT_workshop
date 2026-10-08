@@ -1,8 +1,19 @@
 <doc>Pre-processing rules applied before parsing to keep payload deterministic and avoid parser pollution.</doc>
 INSTRUCTION HYGIENE:
-
 Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
-Remove all empty strings ("") within CONFIGURATION section before parsing.
+Remove all <doc>…</doc> blocks within CONFIGURATION section before parsing.
+
+Treat every CONFIGURATION assignment whose resolved value is an empty
+string as undefined.
+
+Do not serialize undefined settings.
+
+A module or container whose controlling ID is undefined must not be
+created. Do not evaluate that module's nested mapping instructions.
+
+Inside a collection loop, skip entries whose required configuration
+values are undefined. Optional object properties may be omitted
+individually.
 
 <doc>Here you define how post-its should be treated when extracted. So any change regarding that should (if possible) always placed here instead of at module level.</doc>
 For all post-it extractions:
@@ -255,12 +266,36 @@ If {MD_ROADMAP_FILE} is not empty:
     Map the extracted content to {TARGET_FILE}.module_Roadmap while taking the structure of {JSON_SCHEMA} into consideration.
 
 
-<doc>Populate Different Scenarios Rated by pairing idea/problem rows and attaching category ratings by column alignment.</doc>
+<doc>Populate Different Scenarios Rated by matching every handwritten score post-it to its scenario row and aspect column. Preserve the raw handwritten score in a PostIt while also storing a normalized numeric rating.</doc>
 If {CT_DIFF_SCENARIOS_RATED_FILE} is not empty:
 
     Read out all hand-written post-its from {CT_DIFF_SCENARIOS_RATED_FILE}
 
     Map the extracted content to {TARGET_FILE}.container_DifferentScenariosRated while taking the structure of {JSON_SCHEMA} into consideration.
+
+    Match each poster row to an existing Module_DifferentScenariosRated by its printed scenario label.
+
+    Match each rating column to an existing ScenarioAspectRating by its printed aspect heading and category heading.
+
+    For each handwritten score post-it in a matched scenario/aspect cell:
+
+        Preserve the complete handwritten score text, including plus signs, minus signs, zeroes, slashes, and multiple stakeholder values.
+
+        {NOTE_COUNTER} = {NOTE_COUNTER} + 1
+
+        Create PostIt with:
+            PostIt.id = {NOTE_COUNTER}
+            PostIt.note = complete handwritten score text extracted from the post-it
+
+        ScenarioAspectRating.explanation = PostIt
+
+        If PostIt.note contains one numeric score:
+            ScenarioAspectRating.rating = that numeric score
+
+        Else if PostIt.note contains multiple stakeholder scores separated by a slash:
+            ScenarioAspectRating.rating = arithmetic mean of all numeric scores on the post-it
+
+        Do not populate PostIt.explanation during poster extraction. It is populated later from the scenario-specific workshop transcript.
 
 <doc>Populate Scenario Summary module.</doc>
 If {CT_SCENARIO_SUMMARY_FILE} is not empty:

@@ -198,6 +198,7 @@ class ScenarioAspectRating
     property aspect (text)
     property category (ScenarioCategory)
     <optional> property rating (number)
+    <optional> property explanation (PostIt)
 
 
 class CategoryScore
