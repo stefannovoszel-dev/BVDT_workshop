@@ -154,7 +154,7 @@ CONFIGURATION:
 {MD_LIFE_CYCLE_STAGE_05_NAME} = "Breakdown Management"
 {MD_LIFE_CYCLE_STAGE_05_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_05_NAME} + {MD_LIFE_CYCLE_ID})
 {MD_LIFE_CYCLE_STAGE_05_DESCRIPTION} = "Consider there is a serious breakdown how will flexibility and agility be influence by you or an external company managing the breakdown and getting the machine up and running again."
-{MD_LIFE_CYCLE_STAGE_06_NAME} = "Deommissioning & End of Life Treatment"
+{MD_LIFE_CYCLE_STAGE_06_NAME} = "Decommissioning & End of Life Treatment"
 {MD_LIFE_CYCLE_STAGE_06_ID} = "STAGE_" + {METHOD_ID_GENERATOR}({CUSTOMER_NAME}, {MD_LIFE_CYCLE_STAGE_06_NAME} + {MD_LIFE_CYCLE_ID})
 {MD_LIFE_CYCLE_STAGE_06_DESCRIPTION} = "Consider your company wants to get rid of their old machine what costs, responsibilities and efforts will be involved for decommissioning the old machine."
 

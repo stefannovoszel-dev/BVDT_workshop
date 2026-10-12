@@ -491,7 +491,7 @@
       },
       {
         "id": "STAGE_538247612325",
-        "name": "Deommissioning & End of Life Treatment",
+        "name": "Decommissioning & End of Life Treatment",
         "description": "Consider your company wants to get rid of their old machine what costs, responsibilities and efforts will be involved for decommissioning the old machine.",
         "businessCapability": [
           {
@@ -1358,7 +1358,8 @@
             "id": "ITEM_695643428001",
             "idea": {
               "id": 67,
-              "note": "Continuous improvement through insights"
+              "note": "Continuous improvement through insights",
+              "explanation": "Learning from the customer's process data could support improvements over time. The group saw greater immediate value for the customer than for IPCO when the learning is limited to one customer."
             },
             "category": "More time for discussions"
           },
@@ -1366,7 +1367,8 @@
             "id": "ITEM_394063696731",
             "idea": {
               "id": 68,
-              "note": "Predictability"
+              "note": "Predictability",
+              "explanation": "Predictable costs would benefit the customer, while regular income would benefit IPCO, making this a win for both parties."
             },
             "category": "Win-Win"
           },
@@ -1374,7 +1376,8 @@
             "id": "ITEM_047328924403",
             "idea": {
               "id": 69,
-              "note": "Customer allows access to the machine data, we share analytics & insights"
+              "note": "Customer allows access to the machine data, we share analytics & insights",
+              "explanation": "As a first step toward an equipment-as-a-service offering, the customer could allow IPCO to access machine data and receive relevant analytics and insights in return. This gives the customer a reason to share data and lets both parties start learning before predictive models are developed; the group noted that obtaining data from chocolate customers could be difficult."
             },
             "category": "Win-Win"
           },
@@ -1382,7 +1385,8 @@
             "id": "ITEM_997896462501",
             "idea": {
               "id": 70,
-              "note": "Cross-party operational excellence improvement"
+              "note": "Cross-party operational excellence improvement",
+              "explanation": "IPCO and the customer could learn from each other's expertise: IPCO would learn more about chocolate production, while the customer would learn more about the machine and retain its own operational knowledge. The group regarded this exchange as a win for both."
             },
             "category": "Win-Win"
           },
@@ -1390,7 +1394,8 @@
             "id": "ITEM_787143919586",
             "idea": {
               "id": 71,
-              "note": "Utility"
+              "note": "Utility",
+              "explanation": "The machine could become more like a utility: the customer provides the right parameters and the machine runs, making chocolate production more standardized. The group saw both benefits and drawbacks for the customer and placed its value near the middle of the matrix."
             },
             "category": "More time for discussions"
           },
@@ -1398,7 +1403,8 @@
             "id": "ITEM_172914799383",
             "idea": {
               "id": 72,
-              "note": "Partnership"
+              "note": "Partnership",
+              "explanation": "A closer partnership could mean IPCO is not immediately replaced after a mishap. The group considered that valuable for IPCO and hoped it would also be valuable for the customer."
             },
             "category": "More time for discussions"
           },
@@ -1406,7 +1412,8 @@
             "id": "ITEM_019539916708",
             "idea": {
               "id": 73,
-              "note": "IPCO knows cust. more competition"
+              "note": "IPCO knows cust. more competition",
+              "explanation": "As IPCO learns more about the customer's production and market, it could apply that knowledge to other chocolate manufacturers. The group saw an early commercial opportunity but also a possibility that the customer would face more competition later."
             },
             "category": "More time for discussions"
           },
@@ -1414,7 +1421,8 @@
             "id": "ITEM_360762968956",
             "idea": {
               "id": 74,
-              "note": "Multi-site & focused learning from data => IPCO can reduce cost of operation & share at benefits"
+              "note": "Multi-site & focused learning from data => IPCO can reduce cost of operation & share at benefits",
+              "explanation": "Learning from data across several customers or sites could give IPCO more insight than learning from one customer's process alone. The group also discussed extending an initial data-sharing arrangement across a customer's multiple sites as the partnership develops."
             },
             "category": "More time for discussions"
           }

@@ -17,7 +17,7 @@ class Workshop
     <optional> property container_DetailedWorkingPlan (Container_DetailedWorkingPlan)
     <optional> property container_UserJourney (Container_UserJourney)
     <optional> property container_AdvancedUserJourney (Container_AdvancedUserJourney)
-    <optional> property module_freeAssociation (Module_FreeAssociation)
+    <optional> property module_FreeAssociation (Module_FreeAssociation)
     <optional> property module_StagedOfferingPortfolio (Module_StagedOfferingPortfolio)
     <optional> property module_LifeCycle (Module_LifeCycle)
     <optional> property container_DifferentScenariosRated (Container_DifferentScenariosRated)

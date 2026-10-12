@@ -21,7 +21,7 @@ CONFIGURATION:
 
 <doc>Global context values used across extraction and language normalization.</doc>
 {JSON_SCHEMA} = "ws_classes.schema.json"
-{CUSTOMER_NAME} = "Tieto"
+{CUSTOMER_NAME} = "IPCO"
 {TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
 {LANGUAGE} = "English"
 {INDUSTRY} = "Manufacturing"
