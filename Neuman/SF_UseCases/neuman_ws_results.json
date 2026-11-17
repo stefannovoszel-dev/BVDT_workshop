@@ -1,0 +1,904 @@
+{
+  "goal": "Neuman Aluminium möchte Use Cases für den Shoopfloor identifizieren, die einen klar nach-vollziehbaren Business Wert bringen. Das Themengebiet ist breit gestreut und erstreckt sich von der Nutzung bereits vorhandener Sensorik bis zum einfachen Informationsaustausch zwischen Mitarbeiter*innen.",
+  "focus": [
+    "Überwachung und technische Unterstützung",
+    "Zusammenführung verteilter Informationen",
+    "Reduktion von manuellen Aufwänden",
+    "Wissensaustausch zwischen Mitarbeitenden",
+    "Transparenz über Kosten, Aufwendungen  & Qualität",
+    "Vorhandene Business Potenziale"
+  ],
+  "expectedOutcome": [
+    "Bewertete Verbesserungs-Ideen pro Bereich",
+    "Aktueller Reifegrad für die Umsetzung",
+    "Definition konkreter Initiativen",
+    "High-Level Roadmap"
+  ],
+  "date": "2026-11-19",
+  "participant": [
+    {
+      "name": "Glitzner Oliver",
+      "role": "Geschäftsführung",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Karner Martin",
+      "role": "Produktionsleitung",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Mujakovic Damir",
+      "role": "Produktionsleitung Stangengießanlage (HSG)",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Schabl Daniel",
+      "role": "Produktionsleitung Bandgießanlage (BGA)",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Vonwald Michael",
+      "role": "Technikleiter",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Plettenberg Rudolf",
+      "role": "Leiter Digital Office",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Haubenwallner Nicole",
+      "role": "Head of internal sales and organization",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Geiselhofer Siegfried",
+      "role": "Controlling",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Otmar Hochecker",
+      "role": "Qualitätsleitung",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Marion Fischer",
+      "role": "Logistik und Produktionsplanung",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Andreas Krivec",
+      "role": "Forschung und Qualität",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Mario Kuss",
+      "role": "Open Innovation and R&D Manager",
+      "company": {
+        "Name": "Neuman",
+        "Industry": "Manufacturing"
+      }
+    },
+    {
+      "name": "Stefan Novoszel",
+      "role": "Moderator",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "stefan.novoszel@tieto.com"
+    },
+    {
+      "name": "Thomas Tropper",
+      "role": "Moderator",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "thomas.tropper@tieto.com"
+    },
+    {
+      "name": "Christoph Hammer-Dumont",
+      "role": "Moderator",
+      "company": {
+        "Name": "Tieto",
+        "Industry": "IT Services"
+      },
+      "email": "christoph.hammer-dumont@tieto.com"
+    }
+  ],
+  "company": {
+    "Name": "Neuman",
+    "Industry": "Manufacturing"
+  },
+  "module_Roadmap": {
+    "id": "CONTAINER_863985207856",
+    "headline": "Roadmap zur Durchführung der verschiedenen Initiativen!"
+  },
+  "container_DetailedIdeaInvestment": {
+    "id": "CONTAINER_717611250662",
+    "headline": "In Welche Ideen soll Neuman das meiste Geld investieren?",
+    "module_DetailedIdeaInvestment": [
+      {
+        "id": "MODULE_645841415488",
+        "teamName": "Team RED",
+        "detailedIdea": [
+          {
+            "id": "IDEA_719726324966",
+            "description": "",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre die Idee in einem Satz!"
+              },
+              {
+                "description": "Welches Problem wird gelöst?"
+              },
+              {
+                "description": "Wer wird aller davon profitieren?"
+              },
+              {
+                "description": "Welche Prozesse müssen angepasst werden?"
+              },
+              {
+                "description": "Wie Komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Technologien werden benötigt?"
+              },
+              {
+                "description": "Was ist der erwartete Business Value?"
+              },
+              {
+                "description": "Wie messen wir unseren Erfolg?"
+              },
+              {
+                "description": "Wer übernimmt die Verantwortung?"
+              }
+            ]
+          },
+          {
+            "id": "IDEA_481019876826",
+            "description": "",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre die Idee in einem Satz!"
+              },
+              {
+                "description": "Welches Problem wird gelöst?"
+              },
+              {
+                "description": "Wer wird aller davon profitieren?"
+              },
+              {
+                "description": "Welche Prozesse müssen angepasst werden?"
+              },
+              {
+                "description": "Wie Komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Technologien werden benötigt?"
+              },
+              {
+                "description": "Was ist der erwartete Business Value?"
+              },
+              {
+                "description": "Wie messen wir unseren Erfolg?"
+              },
+              {
+                "description": "Wer übernimmt die Verantwortung?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MODULE_746559337931",
+        "teamName": "Team GREEN",
+        "detailedIdea": [
+          {
+            "id": "IDEA_346588194945",
+            "description": "",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre die Idee in einem Satz!"
+              },
+              {
+                "description": "Welches Problem wird gelöst?"
+              },
+              {
+                "description": "Wer wird aller davon profitieren?"
+              },
+              {
+                "description": "Welche Prozesse müssen angepasst werden?"
+              },
+              {
+                "description": "Wie Komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Technologien werden benötigt?"
+              },
+              {
+                "description": "Was ist der erwartete Business Value?"
+              },
+              {
+                "description": "Wie messen wir unseren Erfolg?"
+              },
+              {
+                "description": "Wer übernimmt die Verantwortung?"
+              }
+            ]
+          },
+          {
+            "id": "IDEA_369446251073",
+            "description": "",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre die Idee in einem Satz!"
+              },
+              {
+                "description": "Welches Problem wird gelöst?"
+              },
+              {
+                "description": "Wer wird aller davon profitieren?"
+              },
+              {
+                "description": "Welche Prozesse müssen angepasst werden?"
+              },
+              {
+                "description": "Wie Komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Technologien werden benötigt?"
+              },
+              {
+                "description": "Was ist der erwartete Business Value?"
+              },
+              {
+                "description": "Wie messen wir unseren Erfolg?"
+              },
+              {
+                "description": "Wer übernimmt die Verantwortung?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MODULE_633873729717",
+        "teamName": "Team BLUE",
+        "detailedIdea": [
+          {
+            "id": "IDEA_099266638367",
+            "description": "",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre die Idee in einem Satz!"
+              },
+              {
+                "description": "Welches Problem wird gelöst?"
+              },
+              {
+                "description": "Wer wird aller davon profitieren?"
+              },
+              {
+                "description": "Welche Prozesse müssen angepasst werden?"
+              },
+              {
+                "description": "Wie Komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Technologien werden benötigt?"
+              },
+              {
+                "description": "Was ist der erwartete Business Value?"
+              },
+              {
+                "description": "Wie messen wir unseren Erfolg?"
+              },
+              {
+                "description": "Wer übernimmt die Verantwortung?"
+              }
+            ]
+          },
+          {
+            "id": "IDEA_328912479239",
+            "description": "",
+            "detailedIdeaStep": [
+              {
+                "description": "Erkläre die Idee in einem Satz!"
+              },
+              {
+                "description": "Welches Problem wird gelöst?"
+              },
+              {
+                "description": "Wer wird aller davon profitieren?"
+              },
+              {
+                "description": "Welche Prozesse müssen angepasst werden?"
+              },
+              {
+                "description": "Wie Komplex ist die Umsetzung?"
+              },
+              {
+                "description": "Welche Unterstützung wird benötigt?"
+              },
+              {
+                "description": "Welche Technologien werden benötigt?"
+              },
+              {
+                "description": "Was ist der erwartete Business Value?"
+              },
+              {
+                "description": "Wie messen wir unseren Erfolg?"
+              },
+              {
+                "description": "Wer übernimmt die Verantwortung?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "container_DifferentViewsRated": {
+    "id": "CONTAINER_692076826544",
+    "headline": "Alle Verbesserungs-Ideen",
+    "module_DifferentViewsRated": [
+      {
+        "id": "MODULE_581798051374",
+        "perspective": "Unternehmens-Steuerung",
+        "workshopItemRated": [
+          {
+            "id": "ITEM_901825199423",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_988871592068",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_930830795566",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_795364303839",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_058348619729",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_973616195318",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_948855290613",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_298361502400",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MODULE_792931202090",
+        "perspective": "Produktion",
+        "workshopItemRated": [
+          {
+            "id": "ITEM_191037312148",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_492118624040",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_046515670997",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_616876735817",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_977695811251",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_861170637294",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_411396528415",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_517972448433",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MODULE_278820909458",
+        "perspective": "Technik & Qualität",
+        "workshopItemRated": [
+          {
+            "id": "ITEM_088358284678",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_488052295839",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_155575351964",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_664286791418",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_013439721497",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_491411025217",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_815106733513",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          },
+          {
+            "id": "ITEM_352180449605",
+            "categoryRating": [
+              {
+                "category": "Produkt Fokus"
+              },
+              {
+                "category": "Neuman Umsetzung"
+              },
+              {
+                "category": "Business Value"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "container_ValueEffortMatrix": {
+    "id": "CONTAINER_888316173544",
+    "headline": "Welche grossartigen Ideen sollen wir weiterverfolgen?",
+    "module_ValueEffortMatrix": [
+      {
+        "id": "MODULE_097254240074",
+        "teamName": "Team RED"
+      },
+      {
+        "id": "MODULE_422841371985",
+        "teamName": "Team GREEN"
+      },
+      {
+        "id": "MODULE_413986373857",
+        "teamName": "Team BLUE"
+      }
+    ]
+  },
+  "module_CapabilityMatrix": {
+    "id": "MODULE_337399348545",
+    "headline": "Wie gut sind wir auf zukünftige Ideen vorbereitet?",
+    "capability": [
+      {
+        "id": "CAPABILITY_057749785749",
+        "name": "Shopfloor Digitalisierung",
+        "description": "Welche Digitalisierungsschritte wurden am Shopfloor bereits unternommen?"
+      },
+      {
+        "id": "CAPABILITY_275387724226",
+        "name": "Daten Integration",
+        "description": "Werden Daten strukturiert gesammelt und mit einander verknüpft?"
+      },
+      {
+        "id": "CAPABILITY_641357249992",
+        "name": "Wissens-Austausch",
+        "description": "Welche Möglichkeiten haben Mitarbeiter*innen Erkenntnisse auszutauschen?"
+      },
+      {
+        "id": "CAPABILITY_322011078675",
+        "name": "Digitale Rahmenbedingungen",
+        "description": "Wie ist der Stand der Digitalisierung? Gibt es viele manuelle Prozesse?"
+      },
+      {
+        "id": "CAPABILITY_477801571858",
+        "name": "Security & Resilienz",
+        "description": "Welche Sicherheits- und Resilienz-Mechanismen werden verwendet? Gibt es ein Desaster-Recovery Konzept?"
+      },
+      {
+        "id": "CAPABILITY_916092014103",
+        "name": "Management Ziele",
+        "description": "Wie prominent sind Datenintegrationsziele in den aktuellen Management Zielen verankert?"
+      },
+      {
+        "id": "CAPABILITY_714749485195",
+        "name": "Governance?",
+        "description": "Gibt es klare Verantwortlichkeiten, wer welche Daten wann und wie zu liefern hat?"
+      },
+      {
+        "id": "CAPABILITY_300317965395",
+        "name": "Strategischer Impact",
+        "description": "Ist klar ersichtlich wie die vorhandenen Daten zu den Unternehmenszielen beitragen?"
+      }
+    ]
+  },
+  "container_UserJourney": {
+    "id": "CONTAINER_922958034946",
+    "headline": "User Journey: Wie wird eure Lösung verwendet und wie erleichtert sie den Benutzenden ihr Leben?",
+    "module_userJourney": [
+      {
+        "id": "MODULE_192383678950",
+        "teamName": "Team RED",
+        "userJourneyStep": [
+          {
+            "id": "UJ_STEP_234324456240",
+            "description": "Wie verwende ich die Lösung?"
+          },
+          {
+            "id": "UJ_STEP_277830428222",
+            "description": "Wie erleichtert sie meinen Alltag?"
+          },
+          {
+            "id": "UJ_STEP_468653026782",
+            "description": "Wo werde ich effizienter?"
+          },
+          {
+            "id": "UJ_STEP_459425485843",
+            "description": "Welche Prozesse wurden vereinfacht?"
+          },
+          {
+            "id": "UJ_STEP_392163230667",
+            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_476480385023",
+        "teamName": "Team GREEN",
+        "userJourneyStep": [
+          {
+            "id": "UJ_STEP_837759619253",
+            "description": "Wie verwende ich die Lösung?"
+          },
+          {
+            "id": "UJ_STEP_838170032107",
+            "description": "Wie erleichtert sie meinen Alltag?"
+          },
+          {
+            "id": "UJ_STEP_100526082133",
+            "description": "Wo werde ich effizienter?"
+          },
+          {
+            "id": "UJ_STEP_097562700525",
+            "description": "Welche Prozesse wurden vereinfacht?"
+          },
+          {
+            "id": "UJ_STEP_839204234495",
+            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?"
+          }
+        ]
+      },
+      {
+        "id": "MODULE_435110504415",
+        "teamName": "Team BLUE",
+        "userJourneyStep": [
+          {
+            "id": "UJ_STEP_502997898757",
+            "description": "Wie verwende ich die Lösung?"
+          },
+          {
+            "id": "UJ_STEP_139193293251",
+            "description": "Wie erleichtert sie meinen Alltag?"
+          },
+          {
+            "id": "UJ_STEP_000555492857",
+            "description": "Wo werde ich effizienter?"
+          },
+          {
+            "id": "UJ_STEP_355684463416",
+            "description": "Welche Prozesse wurden vereinfacht?"
+          },
+          {
+            "id": "UJ_STEP_494918654420",
+            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?"
+          }
+        ]
+      }
+    ]
+  },
+  "module_freeAssociation": {
+    "id": "MODULE_681624071532",
+    "headline": "Shopfloor in 2030",
+    "question": "Wie wird der Shopfloor bei Neuman Aluminium 2030 ausehen?"
+  }
+}
