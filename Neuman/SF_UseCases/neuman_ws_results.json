@@ -146,7 +146,45 @@
   },
   "module_Roadmap": {
     "id": "CONTAINER_863985207856",
-    "headline": "Roadmap zur Durchführung der verschiedenen Initiativen!"
+    "headline": "Roadmap zur Durchführung der verschiedenen Initiativen!",
+    "roadmapItem": [
+      {
+        "id": "ROADMAP_ITEM_079302347450",
+        "idea": {
+          "id": 172,
+          "note": "IDEE 01/04/05"
+        },
+        "horizon": "H2",
+        "wave": 1
+      },
+      {
+        "id": "ROADMAP_ITEM_752085640666",
+        "idea": {
+          "id": 173,
+          "note": "IDEE 02"
+        },
+        "horizon": "H2",
+        "wave": 1
+      },
+      {
+        "id": "ROADMAP_ITEM_716613727028",
+        "idea": {
+          "id": 174,
+          "note": "IDEE 04/06"
+        },
+        "horizon": "H1",
+        "wave": 2
+      },
+      {
+        "id": "ROADMAP_ITEM_249141282912",
+        "idea": {
+          "id": 175,
+          "note": "PLANUNGSTOOL"
+        },
+        "horizon": "H1",
+        "wave": 2
+      }
+    ]
   },
   "container_DetailedIdeaInvestment": {
     "id": "CONTAINER_717611250662",
@@ -158,75 +196,157 @@
         "detailedIdea": [
           {
             "id": "IDEA_719726324966",
-            "description": "",
+            "description": "Effizienzsteigerung aufgrund/mittels Datennutzung",
             "detailedIdeaStep": [
               {
-                "description": "Erkläre die Idee in einem Satz!"
+                "description": "Erkläre die Idee in einem Satz!",
+                "note": {
+                  "id": 113,
+                  "note": "Effizienzsteigerung aufgrund/mittels Datennutzung"
+                }
               },
               {
-                "description": "Welches Problem wird gelöst?"
+                "description": "Welches Problem wird gelöst?",
+                "note": {
+                  "id": 114,
+                  "note": "BGA Output erhöhen"
+                }
               },
               {
-                "description": "Wer wird aller davon profitieren?"
+                "description": "Wer wird aller davon profitieren?",
+                "note": {
+                  "id": 115,
+                  "note": "ALLE durch verbessertes UN-Ergebnis"
+                }
               },
               {
-                "description": "Welche Prozesse müssen angepasst werden?"
+                "description": "Welche Prozesse müssen angepasst werden?",
+                "note": {
+                  "id": 116,
+                  "note": "Produktionsprozess BGA; Datenbereitstellung; Datenanalyse"
+                }
               },
               {
-                "description": "Wie Komplex ist die Umsetzung?"
+                "description": "Wie Komplex ist die Umsetzung?",
+                "note": {
+                  "id": 117,
+                  "note": "Viel Arbeit; bewältigbar; für Analysezwecke wenig Invest"
+                }
               },
               {
-                "description": "Welche Unterstützung wird benötigt?"
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 118,
+                  "note": "Mitarbeiter; IT-Unterstützung; Automatisierung"
+                }
               },
               {
-                "description": "Welche Technologien werden benötigt?"
+                "description": "Welche Technologien werden benötigt?",
+                "note": {
+                  "id": 119,
+                  "note": "Digitalisierung; Kameras: Füllstand, Kosten, Arbeitsweise"
+                }
               },
               {
-                "description": "Was ist der erwartete Business Value?"
+                "description": "Was ist der erwartete Business Value?",
+                "note": {
+                  "id": 120,
+                  "note": "+5% → +500k Euro"
+                }
               },
               {
-                "description": "Wie messen wir unseren Erfolg?"
+                "description": "Wie messen wir unseren Erfolg?",
+                "note": {
+                  "id": 121,
+                  "note": "Gut-Menge; Gießband"
+                }
               },
               {
-                "description": "Wer übernimmt die Verantwortung?"
+                "description": "Wer übernimmt die Verantwortung?",
+                "note": {
+                  "id": 122,
+                  "note": "Strategisch: GF; operativ: Daniel & Martin; Datenbereitstellung: Technik"
+                }
               }
-            ]
+            ],
+            "budget": 5750000
           },
           {
             "id": "IDEA_481019876826",
-            "description": "",
+            "description": "KI-unterstützte Instandhaltung: Problem-Lösungsunterstützung",
             "detailedIdeaStep": [
               {
-                "description": "Erkläre die Idee in einem Satz!"
+                "description": "Erkläre die Idee in einem Satz!",
+                "note": {
+                  "id": 123,
+                  "note": "KI-unterstützte Instandhaltung: Problem-Lösungsunterstützung"
+                }
               },
               {
-                "description": "Welches Problem wird gelöst?"
+                "description": "Welches Problem wird gelöst?",
+                "note": {
+                  "id": 124,
+                  "note": "Unterstützung bei Lösungsfindung"
+                }
               },
               {
-                "description": "Wer wird aller davon profitieren?"
+                "description": "Wer wird aller davon profitieren?",
+                "note": {
+                  "id": 125,
+                  "note": "IH; Produktion; Unternehmen"
+                }
               },
               {
-                "description": "Welche Prozesse müssen angepasst werden?"
+                "description": "Welche Prozesse müssen angepasst werden?",
+                "note": {
+                  "id": 126,
+                  "note": "IH"
+                }
               },
               {
-                "description": "Wie Komplex ist die Umsetzung?"
+                "description": "Wie Komplex ist die Umsetzung?",
+                "note": {
+                  "id": 127,
+                  "note": "SPS Plan"
+                }
               },
               {
-                "description": "Welche Unterstützung wird benötigt?"
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 128,
+                  "note": "Digi Office; IH-Team; Hersteller"
+                }
               },
               {
-                "description": "Welche Technologien werden benötigt?"
+                "description": "Welche Technologien werden benötigt?",
+                "note": {
+                  "id": 129,
+                  "note": "KI-Kompetenz; SPS-intern; EPler?"
+                }
               },
               {
-                "description": "Was ist der erwartete Business Value?"
+                "description": "Was ist der erwartete Business Value?",
+                "note": {
+                  "id": 130,
+                  "note": "Effizienzsteigerung; € ↓"
+                }
               },
               {
-                "description": "Wie messen wir unseren Erfolg?"
+                "description": "Wie messen wir unseren Erfolg?",
+                "note": {
+                  "id": 131,
+                  "note": "Mean Time To Repair"
+                }
               },
               {
-                "description": "Wer übernimmt die Verantwortung?"
+                "description": "Wer übernimmt die Verantwortung?",
+                "note": {
+                  "id": 132,
+                  "note": "IH-Leitung"
+                }
               }
-            ]
+            ],
+            "budget": 2750000
           }
         ]
       },
@@ -236,75 +356,157 @@
         "detailedIdea": [
           {
             "id": "IDEA_346588194945",
-            "description": "",
+            "description": "Leistungsdaten erfassen, analysieren & Output erhöhen",
             "detailedIdeaStep": [
               {
-                "description": "Erkläre die Idee in einem Satz!"
+                "description": "Erkläre die Idee in einem Satz!",
+                "note": {
+                  "id": 133,
+                  "note": "Leistungsdaten erfassen, analysieren & Output erhöhen"
+                }
               },
               {
-                "description": "Welches Problem wird gelöst?"
+                "description": "Welches Problem wird gelöst?",
+                "note": {
+                  "id": 134,
+                  "note": "Wettbewerbsnachteil kompensieren"
+                }
               },
               {
-                "description": "Wer wird aller davon profitieren?"
+                "description": "Wer wird aller davon profitieren?",
+                "note": {
+                  "id": 135,
+                  "note": "ALLE!"
+                }
               },
               {
-                "description": "Welche Prozesse müssen angepasst werden?"
+                "description": "Welche Prozesse müssen angepasst werden?",
+                "note": {
+                  "id": 176,
+                  "note": "zu ?"
+                }
               },
               {
-                "description": "Wie Komplex ist die Umsetzung?"
+                "description": "Wie Komplex ist die Umsetzung?",
+                "note": {
+                  "id": 136,
+                  "note": "Komplex: Datenzusammenführung; einfacher: Analyse (z.B. KI)"
+                }
               },
               {
-                "description": "Welche Unterstützung wird benötigt?"
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 137,
+                  "note": "Digital Office; Technik; Produktion"
+                }
               },
               {
-                "description": "Welche Technologien werden benötigt?"
+                "description": "Welche Technologien werden benötigt?",
+                "note": {
+                  "id": 138,
+                  "note": "KI; DWH"
+                }
               },
               {
-                "description": "Was ist der erwartete Business Value?"
+                "description": "Was ist der erwartete Business Value?",
+                "note": {
+                  "id": 139,
+                  "note": "Gewinn: 500.000,-"
+                }
               },
               {
-                "description": "Wie messen wir unseren Erfolg?"
+                "description": "Wie messen wir unseren Erfolg?",
+                "note": {
+                  "id": 140,
+                  "note": "Erfolg: Output (i.Q)"
+                }
               },
               {
-                "description": "Wer übernimmt die Verantwortung?"
+                "description": "Wer übernimmt die Verantwortung?",
+                "note": {
+                  "id": 141,
+                  "note": "GF verantwortlich; delegieren"
+                }
               }
-            ]
+            ],
+            "budget": 2500000
           },
           {
             "id": "IDEA_369446251073",
-            "description": "",
+            "description": "Abbildung der Artikel in einem zentralen System",
             "detailedIdeaStep": [
               {
-                "description": "Erkläre die Idee in einem Satz!"
+                "description": "Erkläre die Idee in einem Satz!",
+                "note": {
+                  "id": 142,
+                  "note": "Abbildung der Artikel in einem zentralen System"
+                }
               },
               {
-                "description": "Welches Problem wird gelöst?"
+                "description": "Welches Problem wird gelöst?",
+                "note": {
+                  "id": 143,
+                  "note": "Doppelte Erfassung; unterschiedliche Informationen"
+                }
               },
               {
-                "description": "Wer wird aller davon profitieren?"
+                "description": "Wer wird aller davon profitieren?",
+                "note": {
+                  "id": 144,
+                  "note": "ALLE"
+                }
               },
               {
-                "description": "Welche Prozesse müssen angepasst werden?"
+                "description": "Welche Prozesse müssen angepasst werden?",
+                "note": {
+                  "id": 145,
+                  "note": "Prozess: Artikelanlage (div. Abteilungen)"
+                }
               },
               {
-                "description": "Wie Komplex ist die Umsetzung?"
+                "description": "Wie Komplex ist die Umsetzung?",
+                "note": {
+                  "id": 146,
+                  "note": "a bissl komplex, aber zeitaufwändig"
+                }
               },
               {
-                "description": "Welche Unterstützung wird benötigt?"
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 147,
+                  "note": "IT; QS/QM; Innendienst; Technik"
+                }
               },
               {
-                "description": "Welche Technologien werden benötigt?"
+                "description": "Welche Technologien werden benötigt?",
+                "note": {
+                  "id": 148,
+                  "note": "ERP-System; (KI?)"
+                }
               },
               {
-                "description": "Was ist der erwartete Business Value?"
+                "description": "Was ist der erwartete Business Value?",
+                "note": {
+                  "id": 149,
+                  "note": "Zeitersparnis & dadurch Konzentration auf andere Aufgaben (schwer in Zahlen darzustellen)"
+                }
               },
               {
-                "description": "Wie messen wir unseren Erfolg?"
+                "description": "Wie messen wir unseren Erfolg?",
+                "note": {
+                  "id": 150,
+                  "note": "Messen?"
+                }
               },
               {
-                "description": "Wer übernimmt die Verantwortung?"
+                "description": "Wer übernimmt die Verantwortung?",
+                "note": {
+                  "id": 151,
+                  "note": "Sigi Controlling (open for discussion)"
+                }
               }
-            ]
+            ],
+            "budget": 1500000
           }
         ]
       },
@@ -314,75 +516,157 @@
         "detailedIdea": [
           {
             "id": "IDEA_099266638367",
-            "description": "",
+            "description": "Welche Parameter sind verantwortlich für eine gute/schlechte Charge",
             "detailedIdeaStep": [
               {
-                "description": "Erkläre die Idee in einem Satz!"
+                "description": "Erkläre die Idee in einem Satz!",
+                "note": {
+                  "id": 152,
+                  "note": "Welche Parameter sind verantwortlich für eine gute/schlechte Charge"
+                }
               },
               {
-                "description": "Welches Problem wird gelöst?"
+                "description": "Welches Problem wird gelöst?",
+                "note": {
+                  "id": 153,
+                  "note": "Möglich Kapazität voll ausgeschöpft wird"
+                }
               },
               {
-                "description": "Wer wird aller davon profitieren?"
+                "description": "Wer wird aller davon profitieren?",
+                "note": {
+                  "id": 154,
+                  "note": "Jeder"
+                }
               },
               {
-                "description": "Welche Prozesse müssen angepasst werden?"
+                "description": "Welche Prozesse müssen angepasst werden?",
+                "note": {
+                  "id": 155,
+                  "note": "Kein Prozess muss angepasst werden"
+                }
               },
               {
-                "description": "Wie Komplex ist die Umsetzung?"
+                "description": "Wie Komplex ist die Umsetzung?",
+                "note": {
+                  "id": 156,
+                  "note": "Viel Arbeit, aber nicht unmöglich"
+                }
               },
               {
-                "description": "Welche Unterstützung wird benötigt?"
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 157,
+                  "note": "IT; externe Hilfe"
+                }
               },
               {
-                "description": "Welche Technologien werden benötigt?"
+                "description": "Welche Technologien werden benötigt?",
+                "note": {
+                  "id": 158,
+                  "note": "Integration; Datenplattform"
+                }
               },
               {
-                "description": "Was ist der erwartete Business Value?"
+                "description": "Was ist der erwartete Business Value?",
+                "note": {
+                  "id": 159,
+                  "note": "$$$"
+                }
               },
               {
-                "description": "Wie messen wir unseren Erfolg?"
+                "description": "Wie messen wir unseren Erfolg?",
+                "note": {
+                  "id": 160,
+                  "note": "Output"
+                }
               },
               {
-                "description": "Wer übernimmt die Verantwortung?"
+                "description": "Wer übernimmt die Verantwortung?",
+                "note": {
+                  "id": 161,
+                  "note": "OGL"
+                }
               }
-            ]
+            ],
+            "budget": 2750000
           },
           {
             "id": "IDEA_328912479239",
-            "description": "",
+            "description": "Einheitliche Artikeldaten als Basis für ein Planungstool",
             "detailedIdeaStep": [
               {
-                "description": "Erkläre die Idee in einem Satz!"
+                "description": "Erkläre die Idee in einem Satz!",
+                "note": {
+                  "id": 162,
+                  "note": "Einheitliche Artikeldaten als Basis für ein Planungstool"
+                }
               },
               {
-                "description": "Welches Problem wird gelöst?"
+                "description": "Welches Problem wird gelöst?",
+                "note": {
+                  "id": 163,
+                  "note": "Datengetriebene Geschäftsprozesse"
+                }
               },
               {
-                "description": "Wer wird aller davon profitieren?"
+                "description": "Wer wird aller davon profitieren?",
+                "note": {
+                  "id": 164,
+                  "note": "Planung; Produktion; Kokillentechnik"
+                }
               },
               {
-                "description": "Welche Prozesse müssen angepasst werden?"
+                "description": "Welche Prozesse müssen angepasst werden?",
+                "note": {
+                  "id": 165,
+                  "note": "Stammdatenpflege"
+                }
               },
               {
-                "description": "Wie Komplex ist die Umsetzung?"
+                "description": "Wie Komplex ist die Umsetzung?",
+                "note": {
+                  "id": 166,
+                  "note": "Sehr komplex"
+                }
               },
               {
-                "description": "Welche Unterstützung wird benötigt?"
+                "description": "Welche Unterstützung wird benötigt?",
+                "note": {
+                  "id": 167,
+                  "note": "Alle Abteilungen"
+                }
               },
               {
-                "description": "Welche Technologien werden benötigt?"
+                "description": "Welche Technologien werden benötigt?",
+                "note": {
+                  "id": 168,
+                  "note": "Planungstool"
+                }
               },
               {
-                "description": "Was ist der erwartete Business Value?"
+                "description": "Was ist der erwartete Business Value?",
+                "note": {
+                  "id": 169,
+                  "note": "$$; Risikominimierung"
+                }
               },
               {
-                "description": "Wie messen wir unseren Erfolg?"
+                "description": "Wie messen wir unseren Erfolg?",
+                "note": {
+                  "id": 170,
+                  "note": "Output-Erhöhung; Ressourcen besser nutzen"
+                }
               },
               {
-                "description": "Wer übernimmt die Verantwortung?"
+                "description": "Wer übernimmt die Verantwortung?",
+                "note": {
+                  "id": 171,
+                  "note": "OGL"
+                }
               }
-            ]
+            ],
+            "budget": 2250000
           }
         ]
       }
@@ -400,29 +684,51 @@
             "id": "ITEM_901825199423",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 3
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 5
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 9
               }
-            ]
+            ],
+            "idea": {
+              "id": 35,
+              "note": "KPI-Abweichungsanalyse automatisiert"
+            },
+            "problemSolved": {
+              "id": 36,
+              "note": "Probleme: Abweichung IST von SOLL (Umsatz - Gießleistung?)"
+            }
           },
           {
             "id": "ITEM_988871592068",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 2
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 7
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 7
               }
-            ]
+            ],
+            "idea": {
+              "id": 37,
+              "note": "Ziel: Identifikation von Optimierungspotenzialen"
+            },
+            "problemSolved": {
+              "id": 38,
+              "note": "Probleme: Energieverbrauch"
+            }
           },
           {
             "id": "ITEM_930830795566",
@@ -518,85 +824,151 @@
             "id": "ITEM_191037312148",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 8
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 6
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 9
               }
-            ]
+            ],
+            "idea": {
+              "id": 39,
+              "note": "Vorgaben Leistungsdaten (Menge, Fehler)"
+            },
+            "problemSolved": {
+              "id": 40,
+              "note": "Output optimieren"
+            }
           },
           {
             "id": "ITEM_492118624040",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 6
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 7
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 5
               }
-            ]
+            ],
+            "idea": {
+              "id": 41,
+              "note": "Übersicht Schrotte (Menge, Ort)"
+            },
+            "problemSolved": {
+              "id": 42,
+              "note": "Bessere Vorausplanung u. Übersicht"
+            }
           },
           {
             "id": "ITEM_046515670997",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 4
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 3
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 7
               }
-            ]
+            ],
+            "idea": {
+              "id": 43,
+              "note": "Planungstool"
+            },
+            "problemSolved": {
+              "id": 44,
+              "note": "Transparenz"
+            }
           },
           {
             "id": "ITEM_616876735817",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 4
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 7
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 8
               }
-            ]
+            ],
+            "idea": {
+              "id": 45,
+              "note": "Instandhaltungs AGENT"
+            },
+            "problemSolved": {
+              "id": 46,
+              "note": "Hilft bei der Analyse + Störungsbehebung"
+            }
           },
           {
             "id": "ITEM_977695811251",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 8
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 7
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 7
               }
-            ]
+            ],
+            "idea": {
+              "id": 47,
+              "note": "Rezepturenverwaltung"
+            },
+            "problemSolved": {
+              "id": 48,
+              "note": "Qualitätserhöhung; Nachvollziehbarkeit"
+            }
           },
           {
             "id": "ITEM_861170637294",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 5
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 8
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 4
               }
-            ]
+            ],
+            "idea": {
+              "id": 49,
+              "note": "Zentrale Datendefinition"
+            },
+            "problemSolved": {
+              "id": 50,
+              "note": "Nachvollziehbarkeit und Skalierung von Anbindungsfällen"
+            }
           },
           {
             "id": "ITEM_411396528415",
@@ -636,71 +1008,126 @@
             "id": "ITEM_088358284678",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 5
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 7
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 8
               }
-            ]
+            ],
+            "idea": {
+              "id": 51,
+              "note": "K-Instandhaltung; Maschinenabh. in KI"
+            },
+            "problemSolved": {
+              "id": 52,
+              "note": "Ressourcen; Kompetenz; Geschwindigkeit; Qualität"
+            }
           },
           {
             "id": "ITEM_488052295839",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 6
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 4
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 8
               }
-            ]
+            ],
+            "idea": {
+              "id": 53,
+              "note": "Effiziente Planung; Idee"
+            },
+            "problemSolved": {
+              "id": 54,
+              "note": "Probleme: Stehzeiten Anlage; nächste Wartung; Probleme bei QS-Prüfungen (Zeit)"
+            }
           },
           {
             "id": "ITEM_155575351964",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 7
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 4
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 7
               }
-            ]
+            ],
+            "idea": {
+              "id": 55,
+              "note": "Qualitätstracking + Maschinen"
+            },
+            "problemSolved": {
+              "id": 56,
+              "note": "Probleme: Schlechte Auswertung von Q-Daten und ..."
+            }
           },
           {
             "id": "ITEM_664286791418",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 5
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 3
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 4
               }
-            ]
+            ],
+            "idea": {
+              "id": 57,
+              "note": "Zentrale Artikelverwaltung; VERKAUF, ERP, MASCHINENDATEN, Q-Dokumentation ..., MEHRSPRACHIGKEIT"
+            },
+            "problemSolved": {
+              "id": 58,
+              "note": "Problem: Unterschiedliche Datenquellen für ... Artikel; Fehlerpotenzial; Fehler durch schlechte Daten"
+            }
           },
           {
             "id": "ITEM_013439721497",
             "categoryRating": [
               {
-                "category": "Produkt Fokus"
+                "category": "Produkt Fokus",
+                "rating": 8
               },
               {
-                "category": "Neuman Umsetzung"
+                "category": "Neuman Umsetzung",
+                "rating": 6
               },
               {
-                "category": "Business Value"
+                "category": "Business Value",
+                "rating": 8
               }
-            ]
+            ],
+            "idea": {
+              "id": 59,
+              "note": "Nutzen von Bestehendem (iba)"
+            },
+            "problemSolved": {
+              "id": 60,
+              "note": "Automatische Analyse; kost nix; bringt viel"
+            }
           },
           {
             "id": "ITEM_491411025217",
@@ -754,15 +1181,93 @@
     "module_ValueEffortMatrix": [
       {
         "id": "MODULE_097254240074",
-        "teamName": "Team RED"
+        "teamName": "Team RED",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_111407030379",
+            "idea": {
+              "id": 79,
+              "note": "Prozesse analysieren, strukturieren, bewerten und Vorgaben ableiten. Prio 1: BGA"
+            },
+            "category": "Big Bet"
+          },
+          {
+            "id": "ITEM_367713515522",
+            "idea": {
+              "id": 80,
+              "note": "HSG: Planungstool v. Bestellung – Auslieferung (Marktl + Mexico)"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_947586190169",
+            "idea": {
+              "id": 81,
+              "note": "KI-Instandhalter: effiziente Störungsbehebung"
+            },
+            "category": "Wise Choice"
+          }
+        ]
       },
       {
         "id": "MODULE_422841371985",
-        "teamName": "Team GREEN"
+        "teamName": "Team GREEN",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_801188359855",
+            "idea": {
+              "id": 82,
+              "note": "KPI-Abweichungsanalyse (+) = Output optimieren"
+            },
+            "category": "Big Bet"
+          },
+          {
+            "id": "ITEM_768362487166",
+            "idea": {
+              "id": 83,
+              "note": "Gute Planung -> Planungstool"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_839904302053",
+            "idea": {
+              "id": 84,
+              "note": "KI-Agent Instandhaltung + Produktion"
+            },
+            "category": "Wise Choice"
+          },
+          {
+            "id": "ITEM_402284739489",
+            "idea": {
+              "id": 85,
+              "note": "Zentrale Artikelverwaltung"
+            },
+            "category": "Wise Choice"
+          }
+        ]
       },
       {
         "id": "MODULE_413986373857",
-        "teamName": "Team BLUE"
+        "teamName": "Team BLUE",
+        "workshopItemWeighted": [
+          {
+            "id": "ITEM_314441208396",
+            "idea": {
+              "id": 86,
+              "note": "Golden Run (basierend auf Echtzeitdaten, IBA-Daten), MES"
+            },
+            "category": "Big Bet"
+          },
+          {
+            "id": "ITEM_994813014119",
+            "idea": {
+              "id": 87,
+              "note": "Integrierte Datenkonsolidierung"
+            },
+            "category": "Wise Choice"
+          }
+        ]
       }
     ]
   },
@@ -773,42 +1278,138 @@
       {
         "id": "CAPABILITY_057749785749",
         "name": "Shopfloor Digitalisierung",
-        "description": "Welche Digitalisierungsschritte wurden am Shopfloor bereits unternommen?"
+        "description": "Welche Digitalisierungsschritte wurden am Shopfloor bereits unternommen?",
+        "rating": 3,
+        "note": [
+          {
+            "id": 61,
+            "note": "IBA Daten"
+          },
+          {
+            "id": 62,
+            "note": "Lager | Kostenartikel INFOR"
+          },
+          {
+            "id": 63,
+            "note": "BGA Echtzeit-Darstellung"
+          },
+          {
+            "id": 64,
+            "note": "KTM kaufmänn. techn. Infoblatt"
+          },
+          {
+            "id": 65,
+            "note": "ISpro Instandhaltung Software"
+          },
+          {
+            "id": 66,
+            "note": "Babtec Qualität"
+          },
+          {
+            "id": 67,
+            "note": "MES"
+          }
+        ]
       },
       {
         "id": "CAPABILITY_275387724226",
         "name": "Daten Integration",
-        "description": "Werden Daten strukturiert gesammelt und mit einander verknüpft?"
+        "description": "Werden Daten strukturiert gesammelt und mit einander verknüpft?",
+        "rating": 2.5,
+        "note": [
+          {
+            "id": 68,
+            "note": "Strukturiertes Sammeln: Ja"
+          },
+          {
+            "id": 69,
+            "note": "Verknüpfen: Nein"
+          }
+        ]
       },
       {
         "id": "CAPABILITY_641357249992",
         "name": "Wissens-Austausch",
-        "description": "Welche Möglichkeiten haben Mitarbeiter*innen Erkenntnisse auszutauschen?"
+        "description": "Welche Möglichkeiten haben Mitarbeiter*innen Erkenntnisse auszutauschen?",
+        "rating": 2,
+        "note": [
+          {
+            "id": 70,
+            "note": "Schichtbuch i. A."
+          },
+          {
+            "id": 71,
+            "note": "Mündliche Schichtübergabe"
+          },
+          {
+            "id": 72,
+            "note": "Viflow QM-Plattform"
+          }
+        ]
       },
       {
         "id": "CAPABILITY_322011078675",
         "name": "Digitale Rahmenbedingungen",
-        "description": "Wie ist der Stand der Digitalisierung? Gibt es viele manuelle Prozesse?"
+        "description": "Wie ist der Stand der Digitalisierung? Gibt es viele manuelle Prozesse?",
+        "rating": 2.5,
+        "note": [
+          {
+            "id": 73,
+            "note": "Auftragsdoku"
+          },
+          {
+            "id": 74,
+            "note": "Viele vorhandene unterschiedliche Strukturen; viele manuelle Tätigkeiten z.B. Instandhaltung"
+          }
+        ]
       },
       {
         "id": "CAPABILITY_477801571858",
         "name": "Security & Resilienz",
-        "description": "Welche Sicherheits- und Resilienz-Mechanismen werden verwendet? Gibt es ein Desaster-Recovery Konzept?"
+        "description": "Welche Sicherheits- und Resilienz-Mechanismen werden verwendet? Gibt es ein Desaster-Recovery Konzept?",
+        "rating": 3.5,
+        "note": [
+          {
+            "id": 75,
+            "note": "Security & Resilienz: Backups; verpfl. Schulung; TISAX-Zert./Server; Install. 'Apps'"
+          }
+        ]
       },
       {
         "id": "CAPABILITY_916092014103",
         "name": "Management Ziele",
-        "description": "Wie prominent sind Datenintegrationsziele in den aktuellen Management Zielen verankert?"
+        "description": "Wie prominent sind Datenintegrationsziele in den aktuellen Management Zielen verankert?",
+        "rating": 1,
+        "note": [
+          {
+            "id": 76,
+            "note": "Management: nicht i. d. Zielen verankert"
+          }
+        ]
       },
       {
         "id": "CAPABILITY_714749485195",
         "name": "Governance?",
-        "description": "Gibt es klare Verantwortlichkeiten, wer welche Daten wann und wie zu liefern hat?"
+        "description": "Gibt es klare Verantwortlichkeiten, wer welche Daten wann und wie zu liefern hat?",
+        "rating": 2,
+        "note": [
+          {
+            "id": 77,
+            "note": "Kennzahlen: Ja; Rest: Nein"
+          }
+        ]
       },
       {
         "id": "CAPABILITY_300317965395",
         "name": "Strategischer Impact",
-        "description": "Ist klar ersichtlich wie die vorhandenen Daten zu den Unternehmenszielen beitragen?"
+        "description": "Ist klar ersichtlich wie die vorhandenen Daten zu den Unternehmenszielen beitragen?",
+        "rating": 1.5,
+        "note": [
+          {
+            "id": 78,
+            "note": "Strategie: keine Daten- & Digitalisierungsstrategie"
+          }
+        ]
       }
     ]
   },
@@ -822,23 +1423,89 @@
         "userJourneyStep": [
           {
             "id": "UJ_STEP_234324456240",
-            "description": "Wie verwende ich die Lösung?"
+            "description": "Wie verwende ich die Lösung?",
+            "note": [
+              {
+                "id": 88,
+                "note": "Vereinfachte Darstellung d. Daten"
+              },
+              {
+                "id": 89,
+                "note": "Wiederholbarkeit (Templates)"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_277830428222",
-            "description": "Wie erleichtert sie meinen Alltag?"
+            "description": "Wie erleichtert sie meinen Alltag?",
+            "note": [
+              {
+                "id": 90,
+                "note": "Pull-Push"
+              },
+              {
+                "id": 91,
+                "note": "Zugang zu Daten interaktiv"
+              },
+              {
+                "id": 177,
+                "note": "Dem Daniel laufen die Daten nach"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_468653026782",
-            "description": "Wo werde ich effizienter?"
+            "description": "Wo werde ich effizienter?",
+            "note": [
+              {
+                "id": 92,
+                "note": "Schnellere Reaktion möglich"
+              },
+              {
+                "id": 93,
+                "note": "Output erhöhen"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_459425485843",
-            "description": "Welche Prozesse wurden vereinfacht?"
+            "description": "Welche Prozesse wurden vereinfacht?",
+            "note": [
+              {
+                "id": 94,
+                "note": "Analyseprozess"
+              },
+              {
+                "id": 95,
+                "note": "Vernetzte Anlagen"
+              },
+              {
+                "id": 96,
+                "note": "Datengestützte Prozessoptimierungen"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_392163230667",
-            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?"
+            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?",
+            "note": [
+              {
+                "id": 97,
+                "note": "Wissen (neu) vermitteln"
+              },
+              {
+                "id": 98,
+                "note": "Output gesteigert"
+              },
+              {
+                "id": 99,
+                "note": "Ziele 'übertroffen'"
+              },
+              {
+                "id": 100,
+                "note": "Eingefahrene Handlungen über Board geworfen"
+              }
+            ]
           }
         ]
       },
@@ -848,23 +1515,53 @@
         "userJourneyStep": [
           {
             "id": "UJ_STEP_837759619253",
-            "description": "Wie verwende ich die Lösung?"
+            "description": "Wie verwende ich die Lösung?",
+            "note": [
+              {
+                "id": 101,
+                "note": "Anhaltspunkte von KI-Analyse zur Optimierung; Anwendung Vorschläge; Feedback"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_838170032107",
-            "description": "Wie erleichtert sie meinen Alltag?"
+            "description": "Wie erleichtert sie meinen Alltag?",
+            "note": [
+              {
+                "id": 102,
+                "note": "Zeitersparnis; flexible Lösungen; Preisgestaltung -> vergleichbarer zu Mitbewerb"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_100526082133",
-            "description": "Wo werde ich effizienter?"
+            "description": "Wo werde ich effizienter?",
+            "note": [
+              {
+                "id": 103,
+                "note": "Produktionsprozess verbessert; Preisgestaltung -> Reduktion Kosten / Erh. Gewinn"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_097562700525",
-            "description": "Welche Prozesse wurden vereinfacht?"
+            "description": "Welche Prozesse wurden vereinfacht?",
+            "note": [
+              {
+                "id": 104,
+                "note": "höherer Output bei gleichbleib. Ressourcen (Pesonal z.B.)"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_839204234495",
-            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?"
+            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?",
+            "note": [
+              {
+                "id": 105,
+                "note": "Trotz Skepsis: Projekt umgesetzt & Steigerung Output + Gewinn"
+              }
+            ]
           }
         ]
       },
@@ -874,23 +1571,61 @@
         "userJourneyStep": [
           {
             "id": "UJ_STEP_502997898757",
-            "description": "Wie verwende ich die Lösung?"
+            "description": "Wie verwende ich die Lösung?",
+            "note": [
+              {
+                "id": 106,
+                "note": "Gruppensprecher BGA"
+              },
+              {
+                "id": 107,
+                "note": "Notizen in Echtzeit; Vorschläge zur Prozessoptimierung"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_139193293251",
-            "description": "Wie erleichtert sie meinen Alltag?"
+            "description": "Wie erleichtert sie meinen Alltag?",
+            "note": [
+              {
+                "id": 108,
+                "note": "Gezielte Handlung aufgrund von Daten"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_000555492857",
-            "description": "Wo werde ich effizienter?"
+            "description": "Wo werde ich effizienter?",
+            "note": [
+              {
+                "id": 109,
+                "note": "Personal wird besser genutzt"
+              },
+              {
+                "id": 110,
+                "note": "Einsatz von Betriebsmitteln wird effizienter"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_355684463416",
-            "description": "Welche Prozesse wurden vereinfacht?"
+            "description": "Welche Prozesse wurden vereinfacht?",
+            "note": [
+              {
+                "id": 111,
+                "note": "Methodische Maßnahmen zur Umsetzung zur Erreichung des Ziels"
+              }
+            ]
           },
           {
             "id": "UJ_STEP_494918654420",
-            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?"
+            "description": "Welche tolle Geschichte kann ich beim Kaffee erzählen?",
+            "note": [
+              {
+                "id": 112,
+                "note": "Was tue ich, wenn..."
+              }
+            ]
           }
         ]
       }
@@ -899,6 +1634,144 @@
   "module_freeAssociation": {
     "id": "MODULE_681624071532",
     "headline": "Shopfloor in 2030",
-    "question": "Wie wird der Shopfloor bei Neuman Aluminium 2030 ausehen?"
+    "question": "Wie wird der Shopfloor bei Neuman Aluminium 2030 ausehen?",
+    "freeAssociation": [
+      {
+        "id": 1,
+        "note": "Zuverlässige Daten"
+      },
+      {
+        "id": 2,
+        "note": "Automat. Buchung Gewicht (Stangen)"
+      },
+      {
+        "id": 3,
+        "note": "Zeitnahe u. zuverlässige Entnahmen"
+      },
+      {
+        "id": 4,
+        "note": "Verantwortung für „wesentliche“ Materialien"
+      },
+      {
+        "id": 5,
+        "note": "Energieverbrauch kennen u. optimieren"
+      },
+      {
+        "id": 6,
+        "note": "Ideale Zeitpunkte für Aktionen durch Daten „vorgeben“ vorschlagen"
+      },
+      {
+        "id": 7,
+        "note": "Zusammenhang von Aktivität u. Wirkung sichtbar machen"
+      },
+      {
+        "id": 8,
+        "note": "Produktionsplanung automat."
+      },
+      {
+        "id": 9,
+        "note": "Dokument., Problem & Lösung"
+      },
+      {
+        "id": 10,
+        "note": "Volle Transparenz: Kunde; Anfrage; Planung; Produktion; Qualität; Lieferung; Rechnung"
+      },
+      {
+        "id": 11,
+        "note": "Keine Excel Dokumente; PCP/PAP/FMEA"
+      },
+      {
+        "id": 12,
+        "note": "Flexibilität: spontan neu planen; Fehler beheben"
+      },
+      {
+        "id": 13,
+        "note": "Vorgabedaten für Produktion in Anlage übertragen; Auftrag/Artikel"
+      },
+      {
+        "id": 14,
+        "note": "Effizientes Auftragsmanagement"
+      },
+      {
+        "id": 15,
+        "note": "Kokillentechnik: Doku + Wartung über App bzw. KI-unterstützt"
+      },
+      {
+        "id": 16,
+        "note": "Zentrale Datenverwaltung"
+      },
+      {
+        "id": 17,
+        "note": "KPI Dashboards"
+      },
+      {
+        "id": 18,
+        "note": "Sehr gute Datenqualität und Rückverfolgbarkeit"
+      },
+      {
+        "id": 19,
+        "note": "Höhere Datenqualität"
+      },
+      {
+        "id": 20,
+        "note": "„Neues“ (Produkte) mit „Altem“"
+      },
+      {
+        "id": 21,
+        "note": "Mengenskalierte Produktion"
+      },
+      {
+        "id": 22,
+        "note": "Planungstool"
+      },
+      {
+        "id": 23,
+        "note": "Zentrales Dashboard für die Anlagen"
+      },
+      {
+        "id": 24,
+        "note": "Maschinenstillstand + Ausfallsmenge"
+      },
+      {
+        "id": 25,
+        "note": "Stillstandsüberwachung aller Anlagen"
+      },
+      {
+        "id": 26,
+        "note": "Produktionswissensdatenbank; Agent ↔ Worker"
+      },
+      {
+        "id": 27,
+        "note": "ERP Auto-Planung und Steuerung; FTS-Materialbereitstellung"
+      },
+      {
+        "id": 28,
+        "note": "Datentransparenz zu jedem Zeitpunkt; zukünftig: Carbon Footpr.; digitaler Produktpass"
+      },
+      {
+        "id": 29,
+        "note": "Agent-Buddy: für Werke; wenn das dann das zu tun; Wissen"
+      },
+      {
+        "id": 30,
+        "note": "Golden Run bekannt"
+      },
+      {
+        "id": 31,
+        "note": "Arbeiter haben Zugriff auf Information ohne Papier"
+      },
+      {
+        "id": 32,
+        "note": "Alle Werke lernen voneinander"
+      },
+      {
+        "id": 33,
+        "note": "Autonome (drones) Transport"
+      },
+      {
+        "id": 34,
+        "note": "Leistung (live) sichtbar gemacht"
+      }
+    ]
   }
 }
