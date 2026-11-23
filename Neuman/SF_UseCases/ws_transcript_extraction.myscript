@@ -26,7 +26,7 @@ CONFIGURATION:
 <doc>Global context values used across extraction and language normalization.</doc>
 {JSON_SCHEMA} = "ws_classes.schema.json"
 {CUSTOMER_NAME} = "Neuman"
-{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + "_ws_results.json“
 {LANGUAGE} = "German"
 {INDUSTRY} = "Manufacturing"
 {SYSTEM_CONTEXT} = ""
@@ -79,7 +79,7 @@ CONFIGURATION:
 
 {DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_NOTES} = "Ja, passt. Also, das Erste ist K.I. Instandhaltung. Die Idee ist, wenn wir Fehlermeldungen kriegen aus den Maschinen."
 {DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_NOTES} = "Das kostet nichts und bringt viel, ist aber halt heute alt. Das muss sich wer auskennen, was sind das für Signale und diese richtig zu nutzen."
-{DIFF_VIEWS_RATED_TRANSCRIPT_TECHNIK_QUALITAET} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_NOTES} to {DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_NOTES}
+{DIFF_VIEWS_RATED_TRANSCRIPT_TECHNIK_QUALITAET_NOTES} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_NOTES} to {DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_NOTES}
 
 {DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_RATINGS} = "So, von unserer Seite haben wir da ein ähnlich klingendes Thema mit K.I. in der Instandhaltung. Ich möchte hervorheben, wir haben das fast gleich bewertet."
 {DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_RATINGS} = "In der Umsetzung mittelmäßig. Ich glaube, da braucht es ein Wühlen und das schaffen wir. Und im ROI relativ hoch bewertet. Warum? Weil mit wenig Kosten schon ein Ergebnis zu erwarten sein kann."
@@ -155,10 +155,10 @@ CONFIGURATION:
 
 
 <doc>Define transcript boundaries for Detailed Idea plus Investment and derive a scoped transcript excerpt.</doc>
-{DETAILED_IDEA_INVESTMENT_START_01} = "Die Idee in einem Satz ist im Prinzip die K.I.-Unterstützung bei der Instandhaltungsproblemlösung, ne. Welches Problem wird gelöst? Problem wird gelöst, dass"
-{DETAILED_IDEA_INVESTMENT_END_01} = "Wie lange brauche ich, damit ich ein Problem löse? Und wer übernimmt die Verantwortung? Würde sagen, die Instandhaltungsleitung."
-{DETAILED_IDEA_INVESTMENT_START_02} = "Erkläre die Idee in deinem in einem Satz: Effizienzsteigerung aufgrund oder mittels Datennutzung haben wir formuliert."
-{DETAILED_IDEA_INVESTMENT_END_02} = "Datenbereitstellung. Ups, Technik, das bin ich. Danke."
+{DETAILED_IDEA_INVESTMENT_START_01} = "Erkläre die Idee in deinem in einem Satz: Effizienzsteigerung aufgrund oder mittels Datennutzung haben wir formuliert."
+{DETAILED_IDEA_INVESTMENT_END_01} = "Datenbereitstellung. Ups, Technik, das bin ich. Danke."
+{DETAILED_IDEA_INVESTMENT_START_02} = "Die Idee in einem Satz ist im Prinzip die K.I.-Unterstützung bei der Instandhaltungsproblemlösung, ne. Welches Problem wird gelöst? Problem wird gelöst, dass"
+{DETAILED_IDEA_INVESTMENT_END_02} = "Wie lange brauche ich, damit ich ein Problem löse? Und wer übernimmt die Verantwortung? Würde sagen, die Instandhaltungsleitung."
 {DETAILED_IDEA_INVESTMENT_START_03} = "Puh, ja, OK, Ich bin soweit eigentlich. Also, Big Bit haben wir ja eh alle eigentlich dasselbe gehabt."
 {DETAILED_IDEA_INVESTMENT_END_03} = "Ja, die Verantwortung sehen wir beim Oliver vom Geschäftsführer, aber eher so, dass du halt dann, dass du dann auch delegierst, wer heute was zu erledigen hat."
 {DETAILED_IDEA_INVESTMENT_START_04} = "Ja, die nächste Idee, die wir aufgefasst haben, ist die Abbildung der Artikel in einem zentralen System. Da geht dann auch Hand in Hand die Produktionsplanung."
@@ -201,7 +201,7 @@ Structure for the data mapping = {JSON_SCHEMA}:
 
 <doc>Fill explanations for Free Association post-its using scoped transcript first, then global fallback transcript.</doc>
 IF {FREE_ASSOCIATION_START} is not empty:
-    Update {TARGET_FILE}.module_FreeAssociation
+    Update {TARGET_FILE}.module_freeAssociation
 
         For each PostIt in freeAssociation:
             {SNIPPET} = Extract parts of {FREE_ASSOCIATION_TRANSCRIPT} where PostIt.note is described.
@@ -416,7 +416,7 @@ IF {DETAILED_WORKING_PLAN_START} is not empty:
 
 <doc>Fill explanations for User Journey step notes from journey-specific transcript context with global fallback.</doc>
 IF {USER_JOURNEY_START_*} is not empty:
-    Update {TARGET_FILE}.container_UserJourney.module_UserJourney
+    Update {TARGET_FILE}.container_UserJourney.module_userJourney
         
         For each teamName WHERE {*} is best match for teamName
         
@@ -433,7 +433,7 @@ IF {USER_JOURNEY_START_*} is not empty:
 
 <doc>Fill explanations for AdvancedUser Journey step notes from journey-specific transcript context with global fallback.</doc>
 IF {ADVANCED_USER_JOURNEY_START} is not empty:
-    Update {TARGET_FILE}.container_UserJourney.module_UserJourney
+    Update {TARGET_FILE}.container_AdvancedUserJourney.module_advancedUserJourney
         
         For each userJourneyStep:
         
@@ -469,7 +469,7 @@ IF {DETAILED_IDEA_INVESTMENT_START_*} is not empty:
         {IDEA_COUNTER} = 0
         
         For each detailedIdea:
-        {IDEA_COUNTER} = {IDEA_COUNTER} + 1
+            {IDEA_COUNTER} = {IDEA_COUNTER} + 1
 
             For each detailedIdeaStep:
 
