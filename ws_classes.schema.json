@@ -121,7 +121,8 @@
       "type": "object",
       "properties": {
         "category": { "type": "string" },
-        "rating": { "type": "number" }
+        "rating": { "type": "number" },
+        "reasoning": { "type": "string" }
       },
       "required": ["category"],
       "additionalProperties": false

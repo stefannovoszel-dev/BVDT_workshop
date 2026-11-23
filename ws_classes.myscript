@@ -55,6 +55,7 @@ class PostIt
 class CategoryRating
     property category (text)
     <optional> property rating (number)
+    <optional> property reasoning (text)
 
 
 class Capability

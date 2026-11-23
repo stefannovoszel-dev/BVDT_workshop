@@ -1,0 +1,496 @@
+<doc>Pre-processing rules applied before parsing to keep payload deterministic and free of inline documentation noise.</doc>
+INSTRUCTION HYGIENE:
+Remove all <doc>…</doc> blocks from input payload before parsing (byte-stream safe).
+Remove all <doc>…</doc> blocks within CONFIGURATION section before parsing.
+
+Treat every CONFIGURATION assignment whose resolved value is an empty
+string as undefined.
+
+Do not serialize undefined settings.
+
+A module or container whose controlling ID is undefined must not be
+created. Do not evaluate that module's nested mapping instructions.
+
+Inside a collection loop, skip entries whose required configuration
+values are undefined. Optional object properties may be omitted
+individually.
+
+
+GENERAL RULES:
+When extracting information from the transcript and trying to associate it to the corresponding note, do not focus only on the exact wording of the note. Instead, look for the underlying meaning and context of the note, and find relevant parts of the transcript that discuss or relate to that meaning. The goal is to provide a comprehensive explanation that captures the essence of the note, even if the transcript uses different phrasing, but try to stick to the used terminology as much as possible. If the transcript does not provide any relevant information for a note, leave the explanation empty.
+
+
+<doc>Main configuration for schema, workshop metadata, transcript sources, and section delimiters.</doc>
+CONFIGURATION:
+
+<doc>Global context values used across extraction and language normalization.</doc>
+{JSON_SCHEMA} = "ws_classes.schema.json"
+{CUSTOMER_NAME} = "Neuman"
+{TARGET_FILE} = lower({CUSTOMER_NAME}) + „_ws_results.json“
+{LANGUAGE} = "German"
+{INDUSTRY} = "Manufacturing"
+{SYSTEM_CONTEXT} = ""
+{COMMON_ABBREVIATIONS} = "KI, HCM, SAP"
+{ABBREVIATION_CORRECTIONS} = "HCL->HCM, S.A.P->SAP, K.I->KI"
+
+{WORKSHOP_DATE} = "2026-11-19"
+
+
+<doc>Aggregate all transcript documents for the workshop into one searchable text corpus.</doc>
+{WS_TRANSCRIPT} = extract text from the following files:
+    "Neuman/SF_UseCases/Neuman - BVDT Workshop Shopfloor - Part 1.docx"
+    "Neuman/SF_UseCases/Neuman BVDT Workshop - Part 2.docx"
+
+
+<doc>Define transcript boundaries for Free Association and derive a scoped transcript excerpt.</doc>
+{FREE_ASSOCIATION_START} = "So, dankeschön. Ich würde jetzt, ich würde jetzt die einzelnen Punkte kurz durchgehen, laut vorlesen und Rückfragen stellen, wenn ich inhaltlich was nicht verstehe."
+{FREE_ASSOCIATION_END} = "Leistung live sichtbar gemacht. Also, da geht es wieder um um das Thema Dashboards. Also, dass man aber in dem Fall Realtime-Dashboards, das heißt, dass man auch tatsächlich sieht, was passiert gerade und und und und was für Veränderungen gibt es. Mhm, ja, super. Vielen Dank für die für den ersten Beitrag."
+{FREE_ASSOCIATION_TRANSCRIPT} = extract text from {WS_TRANSCRIPT} from {FREE_ASSOCIATION_START} to {FREE_ASSOCIATION_END}
+
+
+<doc>Define transcript boundaries for Staged Offering Portfolio and derive a scoped transcript excerpt.</doc>
+{STAGED_OFFERING_PORTFOLIO_START} = ""
+{STAGED_OFFERING_PORTFOLIO_END} = ""
+{STAGED_OFFERING_PORTFOLIO_TRANSCRIPT} = extract text from {WS_TRANSCRIPT} from {STAGED_OFFERING_PORTFOLIO_START} to {STAGED_OFFERING_PORTFOLIO_END}
+
+
+<doc>Define transcript boundaries for Different Views Rated and derive a scoped transcript excerpt.</doc>
+{DIFF_VIEWS_RATED_START_UNTERNEHMENS_STEUERUNG_NOTES} = "Jetzt geht los, ja. OK, wir haben uns nur auf 2 Sachen konzentriert. Im Prinzip ist teilweise schon was gekommen. Das Hauptproblem ist, dass wir auf der Butzen-Seite grundsätzlich"
+{DIFF_VIEWS_RATED_END_UNTERNEHMENS_STEUERUNG_NOTES} = "Passt, das hab ich ja gespart, den Daniel Klopfer gleich, den Daniel Klopfer gleich."
+{DIFF_VIEWS_RATED_TRANSCRIPT_UNTERNEHMENS_STEUERUNG_NOTES} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_UNTERNEHMENS_STEUERUNG_NOTES} to {DIFF_VIEWS_RATED_END_UNTERNEHMENS_STEUERUNG_NOTES}
+
+{DIFF_VIEWS_RATED_START_UNTERNEHMENS_STEUERUNG_RATINGS} = "also beim ersten Punkt bei der bei dem KPI wo man die die Tagesleistung eigentlich verfolgen wollen, das haben wir für die Qualität hat es wenig Einfluss, wir haben dann die 3 vergeben"
+{DIFF_VIEWS_RATED_END_UNTERNEHMENS_STEUERUNG_RATINGS} = "Bezüglich Energieverbrauch, ja, wär ein wichtiger Punkt von dem. Mhm. So, den Applaus bitte."
+{DIFF_VIEWS_RATED_TRANSCRIPT_UNTERNEHMENS_STEUERUNG_RATINGS} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_UNTERNEHMENS_STEUERUNG_RATINGS} to {DIFF_VIEWS_RATED_END_UNTERNEHMENS_STEUERUNG_RATINGS}
+
+{DIFF_VIEWS_RATED_TRANSCRIPT_UNTERNEHMENS_STEUERUNG} = {DIFF_VIEWS_RATED_TRANSCRIPT_UNTERNEHMENS_STEUERUNG_NOTES} + " " + {DIFF_VIEWS_RATED_TRANSCRIPT_UNTERNEHMENS_STEUERUNG_RATINGS}
+
+
+{DIFF_VIEWS_RATED_START_PRODUKTION_NOTES} = "Die Vorgabe Leistungsdaten kommt aus der Brandgussanlage. Da sind wir gerade da, dass wir optimieren und dass wir wirklich auch die Daten gut aufbereitet haben für die nächste GIS-Kampagne."
+{DIFF_VIEWS_RATED_END_PRODUKTION_NOTES} = "Wo muss ich ansetzen, dass ich diese Störung beheben kann? Mhm."
+{DIFF_VIEWS_RATED_TRANSCRIPT_PRODUKTION_NOTES} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_PRODUKTION_NOTES} to {DIFF_VIEWS_RATED_END_PRODUKTION_NOTES}
+
+{DIFF_VIEWS_RATED_START_PRODUKTION_RATINGS} = "Ja, von mir aus. Passt. Für den ersten Punkt, für die Vorgaben von Leistungsdaten in Hinblick auf Menge und Fehler, haben wir haben wir gesagt,"
+{DIFF_VIEWS_RATED_END_PRODUKTION_RATINGS} = "Könnte relativ schnell vonstatten gehen, aber ob sie das dann in 2 bis 3 errechnet, haben wir auch eher niedriger gesetzt mit 4."
+{DIFF_VIEWS_RATED_TRANSCRIPT_PRODUKTION_RATINGS} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_PRODUKTION_RATINGS} to {DIFF_VIEWS_RATED_END_PRODUKTION_RATINGS}
+
+{DIFF_VIEWS_RATED_TRANSCRIPT_PRODUKTION} = {DIFF_VIEWS_RATED_TRANSCRIPT_PRODUKTION_NOTES} + " " + {DIFF_VIEWS_RATED_TRANSCRIPT_PRODUKTION_RATINGS}
+
+
+{DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_NOTES} = "Ja, passt. Also, das Erste ist K.I. Instandhaltung. Die Idee ist, wenn wir Fehlermeldungen kriegen aus den Maschinen."
+{DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_NOTES} = "Das kostet nichts und bringt viel, ist aber halt heute alt. Das muss sich wer auskennen, was sind das für Signale und diese richtig zu nutzen."
+{DIFF_VIEWS_RATED_TRANSCRIPT_TECHNIK_QUALITAET} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_NOTES} to {DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_NOTES}
+
+{DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_RATINGS} = "So, von unserer Seite haben wir da ein ähnlich klingendes Thema mit K.I. in der Instandhaltung. Ich möchte hervorheben, wir haben das fast gleich bewertet."
+{DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_RATINGS} = "In der Umsetzung mittelmäßig. Ich glaube, da braucht es ein Wühlen und das schaffen wir. Und im ROI relativ hoch bewertet. Warum? Weil mit wenig Kosten schon ein Ergebnis zu erwarten sein kann."
+{DIFF_VIEWS_RATED_TRANSCRIPT_TECHNIK_QUALITAET_RATINGS} = extract text from {WS_TRANSCRIPT} from {DIFF_VIEWS_RATED_START_TECHNIK_QUALITAET_RATINGS} to {DIFF_VIEWS_RATED_END_TECHNIK_QUALITAET_RATINGS}
+
+{DIFF_VIEWS_RATED_TRANSCRIPT_TECHNIK_QUALITAET} = {DIFF_VIEWS_RATED_TRANSCRIPT_TECHNIK_QUALITAET_NOTES} + " " + {DIFF_VIEWS_RATED_TRANSCRIPT_TECHNIK_QUALITAET_RATINGS}
+
+
+<doc>Define transcript boundaries for Capability Matrix and derive a scoped transcript excerpt.</doc>
+{CAPABILITY_MATRIX_START} = "Digitalisierung. O. K., ich würde jetzt die einzelnen Punkte durchgehen und vorlesen. Wenn ich inhaltliche Fragen hab, dann stell ich sie wieder so wie ganz am Anfang."
+{CAPABILITY_MATRIX_END} = "Sehr gut, dann sind wir mit dem mit dem ersten Teil der heutigen Session mal durch."
+{CAPABILITY_MATRIX_TRANSCRIPT} = extract text from {WS_TRANSCRIPT} from {CAPABILITY_MATRIX_START} to {CAPABILITY_MATRIX_END}
+
+
+<doc>Define transcript boundaries for Detailed Working Plan and derive a scoped transcript excerpt.</doc>
+{DETAILED_WORKING_PLAN_START} = ""
+{DETAILED_WORKING_PLAN_END} = ""
+{DETAILED_WORKING_PLAN_TRANSCRIPT} = extract text from {WS_TRANSCRIPT} from {DETAILED_WORKING_PLAN_START} to {DETAILED_WORKING_PLAN_END}
+
+
+<doc>Define transcript boundaries for Roadmap and derive a scoped transcript excerpt.</doc>
+{ROADMAP_START} = "Ich erkläre jetzt kurz die, wie diese Roadmap an sich funktioniert."
+{ROADMAP_END} = "Und keine Fantasien, die dann durch Ressourcenengpässe und nicht umsetzbar sind."
+{ROADMAP_TRANSCRIPT} = extract text from {WS_TRANSCRIPT} from {ROADMAP_START} to {ROADMAP_END}
+
+
+<doc>Define transcript boundaries for Life Cycle Stages and derive a scoped transcript excerpt.</doc>
+{LIFE_CYCLE_START_BPC_161640310957} = ""
+{LIFE_CYCLE_END_BPC_161640310957} = ""
+{LIFE_CYCLE_TRANSCRIPT_BPC_161640310957} = extract text from {WS_TRANSCRIPT} from {LIFE_CYCLE_START_BPC_161640310957} to {LIFE_CYCLE_END_BPC_161640310957}
+
+{LIFE_CYCLE_START_BPC_665009047651} = ""
+{LIFE_CYCLE_END_BPC_665009047651} = ""
+{LIFE_CYCLE_TRANSCRIPT_BPC_665009047651} = extract text from {WS_TRANSCRIPT} from {LIFE_CYCLE_START_BPC_665009047651} to {LIFE_CYCLE_END_BPC_665009047651}
+
+{LIFE_CYCLE_START_BPC_591523972917} = ""
+{LIFE_CYCLE_END_BPC_591523972917} = ""
+{LIFE_CYCLE_TRANSCRIPT_BPC_591523972917} = extract text from {WS_TRANSCRIPT} from {LIFE_CYCLE_START_BPC_591523972917} to {LIFE_CYCLE_END_BPC_591523972917}
+
+
+<doc>Define transcript boundaries for Value Effort Matrix and derive a scoped transcript excerpt.</doc>
+{VALUE_EFFORT_MATRIX_START_RED} = "1 mit dem Big Beta anfangen, dann können wir gleich aufhören. Nein, mit Big Bet, ehrlich gesagt."
+{VALUE_EFFORT_MATRIX_END_RED} = "Ja, und erhöhe vielleicht die Drehmomentgrenze oder kontrolliere, ob irgendetwas schwergängig in dem Bereich ist."
+{VALUE_EFFORT_MATRIX_TRANSCRIPT_RED} = extract text from {WS_TRANSCRIPT} from {VALUE_EFFORT_MATRIX_START_RED} to {VALUE_EFFORT_MATRIX_END_RED}
+
+{VALUE_EFFORT_MATRIX_START_BLUE} = "Wir haben im Endeffekt gerade den, ja, ihr habt jetzt alle, ihr habt getrennt voneinander, das gleiche priorisiert. Also, einiger kann man sofort gar nicht mehr"
+{VALUE_EFFORT_MATRIX_END_BLUE} = "Gerald, im Prinzip vereint, vereinheitlicht. Also, in der gleichen, jetzt haben wir die gleichen Sachen."
+{VALUE_EFFORT_MATRIX_TRANSCRIPT_BLUE} = extract text from {WS_TRANSCRIPT} from {VALUE_EFFORT_MATRIX_START_BLUE} to {VALUE_EFFORT_MATRIX_END_BLUE}
+
+{VALUE_EFFORT_MATRIX_START_GREEN} = "Ja, also wir sind eigentlich euren Ideen relativ ähnlich, muss ich sagen. Also, hätte ich gesagt, von der Big Bat her"
+{VALUE_EFFORT_MATRIX_END_GREEN} = "Ah, somit werden wir uns da eigentlich auch von der Schwierigkeit vom Schwierigkeitsgrad her ähnlich positionieren. Ja, genau, das heißt ja dann."
+{VALUE_EFFORT_MATRIX_TRANSCRIPT_GREEN} = extract text from {WS_TRANSCRIPT} from {VALUE_EFFORT_MATRIX_START_GREEN} to {VALUE_EFFORT_MATRIX_END_GREEN}
+
+
+<doc>Define transcript boundaries for Advanced User Journey and derive a scoped transcript excerpt.</doc>
+{ADVANCED_USER_JOURNEY_START} = ""
+{ADVANCED_USER_JOURNEY_END} = ""
+{ADVANCED_USER_JOURNEY_TRANSCRIPT} = extract text from {WS_TRANSCRIPT} from {ADVANCED_USER_JOURNEY_START} to {ADVANCED_USER_JOURNEY_END}
+
+
+<doc>Define one transcript section for each configured Different Scenarios Rated module. The module ID is used as the stable lookup key.</doc>
+{DIFFERENT_SCENARIOS_RATED_START_MODULE_843261398104} = ""
+{DIFFERENT_SCENARIOS_RATED_END_MODULE_843261398104} = ""
+{DIFFERENT_SCENARIOS_RATED_TRANSCRIPT_MODULE_843261398104} = extract text from {WS_TRANSCRIPT} from {DIFFERENT_SCENARIOS_RATED_START_MODULE_843261398104} to {DIFFERENT_SCENARIOS_RATED_END_MODULE_843261398104}
+
+{DIFFERENT_SCENARIOS_RATED_START_MODULE_314619979186} = ""
+{DIFFERENT_SCENARIOS_RATED_END_MODULE_314619979186} = ""
+{DIFFERENT_SCENARIOS_RATED_TRANSCRIPT_MODULE_314619979186} = extract text from {WS_TRANSCRIPT} from {DIFFERENT_SCENARIOS_RATED_START_MODULE_314619979186} to {DIFFERENT_SCENARIOS_RATED_END_MODULE_314619979186}
+
+{DIFFERENT_SCENARIOS_RATED_START_MODULE_871728708834} = ""
+{DIFFERENT_SCENARIOS_RATED_END_MODULE_871728708834} = ""
+{DIFFERENT_SCENARIOS_RATED_TRANSCRIPT_MODULE_871728708834} = extract text from {WS_TRANSCRIPT} from {DIFFERENT_SCENARIOS_RATED_START_MODULE_871728708834} to {DIFFERENT_SCENARIOS_RATED_END_MODULE_871728708834}
+
+
+<doc>Define transcript boundaries for Detailed Idea plus Investment and derive a scoped transcript excerpt.</doc>
+{DETAILED_IDEA_INVESTMENT_START_01} = "Die Idee in einem Satz ist im Prinzip die K.I.-Unterstützung bei der Instandhaltungsproblemlösung, ne. Welches Problem wird gelöst? Problem wird gelöst, dass"
+{DETAILED_IDEA_INVESTMENT_END_01} = "Wie lange brauche ich, damit ich ein Problem löse? Und wer übernimmt die Verantwortung? Würde sagen, die Instandhaltungsleitung."
+{DETAILED_IDEA_INVESTMENT_START_02} = "Erkläre die Idee in deinem in einem Satz: Effizienzsteigerung aufgrund oder mittels Datennutzung haben wir formuliert."
+{DETAILED_IDEA_INVESTMENT_END_02} = "Datenbereitstellung. Ups, Technik, das bin ich. Danke."
+{DETAILED_IDEA_INVESTMENT_START_03} = "Puh, ja, OK, Ich bin soweit eigentlich. Also, Big Bit haben wir ja eh alle eigentlich dasselbe gehabt."
+{DETAILED_IDEA_INVESTMENT_END_03} = "Ja, die Verantwortung sehen wir beim Oliver vom Geschäftsführer, aber eher so, dass du halt dann, dass du dann auch delegierst, wer heute was zu erledigen hat."
+{DETAILED_IDEA_INVESTMENT_START_04} = "Ja, die nächste Idee, die wir aufgefasst haben, ist die Abbildung der Artikel in einem zentralen System. Da geht dann auch Hand in Hand die Produktionsplanung."
+{DETAILED_IDEA_INVESTMENT_END_04} = "Ja, wie messen wir unseren Erfolg? Schwierig. Und wer übernimmt die Verantwortung? Da sind wir bei unserem lieben Sigi Controllo."
+{DETAILED_IDEA_INVESTMENT_START_05} = "Angenommen, wir haben als erkläre dir den einen Satz. Also, welche Parameter sind verantwortlich für eine gute, schlechte Charge?"
+{DETAILED_IDEA_INVESTMENT_END_05} = "Ja, selbstverständlich."
+{DETAILED_IDEA_INVESTMENT_START_06} = "Dann, das Zweite war dann der Artikel. Also, dem Planungstool erkläre die Idee in einem Satz, dass die einheitlichen Artikeldaten als Basis für ein Planungstool dann gelöst werden."
+{DETAILED_IDEA_INVESTMENT_END_06} = "Dieser Thema und wer übernimmt die Verantwortung, liegt es leider noch."
+{DETAILED_IDEA_INVESTMENT_START_07} = ""
+{DETAILED_IDEA_INVESTMENT_END_07} = ""
+{DETAILED_IDEA_INVESTMENT_START_08} = ""
+{DETAILED_IDEA_INVESTMENT_END_08} = ""
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_01} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_01} to {DETAILED_IDEA_INVESTMENT_END_01}
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_02} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_02} to {DETAILED_IDEA_INVESTMENT_END_02}
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_03} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_03} to {DETAILED_IDEA_INVESTMENT_END_03}
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_04} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_04} to {DETAILED_IDEA_INVESTMENT_END_04}
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_05} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_05} to {DETAILED_IDEA_INVESTMENT_END_05}
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_06} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_06} to {DETAILED_IDEA_INVESTMENT_END_06}
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_07} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_07} to {DETAILED_IDEA_INVESTMENT_END_07}
+{DETAILED_IDEA_INVESTMENT_TRANSCRIPT_08} = extract text from {WS_TRANSCRIPT} from {DETAILED_IDEA_INVESTMENT_START_08} to {DETAILED_IDEA_INVESTMENT_END_08}
+
+<doc>Define transcript boundaries for User Journey and derive a scoped transcript excerpt.</doc>
+{USER_JOURNEY_START_RED} = "Ja, der Daniel, wo ist er da? In einem Jahr wirst du dann reinkommen und immer alles live sehen."
+{USER_JOURNEY_END_RED} = "Wenn man das selber mit dem Push Push so taugt, sagen die Daten, die den Daniel noch laufen."
+{USER_JOURNEY_TRANSCRIPT_RED} = extract text from {WS_TRANSCRIPT} from {USER_JOURNEY_START_RED} to {USER_JOURNEY_END_RED}
+
+{USER_JOURNEY_START_GREEN} = "So, die wird dann die verwendeten Lösungen anschauen. Also, stell ich mir so vor, dass man dann quasi Vorschläge kriegt"
+{USER_JOURNEY_END_GREEN} = "Ja, noch anfänglicher Skepsis, dass wir die Produktionsleistung wirklich um 5% erhöhen können, aber es dann wirklich geschafft."
+{USER_JOURNEY_TRANSCRIPT_GREEN} = extract text from {WS_TRANSCRIPT} from {USER_JOURNEY_START_GREEN} to {USER_JOURNEY_END_GREEN}
+
+{USER_JOURNEY_START_BLUE} = "Perfekt. Hier haben sie da den Gruppenspeicher herausgepickt, die"
+{USER_JOURNEY_END_BLUE} = "Ja, ich weiß ähnlich, was ich wann zum tun hab. Und trinkt entspannt seinen Kaffee weiter. Super."
+{USER_JOURNEY_TRANSCRIPT_BLUE} = extract text from {WS_TRANSCRIPT} from {USER_JOURNEY_START_BLUE} to {USER_JOURNEY_END_BLUE}
+
+
+<doc>Execution phase enriches already existing post-it notes in the target JSON with transcript-based explanations.</doc>
+EXECUTION:
+
+Structure for the data mapping = {JSON_SCHEMA}:
+
+<doc>Fill explanations for Free Association post-its using scoped transcript first, then global fallback transcript.</doc>
+IF {FREE_ASSOCIATION_START} is not empty:
+    Update {TARGET_FILE}.module_FreeAssociation
+
+        For each PostIt in freeAssociation:
+            {SNIPPET} = Extract parts of {FREE_ASSOCIATION_TRANSCRIPT} where PostIt.note is described.
+            
+            If {SNIPPET} is empty
+                {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+            freeAssociation.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+
+<doc>Fill Life Cycle pro and contra post-it explanations using capability-specific transcript context with global fallback.</doc>
+
+For each LifeCycleStage in
+    {TARGET_FILE}.module_LifeCycle.lifeCycleStage:
+
+    For each BusinessCapability in
+        LifeCycleStage.businessCapability:
+
+        {BPC_ID} = BusinessCapability.id
+
+        If {LIFE_CYCLE_START_{BPC_ID}} is defined and not empty
+           and {LIFE_CYCLE_END_{BPC_ID}} is defined and not empty:
+
+            {LIFE_CYCLE_TRANSCRIPT}
+                = {LIFE_CYCLE_TRANSCRIPT_{BPC_ID}}
+
+            For each BusinessModelArgument in
+                BusinessCapability.businessModelArgument:
+
+                If BusinessModelArgument.proArgument is defined:
+
+                    {SNIPPET}
+                        = Extract the parts of {LIFE_CYCLE_TRANSCRIPT}
+                          where LifeCycleStage.name,
+                          BusinessCapability.name,
+                          BusinessModelArgument.businessModel,
+                          the Pro argument, and
+                          BusinessModelArgument.proArgument.note
+                          are described.
+
+                    If {SNIPPET} is empty:
+                        {SNIPPET}
+                            = Extract the parts of {WS_TRANSCRIPT}
+                              where LifeCycleStage.name,
+                              BusinessCapability.name,
+                              BusinessModelArgument.businessModel,
+                              the Pro argument, and
+                              BusinessModelArgument.proArgument.note
+                              are described.
+
+                    If {SNIPPET} is not empty:
+                        BusinessModelArgument.proArgument.explanation
+                            = Rephrase {SNIPPET} according to correct
+                              and fluent {LANGUAGE}.
+
+                        Preserve the original meaning.
+                        Do not invent topics, reasons, consequences,
+                        or assumptions that are not mentioned.
+
+
+                If BusinessModelArgument.contraArgument is defined:
+
+                    {SNIPPET}
+                        = Extract the parts of {LIFE_CYCLE_TRANSCRIPT}
+                          where LifeCycleStage.name,
+                          BusinessCapability.name,
+                          BusinessModelArgument.businessModel,
+                          the Contra argument, and
+                          BusinessModelArgument.contraArgument.note
+                          are described.
+
+                    If {SNIPPET} is empty:
+                        {SNIPPET}
+                            = Extract the parts of {WS_TRANSCRIPT}
+                              where LifeCycleStage.name,
+                              BusinessCapability.name,
+                              BusinessModelArgument.businessModel,
+                              the Contra argument, and
+                              BusinessModelArgument.contraArgument.note
+                              are described.
+
+                    If {SNIPPET} is not empty:
+                        BusinessModelArgument.contraArgument.explanation
+                            = Rephrase {SNIPPET} according to correct
+                              and fluent {LANGUAGE}.
+
+                        Preserve the original meaning.
+                        Do not invent topics, reasons, consequences,
+                        or assumptions that are not mentioned.
+
+
+<doc>Fill explanations for Different Views Rated ideas and problem-solved notes with module-first transcript matching.</doc>
+IF {DIFF_VIEWS_RATED_START_*} is not empty:
+    Update {TARGET_FILE}.container_DifferentViewsRated.module_DifferentViewsRated
+        
+        For each perspective WHERE {*} is best match for perspective
+        
+            For each workshopItemRated:
+
+                For each PostIt in idea:
+                    {SNIPPET} = Extract parts of {DIFF_VIEWS_RATED_TRANSCRIPT_*} where PostIt.note is described.
+                    
+                    If {SNIPPET} is empty
+                        {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                    idea.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+                For each PostIt in problemSolved:
+                    {SNIPPET} = Extract parts of {DIFF_VIEWS_RATED_TRANSCRIPT_*} where PostIt.note is described.
+                    
+                    If {SNIPPET} is empty
+                        {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                    problemSolved.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+                For each category in categoryRating:
+                    {SNIPPET} = Extract parts of {DIFF_VIEWS_RATED_TRANSCRIPT_*} where topics of idea.note or problemSolved.note are mentioned in context of category and corresponding to its value of rating.
+
+                    categoryRating.reasoning = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+
+<doc>Enrich each Different Scenarios Rated score post-it with the reason stated in its scenario-specific transcript.</doc>
+For each Module_DifferentScenariosRated in {TARGET_FILE}.container_DifferentScenariosRated.module_DifferentScenariosRated:
+
+    {SCENARIO_MODULE_ID} = Module_DifferentScenariosRated.id
+
+    If {DIFFERENT_SCENARIOS_RATED_START_{SCENARIO_MODULE_ID}} is defined and not empty
+       and {DIFFERENT_SCENARIOS_RATED_END_{SCENARIO_MODULE_ID}} is defined and not empty:
+
+        {SCENARIO_TRANSCRIPT} = {DIFFERENT_SCENARIOS_RATED_TRANSCRIPT_{SCENARIO_MODULE_ID}}
+
+        For each ScenarioAspectRating in Module_DifferentScenariosRated.scenarioAspectRating:
+
+            If ScenarioAspectRating.explanation is defined:
+                {SNIPPET} = Extract the parts of {SCENARIO_TRANSCRIPT} where Module_DifferentScenariosRated.scenario, ScenarioAspectRating.aspect, ScenarioAspectRating.rating, and ScenarioAspectRating.explanation.note are described.
+
+                If {SNIPPET} is empty:
+                    {SNIPPET} = Extract the parts of {WS_TRANSCRIPT} where Module_DifferentScenariosRated.scenario, ScenarioAspectRating.aspect, ScenarioAspectRating.rating, and ScenarioAspectRating.explanation.note are described.
+
+                If {SNIPPET} is not empty:
+                    ScenarioAspectRating.explanation.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE}. Explain why the rating was assigned, preserve the original meaning, and do not invent reasons, consequences, or assumptions that are not mentioned.
+
+
+<doc>Fill explanations for Staged Offering Portfolio ideas notes with module-first transcript matching.</doc>
+IF {STAGED_OFFERING_PORTFOLIO_START} is not empty:
+    Update {TARGET_FILE}.module_StagedOfferingPortfolio
+
+        For each portfolioItem:
+
+            For each PostIt in note:
+                {SNIPPET} = Extract parts of {STAGED_OFFERING_PORTFOLIO_TRANSCRIPT} where PostIt.note is described.
+                
+                If {SNIPPET} is empty
+                    {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+
+<doc>Fill explanations for Capability Matrix notes from capability-specific transcript context with global fallback.</doc>
+IF {CAPABILITY_MATRIX_START} is not empty:
+    Update {TARGET_FILE}.module_CapabilityMatrix
+        
+        For each capability:
+            
+            For each PostIt in note:
+                {SNIPPET} = Extract parts of {CAPABILITY_MATRIX_TRANSCRIPT} where PostIt.note is described.
+                
+                If {SNIPPET} is empty
+                    {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+              
+
+<doc>Fill explanations for Detailed Working Plan note collections across explanation-data and required-resources groups.</doc>
+IF {DETAILED_WORKING_PLAN_START} is not empty:
+    Update {TARGET_FILE}.container_DetailedWorkingPlan.module_DetailedWorkingPlan
+        
+        For each workplanItemGroupExplanationData:
+        
+            For each workplanItemTwoStep:
+            
+                For each PostIt in note:
+                    {SNIPPET} = Extract parts of {DETAILED_WORKING_PLAN_TRANSCRIPT} where PostIt.note is described.
+                    
+                    If {SNIPPET} is empty
+                        {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                    note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+            For each workplanItemOneStep:
+                
+                For each PostIt in note:
+                    {SNIPPET} = Extract parts of {DETAILED_WORKING_PLAN_TRANSCRIPT} where PostIt.note is described.
+                    
+                    If {SNIPPET} is empty
+                        {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                    note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+        For each workplanItemGroupRequiredResources:
+        
+            For each workplanItemOneStep:
+            
+                For each PostIt in note:
+                    {SNIPPET} = Extract parts of {DETAILED_WORKING_PLAN_TRANSCRIPT} where PostIt.note is described.
+                    
+                        If {SNIPPET} is empty
+                            {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                        note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+
+<doc>Fill explanations for User Journey step notes from journey-specific transcript context with global fallback.</doc>
+IF {USER_JOURNEY_START_*} is not empty:
+    Update {TARGET_FILE}.container_UserJourney.module_UserJourney
+        
+        For each teamName WHERE {*} is best match for teamName
+        
+            For each userJourneyStep:
+            
+                For each PostIt in note:
+                    {SNIPPET} = Extract parts of {USER_JOURNEY_TRANSCRIPT_*} where PostIt.note is described.
+                    
+                    If {SNIPPET} is empty
+                        {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                    note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+
+<doc>Fill explanations for AdvancedUser Journey step notes from journey-specific transcript context with global fallback.</doc>
+IF {ADVANCED_USER_JOURNEY_START} is not empty:
+    Update {TARGET_FILE}.container_UserJourney.module_UserJourney
+        
+        For each userJourneyStep:
+        
+            For each PostIt in note:
+                {SNIPPET} = Extract parts of {ADVANCED_USER_JOURNEY_TRANSCRIPT} where PostIt.note is described.
+                
+                If {SNIPPET} is empty
+                    {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+
+<doc>Fill explanations for Value Effort Matrix ideas notes with module-first transcript matching.</doc>
+IF {VALUE_EFFORT_MATRIX_START_*} is not empty:
+    Update {TARGET_FILE}.container_ValueEffortMatrix.module_ValueEffortMatrix
+        
+        For each teamName WHERE {*} is best match for teamName
+        
+            For each workshopItemWeighted:
+
+                For each PostIt in idea:
+                    {SNIPPET} = Extract parts of {VALUE_EFFORT_MATRIX_TRANSCRIPT_*} where PostIt.note is described.
+                    
+                    If {SNIPPET} is empty
+                        {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                    idea.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+<doc>Fill explanations for Detailed Idea plus Investment use case steps and notes with module-first transcript matching.</doc>
+IF {DETAILED_IDEA_INVESTMENT_START_*} is not empty:
+    Update {TARGET_FILE}.container_DetailedIdeaInvestment.module_DetailedIdeaInvestment
+        
+        {IDEA_COUNTER} = 0
+        
+        For each detailedIdea:
+        {IDEA_COUNTER} = {IDEA_COUNTER} + 1
+
+            For each detailedIdeaStep:
+
+                For each PostIt in note:
+                    {SNIPPET} = Extract parts of {DETAILED_IDEA_INVESTMENT_TRANSCRIPT_{IDEA_COUNTER}} where PostIt.note is described.
+                    
+                    If {SNIPPET} is empty
+                        {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+
+                    note.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
+
+<doc>Fill explanations for Roadmap items from roadmap-specific transcript context with global fallback.</doc>
+IF {ROADMAP_START} is not empty:
+    Update {TARGET_FILE}.module_Roadmap
+        
+        For each roadmapItem:
+            
+            For each PostIt in idea:
+                {SNIPPET} = Extract parts of {ROADMAP_TRANSCRIPT} where PostIt.note is described.
+                
+                If {SNIPPET} is empty
+                    {SNIPPET} = Extract parts of {WS_TRANSCRIPT} where PostIt.note is described.
+                
+                idea.explanation = Rephrase {SNIPPET} according to correct and fluent {LANGUAGE} but do not change the meaning and do not invent topics that are not mentioned.
