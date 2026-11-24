@@ -22,7 +22,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Oliver.Glitzner@neuman.at"
     },
     {
       "name": "Karner Martin",
@@ -30,15 +31,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
-    },
-    {
-      "name": "Mujakovic Damir",
-      "role": "Produktionsleitung Stangengießanlage (HSG)",
-      "company": {
-        "Name": "Neuman",
-        "Industry": "Manufacturing"
-      }
+      },
+      "email": "Martin.Karner@neuman.at"
     },
     {
       "name": "Schabl Daniel",
@@ -46,7 +40,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Daniel.Schabl@neuman.at"
     },
     {
       "name": "Vonwald Michael",
@@ -54,15 +49,17 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Michael.Vonwald@neuman.at"
     },
     {
-      "name": "Plettenberg Rudolf",
-      "role": "Leiter Digital Office",
+      "name": "Siedler Thomas",
+      "role": "Digital Office",
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Thomas.Siedler@neuman.at"
     },
     {
       "name": "Haubenwallner Nicole",
@@ -70,7 +67,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Nicole.Haubenwallner@neuman.at"
     },
     {
       "name": "Geiselhofer Siegfried",
@@ -78,7 +76,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Siegfried.Geiselhofer@neuman.at"
     },
     {
       "name": "Otmar Hochecker",
@@ -86,7 +85,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Otmar.Hochecker@neuman.at"
     },
     {
       "name": "Marion Fischer",
@@ -94,7 +94,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Marion.Fischer@neuman.at"
     },
     {
       "name": "Andreas Krivec",
@@ -102,7 +103,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Andreas.Krivec@neuman.at"
     },
     {
       "name": "Mario Kuss",
@@ -152,7 +154,8 @@
         "id": "ROADMAP_ITEM_079302347450",
         "idea": {
           "id": 172,
-          "note": "IDEE 01/04/05"
+          "note": "IDEE 01/04/05",
+          "explanation": "Die datenbasierte Analyse und Optimierung wurde als innovative Initiative in Horizont 2 eingeordnet und wegen ihrer Dringlichkeit für die erste Welle vorgesehen. Fehlende Ressourcen müssten dafür bereitgestellt werden."
         },
         "horizon": "H2",
         "wave": 1
@@ -161,7 +164,8 @@
         "id": "ROADMAP_ITEM_752085640666",
         "idea": {
           "id": 173,
-          "note": "IDEE 02"
+          "note": "IDEE 02",
+          "explanation": "Der KI-gestützte Instandhaltungsagent wurde im Roadmap-Gespräch als Initiative in Horizont 2 besprochen."
         },
         "horizon": "H2",
         "wave": 1
@@ -170,7 +174,8 @@
         "id": "ROADMAP_ITEM_716613727028",
         "idea": {
           "id": 174,
-          "note": "IDEE 04/06"
+          "note": "IDEE 04/06",
+          "explanation": "Artikelinformationen sollen zentral statt mehrfach geführt werden. Diese Initiative wurde wegen begrenzter Ressourcen in die zweite Welle verschoben."
         },
         "horizon": "H1",
         "wave": 2
@@ -179,7 +184,8 @@
         "id": "ROADMAP_ITEM_249141282912",
         "idea": {
           "id": 175,
-          "note": "PLANUNGSTOOL"
+          "note": "PLANUNGSTOOL",
+          "explanation": "Ein Planungstool baut auf korrekt gepflegten Artikeldaten auf und wurde als Kerngeschäftsinitiative eingeordnet."
         },
         "horizon": "H1",
         "wave": 2
@@ -202,70 +208,80 @@
                 "description": "Erkläre die Idee in einem Satz!",
                 "note": {
                   "id": 113,
-                  "note": "Effizienzsteigerung aufgrund/mittels Datennutzung"
+                  "note": "Effizienzsteigerung aufgrund/mittels Datennutzung",
+                  "explanation": "Die Idee nutzt vorhandene Daten, um Abläufe an der Bandgussanlage effizienter zu machen und ihren Output zu erhöhen."
                 }
               },
               {
                 "description": "Welches Problem wird gelöst?",
                 "note": {
                   "id": 114,
-                  "note": "BGA Output erhöhen"
+                  "note": "BGA Output erhöhen",
+                  "explanation": "Die Bandgussanlage soll mehr Gutmenge produzieren."
                 }
               },
               {
                 "description": "Wer wird aller davon profitieren?",
                 "note": {
                   "id": 115,
-                  "note": "ALLE durch verbessertes UN-Ergebnis"
+                  "note": "ALLE durch verbessertes UN-Ergebnis",
+                  "explanation": "Ein höherer Output soll das Unternehmensergebnis verbessern und damit allen zugutekommen."
                 }
               },
               {
                 "description": "Welche Prozesse müssen angepasst werden?",
                 "note": {
                   "id": 116,
-                  "note": "Produktionsprozess BGA; Datenbereitstellung; Datenanalyse"
+                  "note": "Produktionsprozess BGA; Datenbereitstellung; Datenanalyse",
+                  "explanation": "Betroffen sind vor allem der Produktionsprozess der Bandgussanlage und die Bereitstellung und Analyse der dafür benötigten Daten."
                 }
               },
               {
                 "description": "Wie Komplex ist die Umsetzung?",
                 "note": {
                   "id": 117,
-                  "note": "Viel Arbeit; bewältigbar; für Analysezwecke wenig Invest"
+                  "note": "Viel Arbeit; bewältigbar; für Analysezwecke wenig Invest",
+                  "explanation": "Die Gruppe hielt die Umsetzung für schwierig, aber nicht grundsätzlich komplex; sie erfordert gemeinsame Arbeit an den Daten und Prozessen."
                 }
               },
               {
                 "description": "Welche Unterstützung wird benötigt?",
                 "note": {
                   "id": 118,
-                  "note": "Mitarbeiter; IT-Unterstützung; Automatisierung"
+                  "note": "Mitarbeiter; IT-Unterstützung; Automatisierung",
+                  "explanation": "Für die Umsetzung wird die Unterstützung der beteiligten Mitarbeiter und der Technik bei der Datenbereitstellung benötigt."
                 }
               },
               {
                 "description": "Welche Technologien werden benötigt?",
                 "note": {
                   "id": 119,
-                  "note": "Digitalisierung; Kameras: Füllstand, Kosten, Arbeitsweise"
+                  "note": "Digitalisierung; Kameras: Füllstand, Kosten, Arbeitsweise",
+                  "explanation": "Als technische Grundlage wurden Prozessanalyse und Digitalisierung der Daten genannt."
                 }
               },
               {
                 "description": "Was ist der erwartete Business Value?",
                 "note": {
                   "id": 120,
-                  "note": "+5% → +500k Euro"
+                  "note": "+5% → +500k Euro",
+                  "explanation": "Ein höherer Output wurde als großer Hebel für das Unternehmensergebnis bewertet; in der Diskussion wurde ein möglicher Beitrag von rund 500.000 Euro genannt."
                 }
               },
               {
                 "description": "Wie messen wir unseren Erfolg?",
                 "note": {
                   "id": 121,
-                  "note": "Gut-Menge; Gießband"
+                  "note": "Gut-Menge; Gießband",
+                  "explanation": "Der Erfolg soll an der produzierten Gutmenge des Gießbands gemessen werden."
                 }
               },
               {
                 "description": "Wer übernimmt die Verantwortung?",
                 "note": {
                   "id": 122,
-                  "note": "Strategisch: GF; operativ: Daniel & Martin; Datenbereitstellung: Technik"
+                  "note": "Strategisch: GF; operativ: Daniel & Martin; Datenbereitstellung: Technik",
+                  "explanation": "Die strategische Verantwortung liegt bei der Geschäftsführung, die operative bei Daniel und Martin; die Technik soll die Daten bereitstellen."
                 }
               }
             ],
@@ -279,70 +295,80 @@
                 "description": "Erkläre die Idee in einem Satz!",
                 "note": {
                   "id": 123,
-                  "note": "KI-unterstützte Instandhaltung: Problem-Lösungsunterstützung"
+                  "note": "KI-unterstützte Instandhaltung: Problem-Lösungsunterstützung",
+                  "explanation": "KI soll Instandhalter bei der Suche nach Lösungen für Maschinenprobleme unterstützen."
                 }
               },
               {
                 "description": "Welches Problem wird gelöst?",
                 "note": {
                   "id": 124,
-                  "note": "Unterstützung bei Lösungsfindung"
+                  "note": "Unterstützung bei Lösungsfindung",
+                  "explanation": "Die Unterstützung soll fachliche Lücken ausgleichen und schnell tiefere Informationen für die Problemlösung bereitstellen."
                 }
               },
               {
                 "description": "Wer wird aller davon profitieren?",
                 "note": {
                   "id": 125,
-                  "note": "IH; Produktion; Unternehmen"
+                  "note": "IH; Produktion; Unternehmen",
+                  "explanation": "Zuerst profitiert die Instandhaltung; schnellere Reparaturen nützen auch der Produktion und damit dem Unternehmen."
                 }
               },
               {
                 "description": "Welche Prozesse müssen angepasst werden?",
                 "note": {
                   "id": 126,
-                  "note": "IH"
+                  "note": "IH",
+                  "explanation": "Angepasst werden soll vor allem der Instandhaltungsprozess."
                 }
               },
               {
                 "description": "Wie Komplex ist die Umsetzung?",
                 "note": {
                   "id": 127,
-                  "note": "SPS Plan"
+                  "note": "SPS Plan",
+                  "explanation": "Die ersten Schritte wurden als wenig komplex eingeschätzt; mit tieferer Einbindung von SPS-Daten und Maschineninformationen steigt die Komplexität."
                 }
               },
               {
                 "description": "Welche Unterstützung wird benötigt?",
                 "note": {
                   "id": 128,
-                  "note": "Digi Office; IH-Team; Hersteller"
+                  "note": "Digi Office; IH-Team; Hersteller",
+                  "explanation": "Benötigt werden das Digital Office für KI-Kompetenz, das Instandhaltungsteam und gegebenenfalls Maschinenhersteller."
                 }
               },
               {
                 "description": "Welche Technologien werden benötigt?",
                 "note": {
                   "id": 129,
-                  "note": "KI-Kompetenz; SPS-intern; EPler?"
+                  "note": "KI-Kompetenz; SPS-intern; EPler?",
+                  "explanation": "Genannt wurden KI-Kompetenz, SPS-Informationen und die Integration von Anlagendaten."
                 }
               },
               {
                 "description": "Was ist der erwartete Business Value?",
                 "note": {
                   "id": 130,
-                  "note": "Effizienzsteigerung; € ↓"
+                  "note": "Effizienzsteigerung; € ↓",
+                  "explanation": "Schnellere Störungsbehebung soll die Effizienz erhöhen und Kosten beziehungsweise entgangene Produktionskapazität verringern."
                 }
               },
               {
                 "description": "Wie messen wir unseren Erfolg?",
                 "note": {
                   "id": 131,
-                  "note": "Mean Time To Repair"
+                  "note": "Mean Time To Repair",
+                  "explanation": "Gemessen werden soll die mittlere Reparaturdauer, die „Mean Time to Repair“."
                 }
               },
               {
                 "description": "Wer übernimmt die Verantwortung?",
                 "note": {
                   "id": 132,
-                  "note": "IH-Leitung"
+                  "note": "IH-Leitung",
+                  "explanation": "Die Verantwortung wurde bei der Instandhaltungsleitung gesehen."
                 }
               }
             ],
@@ -362,70 +388,80 @@
                 "description": "Erkläre die Idee in einem Satz!",
                 "note": {
                   "id": 133,
-                  "note": "Leistungsdaten erfassen, analysieren & Output erhöhen"
+                  "note": "Leistungsdaten erfassen, analysieren & Output erhöhen",
+                  "explanation": "Leistungsdaten sollen erfasst und ausgewertet werden, um den Produktionsoutput zu steigern."
                 }
               },
               {
                 "description": "Welches Problem wird gelöst?",
                 "note": {
                   "id": 134,
-                  "note": "Wettbewerbsnachteil kompensieren"
+                  "note": "Wettbewerbsnachteil kompensieren",
+                  "explanation": "Mehr Output soll einen Wettbewerbsnachteil bei den Kosten ausgleichen."
                 }
               },
               {
                 "description": "Wer wird aller davon profitieren?",
                 "note": {
                   "id": 135,
-                  "note": "ALLE!"
+                  "note": "ALLE!",
+                  "explanation": "Die Gruppe sah einen Nutzen für das gesamte Unternehmen."
                 }
               },
               {
                 "description": "Welche Prozesse müssen angepasst werden?",
                 "note": {
                   "id": 176,
-                  "note": "zu ?"
+                  "note": "zu ?",
+                  "explanation": "Die Gruppe konnte noch nicht festlegen, welche Prozesse dafür angepasst werden müssten."
                 }
               },
               {
                 "description": "Wie Komplex ist die Umsetzung?",
                 "note": {
                   "id": 136,
-                  "note": "Komplex: Datenzusammenführung; einfacher: Analyse (z.B. KI)"
+                  "note": "Komplex: Datenzusammenführung; einfacher: Analyse (z.B. KI)",
+                  "explanation": "Die Zusammenführung der Daten wurde als eher komplex eingeschätzt, eine anschließende Analyse etwa mit KI als vergleichsweise einfacher."
                 }
               },
               {
                 "description": "Welche Unterstützung wird benötigt?",
                 "note": {
                   "id": 137,
-                  "note": "Digital Office; Technik; Produktion"
+                  "note": "Digital Office; Technik; Produktion",
+                  "explanation": "Für die Umsetzung werden Digital Office, Technik und Produktion benötigt."
                 }
               },
               {
                 "description": "Welche Technologien werden benötigt?",
                 "note": {
                   "id": 138,
-                  "note": "KI; DWH"
+                  "note": "KI; DWH",
+                  "explanation": "Als Technologien wurden KI und ein Data Warehouse genannt."
                 }
               },
               {
                 "description": "Was ist der erwartete Business Value?",
                 "note": {
                   "id": 139,
-                  "note": "Gewinn: 500.000,-"
+                  "note": "Gewinn: 500.000,-",
+                  "explanation": "Für die Idee wurde ein möglicher Gewinn von 500.000 Euro angenommen; die Zahl wurde nicht als gesicherter Wert dargestellt."
                 }
               },
               {
                 "description": "Wie messen wir unseren Erfolg?",
                 "note": {
                   "id": 140,
-                  "note": "Erfolg: Output (i.Q)"
+                  "note": "Erfolg: Output (i.Q)",
+                  "explanation": "Der Erfolg soll am Output gemessen werden, wobei auch die Qualität der erzeugten Menge berücksichtigt werden muss."
                 }
               },
               {
                 "description": "Wer übernimmt die Verantwortung?",
                 "note": {
                   "id": 141,
-                  "note": "GF verantwortlich; delegieren"
+                  "note": "GF verantwortlich; delegieren",
+                  "explanation": "Die Geschäftsführung soll die Verantwortung tragen und operative Aufgaben delegieren."
                 }
               }
             ],
@@ -439,70 +475,80 @@
                 "description": "Erkläre die Idee in einem Satz!",
                 "note": {
                   "id": 142,
-                  "note": "Abbildung der Artikel in einem zentralen System"
+                  "note": "Abbildung der Artikel in einem zentralen System",
+                  "explanation": "Artikel sollen in einem zentralen System erfasst werden, das auch die Produktionsplanung unterstützt."
                 }
               },
               {
                 "description": "Welches Problem wird gelöst?",
                 "note": {
                   "id": 143,
-                  "note": "Doppelte Erfassung; unterschiedliche Informationen"
+                  "note": "Doppelte Erfassung; unterschiedliche Informationen",
+                  "explanation": "Die derzeitige doppelte Erfassung in Excel, INFOR und weiteren Systemen kann zu unterschiedlichen Artikelinformationen führen."
                 }
               },
               {
                 "description": "Wer wird aller davon profitieren?",
                 "note": {
                   "id": 144,
-                  "note": "ALLE"
+                  "note": "ALLE",
+                  "explanation": "Zeitersparnis durch einheitliche Artikeldaten soll den beteiligten Abteilungen zugutekommen."
                 }
               },
               {
                 "description": "Welche Prozesse müssen angepasst werden?",
                 "note": {
                   "id": 145,
-                  "note": "Prozess: Artikelanlage (div. Abteilungen)"
+                  "note": "Prozess: Artikelanlage (div. Abteilungen)",
+                  "explanation": "Der Prozess der Artikelanlage müsste über mehrere Abteilungen hinweg angepasst werden."
                 }
               },
               {
                 "description": "Wie Komplex ist die Umsetzung?",
                 "note": {
                   "id": 146,
-                  "note": "a bissl komplex, aber zeitaufwändig"
+                  "note": "a bissl komplex, aber zeitaufwändig",
+                  "explanation": "Die Umsetzung wurde als etwas komplex und vor allem zeitaufwändig eingeschätzt."
                 }
               },
               {
                 "description": "Welche Unterstützung wird benötigt?",
                 "note": {
                   "id": 147,
-                  "note": "IT; QS/QM; Innendienst; Technik"
+                  "note": "IT; QS/QM; Innendienst; Technik",
+                  "explanation": "Benötigt werden IT beziehungsweise INFOR-Team, QS/QM, Innendienst und Technik."
                 }
               },
               {
                 "description": "Welche Technologien werden benötigt?",
                 "note": {
                   "id": 148,
-                  "note": "ERP-System; (KI?)"
+                  "note": "ERP-System; (KI?)",
+                  "explanation": "Als Grundlage wurde das ERP-System genannt; KI wurde als mögliche Unterstützung angesprochen."
                 }
               },
               {
                 "description": "Was ist der erwartete Business Value?",
                 "note": {
                   "id": 149,
-                  "note": "Zeitersparnis & dadurch Konzentration auf andere Aufgaben (schwer in Zahlen darzustellen)"
+                  "note": "Zeitersparnis & dadurch Konzentration auf andere Aufgaben (schwer in Zahlen darzustellen)",
+                  "explanation": "Die zentrale Verwaltung soll Zeit sparen und Mitarbeitenden Raum für andere, komplexere Aufgaben geben; ein Zahlenwert wurde nicht genannt."
                 }
               },
               {
                 "description": "Wie messen wir unseren Erfolg?",
                 "note": {
                   "id": 150,
-                  "note": "Messen?"
+                  "note": "Messen?",
+                  "explanation": "Eine konkrete Kennzahl zur Erfolgsmessung konnte die Gruppe noch nicht benennen."
                 }
               },
               {
                 "description": "Wer übernimmt die Verantwortung?",
                 "note": {
                   "id": 151,
-                  "note": "Sigi Controlling (open for discussion)"
+                  "note": "Sigi Controlling (open for discussion)",
+                  "explanation": "Sigi aus dem Controlling wurde als möglicher Verantwortlicher genannt."
                 }
               }
             ],
@@ -522,63 +568,72 @@
                 "description": "Erkläre die Idee in einem Satz!",
                 "note": {
                   "id": 152,
-                  "note": "Welche Parameter sind verantwortlich für eine gute/schlechte Charge"
+                  "note": "Welche Parameter sind verantwortlich für eine gute/schlechte Charge",
+                  "explanation": "Untersucht werden soll, welche Parameter gute und schlechte Chargen beeinflussen."
                 }
               },
               {
                 "description": "Welches Problem wird gelöst?",
                 "note": {
                   "id": 153,
-                  "note": "Möglich Kapazität voll ausgeschöpft wird"
+                  "note": "Möglich Kapazität voll ausgeschöpft wird",
+                  "explanation": "Die Erkenntnisse sollen helfen, die vorhandene Kapazität besser auszuschöpfen."
                 }
               },
               {
                 "description": "Wer wird aller davon profitieren?",
                 "note": {
                   "id": 154,
-                  "note": "Jeder"
+                  "note": "Jeder",
+                  "explanation": "Die Gruppe sah die Verantwortung beziehungsweise den Nutzen bei allen Beteiligten."
                 }
               },
               {
                 "description": "Welche Prozesse müssen angepasst werden?",
                 "note": {
                   "id": 155,
-                  "note": "Kein Prozess muss angepasst werden"
+                  "note": "Kein Prozess muss angepasst werden",
+                  "explanation": "Nach Einschätzung der Gruppe muss für diese Idee kein bestehender Prozess angepasst werden."
                 }
               },
               {
                 "description": "Wie Komplex ist die Umsetzung?",
                 "note": {
                   "id": 156,
-                  "note": "Viel Arbeit, aber nicht unmöglich"
+                  "note": "Viel Arbeit, aber nicht unmöglich",
+                  "explanation": "Die Umsetzung wurde als arbeitsintensiv, aber machbar beschrieben."
                 }
               },
               {
                 "description": "Welche Unterstützung wird benötigt?",
                 "note": {
                   "id": 157,
-                  "note": "IT; externe Hilfe"
+                  "note": "IT; externe Hilfe",
+                  "explanation": "Für die Umsetzung wurden IT und externe Hilfe genannt."
                 }
               },
               {
                 "description": "Welche Technologien werden benötigt?",
                 "note": {
                   "id": 158,
-                  "note": "Integration; Datenplattform"
+                  "note": "Integration; Datenplattform",
+                  "explanation": "Benötigt wird die Integration der vorhandenen Datenplattformen und der IBA-Daten."
                 }
               },
               {
                 "description": "Was ist der erwartete Business Value?",
                 "note": {
                   "id": 159,
-                  "note": "$$$"
+                  "note": "$$$",
+                  "explanation": "Der erwartete Nutzen wurde als erheblich eingeschätzt, aber nicht beziffert."
                 }
               },
               {
                 "description": "Wie messen wir unseren Erfolg?",
                 "note": {
                   "id": 160,
-                  "note": "Output"
+                  "note": "Output",
+                  "explanation": "Der Erfolg soll anhand des Produktionsoutputs gemessen werden."
                 }
               },
               {
@@ -599,63 +654,72 @@
                 "description": "Erkläre die Idee in einem Satz!",
                 "note": {
                   "id": 162,
-                  "note": "Einheitliche Artikeldaten als Basis für ein Planungstool"
+                  "note": "Einheitliche Artikeldaten als Basis für ein Planungstool",
+                  "explanation": "Einheitlich gepflegte Artikeldaten sollen die Grundlage für ein Planungstool bilden."
                 }
               },
               {
                 "description": "Welches Problem wird gelöst?",
                 "note": {
                   "id": 163,
-                  "note": "Datengetriebene Geschäftsprozesse"
+                  "note": "Datengetriebene Geschäftsprozesse",
+                  "explanation": "Die Idee soll einen datengetriebenen Geschäftsprozess ermöglichen."
                 }
               },
               {
                 "description": "Wer wird aller davon profitieren?",
                 "note": {
                   "id": 164,
-                  "note": "Planung; Produktion; Kokillentechnik"
+                  "note": "Planung; Produktion; Kokillentechnik",
+                  "explanation": "Neben der Planung sollen Produktion und Kokillentechnik profitieren."
                 }
               },
               {
                 "description": "Welche Prozesse müssen angepasst werden?",
                 "note": {
                   "id": 165,
-                  "note": "Stammdatenpflege"
+                  "note": "Stammdatenpflege",
+                  "explanation": "Die Pflege der Artikelstammdaten muss dafür angepasst werden."
                 }
               },
               {
                 "description": "Wie Komplex ist die Umsetzung?",
                 "note": {
                   "id": 166,
-                  "note": "Sehr komplex"
+                  "note": "Sehr komplex",
+                  "explanation": "Die Umsetzung wurde als sehr komplex bewertet."
                 }
               },
               {
                 "description": "Welche Unterstützung wird benötigt?",
                 "note": {
                   "id": 167,
-                  "note": "Alle Abteilungen"
+                  "note": "Alle Abteilungen",
+                  "explanation": "Die Gruppe sah Unterstützungsbedarf aus allen Abteilungen."
                 }
               },
               {
                 "description": "Welche Technologien werden benötigt?",
                 "note": {
                   "id": 168,
-                  "note": "Planungstool"
+                  "note": "Planungstool",
+                  "explanation": "Als benötigte Technologie wurde ein Planungstool genannt."
                 }
               },
               {
                 "description": "Was ist der erwartete Business Value?",
                 "note": {
                   "id": 169,
-                  "note": "$$; Risikominimierung"
+                  "note": "$$; Risikominimierung",
+                  "explanation": "Einheitliche Daten und Planung sollen Risiken verringern; ein Geldwert wurde nicht festgelegt."
                 }
               },
               {
                 "description": "Wie messen wir unseren Erfolg?",
                 "note": {
                   "id": 170,
-                  "note": "Output-Erhöhung; Ressourcen besser nutzen"
+                  "note": "Output-Erhöhung; Ressourcen besser nutzen",
+                  "explanation": "Der Erfolg soll an höherem Output und einer besseren Nutzung der Ressourcen gemessen werden."
                 }
               },
               {
@@ -685,24 +749,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 3
+                "rating": 3,
+                "reasoning": "Der direkte Einfluss auf die Produktqualität wurde als gering bewertet; ein möglicher kleiner Beitrag zur CO₂-Bilanz wurde erwähnt."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 5
+                "rating": 5,
+                "reasoning": "Es sind bereits Daten vorhanden, doch zusätzliche Detaildaten aus IBA müssen eingebunden werden."
               },
               {
                 "category": "Business Value",
-                "rating": 9
+                "rating": 9,
+                "reasoning": "Schon eine geringe zusätzliche Monatsmenge könnte einen schnellen wirtschaftlichen Nutzen bringen."
               }
             ],
             "idea": {
               "id": 35,
-              "note": "KPI-Abweichungsanalyse automatisiert"
+              "note": "KPI-Abweichungsanalyse automatisiert",
+              "explanation": "Vorhandene, sehr umfangreiche Daten sollen automatisiert ausgewertet werden, um Abweichungen von den Sollwerten bei Schmelz- und Gießleistung zu erkennen."
             },
             "problemSolved": {
               "id": 36,
-              "note": "Probleme: Abweichung IST von SOLL (Umsatz - Gießleistung?)"
+              "note": "Probleme: Abweichung IST von SOLL (Umsatz - Gießleistung?)",
+              "explanation": "Die tatsächliche Schmelz- und Gießleistung erreicht den angestrebten Sollwert noch nicht. Die Vielzahl der Daten erschwert eine manuelle Analyse."
             }
           },
           {
@@ -710,24 +779,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 2
+                "rating": 2,
+                "reasoning": "Der Einfluss auf die Produktqualität wurde als gering eingeschätzt; eine bessere CO₂-Bilanz oder Nachhaltigkeitsberichterstattung wäre möglich."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Viele Daten liegen bereits im Data Warehouse; vor allem IBA-Daten müssten ergänzt werden."
               },
               {
                 "category": "Business Value",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Aus den Daten abgeleitete Maßnahmen könnten Energie einsparen und das Kostenbewusstsein stärken."
               }
             ],
             "idea": {
               "id": 37,
-              "note": "Ziel: Identifikation von Optimierungspotenzialen"
+              "note": "Ziel: Identifikation von Optimierungspotenzialen",
+              "explanation": "Vorhandene Mess- und IBA-Daten sollen ausgewertet werden, um konkrete Ansatzpunkte zur Senkung des Energieverbrauchs zu erkennen."
             },
             "problemSolved": {
               "id": 38,
-              "note": "Probleme: Energieverbrauch"
+              "note": "Probleme: Energieverbrauch",
+              "explanation": "Trotz Zählern und vieler Messdaten ist schwer erkennbar, welche Handlung den Energieverbrauch einer Charge beeinflusst."
             }
           },
           {
@@ -825,24 +899,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Weniger Fehler und bessere Leistungsdaten wirken sich direkt auf das Produkt aus."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 6
+                "rating": 6,
+                "reasoning": "Es gibt Insellösungen; die Rückmeldung über Mitarbeiteraktionen und deren Wirkung fehlt noch."
               },
               {
                 "category": "Business Value",
-                "rating": 9
+                "rating": 9,
+                "reasoning": "Mehr Leistung und weniger Fehler können den wirtschaftlichen Nutzen erhöhen."
               }
             ],
             "idea": {
               "id": 39,
-              "note": "Vorgaben Leistungsdaten (Menge, Fehler)"
+              "note": "Vorgaben Leistungsdaten (Menge, Fehler)",
+              "explanation": "Leistungsdaten der Bandgussanlage zu Menge und Fehlern sollen aufbereitet und zur Optimierung genutzt werden."
             },
             "problemSolved": {
               "id": 40,
-              "note": "Output optimieren"
+              "note": "Output optimieren",
+              "explanation": "Eine Analyse der Leistungsdaten und Anlagenparameter soll zeigen, wo sich der Output erhöhen und Fehler verringern lassen."
             }
           },
           {
@@ -850,24 +929,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 6
+                "rating": 6,
+                "reasoning": "Die Schrottübersicht hat nur einen begrenzten direkten Einfluss auf das Produkt."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Eine Software müsste eingeführt, aufgebaut und laufend gepflegt werden."
               },
               {
                 "category": "Business Value",
-                "rating": 5
+                "rating": 5,
+                "reasoning": "Die Amortisation hängt stark vom Verhalten des Schrottmarkts ab."
               }
             ],
             "idea": {
               "id": 41,
-              "note": "Übersicht Schrotte (Menge, Ort)"
+              "note": "Übersicht Schrotte (Menge, Ort)",
+              "explanation": "Schrottmengen und ankommende Lieferungen sollen übersichtlich erfasst werden, damit die Produktion besser vorausplanen kann."
             },
             "problemSolved": {
               "id": 42,
-              "note": "Bessere Vorausplanung u. Übersicht"
+              "note": "Bessere Vorausplanung u. Übersicht",
+              "explanation": "Mit Informationen über Lkw, Schrottmengen und Lagerort kann die Planung mit dem Einkauf früher abgestimmt werden."
             }
           },
           {
@@ -875,24 +959,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 4
+                "rating": 4,
+                "reasoning": "Die Planung hat einen eher geringen unmittelbaren Einfluss auf das Produkt."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 3
+                "rating": 3,
+                "reasoning": "Bis ein durchgängiges Planungstool funktioniert, ist ein erheblicher Umsetzungsaufwand nötig."
               },
               {
                 "category": "Business Value",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Nach der Einführung könnten Planungsprozesse verbessert und manuelle Arbeit reduziert werden."
               }
             ],
             "idea": {
               "id": 43,
-              "note": "Planungstool"
+              "note": "Planungstool",
+              "explanation": "Ein abteilungsübergreifendes Planungstool soll den Ablauf von der Bestellung bis zum Versand und die Standorte in Österreich und Mexiko abdecken."
             },
             "problemSolved": {
               "id": 44,
-              "note": "Transparenz"
+              "note": "Transparenz",
+              "explanation": "Das Tool soll sichtbar machen, wo sich Aufträge und Halbfabrikate im Ablauf befinden und welche Abteilung den nächsten Schritt bearbeitet."
             }
           },
           {
@@ -900,24 +989,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 4
+                "rating": 4,
+                "reasoning": "Schnellere Instandhaltung beeinflusst die Produktqualität nur indirekt."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Die Umsetzung wurde mit den verfügbaren technischen Mitteln als vergleichsweise machbar eingeschätzt."
               },
               {
                 "category": "Business Value",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Kürzere Reparaturzeiten sparen Arbeitszeit und ermöglichen eine frühere Wiederaufnahme der Produktion."
               }
             ],
             "idea": {
               "id": 45,
-              "note": "Instandhaltungs AGENT"
+              "note": "Instandhaltungs AGENT",
+              "explanation": "Ein Instandhaltungsagent soll bei unbekannten Anlagen oder Störungen gezielte Informationen für die Reparatur bereitstellen."
             },
             "problemSolved": {
               "id": 46,
-              "note": "Hilft bei der Analyse + Störungsbehebung"
+              "note": "Hilft bei der Analyse + Störungsbehebung",
+              "explanation": "Elektriker und Schlosser sollen den Agenten fragen können, wo sie bei einer konkreten Störung mit der Fehlersuche beginnen."
             }
           },
           {
@@ -925,24 +1019,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Einheitliche Rezepturparameter beeinflussen die Produktqualität direkt."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Die benötigten Anlagendaten können bereits erfasst und für die Lösung verwendet werden."
               },
               {
                 "category": "Business Value",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Optimierte Abläufe und weniger Fehler könnten die Investition vergleichsweise bald rechtfertigen."
               }
             ],
             "idea": {
               "id": 47,
-              "note": "Rezepturenverwaltung"
+              "note": "Rezepturenverwaltung",
+              "explanation": "Für jeden Auftrag sollen an der Anlage dieselben Rezepturparameter wie Menge, Drehzahl und Abfördermenge verwendet werden."
             },
             "problemSolved": {
               "id": 48,
-              "note": "Qualitätserhöhung; Nachvollziehbarkeit"
+              "note": "Qualitätserhöhung; Nachvollziehbarkeit",
+              "explanation": "Einheitliche Parameter sollen Bedienfehler verringern; gespeicherte Rezepturen ermöglichen die Nachvollziehbarkeit früherer Läufe."
             }
           },
           {
@@ -950,24 +1049,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 5
+                "rating": 5,
+                "reasoning": "Die Definition der IBA-Signale hat nur einen geringen direkten Einfluss auf das Produkt."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Die Umsetzung wurde als relativ schnell machbar eingeschätzt."
               },
               {
                 "category": "Business Value",
-                "rating": 4
+                "rating": 4,
+                "reasoning": "Die kurzfristige Amortisation wurde trotz möglicher Vorteile eher niedrig bewertet."
               }
             ],
             "idea": {
               "id": 49,
-              "note": "Zentrale Datendefinition"
+              "note": "Zentrale Datendefinition",
+              "explanation": "IBA-Signale sollen einheitlich definiert werden, damit Produktion und Instandhaltung dieselben Daten für Analysen verstehen und nutzen."
             },
             "problemSolved": {
               "id": 50,
-              "note": "Nachvollziehbarkeit und Skalierung von Anbindungsfällen"
+              "note": "Nachvollziehbarkeit und Skalierung von Anbindungsfällen",
+              "explanation": "Eine klare Bedeutung der Signale hilft, Anbindungsfälle und Reparaturansätze nachvollziehbar zu machen."
             }
           },
           {
@@ -1009,24 +1113,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 5
+                "rating": 5,
+                "reasoning": "Der Nutzen für die Qualität wurde diskutiert; schnellere und bessere Störungsbehebung kann sie unterstützen."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Eine Umsetzung erschien der Gruppe grundsätzlich gut möglich."
               },
               {
                 "category": "Business Value",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Bei begrenzten Kosten und spürbarem Nutzen wurde der wirtschaftliche Wert positiv eingeschätzt."
               }
             ],
             "idea": {
               "id": 51,
-              "note": "K-Instandhaltung; Maschinenabh. in KI"
+              "note": "K-Instandhaltung; Maschinenabh. in KI",
+              "explanation": "Eine KI soll Maschinenmeldungen mit Dokumentation und Maschinendaten verbinden und Operatoren oder Instandhaltern Handlungshinweise geben."
             },
             "problemSolved": {
               "id": 52,
-              "note": "Ressourcen; Kompetenz; Geschwindigkeit; Qualität"
+              "note": "Ressourcen; Kompetenz; Geschwindigkeit; Qualität",
+              "explanation": "Die Unterstützung soll Informationen schneller verfügbar machen, Wissen breiter nutzbar machen und die Störungsbehebung verbessern."
             }
           },
           {
@@ -1034,24 +1143,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 6
+                "rating": 6,
+                "reasoning": "Vernetzte Planung kann die Qualität durch bessere Abstimmung von Terminen und Anlagen beeinflussen."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 4
+                "rating": 4,
+                "reasoning": "Die vielen zusammenhängenden Planungsfragen erhöhen die Komplexität der Umsetzung."
               },
               {
                 "category": "Business Value",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Trotz des Aufwands wurde der wirtschaftliche Nutzen als hoch eingeschätzt."
               }
             ],
             "idea": {
               "id": 53,
-              "note": "Effiziente Planung; Idee"
+              "note": "Effiziente Planung; Idee",
+              "explanation": "Die Planung soll Artikel, Termine, Anlagenumbauten, Kokillen und Wartung zusammen betrachten."
             },
             "problemSolved": {
               "id": 54,
-              "note": "Probleme: Stehzeiten Anlage; nächste Wartung; Probleme bei QS-Prüfungen (Zeit)"
+              "note": "Probleme: Stehzeiten Anlage; nächste Wartung; Probleme bei QS-Prüfungen (Zeit)",
+              "explanation": "Vernetzte Planung soll Stillstandszeiten bei Anlagenumbauten und Wartung berücksichtigen und Zeitprobleme bei Qualitätsprüfungen vermeiden."
             }
           },
           {
@@ -1059,24 +1173,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Schnellere Qualitätsauswertungen und Maßnahmen wirken sich deutlich auf die Produktqualität aus."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 4
+                "rating": 4,
+                "reasoning": "Die Verknüpfung von Qualitäts- und Maschinendaten wurde als komplex bewertet."
               },
               {
                 "category": "Business Value",
-                "rating": 7
+                "rating": 7,
+                "reasoning": "Der Nutzen besserer Qualitätsverfolgung wurde als hoch eingeschätzt."
               }
             ],
             "idea": {
               "id": 55,
-              "note": "Qualitätstracking + Maschinen"
+              "note": "Qualitätstracking + Maschinen",
+              "explanation": "Qualitäts- und Messdaten sollen mit Maschinen- und Schichtinformationen verknüpft werden, damit Auswertungen schneller möglich sind."
             },
             "problemSolved": {
               "id": 56,
-              "note": "Probleme: Schlechte Auswertung von Q-Daten und ..."
+              "note": "Probleme: Schlechte Auswertung von Q-Daten und ...",
+              "explanation": "Derzeit fehlt eine schnelle Übersicht darüber, bei welchen Artikeln Ausschuss entsteht und wie er mit Schicht- und Maschinendaten zusammenhängt."
             }
           },
           {
@@ -1084,24 +1203,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 5
+                "rating": 5,
+                "reasoning": "Einheitliche Artikelinformationen haben einen mittleren Einfluss auf die Qualität."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 3
+                "rating": 3,
+                "reasoning": "Viele beteiligte Stellen erschweren die Zusammenführung der Artikeldaten."
               },
               {
                 "category": "Business Value",
-                "rating": 4
+                "rating": 4,
+                "reasoning": "Der wirtschaftliche Nutzen wurde im Verhältnis zum Aufwand eher niedrig bewertet."
               }
             ],
             "idea": {
               "id": 57,
-              "note": "Zentrale Artikelverwaltung; VERKAUF, ERP, MASCHINENDATEN, Q-Dokumentation ..., MEHRSPRACHIGKEIT"
+              "note": "Zentrale Artikelverwaltung; VERKAUF, ERP, MASCHINENDATEN, Q-Dokumentation ..., MEHRSPRACHIGKEIT",
+              "explanation": "Alle Informationen zu einem Artikel sollen zentral verbunden sein, einschließlich Kundendaten, Dokumentation und Unterlagen für Qualifizierungen in der passenden Sprache."
             },
             "problemSolved": {
               "id": 58,
-              "note": "Problem: Unterschiedliche Datenquellen für ... Artikel; Fehlerpotenzial; Fehler durch schlechte Daten"
+              "note": "Problem: Unterschiedliche Datenquellen für ... Artikel; Fehlerpotenzial; Fehler durch schlechte Daten",
+              "explanation": "Verteilte Informationen über einen Artikel erschweren eine einheitliche, verlässliche Datenbasis und erhöhen das Risiko widersprüchlicher Angaben."
             }
           },
           {
@@ -1109,24 +1233,29 @@
             "categoryRating": [
               {
                 "category": "Produkt Fokus",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Automatische Analysen vorhandener IBA-Daten können die Qualität deutlich beeinflussen."
               },
               {
                 "category": "Neuman Umsetzung",
-                "rating": 6
+                "rating": 6,
+                "reasoning": "Die Signale müssen zunächst verstanden und aufbereitet werden; die Umsetzung wurde als mittelmäßig schwierig gesehen."
               },
               {
                 "category": "Business Value",
-                "rating": 8
+                "rating": 8,
+                "reasoning": "Weil die Daten schon vorhanden sind, könnte mit vergleichsweise geringen Kosten ein Nutzen entstehen."
               }
             ],
             "idea": {
               "id": 59,
-              "note": "Nutzen von Bestehendem (iba)"
+              "note": "Nutzen von Bestehendem (iba)",
+              "explanation": "Bereits vorhandene IBA-Daten sollen aufbereitet, verstanden und für Analysen verwendet werden."
             },
             "problemSolved": {
               "id": 60,
-              "note": "Automatische Analyse; kost nix; bringt viel"
+              "note": "Automatische Analyse; kost nix; bringt viel",
+              "explanation": "Für die Nutzung der vorhandenen Signale ist Fachwissen über ihre Bedeutung nötig; damit können unter anderem Qualitätsanalysen automatisiert werden."
             }
           },
           {
@@ -1187,7 +1316,8 @@
             "id": "ITEM_111407030379",
             "idea": {
               "id": 79,
-              "note": "Prozesse analysieren, strukturieren, bewerten und Vorgaben ableiten. Prio 1: BGA"
+              "note": "Prozesse analysieren, strukturieren, bewerten und Vorgaben ableiten. Prio 1: BGA",
+              "explanation": "Die vorhandenen Daten der Bandgussanlage sollen strukturiert und verknüpft werden, um Vorgaben für den Engpass beim Schmelzen und Gießen abzuleiten. Mehr Output hätte nach der Diskussion einen hohen Ergebnisbeitrag."
             },
             "category": "Big Bet"
           },
@@ -1195,7 +1325,8 @@
             "id": "ITEM_367713515522",
             "idea": {
               "id": 80,
-              "note": "HSG: Planungstool v. Bestellung – Auslieferung (Marktl + Mexico)"
+              "note": "HSG: Planungstool v. Bestellung – Auslieferung (Marktl + Mexico)",
+              "explanation": "Das Planungstool soll den Ablauf von Bestellung bis Auslieferung abdecken und sowohl in Marktl als auch im neuen Werk in Mexiko nutzbar sein."
             },
             "category": "Wise Choice"
           },
@@ -1203,7 +1334,8 @@
             "id": "ITEM_947586190169",
             "idea": {
               "id": 81,
-              "note": "KI-Instandhalter: effiziente Störungsbehebung"
+              "note": "KI-Instandhalter: effiziente Störungsbehebung",
+              "explanation": "Der Agent soll zunächst Maschinenunterlagen und Pläne nutzen, später Live-Zustände einbeziehen und schließlich proaktiv Hinweise für konkrete Störungen geben."
             },
             "category": "Wise Choice"
           }
@@ -1217,7 +1349,8 @@
             "id": "ITEM_801188359855",
             "idea": {
               "id": 82,
-              "note": "KPI-Abweichungsanalyse (+) = Output optimieren"
+              "note": "KPI-Abweichungsanalyse (+) = Output optimieren",
+              "explanation": "Die Teams priorisierten die Analyse von Abweichungen und die Optimierung des Outputs, weil zusätzlicher Ausstoß angesichts des Kostendrucks einen hohen Wert hat."
             },
             "category": "Big Bet"
           },
@@ -1225,7 +1358,8 @@
             "id": "ITEM_768362487166",
             "idea": {
               "id": 83,
-              "note": "Gute Planung -> Planungstool"
+              "note": "Gute Planung -> Planungstool",
+              "explanation": "Ein gemeinsames Planungstool für Österreich und Mexiko soll die Planung vereinfachen."
             },
             "category": "Wise Choice"
           },
@@ -1233,7 +1367,8 @@
             "id": "ITEM_839904302053",
             "idea": {
               "id": 84,
-              "note": "KI-Agent Instandhaltung + Produktion"
+              "note": "KI-Agent Instandhaltung + Produktion",
+              "explanation": "Ein KI-Agent für Instandhaltung und Produktion wurde ähnlich wie in den anderen Teams als umsetzbare Idee eingeordnet."
             },
             "category": "Wise Choice"
           },
@@ -1241,7 +1376,8 @@
             "id": "ITEM_402284739489",
             "idea": {
               "id": 85,
-              "note": "Zentrale Artikelverwaltung"
+              "note": "Zentrale Artikelverwaltung",
+              "explanation": "Artikelinformationen sind derzeit über Excel und ERP verteilt. Sie sollen koordiniert in einem zentralen System zusammengeführt werden."
             },
             "category": "Wise Choice"
           }
@@ -1255,7 +1391,8 @@
             "id": "ITEM_314441208396",
             "idea": {
               "id": 86,
-              "note": "Golden Run (basierend auf Echtzeitdaten, IBA-Daten), MES"
+              "note": "Golden Run (basierend auf Echtzeitdaten, IBA-Daten), MES",
+              "explanation": "Echtzeit- und IBA-Daten sollen für einen „Golden Run“ nutzbar gemacht werden."
             },
             "category": "Big Bet"
           },
@@ -1263,7 +1400,8 @@
             "id": "ITEM_994813014119",
             "idea": {
               "id": 87,
-              "note": "Integrierte Datenkonsolidierung"
+              "note": "Integrierte Datenkonsolidierung",
+              "explanation": "Einheitliche Artikeldaten und ein Planungstool wurden als zusammenhängende Grundlage für eine integrierte Datenbasis gesehen."
             },
             "category": "Wise Choice"
           }
@@ -1283,31 +1421,38 @@
         "note": [
           {
             "id": 61,
-            "note": "IBA Daten"
+            "note": "IBA Daten",
+            "explanation": "IBA-Daten gehören zu den bereits vorhandenen digitalen Datenquellen am Shopfloor."
           },
           {
             "id": 62,
-            "note": "Lager | Kostenartikel INFOR"
+            "note": "Lager | Kostenartikel INFOR",
+            "explanation": "Informationen zu Lager und Kostenartikeln liegen im INFOR-System vor."
           },
           {
             "id": 63,
-            "note": "BGA Echtzeit-Darstellung"
+            "note": "BGA Echtzeit-Darstellung",
+            "explanation": "Für die Bandgussanlage gibt es bereits eine Echtzeitdarstellung."
           },
           {
             "id": 64,
-            "note": "KTM kaufmänn. techn. Infoblatt"
+            "note": "KTM kaufmänn. techn. Infoblatt",
+            "explanation": "KTM wurde im Workshop als kaufmännisch-technisches Infoblatt erläutert."
           },
           {
             "id": 65,
-            "note": "ISpro Instandhaltung Software"
+            "note": "ISpro Instandhaltung Software",
+            "explanation": "ISpro wird bereits als Software für die Instandhaltung genutzt."
           },
           {
             "id": 66,
-            "note": "Babtec Qualität"
+            "note": "Babtec Qualität",
+            "explanation": "Babtec wurde als vorhandene Anwendung im Qualitätsbereich genannt."
           },
           {
             "id": 67,
-            "note": "MES"
+            "note": "MES",
+            "explanation": "Ein Manufacturing Execution System wurde als vorhandener Digitalisierungsschritt genannt."
           }
         ]
       },
@@ -1319,11 +1464,13 @@
         "note": [
           {
             "id": 68,
-            "note": "Strukturiertes Sammeln: Ja"
+            "note": "Strukturiertes Sammeln: Ja",
+            "explanation": "Strukturierte Daten sind bereits vorhanden."
           },
           {
             "id": 69,
-            "note": "Verknüpfen: Nein"
+            "note": "Verknüpfen: Nein",
+            "explanation": "Die vorhandenen strukturierten Daten liegen eher in getrennten Silos und sind noch nicht miteinander verknüpft."
           }
         ]
       },
@@ -1335,15 +1482,18 @@
         "note": [
           {
             "id": 70,
-            "note": "Schichtbuch i. A."
+            "note": "Schichtbuch i. A.",
+            "explanation": "Ein digitales Schichtbuch wird derzeit erarbeitet; ein übergreifender, strukturierter Wissensaustausch fehlt noch."
           },
           {
             "id": 71,
-            "note": "Mündliche Schichtübergabe"
+            "note": "Mündliche Schichtübergabe",
+            "explanation": "Die Schichtübergabe erfolgt derzeit auch mündlich."
           },
           {
             "id": 72,
-            "note": "Viflow QM-Plattform"
+            "note": "Viflow QM-Plattform",
+            "explanation": "Viflow wurde als bereits vorhandene QM-Plattform genannt."
           }
         ]
       },
@@ -1355,11 +1505,13 @@
         "note": [
           {
             "id": 73,
-            "note": "Auftragsdoku"
+            "note": "Auftragsdoku",
+            "explanation": "Die Auftragsdokumentation wird derzeit manuell geführt."
           },
           {
             "id": 74,
-            "note": "Viele vorhandene unterschiedliche Strukturen; viele manuelle Tätigkeiten z.B. Instandhaltung"
+            "note": "Viele vorhandene unterschiedliche Strukturen; viele manuelle Tätigkeiten z.B. Instandhaltung",
+            "explanation": "Es gibt unterschiedliche Strukturen und weiterhin viele manuelle Tätigkeiten."
           }
         ]
       },
@@ -1371,7 +1523,8 @@
         "note": [
           {
             "id": 75,
-            "note": "Security & Resilienz: Backups; verpfl. Schulung; TISAX-Zert./Server; Install. 'Apps'"
+            "note": "Security & Resilienz: Backups; verpfl. Schulung; TISAX-Zert./Server; Install. 'Apps'",
+            "explanation": "Genannt wurden Backups, verpflichtende Sicherheitsschulungen, ein TISAX-Zertifikat und von der IT gesteuerte Installationsrechte."
           }
         ]
       },
@@ -1383,7 +1536,8 @@
         "note": [
           {
             "id": 76,
-            "note": "Management: nicht i. d. Zielen verankert"
+            "note": "Management: nicht i. d. Zielen verankert",
+            "explanation": "Datenintegrationsziele sind derzeit nicht in den Managementzielen verankert. Im Gespräch wurde dies als Hemmnis für ihre Umsetzung gesehen."
           }
         ]
       },
@@ -1395,7 +1549,8 @@
         "note": [
           {
             "id": 77,
-            "note": "Kennzahlen: Ja; Rest: Nein"
+            "note": "Kennzahlen: Ja; Rest: Nein",
+            "explanation": "Für Kennzahlen bestehen Zuständigkeiten zur Datenlieferung; für andere Daten sind sie nicht klar festgelegt."
           }
         ]
       },
@@ -1407,7 +1562,8 @@
         "note": [
           {
             "id": 78,
-            "note": "Strategie: keine Daten- & Digitalisierungsstrategie"
+            "note": "Strategie: keine Daten- & Digitalisierungsstrategie",
+            "explanation": "Eine Daten- und Digitalisierungsstrategie wurde im Workshop nicht genannt."
           }
         ]
       }
@@ -1427,11 +1583,13 @@
             "note": [
               {
                 "id": 88,
-                "note": "Vereinfachte Darstellung d. Daten"
+                "note": "Vereinfachte Darstellung d. Daten",
+                "explanation": "Daniel soll die relevanten Daten live und in vereinfachter Form sehen können."
               },
               {
                 "id": 89,
-                "note": "Wiederholbarkeit (Templates)"
+                "note": "Wiederholbarkeit (Templates)",
+                "explanation": "Wiederkehrende Auswertungen sollen verfügbar sein, ohne Daten jedes Mal aus verschiedenen Quellen holen zu müssen."
               }
             ]
           },
@@ -1441,15 +1599,18 @@
             "note": [
               {
                 "id": 90,
-                "note": "Pull-Push"
+                "note": "Pull-Push",
+                "explanation": "Die Informationen sollen Daniel laufend bereitgestellt werden, statt dass er sie aus verschiedenen Systemen selbst zusammensucht."
               },
               {
                 "id": 91,
-                "note": "Zugang zu Daten interaktiv"
+                "note": "Zugang zu Daten interaktiv",
+                "explanation": "Daniel soll mit den Daten interagieren und nach Zusammenhängen zwischen Schichtbuch und Messwerten fragen können."
               },
               {
                 "id": 177,
-                "note": "Dem Daniel laufen die Daten nach"
+                "note": "Dem Daniel laufen die Daten nach",
+                "explanation": "Die benötigten Daten sollen Daniel live und in einem nutzbaren Zustand erreichen."
               }
             ]
           },
@@ -1459,11 +1620,13 @@
             "note": [
               {
                 "id": 92,
-                "note": "Schnellere Reaktion möglich"
+                "note": "Schnellere Reaktion möglich",
+                "explanation": "Vernetzte Daten sollen eine schnellere Ursachenanalyse und damit raschere Lösungen ermöglichen."
               },
               {
                 "id": 93,
-                "note": "Output erhöhen"
+                "note": "Output erhöhen",
+                "explanation": "Aus den Daten gewonnene Verbesserungen sollen die Produktionsmenge erhöhen."
               }
             ]
           },
@@ -1473,15 +1636,18 @@
             "note": [
               {
                 "id": 94,
-                "note": "Analyseprozess"
+                "note": "Analyseprozess",
+                "explanation": "Informationen aus mehreren Quellen sollen für die Analyse zusammengeführt werden."
               },
               {
                 "id": 95,
-                "note": "Vernetzte Anlagen"
+                "note": "Vernetzte Anlagen",
+                "explanation": "Anlagen- und Schichtinformationen sollen gemeinsam betrachtet werden, damit Zusammenhänge erkennbar werden."
               },
               {
                 "id": 96,
-                "note": "Datengestützte Prozessoptimierungen"
+                "note": "Datengestützte Prozessoptimierungen",
+                "explanation": "Prozessänderungen sollen anhand der Daten bewertet werden, etwa im Zusammenhang mit Qualität und Output."
               }
             ]
           },
@@ -1491,19 +1657,23 @@
             "note": [
               {
                 "id": 97,
-                "note": "Wissen (neu) vermitteln"
+                "note": "Wissen (neu) vermitteln",
+                "explanation": "Neue Erkenntnisse über bisherige Arbeitsweisen sollen mit Daten begründet und weitergegeben werden."
               },
               {
                 "id": 98,
-                "note": "Output gesteigert"
+                "note": "Output gesteigert",
+                "explanation": "Als mögliche Erfolgsgeschichte wurde ein höherer Output genannt."
               },
               {
                 "id": 99,
-                "note": "Ziele 'übertroffen'"
+                "note": "Ziele 'übertroffen'",
+                "explanation": "Die Gruppe stellte sich vor, Produktionsziele durch datengestützte Verbesserungen zu übertreffen."
               },
               {
                 "id": 100,
-                "note": "Eingefahrene Handlungen über Board geworfen"
+                "note": "Eingefahrene Handlungen über Board geworfen",
+                "explanation": "Eingespielte Abläufe sollen überprüft und bei besseren, durch Daten belegten Alternativen geändert werden."
               }
             ]
           }
@@ -1519,7 +1689,8 @@
             "note": [
               {
                 "id": 101,
-                "note": "Anhaltspunkte von KI-Analyse zur Optimierung; Anwendung Vorschläge; Feedback"
+                "note": "Anhaltspunkte von KI-Analyse zur Optimierung; Anwendung Vorschläge; Feedback",
+                "explanation": "Die KI soll aus früheren Chargen und Prozessdaten Vorschläge machen; Rückmeldungen zur Wirkung sollen in weitere Vorschläge einfließen."
               }
             ]
           },
@@ -1529,7 +1700,8 @@
             "note": [
               {
                 "id": 102,
-                "note": "Zeitersparnis; flexible Lösungen; Preisgestaltung -> vergleichbarer zu Mitbewerb"
+                "note": "Zeitersparnis; flexible Lösungen; Preisgestaltung -> vergleichbarer zu Mitbewerb",
+                "explanation": "Vorschläge können Zeit sparen und Lösungen aufzeigen, die im gewohnten Ablauf übersehen werden. Auch eine flexiblere Preisgestaltung wurde angesprochen."
               }
             ]
           },
@@ -1539,7 +1711,8 @@
             "note": [
               {
                 "id": 103,
-                "note": "Produktionsprozess verbessert; Preisgestaltung -> Reduktion Kosten / Erh. Gewinn"
+                "note": "Produktionsprozess verbessert; Preisgestaltung -> Reduktion Kosten / Erh. Gewinn",
+                "explanation": "Mit denselben Beschäftigten in Verkauf und Produktion soll mehr erreicht werden."
               }
             ]
           },
@@ -1549,7 +1722,8 @@
             "note": [
               {
                 "id": 104,
-                "note": "höherer Output bei gleichbleib. Ressourcen (Pesonal z.B.)"
+                "note": "höherer Output bei gleichbleib. Ressourcen (Pesonal z.B.)",
+                "explanation": "Der Produktionsprozess soll mit gleichbleibendem Personaleinsatz mehr Output liefern."
               }
             ]
           },
@@ -1559,7 +1733,8 @@
             "note": [
               {
                 "id": 105,
-                "note": "Trotz Skepsis: Projekt umgesetzt & Steigerung Output + Gewinn"
+                "note": "Trotz Skepsis: Projekt umgesetzt & Steigerung Output + Gewinn",
+                "explanation": "Die Gruppe stellte sich vor, trotz anfänglicher Skepsis eine Steigerung der Produktionsleistung um fünf Prozent zu erreichen."
               }
             ]
           }
@@ -1575,11 +1750,13 @@
             "note": [
               {
                 "id": 106,
-                "note": "Gruppensprecher BGA"
+                "note": "Gruppensprecher BGA",
+                "explanation": "Der Gruppensprecher der Bandgussanlage wurde als Nutzer der Lösung beschrieben."
               },
               {
                 "id": 107,
-                "note": "Notizen in Echtzeit; Vorschläge zur Prozessoptimierung"
+                "note": "Notizen in Echtzeit; Vorschläge zur Prozessoptimierung",
+                "explanation": "Er soll nahezu in Echtzeit Hinweise und Vorschläge zur Prozessoptimierung erhalten."
               }
             ]
           },
@@ -1589,7 +1766,8 @@
             "note": [
               {
                 "id": 108,
-                "note": "Gezielte Handlung aufgrund von Daten"
+                "note": "Gezielte Handlung aufgrund von Daten",
+                "explanation": "Statt nach Bauchgefühl vorzugehen, soll er datenbasierte Informationen und konkrete Schritte zur Störungsbehebung erhalten."
               }
             ]
           },
@@ -1599,11 +1777,13 @@
             "note": [
               {
                 "id": 109,
-                "note": "Personal wird besser genutzt"
+                "note": "Personal wird besser genutzt",
+                "explanation": "Schnellere Fehlerbehebung soll Personal für andere Aufgaben an der Anlage freimachen."
               },
               {
                 "id": 110,
-                "note": "Einsatz von Betriebsmitteln wird effizienter"
+                "note": "Einsatz von Betriebsmitteln wird effizienter",
+                "explanation": "Betriebsmittel wie Stopfen und Düsen sollen gezielter eingesetzt werden; dadurch könnten Verbrauch und Einbauaufwand sinken."
               }
             ]
           },
@@ -1613,7 +1793,8 @@
             "note": [
               {
                 "id": 111,
-                "note": "Methodische Maßnahmen zur Umsetzung zur Erreichung des Ziels"
+                "note": "Methodische Maßnahmen zur Umsetzung zur Erreichung des Ziels",
+                "explanation": "Ein methodischer Ablauf soll vorgeben, welche Schritte zur Erreichung des Ziels notwendig sind."
               }
             ]
           },
@@ -1623,7 +1804,8 @@
             "note": [
               {
                 "id": 112,
-                "note": "Was tue ich, wenn..."
+                "note": "Was tue ich, wenn...",
+                "explanation": "Der Nutzer soll seinen Kollegen erklären können, welche Handlung bei einem Problem wann erforderlich ist."
               }
             ]
           }
@@ -1638,15 +1820,18 @@
     "freeAssociation": [
       {
         "id": 1,
-        "note": "Zuverlässige Daten"
+        "note": "Zuverlässige Daten",
+        "explanation": "Verlässliche Daten wurden als Grundlage für die Auswertung und Steuerung der Produktion genannt."
       },
       {
         "id": 2,
-        "note": "Automat. Buchung Gewicht (Stangen)"
+        "note": "Automat. Buchung Gewicht (Stangen)",
+        "explanation": "Die Buchung von Gewicht und Stangen soll direkt in die Maschine integriert sein."
       },
       {
         "id": 3,
-        "note": "Zeitnahe u. zuverlässige Entnahmen"
+        "note": "Zeitnahe u. zuverlässige Entnahmen",
+        "explanation": "Entnahmen sollen zeitnah und zuverlässig erfasst werden, auch im Zusammenhang mit der Inventur."
       },
       {
         "id": 4,
@@ -1654,67 +1839,83 @@
       },
       {
         "id": 5,
-        "note": "Energieverbrauch kennen u. optimieren"
+        "note": "Energieverbrauch kennen u. optimieren",
+        "explanation": "Vorhandene Zähler- und IBA-Daten sollen zeigen, welche Maßnahmen den Energieverbrauch einer Charge beeinflussen."
       },
       {
         "id": 6,
-        "note": "Ideale Zeitpunkte für Aktionen durch Daten „vorgeben“ vorschlagen"
+        "note": "Ideale Zeitpunkte für Aktionen durch Daten „vorgeben“ vorschlagen",
+        "explanation": "Aus Prozess- und Maschinendaten sollen konkrete Handlungsempfehlungen für den richtigen Zeitpunkt einer Aktion entstehen."
       },
       {
         "id": 7,
-        "note": "Zusammenhang von Aktivität u. Wirkung sichtbar machen"
+        "note": "Zusammenhang von Aktivität u. Wirkung sichtbar machen",
+        "explanation": "Daten sollen zeigen, welche Auswirkungen eine Aktivität tatsächlich hat."
       },
       {
         "id": 8,
-        "note": "Produktionsplanung automat."
+        "note": "Produktionsplanung automat.",
+        "explanation": "Die Planung soll über ein gemeinsames Tool und integrierte Daten statt über getrennte manuelle Abläufe erfolgen."
       },
       {
         "id": 9,
-        "note": "Dokument., Problem & Lösung"
+        "note": "Dokument., Problem & Lösung",
+        "explanation": "Dokumentierte Maschinenprobleme und Lösungen sollen für die spätere Störungsbehebung wieder nutzbar sein."
       },
       {
         "id": 10,
-        "note": "Volle Transparenz: Kunde; Anfrage; Planung; Produktion; Qualität; Lieferung; Rechnung"
+        "note": "Volle Transparenz: Kunde; Anfrage; Planung; Produktion; Qualität; Lieferung; Rechnung",
+        "explanation": "Die gesamte Kette von der Kundenanfrage über Planung, Produktion, Qualität und Lieferung bis zur Rechnung soll durchgängig transparent sein."
       },
       {
         "id": 11,
-        "note": "Keine Excel Dokumente; PCP/PAP/FMEA"
+        "note": "Keine Excel Dokumente; PCP/PAP/FMEA",
+        "explanation": "Artikelinformationen sind derzeit auch in Excel verteilt; ihre Zusammenführung in einem zentralen System soll doppelte Pflege und widersprüchliche Angaben verringern."
       },
       {
         "id": 12,
-        "note": "Flexibilität: spontan neu planen; Fehler beheben"
+        "note": "Flexibilität: spontan neu planen; Fehler beheben",
+        "explanation": "Die Produktion soll auch in kürzeren Zyklen neu geplant werden können, um auf Änderungen oder Fehler zu reagieren."
       },
       {
         "id": 13,
-        "note": "Vorgabedaten für Produktion in Anlage übertragen; Auftrag/Artikel"
+        "note": "Vorgabedaten für Produktion in Anlage übertragen; Auftrag/Artikel",
+        "explanation": "Auftrags- und Artikeldaten sollen integriert an die Produktionsanlage übertragen werden."
       },
       {
         "id": 14,
-        "note": "Effizientes Auftragsmanagement"
+        "note": "Effizientes Auftragsmanagement",
+        "explanation": "Ein Planungstool soll Aufträge über die beteiligten Abteilungen hinweg von der Bestellung bis zur Auslieferung verfolgen."
       },
       {
         "id": 15,
-        "note": "Kokillentechnik: Doku + Wartung über App bzw. KI-unterstützt"
+        "note": "Kokillentechnik: Doku + Wartung über App bzw. KI-unterstützt",
+        "explanation": "Die Kokillen, also die Gießformen, sollen dokumentiert und ihre Wartung per App oder mit KI-Unterstützung begleitet werden."
       },
       {
         "id": 16,
-        "note": "Zentrale Datenverwaltung"
+        "note": "Zentrale Datenverwaltung",
+        "explanation": "Artikel-, Anlagen- und Prozessdaten sollen zusammengeführt werden, statt in getrennten Systemen zu verbleiben."
       },
       {
         "id": 17,
-        "note": "KPI Dashboards"
+        "note": "KPI Dashboards",
+        "explanation": "Kennzahlen und Anlagenleistung sollen in Dashboards aktuell und übersichtlich sichtbar sein."
       },
       {
         "id": 18,
-        "note": "Sehr gute Datenqualität und Rückverfolgbarkeit"
+        "note": "Sehr gute Datenqualität und Rückverfolgbarkeit",
+        "explanation": "Eine durchgängige Datenbasis soll die Rückverfolgbarkeit entlang der Prozesskette unterstützen."
       },
       {
         "id": 19,
-        "note": "Höhere Datenqualität"
+        "note": "Höhere Datenqualität",
+        "explanation": "Die Verknüpfung und einheitliche Pflege vorhandener Daten soll widersprüchliche Informationen vermeiden."
       },
       {
         "id": 20,
-        "note": "„Neues“ (Produkte) mit „Altem“"
+        "note": "„Neues“ (Produkte) mit „Altem“",
+        "explanation": "Mit bestehendem Equipment sollen neue Produkte und damit neue Märkte erschlossen werden."
       },
       {
         "id": 21,
@@ -1722,55 +1923,68 @@
       },
       {
         "id": 22,
-        "note": "Planungstool"
+        "note": "Planungstool",
+        "explanation": "Gemeint ist ein integriertes Planungstool. Derzeit wird viel mit Excel gearbeitet; für eine Ablösung braucht es zunächst die nötige Daten- und Integrationsgrundlage."
       },
       {
         "id": 23,
-        "note": "Zentrales Dashboard für die Anlagen"
+        "note": "Zentrales Dashboard für die Anlagen",
+        "explanation": "Ein zentrales Dashboard soll Informationen über die Anlagen zusammenführen."
       },
       {
         "id": 24,
-        "note": "Maschinenstillstand + Ausfallsmenge"
+        "note": "Maschinenstillstand + Ausfallsmenge",
+        "explanation": "Stillstände und Ausfallmengen sollen sichtbar werden, einschließlich Alarmierung und ihrer Folgen."
       },
       {
         "id": 25,
-        "note": "Stillstandsüberwachung aller Anlagen"
+        "note": "Stillstandsüberwachung aller Anlagen",
+        "explanation": "Die Stillstände aller Anlagen sollen überwacht werden."
       },
       {
         "id": 26,
-        "note": "Produktionswissensdatenbank; Agent ↔ Worker"
+        "note": "Produktionswissensdatenbank; Agent ↔ Worker",
+        "explanation": "Maschinenwissen liegt oft bei einzelnen Personen. Ein Agent soll Werkern bei Fragen helfen und neues Wissen zentral für andere verfügbar machen."
       },
       {
         "id": 27,
-        "note": "ERP Auto-Planung und Steuerung; FTS-Materialbereitstellung"
+        "note": "ERP Auto-Planung und Steuerung; FTS-Materialbereitstellung",
+        "explanation": "Planungs- und Materialinformationen sollen zwischen den Systemen direkt ausgetauscht werden."
       },
       {
         "id": 28,
-        "note": "Datentransparenz zu jedem Zeitpunkt; zukünftig: Carbon Footpr.; digitaler Produktpass"
+        "note": "Datentransparenz zu jedem Zeitpunkt; zukünftig: Carbon Footpr.; digitaler Produktpass",
+        "explanation": "Daten sollen über die Prozesskette hinweg jederzeit transparent und durchgängig verfügbar sein."
       },
       {
         "id": 29,
-        "note": "Agent-Buddy: für Werke; wenn das dann das zu tun; Wissen"
+        "note": "Agent-Buddy: für Werke; wenn das dann das zu tun; Wissen",
+        "explanation": "Ein Agent soll Beschäftigten bei Fragen zur Maschine helfen und gesammeltes Wissen für andere verfügbar machen."
       },
       {
         "id": 30,
-        "note": "Golden Run bekannt"
+        "note": "Golden Run bekannt",
+        "explanation": "Die Parameter eines guten „Golden Run“ sollen bekannt und dokumentiert sein."
       },
       {
         "id": 31,
-        "note": "Arbeiter haben Zugriff auf Information ohne Papier"
+        "note": "Arbeiter haben Zugriff auf Information ohne Papier",
+        "explanation": "Informationen am Shopfloor sollen ohne die heute noch verwendeten Papierunterlagen zugänglich sein."
       },
       {
         "id": 32,
-        "note": "Alle Werke lernen voneinander"
+        "note": "Alle Werke lernen voneinander",
+        "explanation": "Wissen und Erfahrungen sollen zwischen den Werken ausgetauscht werden."
       },
       {
         "id": 33,
-        "note": "Autonome (drones) Transport"
+        "note": "Autonome (drones) Transport",
+        "explanation": "Angesprochen wurde ein autonomer Transport in der Intralogistik."
       },
       {
         "id": 34,
-        "note": "Leistung (live) sichtbar gemacht"
+        "note": "Leistung (live) sichtbar gemacht",
+        "explanation": "Ein Echtzeit-Dashboard soll die aktuelle Leistung und Veränderungen unmittelbar sichtbar machen."
       }
     ]
   }
