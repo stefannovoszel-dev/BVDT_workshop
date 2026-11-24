@@ -112,7 +112,8 @@
       "company": {
         "Name": "Neuman",
         "Industry": "Manufacturing"
-      }
+      },
+      "email": "Mario.Kuss@neuman.at"
     },
     {
       "name": "Stefan Novoszel",
